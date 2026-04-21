@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Split Screen Launcher Review — The Android 16-Compatible App Pair Tool</title>
 <meta name="description" content="Developer notes on Split Screen Launcher: how we built one of the few split-screen utilities still working on Android 15 and 16. Design decisions behind the no-ads, 2.8 MB, no-Accessibility-permission approach on Android 12L+.">
+<link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
+<link rel="alternate" hreflang="ja" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ja/">
+<link rel="alternate" hreflang="ko" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ko/">
+<link rel="alternate" hreflang="zh-CN" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-CN/">
+<link rel="alternate" hreflang="zh-TW" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-TW/">
+<link rel="alternate" hreflang="es" href="https://sakuradevjp.github.io/split-screen-launcher-notes/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://sakuradevjp.github.io/split-screen-launcher-notes/pt-BR/">
+<link rel="alternate" hreflang="fr" href="https://sakuradevjp.github.io/split-screen-launcher-notes/fr/">
+<link rel="alternate" hreflang="de" href="https://sakuradevjp.github.io/split-screen-launcher-notes/de/">
+<link rel="alternate" hreflang="it" href="https://sakuradevjp.github.io/split-screen-launcher-notes/it/">
+<link rel="alternate" hreflang="ru" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ru/">
+<link rel="alternate" hreflang="ar" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ar/">
+<link rel="alternate" hreflang="hi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/hi/">
+<link rel="alternate" hreflang="th" href="https://sakuradevjp.github.io/split-screen-launcher-notes/th/">
+<link rel="alternate" hreflang="vi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/vi/">
+<link rel="alternate" hreflang="x-default" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
 <style>
   :root {
     --primary: #3A7AFE;
@@ -354,6 +370,26 @@
 </style>
 </head>
 <body>
+
+<nav style="padding: 10px 0; background: #f8fafc; border-bottom: 1px solid #e2e8f0; font-size: 13px; text-align: center;">
+  <div class="container" style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+    <a href="/split-screen-launcher-notes/" style="color: #3A7AFE; font-weight: 700;">English</a>
+    <a href="/split-screen-launcher-notes/ja/" style="color: #555;">日本語</a>
+    <a href="/split-screen-launcher-notes/ko/" style="color: #555;">한국어</a>
+    <a href="/split-screen-launcher-notes/zh-CN/" style="color: #555;">简体中文</a>
+    <a href="/split-screen-launcher-notes/zh-TW/" style="color: #555;">繁體中文</a>
+    <a href="/split-screen-launcher-notes/es/" style="color: #555;">Español</a>
+    <a href="/split-screen-launcher-notes/pt-BR/" style="color: #555;">Português (BR)</a>
+    <a href="/split-screen-launcher-notes/fr/" style="color: #555;">Français</a>
+    <a href="/split-screen-launcher-notes/de/" style="color: #555;">Deutsch</a>
+    <a href="/split-screen-launcher-notes/it/" style="color: #555;">Italiano</a>
+    <a href="/split-screen-launcher-notes/ru/" style="color: #555;">Русский</a>
+    <a href="/split-screen-launcher-notes/ar/" style="color: #555;">العربية</a>
+    <a href="/split-screen-launcher-notes/hi/" style="color: #555;">हिन्दी</a>
+    <a href="/split-screen-launcher-notes/th/" style="color: #555;">ไทย</a>
+    <a href="/split-screen-launcher-notes/vi/" style="color: #555;">Tiếng Việt</a>
+  </div>
+</nav>
 
 <!-- Hero -->
 <header class="hero">
