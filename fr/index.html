@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test de Split Screen Launcher — L'outil de paires d'applis compatible Android 16</title>
+<meta name="description" content="Notes du développeur sur Split Screen Launcher : comment nous avons construit l'un des rares utilitaires d'écran partagé qui fonctionne encore sur Android 15 et 16. Les choix de conception derrière l'approche sans pub, 2,8 Mo et sans autorisation d'accessibilité sur Android 12L+.">
+<link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
+<link rel="alternate" hreflang="ja" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ja/">
+<link rel="alternate" hreflang="ko" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ko/">
+<link rel="alternate" hreflang="zh-CN" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-CN/">
+<link rel="alternate" hreflang="zh-TW" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-TW/">
+<link rel="alternate" hreflang="es" href="https://sakuradevjp.github.io/split-screen-launcher-notes/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://sakuradevjp.github.io/split-screen-launcher-notes/pt-BR/">
+<link rel="alternate" hreflang="fr" href="https://sakuradevjp.github.io/split-screen-launcher-notes/fr/">
+<link rel="alternate" hreflang="de" href="https://sakuradevjp.github.io/split-screen-launcher-notes/de/">
+<link rel="alternate" hreflang="it" href="https://sakuradevjp.github.io/split-screen-launcher-notes/it/">
+<link rel="alternate" hreflang="ru" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ru/">
+<link rel="alternate" hreflang="ar" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ar/">
+<link rel="alternate" hreflang="hi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/hi/">
+<link rel="alternate" hreflang="th" href="https://sakuradevjp.github.io/split-screen-launcher-notes/th/">
+<link rel="alternate" hreflang="vi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/vi/">
+<link rel="alternate" hreflang="x-default" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
+<style>
+  :root{--primary:#3A7AFE;--primary-dark:#2B5FD9;--accent:#4CAF50;--text:#222;--text-muted:#555;--bg:#fff;--bg-soft:#FAFAFA;--border:#e2e8f0;--danger:#E53935;--code-bg:#F5F5F5}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--text);line-height:1.7;background:var(--bg);font-size:16px}
+  .container{max-width:880px;margin:0 auto;padding:0 24px}section{padding:72px 0}
+  h1,h2,h3{line-height:1.3;letter-spacing:-0.01em}
+  h2{font-size:30px;margin-bottom:20px;color:#3A7AFE;padding-bottom:12px;border-bottom:2px solid #E5E7EB;position:relative}
+  h2::before{content:"";position:absolute;left:0;bottom:-2px;width:80px;height:2px;background:#3A7AFE}
+  h3{font-size:20px;margin-bottom:10px;margin-top:28px;color:#222;font-weight:700;padding-left:12px;border-left:4px solid #3A7AFE;line-height:1.3}
+  p{margin-bottom:14px}code{background:var(--code-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:"SF Mono",Consolas,monospace}a{color:var(--primary)}
+  .hero{background:linear-gradient(135deg,#eff6ff 0%,#ecfdf5 100%);padding:88px 0 64px}
+  .hero .container{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+  .hero .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--text-muted);margin-bottom:18px}
+  .hero .meta .tag{background:rgba(37,99,235,.1);color:var(--primary);padding:4px 10px;border-radius:4px;font-weight:600}
+  .hero h1{font-size:40px;margin-bottom:18px;letter-spacing:-0.02em}
+  .hero .sub{font-size:17px;color:var(--text-muted);margin-bottom:28px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:13px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:background .2s}
+  .cta-btn:hover{background:var(--primary-dark)}.cta-btn.secondary{background:#fff;color:var(--text);border:1px solid var(--border)}.cta-btn.secondary:hover{background:#f1f5f9}
+  .hero-img{display:block;width:100%;max-width:320px;margin:0 auto;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.12)}
+  .byline{padding:16px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .toc{background:var(--bg-soft);border-left:3px solid var(--primary);padding:20px 24px;margin:40px auto;border-radius:4px;max-width:640px}
+  .toc strong{display:block;margin-bottom:8px;font-size:14px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted)}
+  .toc ol{padding-left:20px}.toc li{margin:4px 0}.toc a{color:var(--text);text-decoration:none}.toc a:hover{color:var(--primary);text-decoration:underline}
+  .content p{margin-bottom:18px;font-size:16px}.content h2{margin-top:8px}
+  .content img{display:block;max-width:100%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.1);margin:24px auto}
+  .img-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.img-row figure{margin:0}.img-row img{margin:0;width:100%;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+  .img-row figcaption,figcaption{text-align:center;font-size:13px;color:var(--text-muted);margin-top:10px;font-style:italic;line-height:1.5;padding:0 12px}
+  .callout{background:#fefce8;border-left:4px solid #eab308;padding:16px 20px;margin:24px 0;border-radius:4px;font-size:15px}.callout strong{color:#854d0e}
+  .tech-note{background:#F5F5F5;border-left:4px solid #D0D0D0;padding:22px 28px 22px 52px;margin:32px 0;border-radius:2px;font-size:17px;line-height:1.65;color:#222;font-style:italic;position:relative}
+  .tech-note::before{content:"“";position:absolute;top:4px;left:14px;font-size:56px;color:#B0B0B0;font-family:Georgia,"Times New Roman",serif;line-height:1;font-style:normal}
+  .tech-note em{font-style:italic;font-weight:700;color:#3A7AFE}
+  .table-wrap{margin:24px 0;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:8px;background:#fff}
+  .compare-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;min-width:640px}
+  .compare-table th,.compare-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  .compare-table tbody tr:nth-child(even) td{background:#FAFAFA}.compare-table tbody tr:nth-child(even) td.highlight{background:#D5E1F5}
+  .compare-table thead th{background:var(--bg-soft);font-size:13px;color:var(--text-muted);font-weight:600}
+  .compare-table .highlight{background:#EAF1FF;font-weight:600;color:#2B5FD9}
+  .check{color:var(--accent);font-weight:bold}.cross{color:var(--danger)}.caption{font-size:12px;color:var(--text-muted);text-align:center;margin:8px 0 20px}
+  .fit-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .verdict{background:linear-gradient(180deg,#F0F5FF 0%,#FAFAFA 100%);padding:28px 32px;border-radius:12px;margin:32px 0;border:1px solid #D5E1F5}
+  .verdict h3{margin-top:0;color:#3A7AFE;border-bottom:none;padding-bottom:0;border-left:none;padding-left:0}
+  .verdict .grade{display:inline-block;background:#4CAF50;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700;font-size:14px;margin-left:8px;box-shadow:0 2px 6px rgba(76,175,80,.3)}
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+  .pros-cons > div{background:#fff;padding:18px 20px;border-radius:8px;border:1px solid var(--border)}
+  .pros-cons .pros{border-top:3px solid var(--accent)}.pros-cons .cons{border-top:3px solid var(--danger)}
+  .pros-cons h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+  .pros-cons .pros h4{color:var(--accent)}.pros-cons .cons h4{color:var(--danger)}
+  .pros-cons .pros h4::before{content:"✓";font-weight:bold}.pros-cons .cons h4::before{content:"✗";font-weight:bold}
+  .pros-cons ul{padding-left:20px;list-style:none}.pros-cons li{margin:6px 0;font-size:14px;position:relative;padding-left:4px}
+  .pros-cons .pros li::before{content:"●";color:var(--accent);position:absolute;left:-16px;font-size:10px;top:6px}
+  .pros-cons .cons li::before{content:"●";color:var(--danger);position:absolute;left:-16px;font-size:10px;top:6px}
+  footer{padding:32px 0;text-align:center;color:var(--text-muted);font-size:13px;border-top:1px solid var(--border);margin-top:40px}footer a{color:var(--primary);text-decoration:none}
+  @media (max-width:720px){section{padding:48px 0}.hero{padding:56px 0 40px}.hero .container{grid-template-columns:1fr}.hero-img{max-width:240px}.hero h1{font-size:30px}h2{font-size:24px}.img-row{grid-template-columns:1fr}.pros-cons{grid-template-columns:1fr}.fit-check-grid{grid-template-columns:1fr}
+    .table-wrap{overflow-x:visible;border:none;background:transparent}.compare-table{min-width:0;background:transparent;font-size:14px}
+    .compare-table thead{display:none}.compare-table tbody{display:block}
+    .compare-table tbody tr{display:block;background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:14px;padding:6px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .compare-table tbody tr:nth-child(even) td{background:transparent}.compare-table tbody tr:nth-child(even) td.highlight{background:#EAF1FF}
+    .compare-table tbody td{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 16px !important;border-bottom:1px solid #F1F1F1;text-align:right}
+    .compare-table tbody td:last-child{border-bottom:none}
+    .compare-table tbody td::before{content:attr(data-label);font-weight:600;color:var(--text-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;text-align:left;flex-shrink:0}
+    .compare-table tbody td:first-child{background:#F8FAFC;font-weight:700;font-size:15px;color:var(--text);border-bottom:1px solid var(--border);border-radius:6px 6px 0 0;justify-content:flex-start;text-align:left}
+    .compare-table tbody td:first-child::before{display:none}.compare-table tbody td.highlight{background:#F0F5FF;font-weight:600}
+  }
+</style>
+</head>
+<body>
+
+<nav style="padding:10px 0;background:#f8fafc;border-bottom:1px solid #e2e8f0;font-size:13px;text-align:center;">
+  <div class="container" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+    <a href="/split-screen-launcher-notes/" style="color:#555;">English</a>
+    <a href="/split-screen-launcher-notes/ja/" style="color:#555;">日本語</a>
+    <a href="/split-screen-launcher-notes/ko/" style="color:#555;">한국어</a>
+    <a href="/split-screen-launcher-notes/zh-CN/" style="color:#555;">简体中文</a>
+    <a href="/split-screen-launcher-notes/zh-TW/" style="color:#555;">繁體中文</a>
+    <a href="/split-screen-launcher-notes/es/" style="color:#555;">Español</a>
+    <a href="/split-screen-launcher-notes/pt-BR/" style="color:#555;">Português (BR)</a>
+    <a href="/split-screen-launcher-notes/fr/" style="color:#3A7AFE;font-weight:700;">Français</a>
+    <a href="/split-screen-launcher-notes/de/" style="color:#555;">Deutsch</a>
+    <a href="/split-screen-launcher-notes/it/" style="color:#555;">Italiano</a>
+    <a href="/split-screen-launcher-notes/ru/" style="color:#555;">Русский</a>
+    <a href="/split-screen-launcher-notes/ar/" style="color:#555;">العربية</a>
+    <a href="/split-screen-launcher-notes/hi/" style="color:#555;">हिन्दी</a>
+    <a href="/split-screen-launcher-notes/th/" style="color:#555;">ไทย</a>
+    <a href="/split-screen-launcher-notes/vi/" style="color:#555;">Tiếng Việt</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div>
+      <div class="meta">
+        <span class="tag">Notes du développeur</span>
+        <span>Par l'<strong style="color:var(--text);">équipe Split Screen Launcher</strong></span>
+        <span>•</span><span>Mars 2026</span><span>•</span><span>~8 min de lecture</span>
+      </div>
+      <h1>Split Screen Launcher : l'une des rares applis d'écran partagé qui fonctionnent encore sur Android 15 et 16</h1>
+      <p class="sub">Les Pixel et les téléphones sous Android pur n'ont pas la fonction « App Pair » de Samsung. Dans ce billet, nous expliquons comment Split Screen Launcher comble ce vide, pourquoi la plupart des alternatives ont cessé de fonctionner avec les dernières versions d'Android et quels choix de conception nous avons faits en chemin.</p>
+      <div class="hero-cta">
+        <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Obtenir sur Google Play</a>
+        <a href="#verdict" class="cta-btn secondary">Aller au résumé</a>
+      </div>
+    </div>
+    <figure style="margin:0;">
+      <img class="hero-img" src="https://i.imgur.com/LiOGzcE.png" alt="Écran principal de Split Screen Launcher avec les paires d'applis sauvegardées">
+      <figcaption style="color:#64748b;text-align:center;margin-top:10px;font-size:12px;font-style:italic;">Split Screen Launcher sur un Pixel 9 Pro (Android 16). Les paires sauvegardées sont gérées dans l'appli : toucher n'importe quelle ligne lance les deux applis en écran partagé d'un seul coup.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="byline container">
+  <span>Catégorie : outils de productivité</span>
+  <span>Testé sur : Pixel 9 Pro (Android 16), Pixel 7a (Android 15)</span>
+</div>
+
+<article class="content container">
+
+  <div class="tech-note" style="margin-top:40px;margin-bottom:32px;font-style:normal;">
+    <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">En bref</strong>
+    <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
+      <li>L'un des rares utilitaires d'écran partagé pour Android qui fonctionnent encore de façon fiable sur Android 15 et 16.</li>
+      <li>La plupart des concurrents ont cassé quand Google a modifié les API sous-jacentes ; nous, nous avons continué à publier des mises à jour à chaque transition récente du système.</li>
+      <li>Aucune publicité, aucune autorisation <code>INTERNET</code>, aucun service d'accessibilité requis sur Android 12L+. Taille totale : ~2,8 Mo.</li>
+      <li>Le niveau gratuit couvre l'usage de base. L'abonnement Pro tourne autour de 1 $/mois, soit à peu près un dixième du concurrent payant le plus proche.</li>
+      <li>Si vous êtes passé à Pixel et que l'App Pair du Galaxy vous manque, c'est le remplaçant le plus proche que nous ayons vu.</li>
+    </ul>
+  </div>
+
+  <div class="toc">
+    <strong>Sommaire</strong>
+    <ol>
+      <li><a href="#background">Contexte : pourquoi l'« App Pair » compte sur Android</a></li>
+      <li><a href="#what-is">Ce que fait vraiment Split Screen Launcher</a></li>
+      <li><a href="#android15">Le problème Android 15/16 — et pourquoi la plupart des concurrents sont tombés</a></li>
+      <li><a href="#privacy">Autorisations et confidentialité</a></li>
+      <li><a href="#compare">Comparaison avec les autres applis d'écran partagé</a></li>
+      <li><a href="#pricing">Tarif</a></li>
+      <li><a href="#who-for">À qui s'adresse cette appli (et qui devrait passer son chemin)</a></li>
+      <li><a href="#verdict">Résumé</a></li>
+      <li><a href="#changelog">Journal des modifications</a></li>
+    </ol>
+  </div>
+
+  <section id="background">
+    <h2>1. Contexte : pourquoi l'« App Pair » compte sur Android</h2>
+    <p>Android prend en charge le multitâche en écran partagé depuis la version 7.0 (Nougat, 2016). Ce qu'il n'a jamais proposé au niveau du système, c'est <strong>de sauvegarder des combinaisons de deux applis et de les lancer ensemble</strong>. Samsung l'a ajouté à One UI sous le nom d'« App Pair » dès 2017, et les utilisateurs qui passent du Galaxy au Pixel remarquent presque aussitôt la disparition.</p>
+    <p>La solution consiste à installer un lanceur tiers qui automatise les deux étapes : ouvrir l'appli A, puis l'appli B dans la fenêtre adjacente. Google Play en recense des dizaines, mais l'écosystème est plus désordonné qu'il n'y paraît : chaque version d'Android change la façon d'invoquer l'écran partagé, et la plupart de ces applis ne sont pas mises à jour.</p>
+  </section>
+
+  <section id="what-is">
+    <h2>2. Ce que fait vraiment Split Screen Launcher</h2>
+    <p>Split Screen Launcher est un utilitaire à fonction unique. Vous choisissez deux applis, vous nommez la paire (« Trajet », « Travail », « YouTube + X »), et la paire apparaît sous forme de ligne dans l'appli. Tapez dessus, les deux applis s'ouvrent côte à côte.</p>
+    <div class="img-row">
+      <figure>
+        <img src="https://i.imgur.com/E6Aj3Zp.png" alt="Création d'une nouvelle paire d'applis">
+        <figcaption>Création de paire : choisissez deux applis installées au hasard et sauvegardez-les comme paire nommée. Cette configuration unique transforme les lancements suivants en un seul tap.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://i.imgur.com/LiOGzcE.png" alt="Liste des paires sauvegardées">
+        <figcaption>Toutes les paires vivent à l'intérieur de l'appli : aucun raccourci n'est créé sur l'écran d'accueil. C'est un choix délibéré pour que le lanceur ne dépende pas des particularités de Pixel/Nova ni des changements du système.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://i.imgur.com/0P3S51c.png" alt="Deux applis lancées en écran partagé">
+        <figcaption>Résultat : deux applis côte à côte en écran partagé, lancées d'un seul tap sur la paire. Exemple : Gmail + YouTube.</figcaption>
+      </figure>
+    </div>
+    <p>C'est à peu près tout l'ensemble de fonctionnalités. Pas de navigateur intégré, pas de widget flottant, pas d'intégration avec le volet de notifications. L'APK fait environ <strong>2,8 Mo</strong> — moins que la plupart des icônes d'applis — et rien ne tourne en arrière-plan.</p>
+    <p>Exemples de paires utilisées pendant nos tests :</p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Google Maps + Spotify</strong> — en voiture</li>
+      <li><strong>YouTube + X (Twitter)</strong> — second écran</li>
+      <li><strong>Chrome + Google Keep</strong> — recherche avec prise de notes</li>
+      <li><strong>Gmail + Slack</strong> — tri du boulot</li>
+      <li><strong>Calculatrice + Chrome</strong> — comparaison de prix entre onglets</li>
+    </ul>
+    <p>Un détail qu'il serait facile de manquer et qui mérite d'être souligné : les données des paires s'exportent dans un fichier de sauvegarde. Ça paraît anodin, mais plusieurs concurrents de la catégorie rangent leurs paires dans un stockage privé sans chemin d'export — changer de téléphone, c'est refaire chaque paire à la main. Nous avons fait de la sauvegarde/restauration une fonctionnalité de premier ordre précisément pour qu'une migration Pixel vers Pixel restaure la totalité en quelques secondes.</p>
+    <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : <strong>l'appli ne crée pas de raccourcis sur l'écran d'accueil</strong>. Chaque paire vit dans l'appli elle-même. C'est un arbitrage. Le coût : lancer une paire implique d'ouvrir l'appli d'abord — un tap de plus que pour les concurrents à base de raccourcis. L'avantage est double : l'écran d'accueil ne se remplit pas d'icônes de paires, et l'appli ne dépend pas de ce que le lanceur actuel (Pixel Launcher, Nova, etc.) décide de faire du comportement des raccourcis. Ce second point compte plus qu'il n'en a l'air — comme indiqué en section 3, les lanceurs qui reposent sur des intents de raccourci sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16. Rester à l'intérieur de l'appli isole l'outil de toute cette famille de pannes.</p>
+  </section>
+
+  <section id="who-for">
+    <h2>À qui s'adresse cette appli (et qui devrait passer son chemin)</h2>
+    <p style="color:var(--text-muted);margin-bottom:18px;">Avant d'entrer dans le détail technique, voici une rapide grille de lecture pour décider si la suite vaut votre temps.</p>
+    <div class="fit-check-grid">
+      <div style="background:#F0F7F0;border:1px solid #C8E6C9;border-radius:8px;padding:18px 22px;">
+        <h3 style="border-left:4px solid #4CAF50;color:#2E7D32;font-size:17px;margin-top:0;margin-bottom:12px;">Pour vous si…</h3>
+        <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
+          <li>Vous utilisez souvent les mêmes deux applis ensemble (cartes + musique, mail + chat)</li>
+          <li>Vous êtes sur Pixel ou Android pur et l'App Pair de Samsung vous manque</li>
+          <li>Vous préférez les applis sans pubs ni SDK de suivi</li>
+          <li>Vous êtes sur Android 12L ou plus récent (pas d'autorisation d'accessibilité)</li>
+          <li>Vous voulez quelque chose qui continue de marcher à chaque nouvelle version du système</li>
+        </ul>
+      </div>
+      <div style="background:#FFF5F5;border:1px solid #FFCDD2;border-radius:8px;padding:18px 22px;">
+        <h3 style="border-left:4px solid #E53935;color:#C62828;font-size:17px;margin-top:0;margin-bottom:12px;">Passez votre chemin si…</h3>
+        <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
+          <li>Vous n'utilisez presque jamais l'écran partagé</li>
+          <li>Vous voulez un widget flottant, un lancement par geste ou une intégration Tasker</li>
+          <li>Vous devez appairer des applis déclarées non redimensionnables (appareil photo natif, Google Files)</li>
+          <li>Vous êtes sur Samsung — l'App Pair intégré à One UI est déjà excellent</li>
+          <li>Vous préférez les raccourcis d'écran d'accueil à une gestion dans l'appli</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:20px;color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Toujours intéressé ?</strong> La suite de l'article couvre le contexte technique : pourquoi Android 15 et 16 ont mis la plupart des alternatives à mal, et les choix de conception derrière notre approche.</p>
+  </section>
+
+  <section id="android15">
+    <h2>3. Le problème Android 15/16 — et pourquoi la plupart des concurrents sont tombés</h2>
+    <p>C'est la partie intéressante, et la raison pour laquelle la plupart des applis concurrentes ont cessé de fonctionner.</p>
+    <p>Historiquement, les lanceurs d'écran partagé s'appuient sur une poignée d'API système que Google a progressivement restreintes ou supprimées. Chaque nouvelle version d'Android a grignoté les méthodes permettant aux applis tierces de lancer deux applis côte à côte. Android 15 et 16 en particulier ont fermé les chemins les plus courants. Les contournements au niveau du shell échouent de manière similaire.</p>
+    <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">En clair :</strong> les « astuces » que les applis tierces utilisaient pour basculer le téléphone en mode partagé ne marchent plus sur Android 15 et 16. La plupart des applis de cette catégorie n'ont jamais publié de correctif.</p>
+    <div class="tech-note">
+      Résultat : <em>une majorité des utilitaires d'écran partagé sur Google Play — y compris le plus téléchargé de la catégorie — ne fonctionnent plus correctement sur les Pixel récents</em>. Les avis utilisateurs de ces applis regorgent de plaintes datées de fin 2025 et au-delà.
+    </div>
+    <p>Split Screen Launcher atteint l'écran partagé de manière fiable sur Android 15 et 16 par un autre chemin. Nous gardons le mécanisme exact pour nous — il a fallu pas mal d'expérimentation pour trouver une combinaison qui fonctionne à travers plusieurs versions du système, et publier la recette reviendrait à la tendre à chacun de nos concurrents cassés. Ce que nous pouvons dire, c'est que notre historique de versions reflète une maintenance active à travers les transitions Android 12, 12L, 14, 15 et 16, et nous comptons bien poursuivre à ce rythme.</p>
+    <div class="callout">
+      <strong>Ce qui ne marche toujours pas :</strong> certaines applis déclarent <code>android:resizeableActivity="false"</code> dans leur manifeste — l'appareil photo natif et Google Files en sont les principaux exemples — et le système empêche purement et simplement leur entrée en écran partagé, quelle que soit la façon dont on les lance. Même l'App Pair intégré à Samsung n'arrive pas à les coller côte à côte. Ce n'est pas une limitation de l'appli, et aucun utilitaire tiers ne peut y remédier.
+      <br><br>
+      <strong>En clair :</strong> ces applis ont dit à Android « je refuse de tourner en mode partagé », et aucun outil tiers — pas même celui de Samsung — ne peut passer outre.
+    </div>
+  </section>
+
+  <section id="privacy">
+    <h2>4. Autorisations et confidentialité</h2>
+    <p>Sur <strong>Android 12L et plus récent</strong>, l'appli n'a besoin d'aucune autorisation d'exécution ni de service d'accessibilité. Tout passe par des flags Activity standards.</p>
+    <p>Sur <strong>Android 9 à 12</strong>, l'appli a besoin de l'autorisation du service d'accessibilité, car c'est la seule API disponible. La fiche Play Store indique explicitement que ce service ne sert qu'à déclencher le mode écran partagé. La liste d'autorisations affichée par Google Play est assez courte pour tenir sur un seul écran — pas de localisation, pas de contacts, pas de stockage et (surtout) pas de réseau. C'est déjà inhabituel dans ce coin du Play Store.</p>
+    <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">En clair :</strong> sur les anciennes versions d'Android, il n'existait pas d'API officielle pour déclencher l'écran partagé, donc le service d'accessibilité était la seule voie praticable. C'est une contrainte héritée, pas un moyen pour l'appli de lire votre écran.</p>
+    <p>Pour comparer, la plupart des applis gratuites d'écran partagé sur le Play Store embarquent des SDK publicitaires (AdMob, Unity, IronSource), ce qui implique l'autorisation <code>INTERNET</code> et la batterie de traceurs qui va avec. Nous avons choisi un modèle d'abonnement minimal — en partie pour garder une empreinte de permissions propre, en partie parce que coller des SDK pub dans un utilitaire de 2,8 Mo en triplerait plus que la taille.</p>
+  </section>
+
+  <section id="compare">
+    <h2>5. Comparaison avec les autres applis d'écran partagé</h2>
+    <p>Avant le tableau lui-même, il est utile de planter le décor. La fonctionnalité de type « App Pair » est abordée selon quelques approches :</p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Implémentations propres aux constructeurs</strong> — App Pair de Samsung (depuis One UI, 2017), variantes chez Xiaomi, OPPO et l'ancien LG. Ne fonctionnent que sur les appareils du fabricant concerné.</li>
+      <li><strong>Utilitaires tiers</strong> — applications autonomes consacrées à ce seul cas d'usage. La plupart reposent sur des API système qui ont été resserrées ou retirées dans les versions récentes d'Android, ce qui explique l'amenuisement notable de l'offre.</li>
+      <li><strong>Approches par automatisation</strong> — Tasker et outils similaires peuvent scripter un lancement partagé, mais ils s'appuient sur les mêmes primitives que les applis dédiées et héritent donc des mêmes pannes. Ils imposent aussi à l'utilisateur de construire chaque paire à la main.</li>
+    </ul>
+    <p>Sur cette toile de fond, voici les trois alternatives dédiées les plus citées sur Google Play début 2026 :</p>
+    <div class="table-wrap"><table class="compare-table">
+      <thead><tr>
+        <th>Caractéristique</th>
+        <th class="highlight">Split Screen Launcher<br><span style="font-weight:400;color:var(--text-muted);">(sakura.dev.jp)</span></th>
+        <th>Split Screen Launcher<br><span style="font-weight:400;color:var(--text-muted);">(CCS Software Inc.)</span></th>
+        <th>Split Screen Shortcut<br><span style="font-weight:400;color:var(--text-muted);">(Toolhouse)</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td data-label="Caractéristique">Fonctionne sur Android 15/16</td><td class="highlight" data-label="Cette appli"><span class="check">✓</span> Oui</td><td data-label="CCS Software">Partiel / retours d'échec</td><td data-label="Toolhouse"><span class="cross">✗</span> Signalée comme cassée</td></tr>
+        <tr><td data-label="Caractéristique">Publicités (niveau gratuit)</td><td class="highlight" data-label="Cette appli"><span class="check">✓</span> Aucune</td><td data-label="CCS Software"><span class="cross">✗</span> Bannière + interstitiel</td><td data-label="Toolhouse"><span class="cross">✗</span> Interstitiel</td></tr>
+        <tr><td data-label="Caractéristique">Taille APK</td><td class="highlight" data-label="Cette appli">~2,8 Mo</td><td data-label="CCS Software">~15 Mo</td><td data-label="Toolhouse">~8 Mo</td></tr>
+        <tr><td data-label="Caractéristique">Autorisation d'accessibilité</td><td class="highlight" data-label="Cette appli">Seulement sur Android 9–12</td><td data-label="CCS Software">Toujours</td><td data-label="Toolhouse">Toujours</td></tr>
+        <tr><td data-label="Caractéristique">Autorisation réseau dans le manifeste</td><td class="highlight" data-label="Cette appli"><span class="check">✓</span> Non déclarée</td><td data-label="CCS Software">Déclarée (pubs)</td><td data-label="Toolhouse">Déclarée (pubs)</td></tr>
+        <tr><td data-label="Caractéristique">Prix Pro / premium</td><td class="highlight" data-label="Cette appli">~1 $ / mois</td><td data-label="CCS Software">Rapporté ~₱775 (~13 $) sur place</td><td data-label="Toolhouse">Paiement unique ~3 $</td></tr>
+        <tr><td data-label="Caractéristique">Dernière mise à jour</td><td class="highlight" data-label="Cette appli">Mars 2026</td><td data-label="CCS Software">Juin 2025</td><td data-label="Toolhouse">2023</td></tr>
+      </tbody>
+    </table></div>
+    <p class="caption">Chiffres concurrents basés sur les fiches Google Play en mars 2026. Les prix varient selon la région. Sur écran étroit, faites défiler horizontalement.</p>
+    <p>L'appli de CCS Software est l'ogre de ce créneau — plus de 1,9 million de téléchargements, très loin devant tout le reste — mais sa dernière mise à jour est antérieure à Android 15, et les avis récents sur Google Play se plaignent qu'elle ne lance plus correctement l'écran partagé sur Pixel 8, 9 et 10 sous Android 15 ou 16. Une autre appli, « Split Screen Easy Multitasking », facture <strong>18,99 $ par semaine</strong> ses fonctionnalités premium, ce qui a été largement critiqué dans des discussions Reddit.</p>
+    <p>Autrement dit, le terrain est inhabituellement dégagé. Une appli petite, activement maintenue et sans pub comme celle-ci a toutes ses chances de se détacher — à condition que les utilisateurs la trouvent.</p>
+  </section>
+
+  <section id="pricing">
+    <h2>6. Tarif</h2>
+    <p>Le niveau gratuit limite le nombre de paires enregistrées afin que l'utilisateur puisse essayer tout le flux avant de décider si l'appli correspond à ses habitudes. Les fonctions principales — créer des paires, les lancer, sauvegarder/restaurer — sont toutes disponibles sans payer.</p>
+    <p>L'abonnement Pro tourne autour de <strong>1 $ / mois</strong> selon la région, supprime la limite de paires et ajoute l'organisation en dossiers ainsi que la personnalisation des couleurs d'icônes. Abonnement Google Play standard, résiliable à tout moment.</p>
+    <p>Pour situer : la version premium de l'appli CCS Software a été signalée à environ 13 $ aux Philippines, et « Split Screen Easy Multitasking » facture 18,99 $ par semaine. À 1 $/mois, nous sommes environ un ordre de grandeur moins cher que le concurrent payant le plus proche.</p>
+  </section>
+
+  <section id="verdict">
+    <h2>7. Résumé — à qui elle s'adresse</h2>
+    <div class="verdict">
+      <h3>À qui est-elle destinée ? <span class="grade">Avis franc</span></h3>
+      <p style="margin-top:12px;">Nous ne pensons pas que cette appli soit pour tout le monde. Si vous n'avez pas déjà un réflexe bien établi de combinaison de deux applis (cartes + musique, mail + chat, etc.), vous ne l'ouvrirez sans doute pas souvent. Mais si vous êtes sous Android pur et que l'App Pair du Galaxy vous manque depuis votre passage sur Pixel, nous l'avons conçue pour vous — et nous avons cherché à en faire la manière la moins compromettante de retrouver ce comportement. La posture sans pub et le prix à 1 $/mois sont des choix délibérés, et nous pensons que ce sont les bons pour cette catégorie.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Points forts</h4>
+          <ul>
+            <li>Fonctionne vraiment sur Android 15 et 16</li>
+            <li>Aucune pub, quel que soit le niveau</li>
+            <li>2,8 Mo, aucun service en arrière-plan</li>
+            <li>Pas d'autorisation d'accessibilité sur Android 12L+</li>
+            <li>Aucune autorisation réseau déclarée</li>
+            <li>Offre Pro à ~1 $/mois, 10× moins chère que la concurrence</li>
+            <li>Sauvegarde / restauration pour les changements d'appareil</li>
+            <li>Localisation en 15 langues</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Points faibles</h4>
+          <ul>
+            <li>Il y a un délai perceptible d'environ 1 seconde entre le tap et l'apparition de l'écran partagé. C'est surtout un coût côté système — entrer en mode partagé sur Android 12L+ implique plusieurs transitions de tâches que le système enchaîne en interne, donc n'importe quelle appli de la catégorie se situe entre 0,8 et 1,2 s. Ce n'est pas un bug, mais il vaut mieux le savoir</li>
+            <li>Pas de raccourcis d'écran d'accueil, pas de widget flottant, pas de gestes, pas d'intégration Tasker — lancer une paire implique d'ouvrir l'appli avant. Choix de conception délibéré (voir section 2), mais ça vous coûte bien un tap</li>
+            <li>La liste de création de paires affiche toutes les applis installées sans catégories, ce qui devient fastidieux au-delà d'une soixantaine d'applis sur l'appareil</li>
+            <li>Les applis marquées non redimensionnables par le système (Google Files, appareil photo natif) restent non partageables — pas la faute de l'appli, mais à savoir avant de buter sur la limite</li>
+            <li>Développeur solo, donc si vous tombez sur un cas tordu sur une ROM non Pixel, n'attendez pas un correctif le jour même</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:28px;"><a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Installer depuis Google Play</a></p>
+  </section>
+
+  <section id="changelog">
+    <h2>Journal des modifications</h2>
+    <p style="color:var(--text-muted);margin-bottom:18px;">Mises à jour récentes de Split Screen Launcher. Nous continuerons à alimenter cette liste au fil des versions.</p>
+    <div style="border-left:2px solid var(--border);padding-left:24px;">
+      <div style="margin-bottom:24px;"><div style="color:#3A7AFE;font-weight:700;font-size:14px;letter-spacing:0.02em;">v1.5.4 — Mars 2026</div><ul style="padding-left:20px;margin-top:6px;font-size:15px;color:var(--text);"><li>Améliorations des performances à la reprise de l'appli</li><li>Correction d'un plantage lors de l'édition des dossiers</li></ul></div>
+      <div style="margin-bottom:24px;"><div style="color:#3A7AFE;font-weight:700;font-size:14px;letter-spacing:0.02em;">v1.5.3 — Février 2026</div><ul style="padding-left:20px;margin-top:6px;font-size:15px;color:var(--text);"><li>Correction d'un plantage lors du réordonnancement par glisser-déposer</li></ul></div>
+      <div style="margin-bottom:24px;"><div style="color:#3A7AFE;font-weight:700;font-size:14px;letter-spacing:0.02em;">v1.5.1 — Janvier 2026</div><ul style="padding-left:20px;margin-top:6px;font-size:15px;color:var(--text);"><li>Ajout d'une boîte de dialogue d'expiration de période d'essai pour les abonnés Pro</li><li>Corrections des IDs de plans de facturation et peaufinage UX</li></ul></div>
+      <div style="margin-bottom:24px;"><div style="color:#3A7AFE;font-weight:700;font-size:14px;letter-spacing:0.02em;">v1.5.0 — Janvier 2026</div><ul style="padding-left:20px;margin-top:6px;font-size:15px;color:var(--text);"><li>Ajout d'un suivi d'utilisation interne et d'une invitation à laisser un avis</li><li>Suggestion d'évolution pour les utilisateurs proches de la limite gratuite</li></ul></div>
+      <div style="margin-bottom:8px;"><div style="color:var(--text-muted);font-weight:700;font-size:14px;letter-spacing:0.02em;">v1.4.x et antérieures</div><ul style="padding-left:20px;margin-top:6px;font-size:15px;color:var(--text-muted);"><li>Compatibilité Android 15 (nouveau chemin de lancement pour les contraintes actuelles du SO)</li><li>Mise à jour Gradle / AGP / target SDK 35 pour conformité Play Store</li><li>Organisation par dossiers des paires (fonction Pro)</li><li>Sauvegarde et restauration des configurations de paires</li><li>Déploiement de la localisation en 15 langues</li></ul></div>
+    </div>
+  </section>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p><strong>Transparence :</strong> cet article est écrit par le développeur de Split Screen Launcher. Même si l'analyse est technique et factuelle, le lecteur doit avoir conscience de cette relation.</p>
+    <p style="margin-top:8px;"><a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen">Appli sur Google Play ↗</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

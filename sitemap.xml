@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sakuradevjp.github.io/split-screen-launcher-notes/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://sakuradevjp.github.io/split-screen-launcher-notes/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sakuradevjp.github.io/split-screen-launcher-notes/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://sakuradevjp.github.io/split-screen-launcher-notes/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://sakuradevjp.github.io/split-screen-launcher-notes/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/hi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://sakuradevjp.github.io/split-screen-launcher-notes/th/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/vi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sakuradevjp.github.io/split-screen-launcher-notes/"/>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/ja/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/ko/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/zh-CN/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/zh-TW/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/es/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/pt-BR/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/fr/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/de/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/it/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/ru/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/ar/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/hi/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/th/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sakuradevjp.github.io/split-screen-launcher-notes/vi/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
