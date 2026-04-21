@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sakuradevjp.github.io/split-screen-launcher-notes/sitemap.xml
