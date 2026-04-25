@@ -152,7 +152,8 @@
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 16px; margin: 28px 0;
   }
-  .img-row figure { margin: 0; }
+  .img-row figure { margin: 0; display: flex; flex-direction: column; }
+  .img-row figcaption { margin-top: auto !important; padding-top: 10px; }
   .img-row img { margin: 0; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
   .img-row figcaption,
   figcaption {
