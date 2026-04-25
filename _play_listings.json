@@ -76,5 +76,17 @@
     "shortDescription": "Mở hai ứng dụng chỉ với một chạm. Mọi thứ liền mạch hơn.",
     "fullDescription": "* Liên tục cập nhật cho các phiên bản Android mới nhất.\n* Không quảng cáo\n\nSplit Screen Launcher cho phép bạn lưu các cặp ứng dụng quen thuộc và mở ngay bố cục hai ứng dụng thường dùng.\nKhông cần thiết lập lại mỗi lần. Chỉ cần chạm.\n\nCách sử dụng phổ biến\nVideo + Mạng xã hội: Xem YouTube trong khi lướt X\nNghiên cứu + Ghi chú: Duyệt Chrome trong khi ghi chép\nCông việc + Liên lạc: Đặt Gmail và Slack cạnh nhau\nSo sánh + Tính toán: Đặt trình duyệt bên cạnh máy tính\nĐiều hướng + Trò chuyện: Chia sẻ vị trí trong khi xem bản đồ\n\nTính năng chính\n- Tạo, lưu và khởi chạy cặp ứng dụng chỉ với một chạm\n- Có sẵn bằng 15 ngôn ngữ với chuyển đổi ngôn ngữ trong ứng dụng\n  EN, JA, KO, ZH-CN, ZH-TW, ES, PT-BR, FR, DE, IT, RU, AR, HI, TH, VI\n- Hỗ trợ chế độ tối\n- Sao lưu và khôi phục\n- Thiết kế nhẹ và đơn giản\n\nHỗ trợ Nhà phát triển\nBạn yêu thích ứng dụng này? Hãy mua phiên bản Pro để mở khóa tính năng sắp xếp thư mục và màu sắc tùy chỉnh, đồng thời hỗ trợ nhà phát triển độc lập!\n\nVề Accessibility API\nTrên Android 9–12, ứng dụng này sử dụng Dịch vụ Hỗ trợ tiếp cận để kích hoạt chế độ chia đôi màn hình. Dịch vụ này chỉ được sử dụng để khởi chạy chia đôi màn hình và không thu thập hoặc truyền bất kỳ nội dung nào trên màn hình. Trên Android 12L trở lên, Dịch vụ Hỗ trợ tiếp cận không cần thiết.",
     "video": ""
+  },
+  "ko-KR": {
+    "title": "Split Screen Launcher",
+    "shortDescription": "한 번의 탭으로 두 앱을 동시에. 작업이 더 빠르고 매끄럽게.",
+    "fullDescription": "* 최신 Android 버전에 지속적으로 대응합니다.\n* 광고 없음\n\nSplit Screen Launcher는 자주 사용하는 앱 조합을 페어로 저장하고, 평소의 두 앱 화면을 한 번의 탭으로 즉시 불러올 수 있는 런처 앱입니다.\n매번 앱을 골라 분할 화면을 설정할 필요는 더 이상 없습니다. 페어를 만들고, 탭하기만 하면 됩니다.\n\n자주 쓰는 사용 예\n영상 + SNS: YouTube를 보면서 X 확인하기\n검색 + 메모: Chrome으로 검색하며 메모하기\n업무 + 연락: Gmail과 Slack을 나란히 띄워 동시에 대응하기\n비교 + 계산: 브라우저와 계산기를 나란히 배치하기\n이동 + 연락: 지도를 보면서 채팅으로 위치 공유하기\n\n주요 기능\n- 앱 페어의 생성·저장·원탭 실행\n- 15개 언어 지원, 앱 내 언어 전환 가능\n  EN, JA, KO, ZH-CN, ZH-TW, ES, PT-BR, FR, DE, IT, RU, AR, HI, TH, VI\n- 다크 모드 지원\n- 백업/복원\n- 가볍고 단순한 설계\n\n개발자 응원\n앱이 마음에 드셨나요? Pro 버전을 구매하시면 폴더 정리와 색상 커스터마이즈 기능이 잠금 해제되며, 1인 개발의 지속을 응원해 주실 수 있습니다!\n\n접근성(Accessibility) API에 관하여\nAndroid 9~12에서는 분할 화면을 실행하기 위해 접근성 서비스를 사용합니다. 이 서비스는 분할 화면 실행에만 사용되며, 화면의 내용을 수집하거나 전송하지 않습니다. Android 12L 이상에서는 접근성 서비스가 필요하지 않습니다.",
+    "video": ""
+  },
+  "zh-TW": {
+    "title": "Split Screen Launcher",
+    "shortDescription": "一鍵開啟兩個應用程式 操作更流暢",
+    "fullDescription": "* 持續適配最新 Android 版本。\n* 無廣告\n\nSplit Screen Launcher 可儲存您常用的應用程式組合，並立即啟動熟悉的雙應用分割畫面配置。\n無需重複設定，建立一次即可。\n\n常見用途\n影片 + 社群：邊看 YouTube 邊滑 X\n查閱 + 筆記：邊用 Chrome 瀏覽邊記錄\n工作 + 溝通：Gmail 和 Slack 並排使用\n對比 + 計算：瀏覽器和計算機並排放置\n導航 + 聊天：邊看地圖邊分享位置\n\n主要功能\n- 一鍵建立、儲存和啟動應用程式組合\n- 支援 15 種語言，可在應用程式內切換\n  EN, JA, KO, ZH-CN, ZH-TW, ES, PT-BR, FR, DE, IT, RU, AR, HI, TH, VI\n- 深色模式\n- 備份與還原\n- 輕量簡潔的設計\n\n支持開發者\n喜歡這個應用程式嗎？購買 Pro 版本即可解鎖資料夾整理和自訂顏色功能，並支持獨立開發！\n\n關於 Accessibility API\n在 Android 9–12 上，本應用程式使用無障礙服務來啟動分割畫面模式。該服務僅用於啟動分割畫面，不會收集或傳輸任何螢幕內容。在 Android 12L 及以上版本中，不需要無障礙服務。",
+    "video": ""
   }
 }

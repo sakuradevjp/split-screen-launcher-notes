@@ -197,13 +197,36 @@ def lang_switcher(current_slug: str) -> str:
     return "\n    ".join(parts)
 
 
-def asset_base(slug: str) -> str:
-    """Path from store/{slug}/index.html → assets/."""
+def asset_base(slug: str, hreflang: str) -> str:
+    """Path from store/{slug}/index.html → assets/{hreflang}/.
+
+    Each locale gets its own assets directory with localized device
+    screenshots (1.png main, 2.png create-pair) plus a localized split
+    mockup (3.png). _build copies them in from screenshots/{hreflang}/
+    on every run.
+    """
     if slug == "":
-        # store/index.html → ../assets/
-        return "../assets/"
-    # store/<slug>/index.html → ../../assets/
-    return "../../assets/"
+        # store/index.html → ../assets/<hreflang>/
+        return f"../assets/{hreflang}/"
+    # store/<slug>/index.html → ../../assets/<hreflang>/
+    return f"../../assets/{hreflang}/"
+
+
+def copy_locale_assets(hreflang: str):
+    """screenshots/<hreflang>/<n>.png → assets/<hreflang>/screenshot<n>.png."""
+    import shutil
+    src_dir = ROOT / "screenshots" / hreflang
+    dst_dir = ROOT / "assets" / hreflang
+    if not src_dir.exists():
+        print(f"  WARN: {src_dir} missing, skipping asset copy")
+        return
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    for n in (1, 2, 3):
+        src = src_dir / f"{n}.png"
+        if not src.exists():
+            print(f"  WARN: {src} missing")
+            continue
+        shutil.copy2(src, dst_dir / f"screenshot{n}.png")
 
 
 def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
@@ -219,6 +242,10 @@ def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
     body_html = fulldesc_to_html(full)
     ui = UI.get(hreflang, UI["en"])
 
+    # Copy this locale's screenshots into assets/<hreflang>/ so the
+    # generated page can reference them via a stable URL.
+    copy_locale_assets(hreflang)
+
     subs = {
         "LANG_ATTR": hreflang,
         "DIR_ATTR": ' dir="rtl"' if direction == "rtl" else "",
@@ -228,7 +255,7 @@ def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
         "CANONICAL_URL": store_url(slug),
         "HREFLANG_LINKS": hreflang_block(),
         "LANG_SWITCHER": lang_switcher(slug),
-        "ASSET_BASE": asset_base(slug),
+        "ASSET_BASE": asset_base(slug, hreflang),
         "PLAY_HL": play_hl,
         "NOTES_LINK": notes_url(slug),
         "CTA_GET": html_escape(ui["CTA_GET"]),
