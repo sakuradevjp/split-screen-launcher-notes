@@ -14,7 +14,9 @@ LOCALES = [
     # (play_locale, slug, hreflang, display_name, dir, play_hl)
     ("en-US",  "",       "en",     "English",          "ltr", "en"),
     ("ja-JP",  "ja",     "ja",     "日本語",            "ltr", "ja"),
+    ("ko-KR",  "ko",     "ko",     "한국어",            "ltr", "ko"),
     ("zh-CN",  "zh-CN",  "zh-CN",  "简体中文",          "ltr", "zh-CN"),
+    ("zh-TW",  "zh-TW",  "zh-TW",  "繁體中文",          "ltr", "zh-TW"),
     ("es-419", "es",     "es",     "Español",          "ltr", "es"),
     ("pt-BR",  "pt-BR",  "pt-BR",  "Português (BR)",   "ltr", "pt-BR"),
     ("fr-FR",  "fr",     "fr",     "Français",         "ltr", "fr"),
@@ -31,7 +33,9 @@ LOCALES = [
 UI = {
     "en":    {"CTA_GET": "Get on Google Play",   "CTA_NOTES": "Developer notes",   "FINAL_CTA_LEAD": "Free, no ads. Try it on Google Play."},
     "ja":    {"CTA_GET": "Google Play で入手",     "CTA_NOTES": "開発者ノート",        "FINAL_CTA_LEAD": "無料・広告なし。Google Play で試してみてください。"},
+    "ko":    {"CTA_GET": "Google Play에서 받기",    "CTA_NOTES": "개발자 노트",          "FINAL_CTA_LEAD": "무료, 광고 없음. Google Play에서 사용해 보세요."},
     "zh-CN": {"CTA_GET": "在 Google Play 获取",   "CTA_NOTES": "开发者笔记",          "FINAL_CTA_LEAD": "免费,无广告。在 Google Play 试试看。"},
+    "zh-TW": {"CTA_GET": "在 Google Play 取得",   "CTA_NOTES": "開發者筆記",          "FINAL_CTA_LEAD": "免費,無廣告。在 Google Play 試試看。"},
     "es":    {"CTA_GET": "Obtener en Google Play","CTA_NOTES": "Notas del desarrollador","FINAL_CTA_LEAD": "Gratis, sin anuncios. Pruébalo en Google Play."},
     "pt-BR": {"CTA_GET": "Baixar no Google Play", "CTA_NOTES": "Notas do desenvolvedor","FINAL_CTA_LEAD": "Grátis, sem anúncios. Experimente no Google Play."},
     "fr":    {"CTA_GET": "Obtenir sur Google Play","CTA_NOTES": "Notes du développeur","FINAL_CTA_LEAD": "Gratuit, sans publicité. Essayez sur Google Play."},
