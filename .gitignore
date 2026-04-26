@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# Claude Code: keep local-only, never upload
+CLAUDE.md
+.claude/
