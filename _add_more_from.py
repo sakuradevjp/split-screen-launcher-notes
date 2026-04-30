@@ -9,6 +9,7 @@ ROOT = Path(__file__).parent / "store"
 
 # (locale-dir, dir, more_from_label, notikeep_blurb, all_apps_label, all_apps_blurb)
 LOCALES = [
+    ("",      "ltr", "More from sakuradev",           "Save every Android notification — photos included",    "All apps by sakuradev",             "Indie apps for Windows &amp; Android"),
     ("ja",    "ltr", "sakuradev のその他のアプリ",     "Android の通知をすべて保存 — 写真も含めて",            "sakuradev の全アプリ",              "Windows と Android のインディーアプリ"),
     ("ko",    "ltr", "sakuradev의 다른 앱",           "모든 Android 알림 저장 — 사진 포함",                    "sakuradev의 모든 앱",               "Windows 및 Android용 인디 앱"),
     ("zh-CN", "ltr", "sakuradev 的更多应用",          "保存每条 Android 通知 — 包括图片",                      "sakuradev 的所有应用",              "面向 Windows 和 Android 的独立应用"),
