@@ -206,6 +206,19 @@ def asset_base(slug: str) -> str:
     return "../../assets/"
 
 
+_NOTES_URL_LINE = re.compile(
+    r"^[^\n]*https?://sakuradevjp\.github\.io/split-screen-launcher-notes/[^\n]*$",
+    re.M,
+)
+
+
+def _strip_notes_url(full: str) -> str:
+    """Drop trailing 'More info: <notes URL>' line — redundant on the
+    landing page itself, and the build otherwise renders it as a bare
+    <p> with a raw URL."""
+    return _NOTES_URL_LINE.sub("", full).rstrip("\n") + "\n"
+
+
 def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
     if play_locale not in PLAY_DATA:
         print(f"  SKIP {play_locale}: missing in _play_listings.json")
@@ -214,7 +227,7 @@ def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
     data = PLAY_DATA[play_locale]
     title = data.get("title", "Split Screen Launcher")
     short = data.get("shortDescription", "")
-    full = data.get("fullDescription", "")
+    full = _strip_notes_url(data.get("fullDescription", ""))
 
     body_html = fulldesc_to_html(full)
     ui = UI.get(hreflang, UI["en"])
