@@ -222,7 +222,6 @@
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
           <li>den Splitscreen ohnehin kaum nutzt</li>
           <li>ein schwebendes Widget, Gestensteuerung oder Tasker-Integration willst</li>
-          <li>Apps paaren musst, die sich als nicht-skalierbar deklarieren (Pur-Kamera, Google Files)</li>
           <li>ein Samsung-Gerät besitzt – das eingebaute App Pair von One UI ist schon ausgezeichnet</li>
           <li>Homescreen-Verknüpfungen der In-App-Verwaltung vorziehst</li>
         </ul>
@@ -241,9 +240,9 @@
     </div>
     <p>Split Screen Launcher erreicht den Splitscreen unter Android 15 und 16 zuverlässig auf einem anderen Weg. Den genauen Mechanismus behalten wir für uns – es brauchte einiges an Experimentieren, um eine Kombination zu finden, die über mehrere OS-Versionen hinweg funktioniert, und das Rezept zu veröffentlichen hieße, es jedem zerbrochenen Mitbewerber in die Hand zu drücken. Sagen können wir: Unsere Release-Historie spiegelt aktive Pflege durch die Android-12-, 12L-, 14-, 15- und 16-Übergänge wider, und wir wollen dieses Tempo beibehalten.</p>
     <div class="callout">
-      <strong>Was immer noch nicht geht:</strong> Einige Apps deklarieren <code>android:resizeableActivity="false"</code> in ihrem Manifest – Pur-Kamera und Google Files sind die bekanntesten – und das System blockiert sie unabhängig vom Start hart vom Splitscreen. Nicht einmal Samsungs eingebautes App Pair bekommt sie nebeneinander. Keine App-Limitation, sondern etwas, das kein Drittanbieter-Tool beheben kann.
+      <strong>Apps, die sich standardmäßig nicht teilen:</strong> Einige Apps deklarieren <code>android:resizeableActivity="false"</code> in ihrem Manifest – Pur-Kamera und Google Files sind die offensichtlichen Beispiele – und statt ein Paar zu bilden, öffnen sie sich einfach allein im Vollbild (Samsungs eingebautes App Pair verhält sich genauso).
       <br><br>
-      <strong>Im Klartext:</strong> Diese Apps haben Android gesagt „ich laufe nicht im Split-Modus", und kein Drittanbieter-Tool – nicht mal Samsungs eigenes – kann das überschreiben.
+      <strong>Workaround:</strong> Aktiviert man unter <code>Einstellungen → System → Entwickleroptionen → Aktivitäten in einstellbarer Größe erzwingen</code> sowie <code>Nicht skalierbare Apps in Mehrfenster zulassen</code>, funktionieren auch diese Apps im Splitscreen. Die In-App-Hilfe („So nutzt du Apps mit ‚Funktioniert evtl. nicht'") enthält die Schritt-für-Schritt-Anleitung.
     </div>
   </section>
 
@@ -318,7 +317,6 @@
             <li>Zwischen Tipp und Erscheinen des Splitscreens liegt eine spürbare Verzögerung von ~1 Sekunde. Das sind weitgehend systemseitige Kosten – der Eintritt in den Split-Modus unter Android 12L+ umfasst mehrere Task-Übergänge, die das System intern sequenziert, sodass jede App in dieser Kategorie im Bereich von 0,8–1,2 s liegt. Kein Bug, aber man sollte darauf vorbereitet sein</li>
             <li>Keine Homescreen-Verknüpfungen, kein schwebendes Widget, keine Gestensteuerung, keine Tasker-Integration – ein Paar zu starten heißt, erst die App zu öffnen. Bewusste Design-Entscheidung (siehe Abschnitt 2), kostet aber einen Tipp</li>
             <li>Die Liste beim Paaranlegen zeigt alle installierten Apps ohne Kategorien, was ab ~60 Apps auf dem Gerät mühsam wird</li>
-            <li>Vom OS als nicht-skalierbar markierte Apps (Google Files, Pur-Kamera) bleiben split-unfähig – nicht Schuld der App, aber gut zu wissen, bevor man an die Grenze stößt</li>
             <li>Einzelentwickler, also keine taggleichen Fixes zu erwarten, wenn du auf einer Nicht-Pixel-ROM in einen Randfall läufst</li>
           </ul>
         </div>

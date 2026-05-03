@@ -222,7 +222,6 @@
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.8;">
           <li>Hiếm khi dùng chia đôi màn hình</li>
           <li>Muốn widget nổi, khởi chạy bằng cử chỉ hay tích hợp Tasker</li>
-          <li>Cần ghép các ứng dụng tự khai là không thể thay đổi kích thước (Camera gốc, Google Files)</li>
           <li>Dùng máy Samsung — App Pair sẵn có trong One UI đã rất tốt</li>
           <li>Thích lối tắt trên màn hình chính hơn quản lý trong ứng dụng</li>
         </ul>
@@ -241,9 +240,9 @@
     </div>
     <p>Split Screen Launcher đi đến chế độ chia đôi màn hình một cách đáng tin trên Android 15 và 16 qua một con đường khác. Chúng tôi giữ kín cơ chế chính xác — để tìm được tổ hợp chạy qua nhiều bản OS phải thử nghiệm khá nhiều, và công khai công thức coi như trao nó cho tất cả đối thủ đã hỏng. Điều chúng tôi có thể nói: lịch sử phát hành của chúng tôi cho thấy sự bảo trì chủ động qua các đợt Android 12, 12L, 14, 15 và 16, và chúng tôi có ý định giữ nhịp đó.</p>
     <div class="callout">
-      <strong>Thứ vẫn không làm được:</strong> một số ứng dụng khai <code>android:resizeableActivity="false"</code> trong manifest — Camera gốc và Google Files là những ví dụ lớn — và hệ điều hành chặn cứng việc chúng vào chế độ chia đôi màn hình bất kể cách mở. Ngay cả App Pair của Samsung cũng không đặt chúng cạnh nhau được. Đây không phải giới hạn của ứng dụng, và không tiện ích bên thứ ba nào có thể sửa.
+      <strong>Những ứng dụng mặc định không vào chia đôi màn hình:</strong> một số ứng dụng khai <code>android:resizeableActivity="false"</code> trong manifest — Camera gốc và Google Files là những ví dụ điển hình — và thay vì tạo thành cặp, chúng chỉ tự mở một mình ở chế độ toàn màn hình (App Pair của Samsung cũng có hành vi tương tự).
       <br><br>
-      <strong>Nói đơn giản:</strong> những ứng dụng này đã báo với Android "tôi không chạy ở chế độ chia đôi màn hình đâu", và không công cụ bên thứ ba nào — kể cả của Samsung — có thể ghi đè điều đó.
+      <strong>Cách khắc phục:</strong> bật cùng lúc <code>Cài đặt → Hệ thống → Tùy chọn dành cho nhà phát triển → Buộc các hoạt động có thể thay đổi kích thước</code> và <code>Cho phép ứng dụng không thể thay đổi kích thước trong nhiều cửa sổ</code> sẽ giúp các ứng dụng này hoạt động được trong chia đôi màn hình. Trang Trợ giúp trong ứng dụng ("Cách dùng các ứng dụng được đánh dấu 'Có thể không hoạt động'") có hướng dẫn từng bước.
     </div>
   </section>
 
@@ -318,7 +317,6 @@
             <li>Có độ trễ cảm nhận được khoảng 1 giây giữa cú chạm và lúc chế độ chia đôi màn hình hiện ra. Chủ yếu là chi phí từ phía hệ điều hành — vào chế độ chia đôi màn hình trên Android 12L trở lên kéo theo nhiều lần chuyển tác vụ mà hệ thống xếp lịch nội bộ, nên ứng dụng nào trong hạng mục này cũng rơi vào khoảng 0,8–1,2 giây. Không phải lỗi, nhưng nên biết trước để đỡ kỳ vọng sai</li>
             <li>Không có lối tắt màn hình chính, không widget nổi, không gán cử chỉ, không tích hợp Tasker — muốn mở một cặp thì phải mở ứng dụng trước. Lựa chọn thiết kế có chủ ý (xem mục 2), nhưng đúng là tốn thêm một cú chạm</li>
             <li>Danh sách tạo cặp hiển thị toàn bộ ứng dụng đã cài mà không có danh mục, khá mệt khi vượt ~60 ứng dụng trên máy</li>
-            <li>Ứng dụng được hệ điều hành đánh dấu không thể thay đổi kích thước (Google Files, Camera gốc) vẫn không chia đôi màn hình được — không phải lỗi của ứng dụng, nhưng nên biết trước khi va phải giới hạn</li>
             <li>Nhà phát triển đơn lẻ, nên nếu bạn gặp tình huống biên trên một ROM không phải Pixel, đừng kỳ vọng có bản vá trong ngày</li>
           </ul>
         </div>
