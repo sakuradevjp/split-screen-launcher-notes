@@ -222,7 +222,6 @@
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
           <li>Vous n'utilisez presque jamais l'écran partagé</li>
           <li>Vous voulez un widget flottant, un lancement par geste ou une intégration Tasker</li>
-          <li>Vous devez appairer des applis déclarées non redimensionnables (appareil photo natif, Google Files)</li>
           <li>Vous êtes sur Samsung — l'App Pair intégré à One UI est déjà excellent</li>
           <li>Vous préférez les raccourcis d'écran d'accueil à une gestion dans l'appli</li>
         </ul>
@@ -241,9 +240,9 @@
     </div>
     <p>Split Screen Launcher atteint l'écran partagé de manière fiable sur Android 15 et 16 par un autre chemin. Nous gardons le mécanisme exact pour nous — il a fallu pas mal d'expérimentation pour trouver une combinaison qui fonctionne à travers plusieurs versions du système, et publier la recette reviendrait à la tendre à chacun de nos concurrents cassés. Ce que nous pouvons dire, c'est que notre historique de versions reflète une maintenance active à travers les transitions Android 12, 12L, 14, 15 et 16, et nous comptons bien poursuivre à ce rythme.</p>
     <div class="callout">
-      <strong>Ce qui ne marche toujours pas :</strong> certaines applis déclarent <code>android:resizeableActivity="false"</code> dans leur manifeste — l'appareil photo natif et Google Files en sont les principaux exemples — et le système empêche purement et simplement leur entrée en écran partagé, quelle que soit la façon dont on les lance. Même l'App Pair intégré à Samsung n'arrive pas à les coller côte à côte. Ce n'est pas une limitation de l'appli, et aucun utilitaire tiers ne peut y remédier.
+      <strong>Applis qui ne se partagent pas par défaut :</strong> certaines applis déclarent <code>android:resizeableActivity="false"</code> dans leur manifeste — l'appareil photo natif et Google Files en sont les exemples évidents — et au lieu de former une paire, elles s'ouvrent simplement seules en plein écran (l'App Pair intégré à Samsung se comporte de la même manière).
       <br><br>
-      <strong>En clair :</strong> ces applis ont dit à Android « je refuse de tourner en mode partagé », et aucun outil tiers — pas même celui de Samsung — ne peut passer outre.
+      <strong>Contournement :</strong> activer à la fois <code>Paramètres → Système → Options pour les développeurs → Forcer les activités redimensionnables</code> et <code>Autoriser les applications non redimensionnables en multifenêtre</code> permet à ces applis de fonctionner aussi en écran partagé. L'écran d'aide intégré à l'appli (« Comment utiliser les applis marquées 'Peut ne pas fonctionner' ») détaille la marche à suivre.
     </div>
   </section>
 
@@ -318,7 +317,6 @@
             <li>Il y a un délai perceptible d'environ 1 seconde entre le tap et l'apparition de l'écran partagé. C'est surtout un coût côté système — entrer en mode partagé sur Android 12L+ implique plusieurs transitions de tâches que le système enchaîne en interne, donc n'importe quelle appli de la catégorie se situe entre 0,8 et 1,2 s. Ce n'est pas un bug, mais il vaut mieux le savoir</li>
             <li>Pas de raccourcis d'écran d'accueil, pas de widget flottant, pas de gestes, pas d'intégration Tasker — lancer une paire implique d'ouvrir l'appli avant. Choix de conception délibéré (voir section 2), mais ça vous coûte bien un tap</li>
             <li>La liste de création de paires affiche toutes les applis installées sans catégories, ce qui devient fastidieux au-delà d'une soixantaine d'applis sur l'appareil</li>
-            <li>Les applis marquées non redimensionnables par le système (Google Files, appareil photo natif) restent non partageables — pas la faute de l'appli, mais à savoir avant de buter sur la limite</li>
             <li>Développeur solo, donc si vous tombez sur un cas tordu sur une ROM non Pixel, n'attendez pas un correctif le jour même</li>
           </ul>
         </div>

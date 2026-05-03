@@ -3,27 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
 <title>Split Screen Launcher Review — The Android 16-Compatible App Pair Tool</title>
 <meta name="description" content="Developer notes on Split Screen Launcher: how we built one of the few split-screen utilities still working on Android 15 and 16. Design decisions behind the no-ads, 2.8 MB, no-Accessibility-permission approach on Android 12L+.">
-<link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
-<link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
-<link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
-<link rel="alternate" hreflang="ja" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ja/">
-<link rel="alternate" hreflang="ko" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ko/">
-<link rel="alternate" hreflang="zh-CN" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-CN/">
-<link rel="alternate" hreflang="zh-TW" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-TW/">
-<link rel="alternate" hreflang="es" href="https://sakuradevjp.github.io/split-screen-launcher-notes/es/">
-<link rel="alternate" hreflang="pt-BR" href="https://sakuradevjp.github.io/split-screen-launcher-notes/pt-BR/">
-<link rel="alternate" hreflang="fr" href="https://sakuradevjp.github.io/split-screen-launcher-notes/fr/">
-<link rel="alternate" hreflang="de" href="https://sakuradevjp.github.io/split-screen-launcher-notes/de/">
-<link rel="alternate" hreflang="it" href="https://sakuradevjp.github.io/split-screen-launcher-notes/it/">
-<link rel="alternate" hreflang="ru" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ru/">
-<link rel="alternate" hreflang="ar" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ar/">
-<link rel="alternate" hreflang="hi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/hi/">
-<link rel="alternate" hreflang="th" href="https://sakuradevjp.github.io/split-screen-launcher-notes/th/">
-<link rel="alternate" hreflang="vi" href="https://sakuradevjp.github.io/split-screen-launcher-notes/vi/">
-<link rel="alternate" hreflang="x-default" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
 <style>
   :root {
     --primary: #3A7AFE;
@@ -153,8 +134,7 @@
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 16px; margin: 28px 0;
   }
-  .img-row figure { margin: 0; display: flex; flex-direction: column; }
-  .img-row figcaption { margin-top: auto !important; padding-top: 10px; }
+  .img-row figure { margin: 0; }
   .img-row img { margin: 0; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
   .img-row figcaption,
   figcaption {
@@ -375,27 +355,6 @@
 </head>
 <body>
 
-<div style="background: #fff; border-bottom: 1px solid #e2e8f0; padding: 10px 0; font-size: 12px; text-align: center; color: #64748b;">
-  <div class="container" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center;">
-    <span style="font-weight: 600; color: #475569;">Quick store description:</span>
-    <a href="/split-screen-launcher-notes/store/" style="color: #3A7AFE; text-decoration: none;">English</a>
-    <a href="/split-screen-launcher-notes/store/ja/" style="color: #3A7AFE; text-decoration: none;">日本語</a>
-    <a href="/split-screen-launcher-notes/store/ko/" style="color: #3A7AFE; text-decoration: none;">한국어</a>
-    <a href="/split-screen-launcher-notes/store/zh-CN/" style="color: #3A7AFE; text-decoration: none;">简体中文</a>
-    <a href="/split-screen-launcher-notes/store/zh-TW/" style="color: #3A7AFE; text-decoration: none;">繁體中文</a>
-    <a href="/split-screen-launcher-notes/store/es/" style="color: #3A7AFE; text-decoration: none;">Español</a>
-    <a href="/split-screen-launcher-notes/store/pt-BR/" style="color: #3A7AFE; text-decoration: none;">Português (BR)</a>
-    <a href="/split-screen-launcher-notes/store/fr/" style="color: #3A7AFE; text-decoration: none;">Français</a>
-    <a href="/split-screen-launcher-notes/store/de/" style="color: #3A7AFE; text-decoration: none;">Deutsch</a>
-    <a href="/split-screen-launcher-notes/store/it/" style="color: #3A7AFE; text-decoration: none;">Italiano</a>
-    <a href="/split-screen-launcher-notes/store/ru/" style="color: #3A7AFE; text-decoration: none;">Русский</a>
-    <a href="/split-screen-launcher-notes/store/ar/" style="color: #3A7AFE; text-decoration: none;">العربية</a>
-    <a href="/split-screen-launcher-notes/store/hi/" style="color: #3A7AFE; text-decoration: none;">हिन्दी</a>
-    <a href="/split-screen-launcher-notes/store/th/" style="color: #3A7AFE; text-decoration: none;">ไทย</a>
-    <a href="/split-screen-launcher-notes/store/vi/" style="color: #3A7AFE; text-decoration: none;">Tiếng Việt</a>
-  </div>
-</div>
-
 <!-- Hero -->
 <header class="hero">
   <div class="container">
@@ -419,7 +378,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="assets/screenshot3.png" alt="Split Screen Launcher main screen showing saved app pairs">
+      <img class="hero-img" src="https://i.imgur.com/LiOGzcE.png" alt="Split Screen Launcher main screen showing saved app pairs">
       <figcaption style="color:#64748b; text-align:center; margin-top:10px; font-size:12px; font-style:italic;">Split Screen Launcher on Pixel 9 Pro (Android 16). Saved pairs are managed inside the app — tapping any row launches both apps in split view at once.</figcaption>
     </figure>
   </div>
@@ -475,16 +434,16 @@
     </p>
     <div class="img-row">
       <figure>
-        <img src="assets/screenshot2.png" alt="Creating a new app pair">
+        <img src="https://i.imgur.com/E6Aj3Zp.png" alt="Creating a new app pair">
         <figcaption>Pair creation: pick any two installed apps and save them as a named pair. The one-time setup is what makes subsequent launches a single tap.</figcaption>
       </figure>
       <figure>
-        <img src="assets/screenshot3.png" alt="List of saved pairs">
+        <img src="https://i.imgur.com/LiOGzcE.png" alt="List of saved pairs">
         <figcaption>All pairs live inside the app itself — no home-screen icons are created. This is a deliberate choice that keeps the launcher unaffected by Pixel/Nova quirks and OS changes.</figcaption>
       </figure>
       <figure>
-        <img src="assets/screenshot1.png" alt="Two apps running in split screen">
-        <figcaption>Result: two apps side-by-side in split view, launched from a single tap on the pair. Example shown: Maps + Messages.</figcaption>
+        <img src="https://i.imgur.com/0P3S51c.png" alt="Two apps running in split screen">
+        <figcaption>Result: two apps side-by-side in split view, launched from a single tap on the pair. Example shown: Gmail + YouTube.</figcaption>
       </figure>
     </div>
     <p>
@@ -527,7 +486,6 @@
         <ul style="padding-left: 20px; margin:0; font-size: 15px; line-height: 1.7;">
           <li>Rarely use split-screen in the first place</li>
           <li>Want a floating widget, gesture launch, or Tasker integration</li>
-          <li>Need to pair apps that declare themselves non-resizable (stock Camera, Google Files)</li>
           <li>Own a Samsung device — One UI's built-in App Pair is already excellent</li>
           <li>Prefer home-screen shortcuts over in-app management</li>
         </ul>
@@ -556,9 +514,9 @@
       Split Screen Launcher reaches split view reliably on Android 15 and 16 via a different path. We're keeping the exact mechanism to ourselves — it took a fair amount of experimentation to find a combination that works across OS versions, and publishing the recipe would effectively be handing it to every broken competitor. What we can say is that our release history reflects active maintenance across the Android 12, 12L, 14, 15, and 16 transitions, and we intend to keep that cadence going.
     </p>
     <div class="callout">
-      <strong>What still doesn't work:</strong> Some apps declare <code>android:resizeableActivity="false"</code> in their manifest — the stock Camera and Google Files are the big ones — and the OS hard-blocks those from entering split-screen regardless of how they're launched. Even Samsung's built-in App Pair can't put them side-by-side. Not an app limitation, and not fixable by any third-party utility.
+      <strong>Apps that don't split by default:</strong> Some apps declare <code>android:resizeableActivity="false"</code> in their manifest — the stock Camera and Google Files are the obvious examples — and instead of forming a pair, they just open on their own in full screen (Samsung's built-in App Pair behaves the same way).
       <br><br>
-      <strong>In plain terms:</strong> these apps have told Android "I refuse to run in split mode", and no third-party tool — not even Samsung's — can override that.
+      <strong>Workaround:</strong> Turning on both <code>Settings → System → Developer options → Force activities to be resizable</code> and <code>Allow non-resizable in multi-window</code> makes those apps work in split-screen too. The in-app Help screen ("How to Use 'May not work' Apps") has the step-by-step.
     </div>
   </section>
 
@@ -695,7 +653,6 @@
             <li>There's a visible ~1 second delay between tap and split view appearing. This is mostly an OS-side cost — entering split mode on Android 12L+ involves multiple task transitions that the system sequences internally, so any app in this category sits in the 0.8–1.2 s range. Not a bug, but worth setting expectations</li>
             <li>No home-screen shortcuts, no floating widget, no gesture binding, no Tasker integration — launching a pair means opening the app first. A deliberate design choice (see section 2), but it does cost you a tap</li>
             <li>Pair creation list shows every installed app without categories, which gets tedious once you pass ~60 apps on the device</li>
-            <li>Apps flagged non-resizable by the OS (Google Files, stock Camera) still won't split — not the app's fault, but worth knowing before you hit the limitation yourself</li>
             <li>Solo dev, so if you hit an edge case on a non-Pixel ROM, don't expect same-day fixes</li>
           </ul>
         </div>
@@ -751,20 +708,6 @@
   </section>
 
 </article>
-
-<section style="max-width:760px;margin:3rem auto 2rem;padding:2rem 16px 0;border-top:1px solid var(--border,#e6e6ee)" aria-label="More from sakuradev">
-  <p style="font-size:.95rem;text-align:center;margin:0 0 1.25rem;color:var(--text-muted,#4a4a5e);letter-spacing:.08em;text-transform:uppercase;font-weight:600">More from sakuradev</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem;max-width:640px;margin:0 auto">
-    <a href="https://sakuradevjp.github.io/notikeep-notes/" style="display:flex;align-items:center;gap:.85rem;background:var(--card,#f7f7fb);border:1px solid var(--border,#e6e6ee);border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:inherit">
-      <img src="https://sakuradevjp.github.io/notikeep.svg" alt="" width="32" height="32" style="flex-shrink:0;border-radius:6px;display:block;background:#fff">
-      <span style="line-height:1.4"><strong style="display:block;color:var(--text,#1a1a2e);font-size:.98rem">NotiKeep</strong><span style="color:var(--text-muted,#4a4a5e);font-size:.86rem">Save every Android notification — photos included</span></span>
-    </a>
-    <a href="https://sakuradevjp.github.io/" style="display:flex;align-items:center;gap:.85rem;background:var(--card,#f7f7fb);border:1px solid var(--border,#e6e6ee);border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:inherit">
-      <img src="https://sakuradevjp.github.io/avatar.png" alt="" width="32" height="32" style="flex-shrink:0;border-radius:6px;display:block;background:#fff">
-      <span style="line-height:1.4"><strong style="display:block;color:var(--text,#1a1a2e);font-size:.98rem">All apps by sakuradev</strong><span style="color:var(--text-muted,#4a4a5e);font-size:.86rem">Indie apps for Windows &amp; Android</span></span>
-    </a>
-  </div>
-</section>
 
 <footer>
   <div class="container">

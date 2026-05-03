@@ -222,7 +222,6 @@
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
           <li>Lo schermo diviso lo usi raramente</li>
           <li>Vuoi un widget flottante, lancio via gesti o integrazione con Tasker</li>
-          <li>Devi accoppiare app dichiarate non ridimensionabili (fotocamera nativa, Google Files)</li>
           <li>Hai un Samsung — l'App Pair integrato in One UI è già eccellente</li>
           <li>Preferisci le scorciatoie in home alla gestione interna all'app</li>
         </ul>
@@ -241,9 +240,9 @@
     </div>
     <p>Split Screen Launcher raggiunge lo schermo diviso in modo affidabile su Android 15 e 16 per un'altra via. Il meccanismo esatto ce lo teniamo per noi: trovare una combinazione che funziona su più versioni del sistema ha richiesto parecchia sperimentazione, e pubblicare la ricetta vorrebbe dire consegnarla a ogni concorrente che si è rotto. Possiamo dire che la nostra cronologia delle release riflette una manutenzione attiva attraverso le transizioni di Android 12, 12L, 14, 15 e 16, e intendiamo tenere questo ritmo.</p>
     <div class="callout">
-      <strong>Cosa ancora non funziona:</strong> alcune app dichiarano <code>android:resizeableActivity="false"</code> nel manifest — la fotocamera nativa e Google Files sono gli esempi più noti — e il sistema blocca del tutto il loro ingresso in schermo diviso, a prescindere da come vengano lanciate. Neppure l'App Pair integrato di Samsung riesce a metterle affiancate. Non è un limite dell'app, e nessuna utility di terze parti può aggirarlo.
+      <strong>App che non si dividono di default:</strong> alcune app dichiarano <code>android:resizeableActivity="false"</code> nel manifest — la fotocamera nativa e Google Files sono gli esempi più noti — e invece di formare una coppia si aprono semplicemente da sole a schermo intero (l'App Pair integrato di Samsung si comporta allo stesso modo).
       <br><br>
-      <strong>In parole semplici:</strong> queste app hanno detto ad Android "mi rifiuto di girare in modalità divisa", e nessuno strumento di terze parti — nemmeno quello di Samsung — può forzarle.
+      <strong>Soluzione alternativa:</strong> attivando insieme <code>Impostazioni → Sistema → Opzioni sviluppatore → Forza dimensioni attività ridimensionabili</code> e <code>Consenti app non ridimensionabili in multi-finestra</code>, anche queste app funzionano in schermo diviso. La schermata di Aiuto interna all'app ("Come usare le app contrassegnate 'Potrebbe non funzionare'") riporta i passaggi.
     </div>
   </section>
 
@@ -318,7 +317,6 @@
             <li>C'è un ritardo percepibile di ~1 secondo tra il tocco e la comparsa dello schermo diviso. È un costo prevalentemente lato sistema — entrare in modalità divisa su Android 12L+ comporta più transizioni di task che il sistema sequenzia internamente, quindi qualsiasi app della categoria si colloca tra 0,8 e 1,2 s. Non è un bug, ma è giusto saperlo</li>
             <li>Nessuna scorciatoia in home, nessun widget flottante, nessun gesto, nessuna integrazione con Tasker — lanciare una coppia comporta aprire prima l'app. Scelta di design deliberata (vedi sezione 2), ma costa un tocco in più</li>
             <li>L'elenco di creazione coppie mostra tutte le app installate senza categorie, il che diventa faticoso oltre le ~60 app sul dispositivo</li>
-            <li>Le app che il sistema segnala come non ridimensionabili (Google Files, fotocamera nativa) restano non divisibili — non è colpa dell'app, ma meglio saperlo prima di sbattere nel limite</li>
             <li>Sviluppatore solo, quindi se incappi in un caso limite su una ROM non Pixel non aspettarti un fix in giornata</li>
           </ul>
         </div>
