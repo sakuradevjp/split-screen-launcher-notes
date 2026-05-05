@@ -118,7 +118,7 @@
       <div class="meta">
         <span class="tag">开发者笔记</span>
         <span>作者：<strong style="color:var(--text);">Split Screen Launcher 团队</strong></span>
-        <span>•</span><span>2026 年 3 月</span><span>•</span><span>约 8 分钟阅读</span>
+        <span>•</span><span>2026 年 5 月</span><span>•</span><span>约 8 分钟阅读</span>
       </div>
       <h1>Split Screen Launcher：少数仍能在 Android 15 和 16 上运行的分屏应用之一</h1>
       <p class="sub">Pixel 和原生 Android 手机没有三星的"应用对"功能。本文介绍 Split Screen Launcher 如何填补这一空缺，为什么大多数替代品在近期 Android 版本上失效，以及我们在开发中所做的设计选择。</p>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>少数仍能在 Android 15 和 16 上稳定运行的分屏工具之一。</li>
       <li>大多数竞品在 Google 修改底层 API 时停摆；我们在近年每一次 OS 过渡中都持续发布更新。</li>
-      <li>无广告、无 <code>INTERNET</code> 权限、Android 12L+ 上无需无障碍服务。总体积约 2.8 MB。</li>
+      <li>无广告、无需联网、Android 12L+ 上无需无障碍服务。总体积约 2.8 MB。</li>
       <li>免费版已覆盖核心用法。Pro 订阅约为每月 $1，仅为最接近付费竞品价格的约十分之一。</li>
       <li>如果你在使用 Pixel，又怀念 Galaxy 的"应用对"，这是我们见过最接近的替代方案。</li>
     </ul>
@@ -198,7 +198,8 @@
       <li><strong>计算器 + Chrome</strong> —— 跨标签页比价</li>
     </ul>
     <p>有个细节容易被忽略，但值得单独提一下：应用对数据可以导出为备份文件。听上去不起眼，但同品类的几款竞品把应用对存在应用私有目录里，没有任何导出途径——换手机就意味着手动重建所有应用对。我们一开始就把备份/恢复做成一流功能，正是为了让 Pixel 到 Pixel 的迁移能在几秒内恢复整套配置。</p>
-    <p>另一个需要提前说明的设计取舍：<strong>这款应用不会创建桌面快捷方式</strong>。每个应用对都存在于应用内部。这是一种权衡。代价是启动一个应用对需要先打开本应用——相比基于快捷方式的竞品多一次点击。收益有两个：桌面不会被应用对图标堆满；应用不会被当前启动器（Pixel 启动器、Nova 等）对快捷方式的处理方式所绑定。后者比听起来更重要——正如第 3 节所述，基于快捷意图的启动器正是 Android 15 和 16 过渡时最容易失效的那一类。把所有操作留在应用内部，就等于把这一整类故障隔绝在外。</p>
+    <p>另一个需要提前说明的设计取舍：默认情况下，<strong>应用对都存在于应用内部 —— 不会创建桌面图标</strong>。原因一半是为了简洁（桌面不会被应用对图标堆满），一半是出于架构考虑 —— 应用不会被特定启动器（Pixel、Nova 等）所绑定。正如第 3 节所述，基于快捷方式的启动器正是 Android 15 和 16 过渡时最容易失效的那一类；把操作留在应用内部，可以让换机迁移更顺滑。</p>
+    <p>v1.8.0（2026 年 5 月）为想从桌面图标一键启动应用对的 Pro 用户新增了一个可选的"固定到桌面"功能。我们希望保留原本"桌面保持简洁"的姿态，同时也回应"想直接从桌面图标启动分屏"的需求。桌面上显示的图标把两款应用图标上下堆叠，使应用对在视觉上和普通启动器图标区分开。</p>
   </section>
 
   <section id="who-for">
@@ -221,7 +222,6 @@
           <li>基本上不怎么用分屏</li>
           <li>想要悬浮小部件、手势启动或 Tasker 集成</li>
           <li>使用三星设备 —— One UI 自带的应用对已经非常好</li>
-          <li>相比应用内管理，更喜欢桌面快捷方式</li>
         </ul>
       </div>
     </div>
@@ -238,9 +238,9 @@
     </div>
     <p>Split Screen Launcher 通过另一条路径，在 Android 15 和 16 上依然能稳定进入分屏。具体机制我们不公开——找到一套跨系统版本可用的组合，花了相当多的实验，而把方法公开等于把它交给每一个已停摆的竞品。能说的是：我们的发布历史显示，在 Android 12、12L、14、15、16 每一次过渡中都有活跃的维护，并且我们打算继续保持这个节奏。</p>
     <div class="callout">
-      <strong>默认不会进入分屏的应用：</strong>有些应用在清单中声明了 <code>android:resizeableActivity="false"</code> —— 原生相机和 Google Files 就是典型代表 —— 直接启动它们不会形成分屏对，而是只把这一个应用单独以全屏方式打开（三星自带的应用对也是同样的行为）。
+      <strong>（重要）默认不会进入分屏的应用：</strong>有些应用在清单中声明了 <code>android:resizeableActivity="false"</code> —— 原生相机和 Google Files 就是典型代表 —— 直接启动它们不会形成分屏对，而是只把这一个应用单独以全屏方式打开（三星自带的应用对也是同样的行为）。
       <br><br>
-      <strong>变通方案：</strong>同时打开 <code>设置 → 系统 → 开发者选项 → 强制将活动设为可调整大小</code> 和 <code>允许将不可调整大小的应用置于多窗口</code>，这些应用就也能在分屏中工作了。应用内帮助页（"如何使用'可能无法工作'的应用"）有详细步骤。
+      （变通方案）同时打开 <code>设置 → 系统 → 开发者选项 → 强制将活动设为可调整大小</code> 和 <code>允许将不可调整大小的应用置于多窗口</code>，这些应用就也能在分屏中工作了。应用内帮助页（"如何使用'可能无法工作'的应用"）有详细步骤。
     </div>
   </section>
 
@@ -275,10 +275,10 @@
         <tr><td data-label="特性">是否需要无障碍权限</td><td class="highlight" data-label="本应用">仅 Android 9–12</td><td data-label="CCS Software">始终需要</td><td data-label="Toolhouse">始终需要</td></tr>
         <tr><td data-label="特性">清单中的网络权限</td><td class="highlight" data-label="本应用"><span class="check">✓</span> 未声明</td><td data-label="CCS Software">已声明（用于广告）</td><td data-label="Toolhouse">已声明（用于广告）</td></tr>
         <tr><td data-label="特性">Pro / 高级版价格</td><td class="highlight" data-label="本应用">约 $1 / 月</td><td data-label="CCS Software">当地报价约 ₱775（约 $13）</td><td data-label="Toolhouse">一次性约 $3</td></tr>
-        <tr><td data-label="特性">最近更新</td><td class="highlight" data-label="本应用">2026 年 3 月</td><td data-label="CCS Software">2025 年 6 月</td><td data-label="Toolhouse">2023 年</td></tr>
+        <tr><td data-label="特性">最近更新</td><td class="highlight" data-label="本应用">2026 年 5 月</td><td data-label="CCS Software">2025 年 6 月</td><td data-label="Toolhouse">2023 年</td></tr>
       </tbody>
     </table></div>
-    <p class="caption">竞品数据基于 2026 年 3 月 Google Play 上展示的信息。价格因地区而异。屏幕较窄时请横向滑动。</p>
+    <p class="caption">竞品数据基于 2026 年 5 月 Google Play 上展示的信息。价格因地区而异。屏幕较窄时请横向滑动。</p>
     <p>CCS Software 的那款是这个小众品类里的"巨无霸"——下载量超过 190 万，遥遥领先其他任何一款——但它上一次更新是在 Android 15 之前，最近的 Google Play 评论反映在运行 Android 15 或 16 的 Pixel 8、9、10 上无法正常进入分屏。另一款"Split Screen Easy Multitasking"以高级功能收取 <strong>每周 $18.99</strong> 的订阅费，在 Reddit 讨论中广受批评。</p>
     <p>换句话说，这个领域目前异常薄弱。像这样一款小而持续维护、没有广告的应用有很大的出头空间——前提是用户能找到它。</p>
   </section>
@@ -313,7 +313,7 @@
           <h4>缺点</h4>
           <ul>
             <li>从点击到分屏出现之间大约有 1 秒的可感知延迟。这主要是 OS 端的开销——Android 12L+ 进入分屏模式涉及系统内部多次任务切换，所以这个品类的任何应用都会落在 0.8–1.2 秒的区间。不是 bug，但值得提前告知</li>
-            <li>没有桌面快捷方式、悬浮小部件、手势绑定、Tasker 集成——启动一个应用对需要先打开本应用。这是有意的设计选择（见第 2 节），但确实多一次点击</li>
+            <li>没有悬浮小部件、手势绑定、Tasker 集成。桌面快捷方式自 v1.8.0 起作为可选项（Pro），其他功能依然全部留在应用内</li>
             <li>应用对创建列表会无分类地显示所有已安装应用，设备上超过约 60 款应用后会略显繁琐</li>
             <li>独立开发者，所以如果你在非 Pixel 的 ROM 上遇到边缘场景，不要指望当天修复</li>
           </ul>

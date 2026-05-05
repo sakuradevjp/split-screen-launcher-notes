@@ -118,7 +118,7 @@
       <div class="meta">
         <span class="tag">Notes du développeur</span>
         <span>Par l'<strong style="color:var(--text);">équipe Split Screen Launcher</strong></span>
-        <span>•</span><span>Mars 2026</span><span>•</span><span>~8 min de lecture</span>
+        <span>•</span><span>Mai 2026</span><span>•</span><span>~8 min de lecture</span>
       </div>
       <h1>Split Screen Launcher : l'une des rares applis d'écran partagé qui fonctionnent encore sur Android 15 et 16</h1>
       <p class="sub">Les Pixel et les téléphones sous Android pur n'ont pas la fonction « App Pair » de Samsung. Dans ce billet, nous expliquons comment Split Screen Launcher comble ce vide, pourquoi la plupart des alternatives ont cessé de fonctionner avec les dernières versions d'Android et quels choix de conception nous avons faits en chemin.</p>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>L'un des rares utilitaires d'écran partagé pour Android qui fonctionnent encore de façon fiable sur Android 15 et 16.</li>
       <li>La plupart des concurrents ont cassé quand Google a modifié les API sous-jacentes ; nous, nous avons continué à publier des mises à jour à chaque transition récente du système.</li>
-      <li>Aucune publicité, aucune autorisation <code>INTERNET</code>, aucun service d'accessibilité requis sur Android 12L+. Taille totale : ~2,8 Mo.</li>
+      <li>Aucune publicité, aucun accès Internet requis, aucun service d'accessibilité requis sur Android 12L+. Taille totale : ~2,8 Mo.</li>
       <li>Le niveau gratuit couvre l'usage de base. L'abonnement Pro tourne autour de 1 $/mois, soit à peu près un dixième du concurrent payant le plus proche.</li>
       <li>Si vous êtes passé à Pixel et que l'App Pair du Galaxy vous manque, c'est le remplaçant le plus proche que nous ayons vu.</li>
     </ul>
@@ -198,7 +198,8 @@
       <li><strong>Calculatrice + Chrome</strong> — comparaison de prix entre onglets</li>
     </ul>
     <p>Un détail qu'il serait facile de manquer et qui mérite d'être souligné : les données des paires s'exportent dans un fichier de sauvegarde. Ça paraît anodin, mais plusieurs concurrents de la catégorie rangent leurs paires dans un stockage privé sans chemin d'export — changer de téléphone, c'est refaire chaque paire à la main. Nous avons fait de la sauvegarde/restauration une fonctionnalité de premier ordre précisément pour qu'une migration Pixel vers Pixel restaure la totalité en quelques secondes.</p>
-    <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : <strong>l'appli ne crée pas de raccourcis sur l'écran d'accueil</strong>. Chaque paire vit dans l'appli elle-même. C'est un arbitrage. Le coût : lancer une paire implique d'ouvrir l'appli d'abord — un tap de plus que pour les concurrents à base de raccourcis. L'avantage est double : l'écran d'accueil ne se remplit pas d'icônes de paires, et l'appli ne dépend pas de ce que le lanceur actuel (Pixel Launcher, Nova, etc.) décide de faire du comportement des raccourcis. Ce second point compte plus qu'il n'en a l'air — comme indiqué en section 3, les lanceurs qui reposent sur des intents de raccourci sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16. Rester à l'intérieur de l'appli isole l'outil de toute cette famille de pannes.</p>
+    <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : par défaut, <strong>les paires vivent dans l'appli — aucune icône n'est créée sur l'écran d'accueil</strong>. La raison tient pour partie à la simplicité (l'écran d'accueil ne se remplit pas d'icônes de paires) et pour partie à l'architecture — l'appli n'est pas liée à un lanceur en particulier (Pixel, Nova, etc.). Comme indiqué en section 3, les lanceurs qui reposent sur des raccourcis sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16 ; rester à l'intérieur de l'appli rend la migration d'un téléphone à l'autre plus fluide.</p>
+    <p>Et la version 1.8.0 (mai 2026) a ajouté une action facultative permettant d'épingler une paire à l'écran d'accueil, pensée pour les utilisateurs Pro qui préfèrent lancer une paire d'un seul tap depuis l'accueil. Nous voulions garder intacte la posture initiale « écran d'accueil simple » tout en répondant au besoin « je veux lancer l'écran partagé directement depuis une icône de l'accueil ». L'icône affichée sur l'accueil empile verticalement les deux icônes des applis, pour que la paire reste visuellement distincte des icônes de lanceur classiques.</p>
   </section>
 
   <section id="who-for">
@@ -221,7 +222,6 @@
           <li>Vous n'utilisez presque jamais l'écran partagé</li>
           <li>Vous voulez un widget flottant, un lancement par geste ou une intégration Tasker</li>
           <li>Vous êtes sur Samsung — l'App Pair intégré à One UI est déjà excellent</li>
-          <li>Vous préférez les raccourcis d'écran d'accueil à une gestion dans l'appli</li>
         </ul>
       </div>
     </div>
@@ -238,9 +238,9 @@
     </div>
     <p>Split Screen Launcher atteint l'écran partagé de manière fiable sur Android 15 et 16 par un autre chemin. Nous gardons le mécanisme exact pour nous — il a fallu pas mal d'expérimentation pour trouver une combinaison qui fonctionne à travers plusieurs versions du système, et publier la recette reviendrait à la tendre à chacun de nos concurrents cassés. Ce que nous pouvons dire, c'est que notre historique de versions reflète une maintenance active à travers les transitions Android 12, 12L, 14, 15 et 16, et nous comptons bien poursuivre à ce rythme.</p>
     <div class="callout">
-      <strong>Applis qui ne se partagent pas par défaut :</strong> certaines applis déclarent <code>android:resizeableActivity="false"</code> dans leur manifeste — l'appareil photo natif et Google Files en sont les exemples évidents — et au lieu de former une paire, elles s'ouvrent simplement seules en plein écran (l'App Pair intégré à Samsung se comporte de la même manière).
+      <strong>(Important) Applis qui ne se partagent pas par défaut :</strong> certaines applis déclarent <code>android:resizeableActivity="false"</code> dans leur manifeste — l'appareil photo natif et Google Files en sont les exemples évidents — et au lieu de former une paire, elles s'ouvrent simplement seules en plein écran (l'App Pair intégré à Samsung se comporte de la même manière).
       <br><br>
-      <strong>Contournement :</strong> activer à la fois <code>Paramètres → Système → Options pour les développeurs → Forcer les activités redimensionnables</code> et <code>Autoriser les applications non redimensionnables en multifenêtre</code> permet à ces applis de fonctionner aussi en écran partagé. L'écran d'aide intégré à l'appli (« Comment utiliser les applis marquées 'Peut ne pas fonctionner' ») détaille la marche à suivre.
+      (Contournement) Activer à la fois <code>Paramètres → Système → Options pour les développeurs → Forcer les activités redimensionnables</code> et <code>Autoriser les applications non redimensionnables en multifenêtre</code> permet à ces applis de fonctionner aussi en écran partagé. L'écran d'aide intégré à l'appli (« Comment utiliser les applis marquées 'Peut ne pas fonctionner' ») détaille la marche à suivre.
     </div>
   </section>
 
@@ -275,10 +275,10 @@
         <tr><td data-label="Caractéristique">Autorisation d'accessibilité</td><td class="highlight" data-label="Cette appli">Seulement sur Android 9–12</td><td data-label="CCS Software">Toujours</td><td data-label="Toolhouse">Toujours</td></tr>
         <tr><td data-label="Caractéristique">Autorisation réseau dans le manifeste</td><td class="highlight" data-label="Cette appli"><span class="check">✓</span> Non déclarée</td><td data-label="CCS Software">Déclarée (pubs)</td><td data-label="Toolhouse">Déclarée (pubs)</td></tr>
         <tr><td data-label="Caractéristique">Prix Pro / premium</td><td class="highlight" data-label="Cette appli">~1 $ / mois</td><td data-label="CCS Software">Rapporté ~₱775 (~13 $) sur place</td><td data-label="Toolhouse">Paiement unique ~3 $</td></tr>
-        <tr><td data-label="Caractéristique">Dernière mise à jour</td><td class="highlight" data-label="Cette appli">Mars 2026</td><td data-label="CCS Software">Juin 2025</td><td data-label="Toolhouse">2023</td></tr>
+        <tr><td data-label="Caractéristique">Dernière mise à jour</td><td class="highlight" data-label="Cette appli">Mai 2026</td><td data-label="CCS Software">Juin 2025</td><td data-label="Toolhouse">2023</td></tr>
       </tbody>
     </table></div>
-    <p class="caption">Chiffres concurrents basés sur les fiches Google Play en mars 2026. Les prix varient selon la région. Sur écran étroit, faites défiler horizontalement.</p>
+    <p class="caption">Chiffres concurrents basés sur les fiches Google Play en mai 2026. Les prix varient selon la région. Sur écran étroit, faites défiler horizontalement.</p>
     <p>L'appli de CCS Software est l'ogre de ce créneau — plus de 1,9 million de téléchargements, très loin devant tout le reste — mais sa dernière mise à jour est antérieure à Android 15, et les avis récents sur Google Play se plaignent qu'elle ne lance plus correctement l'écran partagé sur Pixel 8, 9 et 10 sous Android 15 ou 16. Une autre appli, « Split Screen Easy Multitasking », facture <strong>18,99 $ par semaine</strong> ses fonctionnalités premium, ce qui a été largement critiqué dans des discussions Reddit.</p>
     <p>Autrement dit, le terrain est inhabituellement dégagé. Une appli petite, activement maintenue et sans pub comme celle-ci a toutes ses chances de se détacher — à condition que les utilisateurs la trouvent.</p>
   </section>
@@ -313,7 +313,7 @@
           <h4>Points faibles</h4>
           <ul>
             <li>Il y a un délai perceptible d'environ 1 seconde entre le tap et l'apparition de l'écran partagé. C'est surtout un coût côté système — entrer en mode partagé sur Android 12L+ implique plusieurs transitions de tâches que le système enchaîne en interne, donc n'importe quelle appli de la catégorie se situe entre 0,8 et 1,2 s. Ce n'est pas un bug, mais il vaut mieux le savoir</li>
-            <li>Pas de raccourcis d'écran d'accueil, pas de widget flottant, pas de gestes, pas d'intégration Tasker — lancer une paire implique d'ouvrir l'appli avant. Choix de conception délibéré (voir section 2), mais ça vous coûte bien un tap</li>
+            <li>Pas de widget flottant, pas de gestes, pas d'intégration Tasker. Les raccourcis d'écran d'accueil sont désormais facultatifs depuis la version 1.8.0 (Pro), mais tout le reste reste à l'intérieur de l'appli</li>
             <li>La liste de création de paires affiche toutes les applis installées sans catégories, ce qui devient fastidieux au-delà d'une soixantaine d'applis sur l'appareil</li>
             <li>Développeur solo, donc si vous tombez sur un cas tordu sur une ROM non Pixel, n'attendez pas un correctif le jour même</li>
           </ul>

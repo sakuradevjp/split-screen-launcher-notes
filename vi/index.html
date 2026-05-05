@@ -118,7 +118,7 @@
       <div class="meta">
         <span class="tag">Ghi chú của nhà phát triển</span>
         <span>Bởi <strong style="color:var(--text);">đội Split Screen Launcher</strong></span>
-        <span>•</span><span>Tháng 3/2026</span><span>•</span><span>đọc ~8 phút</span>
+        <span>•</span><span>Tháng 5/2026</span><span>•</span><span>đọc ~8 phút</span>
       </div>
       <h1>Split Screen Launcher: một trong số ít ứng dụng chia đôi màn hình vẫn chạy trên Android 15 và 16</h1>
       <p class="sub">Điện thoại Pixel và Android gốc không có tính năng "App Pair" của Samsung. Trong bài này, chúng tôi kể lại cách Split Screen Launcher lấp khoảng trống đó, vì sao phần lớn giải pháp thay thế đã hỏng trên các bản Android gần đây, và những lựa chọn thiết kế chúng tôi đã đưa ra trên đường.</p>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.8;">
       <li>Một trong số ít tiện ích chia đôi màn hình trên Android còn chạy ổn định trên Android 15 và 16.</li>
       <li>Phần lớn đối thủ gãy đổ khi Google thay đổi API nền; chúng tôi thì tiếp tục phát hành cập nhật qua từng đợt chuyển đổi OS gần đây.</li>
-      <li>Không quảng cáo, không quyền <code>INTERNET</code>, không cần Accessibility Service trên Android 12L trở lên. Dung lượng: ~2,8 MB.</li>
+      <li>Không quảng cáo, không cần truy cập internet, không cần Accessibility Service trên Android 12L trở lên. Dung lượng: ~2,8 MB.</li>
       <li>Gói miễn phí đủ cho nhu cầu cốt lõi. Gói Pro khoảng 1 USD/tháng, tức bằng khoảng một phần mười so với đối thủ trả phí gần nhất.</li>
       <li>Nếu bạn dùng Pixel và nhớ App Pair của Galaxy, đây là lựa chọn thay thế gần gũi nhất mà chúng tôi từng thấy.</li>
     </ul>
@@ -198,7 +198,8 @@
       <li><strong>Máy tính + Chrome</strong> — so giá giữa các tab</li>
     </ul>
     <p>Một chi tiết dễ bị bỏ qua nhưng đáng nhắc: dữ liệu cặp có thể xuất ra tệp sao lưu. Nghe có vẻ vặt, nhưng nhiều đối thủ trong cùng hạng mục lại lưu cặp vào vùng riêng của ứng dụng mà không có lối xuất ra — đổi máy đồng nghĩa với dựng lại từng cặp bằng tay. Chúng tôi đưa sao lưu/khôi phục lên thành tính năng hạng nhất ngay từ đầu để việc chuyển Pixel sang Pixel khôi phục toàn bộ bộ cặp chỉ trong vài giây.</p>
-    <p>Một lựa chọn thiết kế nữa đáng nói trước: <strong>ứng dụng không tạo lối tắt trên màn hình chính</strong>. Mỗi cặp nằm ngay trong ứng dụng. Đây là đánh đổi. Cái giá là chạy một cặp phải mở ứng dụng trước — tốn thêm một cú chạm so với đối thủ dựa trên lối tắt. Cái lợi có hai: màn hình chính không bị nhồi biểu tượng cặp, và ứng dụng không bị ràng buộc bởi cách launcher hiện tại (Pixel Launcher, Nova, v.v.) xử lý hành vi của lối tắt. Ý thứ hai quan trọng hơn so với bề ngoài — như đã nói ở mục 3, các launcher dựa vào shortcut intent chính là loại hay hỏng ở mỗi đợt chuyển Android 15 và 16. Ở lại trong ứng dụng giúp công cụ cách ly khỏi cả dòng hỏng hóc đó.</p>
+    <p>Một lựa chọn thiết kế nữa đáng nói trước: theo mặc định, <strong>các cặp nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính</strong>. Lý do một phần để giữ sự đơn giản (màn hình chính không bị nhồi biểu tượng cặp) và một phần là về kiến trúc — ứng dụng không bị ràng buộc với một launcher cụ thể nào (Pixel, Nova, v.v.). Như đã nói ở mục 3, các launcher dựa vào lối tắt chính là loại hay hỏng ở mỗi đợt chuyển Android 15 và 16; ở lại trong ứng dụng giúp việc chuyển máy giữa các điện thoại trơn tru hơn.</p>
+    <p>Và bản v1.8.0 (tháng 5/2026) đã bổ sung hành động "ghim ra màn hình chính" tùy chọn cho người dùng Pro muốn mở một cặp bằng một cú chạm trực tiếp từ màn hình chính. Chúng tôi muốn giữ nguyên tinh thần ban đầu "giữ màn hình chính đơn giản" mà vẫn đáp ứng được nhu cầu "tôi muốn mở chia đôi màn hình ngay từ một biểu tượng trên màn hình chính". Biểu tượng hiển thị trên màn hình chính xếp chồng hai biểu tượng ứng dụng theo chiều dọc, để cặp đó vẫn dễ phân biệt về mặt hình ảnh so với biểu tượng launcher thông thường.</p>
   </section>
 
   <section id="who-for">
@@ -221,7 +222,6 @@
           <li>Hiếm khi dùng chia đôi màn hình</li>
           <li>Muốn widget nổi, khởi chạy bằng cử chỉ hay tích hợp Tasker</li>
           <li>Dùng máy Samsung — App Pair sẵn có trong One UI đã rất tốt</li>
-          <li>Thích lối tắt trên màn hình chính hơn quản lý trong ứng dụng</li>
         </ul>
       </div>
     </div>
@@ -238,9 +238,9 @@
     </div>
     <p>Split Screen Launcher đi đến chế độ chia đôi màn hình một cách đáng tin trên Android 15 và 16 qua một con đường khác. Chúng tôi giữ kín cơ chế chính xác — để tìm được tổ hợp chạy qua nhiều bản OS phải thử nghiệm khá nhiều, và công khai công thức coi như trao nó cho tất cả đối thủ đã hỏng. Điều chúng tôi có thể nói: lịch sử phát hành của chúng tôi cho thấy sự bảo trì chủ động qua các đợt Android 12, 12L, 14, 15 và 16, và chúng tôi có ý định giữ nhịp đó.</p>
     <div class="callout">
-      <strong>Những ứng dụng mặc định không vào chia đôi màn hình:</strong> một số ứng dụng khai <code>android:resizeableActivity="false"</code> trong manifest — Camera gốc và Google Files là những ví dụ điển hình — và thay vì tạo thành cặp, chúng chỉ tự mở một mình ở chế độ toàn màn hình (App Pair của Samsung cũng có hành vi tương tự).
+      <strong>(Quan trọng) Những ứng dụng mặc định không vào chia đôi màn hình:</strong> một số ứng dụng khai <code>android:resizeableActivity="false"</code> trong manifest — Camera gốc và Google Files là những ví dụ điển hình — và thay vì tạo thành cặp, chúng chỉ tự mở một mình ở chế độ toàn màn hình (App Pair của Samsung cũng có hành vi tương tự).
       <br><br>
-      <strong>Cách khắc phục:</strong> bật cùng lúc <code>Cài đặt → Hệ thống → Tùy chọn dành cho nhà phát triển → Buộc các hoạt động có thể thay đổi kích thước</code> và <code>Cho phép ứng dụng không thể thay đổi kích thước trong nhiều cửa sổ</code> sẽ giúp các ứng dụng này hoạt động được trong chia đôi màn hình. Trang Trợ giúp trong ứng dụng ("Cách dùng các ứng dụng được đánh dấu 'Có thể không hoạt động'") có hướng dẫn từng bước.
+      (Cách khắc phục) Bật cùng lúc <code>Cài đặt → Hệ thống → Tùy chọn dành cho nhà phát triển → Buộc các hoạt động có thể thay đổi kích thước</code> và <code>Cho phép ứng dụng không thể thay đổi kích thước trong nhiều cửa sổ</code> sẽ giúp các ứng dụng này hoạt động được trong chia đôi màn hình. Trang Trợ giúp trong ứng dụng ("Cách dùng các ứng dụng được đánh dấu 'Có thể không hoạt động'") có hướng dẫn từng bước.
     </div>
   </section>
 
@@ -275,10 +275,10 @@
         <tr><td data-label="Đặc điểm">Yêu cầu quyền Accessibility</td><td class="highlight" data-label="Ứng dụng này">Chỉ trên Android 9–12</td><td data-label="CCS Software">Luôn luôn</td><td data-label="Toolhouse">Luôn luôn</td></tr>
         <tr><td data-label="Đặc điểm">Quyền mạng trong manifest</td><td class="highlight" data-label="Ứng dụng này"><span class="check">✓</span> Không khai</td><td data-label="CCS Software">Có khai (quảng cáo)</td><td data-label="Toolhouse">Có khai (quảng cáo)</td></tr>
         <tr><td data-label="Đặc điểm">Giá Pro/cao cấp</td><td class="highlight" data-label="Ứng dụng này">~1 USD / tháng</td><td data-label="CCS Software">Báo cáo ~₱775 (~13 USD) tại địa phương</td><td data-label="Toolhouse">Trả một lần ~3 USD</td></tr>
-        <tr><td data-label="Đặc điểm">Cập nhật mới nhất</td><td class="highlight" data-label="Ứng dụng này">Tháng 3/2026</td><td data-label="CCS Software">Tháng 6/2025</td><td data-label="Toolhouse">2023</td></tr>
+        <tr><td data-label="Đặc điểm">Cập nhật mới nhất</td><td class="highlight" data-label="Ứng dụng này">Tháng 5/2026</td><td data-label="CCS Software">Tháng 6/2025</td><td data-label="Toolhouse">2023</td></tr>
       </tbody>
     </table></div>
-    <p class="caption">Số liệu đối thủ dựa trên trang hiển thị hiện tại trên Google Play vào tháng 3/2026. Giá thay đổi theo khu vực. Trên màn hình hẹp, cuộn ngang.</p>
+    <p class="caption">Số liệu đối thủ dựa trên trang hiển thị hiện tại trên Google Play vào tháng 5/2026. Giá thay đổi theo khu vực. Trên màn hình hẹp, cuộn ngang.</p>
     <p>Ứng dụng của CCS Software là "ông lớn" trong ngách này — hơn 1,9 triệu lượt tải, bỏ xa mọi đối thủ — nhưng cập nhật mới nhất có trước Android 15, và các đánh giá gần đây trên Google Play than rằng nó không còn mở chia đôi màn hình đúng trên Pixel 8, 9 và 10 chạy Android 15 hoặc 16. Một ứng dụng khác, "Split Screen Easy Multitasking", tính phí <strong>18,99 USD mỗi tuần</strong> cho tính năng cao cấp, bị chỉ trích dữ dội trong nhiều bài trên Reddit.</p>
     <p>Nói khác đi, sân chơi hiện nay yếu đi bất thường. Một ứng dụng nhỏ, được bảo trì chủ động và không quảng cáo như thế này có lối đi rất thuận để nổi bật — miễn người dùng tìm thấy.</p>
   </section>
@@ -313,7 +313,7 @@
           <h4>Nhược điểm</h4>
           <ul>
             <li>Có độ trễ cảm nhận được khoảng 1 giây giữa cú chạm và lúc chế độ chia đôi màn hình hiện ra. Chủ yếu là chi phí từ phía hệ điều hành — vào chế độ chia đôi màn hình trên Android 12L trở lên kéo theo nhiều lần chuyển tác vụ mà hệ thống xếp lịch nội bộ, nên ứng dụng nào trong hạng mục này cũng rơi vào khoảng 0,8–1,2 giây. Không phải lỗi, nhưng nên biết trước để đỡ kỳ vọng sai</li>
-            <li>Không có lối tắt màn hình chính, không widget nổi, không gán cử chỉ, không tích hợp Tasker — muốn mở một cặp thì phải mở ứng dụng trước. Lựa chọn thiết kế có chủ ý (xem mục 2), nhưng đúng là tốn thêm một cú chạm</li>
+            <li>Không có widget nổi, không gán cử chỉ, không tích hợp Tasker. Lối tắt màn hình chính giờ là tùy chọn từ v1.8.0 (Pro), nhưng mọi thứ còn lại vẫn nằm trong ứng dụng</li>
             <li>Danh sách tạo cặp hiển thị toàn bộ ứng dụng đã cài mà không có danh mục, khá mệt khi vượt ~60 ứng dụng trên máy</li>
             <li>Nhà phát triển đơn lẻ, nên nếu bạn gặp tình huống biên trên một ROM không phải Pixel, đừng kỳ vọng có bản vá trong ngày</li>
           </ul>
