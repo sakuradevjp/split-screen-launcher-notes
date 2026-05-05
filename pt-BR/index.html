@@ -118,7 +118,7 @@
       <div class="meta">
         <span class="tag">Notas do desenvolvedor</span>
         <span>Por <strong style="color:var(--text);">equipe do Split Screen Launcher</strong></span>
-        <span>•</span><span>Março de 2026</span><span>•</span><span>~8 min de leitura</span>
+        <span>•</span><span>Maio de 2026</span><span>•</span><span>~8 min de leitura</span>
       </div>
       <h1>Split Screen Launcher: um dos poucos apps de tela dividida que ainda funcionam no Android 15 e 16</h1>
       <p class="sub">Os aparelhos Pixel e com Android puro não têm o recurso "App Pair" da Samsung. Neste post contamos como o Split Screen Launcher preenche essa lacuna, por que a maioria das alternativas parou de funcionar nas versões mais recentes do Android e as decisões de design que tomamos pelo caminho.</p>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>Um dos poucos utilitários de tela dividida para Android que ainda funcionam de maneira confiável no Android 15 e 16.</li>
       <li>A maior parte dos concorrentes quebrou quando o Google mudou as APIs internas; nós continuamos publicando atualizações em todas as transições recentes do sistema.</li>
-      <li>Sem anúncios, sem permissão <code>INTERNET</code>, sem Serviço de Acessibilidade no Android 12L+. Tamanho total: ~2,8 MB.</li>
+      <li>Sem anúncios, sem acesso à internet, sem Serviço de Acessibilidade no Android 12L+. Tamanho total: ~2,8 MB.</li>
       <li>O plano gratuito cobre o uso básico. A assinatura Pro custa cerca de US$ 1/mês — aproximadamente um décimo do concorrente pago mais próximo.</li>
       <li>Se você usa Pixel e sente falta do App Pair do Galaxy, é o substituto mais próximo que já vimos.</li>
     </ul>
@@ -198,7 +198,8 @@
       <li><strong>Calculadora + Chrome</strong> — comparando preços em várias abas</li>
     </ul>
     <p>Um detalhe fácil de ignorar e que merece destaque: os dados dos pares podem ser exportados para um arquivo de backup. Parece banal, mas vários concorrentes da categoria guardam os pares no armazenamento privado do app, sem caminho de exportação — trocar de aparelho significa refazer todos os pares à mão. Fizemos do backup/restauração um recurso de primeira classe justamente para que uma migração de Pixel para Pixel restaure todo o conjunto em segundos.</p>
-    <p>Outra escolha de design que vale deixar clara desde já: <strong>o app não cria atalhos na tela inicial</strong>. Cada par vive dentro do próprio app. É uma troca. O custo é que abrir um par exige entrar no app primeiro — um toque a mais em relação aos concorrentes baseados em atalhos. O benefício é duplo: a tela inicial não fica poluída de ícones de pares, e o app não fica amarrado a qualquer comportamento que o lançador atual (Pixel Launcher, Nova etc.) resolva dar aos atalhos. Esse segundo ponto pesa mais do que parece — como mencionamos na seção 3, lançadores baseados em intents de atalho são exatamente os que costumam quebrar nas transições para Android 15 e 16. Ficar dentro do app isola a ferramenta dessa família inteira de falhas.</p>
+    <p>Outra escolha de design que vale deixar clara desde já: por padrão, <strong>os pares vivem dentro do próprio app — não são criados ícones na tela inicial</strong>. O motivo é, em parte, simplicidade (a tela inicial não fica poluída por ícones de pares) e, em parte, arquitetural — o app não fica amarrado a lançadores específicos (Pixel, Nova etc.). Como dissemos na seção 3, lançadores que dependem de atalhos são justamente os que tendem a quebrar nas transições para Android 15 e 16; manter tudo dentro do app deixa a migração de aparelho para aparelho mais tranquila.</p>
+    <p>E a versão 1.8.0 (maio de 2026) trouxe uma ação opcional para fixar pares na tela inicial, pensada para usuários Pro que preferem abrir um par com um único toque a partir da tela de início. Quisemos preservar a postura original de "tela inicial enxuta" e, ao mesmo tempo, atender à necessidade de "quero abrir a tela dividida direto de um ícone na tela inicial". O ícone exibido na tela inicial empilha verticalmente os dois ícones dos apps, de modo que o par se diferencia visualmente dos ícones comuns do lançador.</p>
   </section>
 
   <section id="who-for">
@@ -221,7 +222,6 @@
           <li>Raramente usa tela dividida</li>
           <li>Quer widget flutuante, lançamento por gestos ou integração com o Tasker</li>
           <li>Tem um Samsung — o App Pair embutido da One UI já é excelente</li>
-          <li>Prefere atalhos na tela inicial em vez de gerenciar dentro do app</li>
         </ul>
       </div>
     </div>
@@ -238,9 +238,9 @@
     </div>
     <p>O Split Screen Launcher chega à tela dividida de forma confiável no Android 15 e 16 por outro caminho. Guardamos o mecanismo exato para nós — levou bastante experimentação encontrar uma combinação que funciona em várias versões do SO, e publicar a receita seria, na prática, entregá-la para todos os concorrentes quebrados. O que podemos dizer é que o nosso histórico de releases reflete manutenção ativa ao longo das transições de Android 12, 12L, 14, 15 e 16, e pretendemos manter esse ritmo.</p>
     <div class="callout">
-      <strong>Apps que não dividem por padrão:</strong> alguns apps declaram <code>android:resizeableActivity="false"</code> no manifest — a câmera nativa e o Google Files são os exemplos óbvios — e em vez de formar um par, simplesmente abrem sozinhos em tela cheia (o App Pair embutido da Samsung se comporta da mesma forma).
+      <strong>(Importante) Apps que não dividem por padrão:</strong> alguns apps declaram <code>android:resizeableActivity="false"</code> no manifest — a câmera nativa e o Google Files são os exemplos óbvios — e em vez de formar um par, simplesmente abrem sozinhos em tela cheia (o App Pair embutido da Samsung se comporta da mesma forma).
       <br><br>
-      <strong>Solução alternativa:</strong> ativando juntos <code>Configurações → Sistema → Opções do desenvolvedor → Forçar atividades a ser redimensionáveis</code> e <code>Permitir apps não redimensionáveis no modo multijanela</code>, esses apps também passam a funcionar em tela dividida. A tela de Ajuda dentro do app ("Como usar apps marcados como 'Pode não funcionar'") tem o passo a passo.
+      (Solução alternativa) Ativando juntos <code>Configurações → Sistema → Opções do desenvolvedor → Forçar atividades a ser redimensionáveis</code> e <code>Permitir apps não redimensionáveis no modo multijanela</code>, esses apps também passam a funcionar em tela dividida. A tela de Ajuda dentro do app ("Como usar apps marcados como 'Pode não funcionar'") tem o passo a passo.
     </div>
   </section>
 
@@ -275,10 +275,10 @@
         <tr><td data-label="Item">Permissão de Acessibilidade</td><td class="highlight" data-label="Este app">Só no Android 9–12</td><td data-label="CCS Software">Sempre</td><td data-label="Toolhouse">Sempre</td></tr>
         <tr><td data-label="Item">Permissão de rede no manifest</td><td class="highlight" data-label="Este app"><span class="check">✓</span> Não declarada</td><td data-label="CCS Software">Declarada (anúncios)</td><td data-label="Toolhouse">Declarada (anúncios)</td></tr>
         <tr><td data-label="Item">Preço Pro / premium</td><td class="highlight" data-label="Este app">~US$ 1 / mês</td><td data-label="CCS Software">Relatado ~₱775 (~US$ 13) no local</td><td data-label="Toolhouse">Pagamento único ~US$ 3</td></tr>
-        <tr><td data-label="Item">Última atualização</td><td class="highlight" data-label="Este app">Março de 2026</td><td data-label="CCS Software">Junho de 2025</td><td data-label="Toolhouse">2023</td></tr>
+        <tr><td data-label="Item">Última atualização</td><td class="highlight" data-label="Este app">Maio de 2026</td><td data-label="CCS Software">Junho de 2025</td><td data-label="Toolhouse">2023</td></tr>
       </tbody>
     </table></div>
-    <p class="caption">Números dos concorrentes baseados nas fichas atuais do Google Play em março de 2026. Os preços variam por região. Em telas estreitas, role horizontalmente.</p>
+    <p class="caption">Números dos concorrentes baseados nas fichas atuais do Google Play em maio de 2026. Os preços variam por região. Em telas estreitas, role horizontalmente.</p>
     <p>O app da CCS Software é o peso-pesado do nicho — mais de 1,9 milhão de downloads, bem à frente de qualquer outro — mas sua última atualização é anterior ao Android 15, e avaliações recentes na Google Play reclamam que ele não entra mais corretamente em tela dividida em Pixel 8, 9 e 10 com Android 15 ou 16. Um outro app, "Split Screen Easy Multitasking", cobra <strong>US$ 18,99 por semana</strong> pelos recursos premium, algo muito criticado em threads no Reddit.</p>
     <p>Em outras palavras, o campo está anormalmente fraco. Um app pequeno, mantido ativamente e sem anúncios como este tem caminho fácil para se destacar — desde que os usuários encontrem.</p>
   </section>
@@ -313,7 +313,7 @@
           <h4>Contras</h4>
           <ul>
             <li>Há um atraso perceptível de ~1 segundo entre o toque e a tela dividida aparecer. É custo quase todo do sistema — entrar no modo dividido no Android 12L+ envolve várias transições de tarefa que o SO encadeia internamente, então qualquer app da categoria fica na faixa de 0,8 a 1,2 s. Não é bug, mas vale ajustar a expectativa</li>
-            <li>Sem atalhos de tela inicial, widget flutuante, gestos ou integração com Tasker — abrir um par exige entrar no app antes. Escolha deliberada de design (ver seção 2), mas cobra um toque a mais</li>
+            <li>Sem widget flutuante, gestos ou integração com Tasker. Os atalhos na tela inicial agora são opcionais a partir da versão 1.8.0 (Pro), mas todo o resto continua dentro do app</li>
             <li>A lista de criação de par mostra todos os apps instalados sem categorias, o que fica cansativo depois de ~60 apps no aparelho</li>
             <li>Dev solo, então se você pegar um caso raro em uma ROM que não seja Pixel, não espere correção no mesmo dia</li>
           </ul>
