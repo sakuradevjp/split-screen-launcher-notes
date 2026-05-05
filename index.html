@@ -363,7 +363,7 @@
         <span class="tag">Developer Notes</span>
         <span>By the <strong style="color:var(--text);">Split Screen Launcher team</strong></span>
         <span>•</span>
-        <span>March 2026</span>
+        <span>May 2026</span>
         <span>•</span>
         <span>~8 min read</span>
       </div>
@@ -396,7 +396,7 @@
     <ul style="margin:0; padding-left: 20px; font-size:15px; line-height:1.7;">
       <li>One of the few Android split-screen utilities still working reliably on Android 15 and 16.</li>
       <li>Most competitors broke when Google changed the underlying APIs; ours kept shipping updates across every recent OS transition.</li>
-      <li>No ads, no <code>INTERNET</code> permission, no Accessibility Service required on Android 12L+. Total size: ~2.8 MB.</li>
+      <li>No ads, no internet access required, no Accessibility Service required on Android 12L+. Total size: ~2.8 MB.</li>
       <li>Free tier covers core usage. Pro subscription is around $1/month — roughly one tenth of the nearest paid competitor.</li>
       <li>If you're on Pixel and miss Galaxy's App Pair, this is the closest drop-in replacement we've seen.</li>
     </ul>
@@ -461,7 +461,10 @@
       One detail worth calling out because it's easy to miss: pair data exports to a backup file. That sounds trivial, but several competing apps in this category store their pairs in app-private storage with no export path — switching phones means rebuilding every pair by hand. We made the backup/restore a first-class feature precisely so a Pixel-to-Pixel migration restores the full set in seconds.
     </p>
     <p>
-      Worth flagging another design choice up front: <strong>the app does not create home-screen shortcuts</strong>. Every pair lives inside the app itself. That's a trade-off. The cost is that launching a pair means opening the app first — one extra tap compared to shortcut-based competitors. The benefit is twofold: the home screen doesn't get cluttered with pair icons, and the app isn't tied to whatever the current launcher (Pixel Launcher, Nova, etc.) decides to do with its shortcut behavior. The latter matters more than it sounds — as noted in section 3, shortcut-intent-based launchers are exactly the kind that tend to break across Android 15 and 16 transitions. Staying inside the app insulates the tool from that whole class of failure.
+      And another design choice worth flagging up front: by default, <strong>pairs live inside the app — no home-screen icons are created</strong>. The reason is partly to keep things simple (the home screen doesn't get cluttered with pair icons) and partly architectural — the app isn't tied to specific launchers (Pixel, Nova, etc.). As noted in section 3, shortcut-dependent launchers are exactly the kind that tend to break across Android 15 and 16 transitions; staying inside the app makes phone-to-phone migration smoother.
+    </p>
+    <p>
+      And v1.8.0 (May 2026) added an optional pin-to-home action for Pro users who'd rather launch a pair with a single tap from home. We wanted to keep the original "keep the home screen simple" posture intact while still answering the "I want to launch the split right from a home icon" need. The icon shown on home stacks the two app icons vertically, so the pair stays visually distinct from regular launcher icons.
     </p>
   </section>
 
@@ -485,7 +488,6 @@
           <li>Rarely use split-screen in the first place</li>
           <li>Want a floating widget, gesture launch, or Tasker integration</li>
           <li>Own a Samsung device — One UI's built-in App Pair is already excellent</li>
-          <li>Prefer home-screen shortcuts over in-app management</li>
         </ul>
       </div>
     </div>
@@ -512,9 +514,9 @@
       Split Screen Launcher reaches split view reliably on Android 15 and 16 via a different path. We're keeping the exact mechanism to ourselves — it took a fair amount of experimentation to find a combination that works across OS versions, and publishing the recipe would effectively be handing it to every broken competitor. What we can say is that our release history reflects active maintenance across the Android 12, 12L, 14, 15, and 16 transitions, and we intend to keep that cadence going.
     </p>
     <div class="callout">
-      <strong>Apps that don't split by default:</strong> Some apps declare <code>android:resizeableActivity="false"</code> in their manifest — the stock Camera and Google Files are the obvious examples — and instead of forming a pair, they just open on their own in full screen (Samsung's built-in App Pair behaves the same way).
+      <strong>(Important) Apps that don't split by default:</strong> Some apps declare <code>android:resizeableActivity="false"</code> in their manifest — the stock Camera and Google Files are the obvious examples — and instead of forming a pair, they just open on their own in full screen (Samsung's built-in App Pair behaves the same way).
       <br><br>
-      <strong>Workaround:</strong> Turning on both <code>Settings → System → Developer options → Force activities to be resizable</code> and <code>Allow non-resizable in multi-window</code> makes those apps work in split-screen too. The in-app Help screen ("How to Use 'May not work' Apps") has the step-by-step.
+      (Workaround) Turning on both <code>Settings → System → Developer options → Force activities to be resizable</code> and <code>Allow non-resizable in multi-window</code> makes those apps work in split-screen too. The in-app Help screen ("How to Use 'May not work' Apps") has the step-by-step.
     </div>
   </section>
 
@@ -595,13 +597,13 @@
         </tr>
         <tr>
           <td data-label="Feature">Last update</td>
-          <td class="highlight" data-label="This app">March 2026</td>
+          <td class="highlight" data-label="This app">May 2026</td>
           <td data-label="CCS Software">June 2025</td>
           <td data-label="Toolhouse">2023</td>
         </tr>
       </tbody>
     </table></div>
-    <p class="caption">Competitor figures based on current Google Play listings as of March 2026. Prices vary by region. Scroll horizontally on narrow screens.</p>
+    <p class="caption">Competitor figures based on current Google Play listings as of May 2026. Prices vary by region. Scroll horizontally on narrow screens.</p>
 
     <p>
       The CCS Software app is the 800-pound gorilla in this niche — it has 1.9 million+ downloads, far more than anything else — but its last update predates Android 15, and recent user reviews on Google Play complain it no longer launches split view correctly on Pixel 8, 9 and 10 devices running Android 15 or 16. A separate app, "Split Screen Easy Multitasking", charges <strong>$18.99 per week</strong> for premium features, which has been widely criticized in Reddit threads.
@@ -649,7 +651,7 @@
           <h4>Cons</h4>
           <ul>
             <li>There's a visible ~1 second delay between tap and split view appearing. This is mostly an OS-side cost — entering split mode on Android 12L+ involves multiple task transitions that the system sequences internally, so any app in this category sits in the 0.8–1.2 s range. Not a bug, but worth setting expectations</li>
-            <li>No home-screen shortcuts, no floating widget, no gesture binding, no Tasker integration — launching a pair means opening the app first. A deliberate design choice (see section 2), but it does cost you a tap</li>
+            <li>No floating widget, no gesture binding, no Tasker integration. Home-screen shortcuts are now optional as of v1.8.0 (Pro), but everything else stays inside the app</li>
             <li>Pair creation list shows every installed app without categories, which gets tedious once you pass ~60 apps on the device</li>
             <li>Solo dev, so if you hit an edge case on a non-Pixel ROM, don't expect same-day fixes</li>
           </ul>
