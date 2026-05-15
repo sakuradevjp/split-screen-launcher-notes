@@ -31,6 +31,7 @@ TEMPLATE = (ROOT / "_template.html").read_text(encoding="utf-8")
 PLAY_DATA = json.loads((ROOT / "_play_listings.json").read_text(encoding="utf-8"))
 
 from _strings import LOCALES, UI
+from _reviews import REVIEWS, LANG_NAMES
 
 BASE_URL = "https://sakuradevjp.github.io/split-screen-launcher-notes"
 
@@ -179,6 +180,165 @@ def fulldesc_to_html(full_desc: str) -> str:
     return "\n".join(out_parts)
 
 
+# Per-locale date format strings (strftime-style). Hreflang → format.
+# These render dates like "Apr 3, 2026" / "2026年4月3日" / "3 abr 2026".
+DATE_FORMATS = {
+    "en":    "%b %-d, %Y",
+    "ja":    "%Y年%-m月%-d日",
+    "ko":    "%Y년 %-m월 %-d일",
+    "zh-CN": "%Y年%-m月%-d日",
+    "zh-TW": "%Y年%-m月%-d日",
+    "es":    "%-d %b %Y",
+    "pt-BR": "%-d %b %Y",
+    "fr":    "%-d %b %Y",
+    "de":    "%-d. %b %Y",
+    "it":    "%-d %b %Y",
+    "ru":    "%-d %b %Y",
+    "ar":    "%-d %b %Y",
+    "hi":    "%-d %b %Y",
+    "th":    "%-d %b %Y",
+    "vi":    "%-d %b %Y",
+}
+
+# Localized short month names (3-letter style). Python's strftime("%b")
+# uses the system locale, which is brittle on Windows — easier to ship
+# our own table. English is the fallback. Order: Jan..Dec.
+MONTH_NAMES_SHORT = {
+    "en":    ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "es":    ["ene", "feb", "mar", "abr", "may", "jun",
+              "jul", "ago", "sep", "oct", "nov", "dic"],
+    "pt-BR": ["jan", "fev", "mar", "abr", "mai", "jun",
+              "jul", "ago", "set", "out", "nov", "dez"],
+    "fr":    ["janv.", "févr.", "mars", "avr.", "mai", "juin",
+              "juil.", "août", "sept.", "oct.", "nov.", "déc."],
+    "de":    ["Jan.", "Feb.", "März", "Apr.", "Mai", "Juni",
+              "Juli", "Aug.", "Sept.", "Okt.", "Nov.", "Dez."],
+    "it":    ["gen", "feb", "mar", "apr", "mag", "giu",
+              "lug", "ago", "set", "ott", "nov", "dic"],
+    "ru":    ["янв.", "февр.", "марта", "апр.", "мая", "июня",
+              "июля", "авг.", "сент.", "окт.", "нояб.", "дек."],
+    "ar":    ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
+              "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+    "hi":    ["जन", "फ़र", "मार्च", "अप्रैल", "मई", "जून",
+              "जुलाई", "अग", "सित", "अक्तू", "नव", "दिस"],
+    "th":    ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.",
+              "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."],
+    "vi":    ["thg 1", "thg 2", "thg 3", "thg 4", "thg 5", "thg 6",
+              "thg 7", "thg 8", "thg 9", "thg 10", "thg 11", "thg 12"],
+}
+
+
+def format_date(d, hreflang: str) -> str:
+    """Format a datetime.date into a short, locale-appropriate string."""
+    fmt = DATE_FORMATS.get(hreflang, DATE_FORMATS["en"])
+    months = MONTH_NAMES_SHORT.get(hreflang, MONTH_NAMES_SHORT["en"])
+    month = months[d.month - 1]
+
+    # CJK locales use numeric months in their format string — fall through
+    # to standard substitution. Non-CJK locales substitute the localized
+    # short month name for %b ourselves (more reliable cross-platform than
+    # depending on system locale).
+    if hreflang in ("ja", "ko", "zh-CN", "zh-TW"):
+        return (fmt.replace("%Y", str(d.year))
+                   .replace("%-m", str(d.month))
+                   .replace("%-d", str(d.day)))
+
+    return (fmt.replace("%Y", str(d.year))
+               .replace("%b", month)
+               .replace("%-d", str(d.day)))
+
+
+def render_testimonials(hreflang: str) -> str:
+    """Build the testimonials section for a given page locale.
+
+    Card layout (top → bottom):
+      1. Header line — stars + reviewer + device + date
+      2. Quote block — up to 3 variants (original / English / page-lang),
+         each prefixed by a small autoglottonym label when there's more
+         than one variant.
+
+    The English variant is skipped when the page itself is in the
+    review's original language (the reader has it natively already).
+    """
+    ui = UI.get(hreflang, UI["en"])
+    heading = html_escape(ui["REVIEWS_HEADING"])
+    source_label = html_escape(ui["REVIEWS_SOURCE"])
+
+    cards = []
+    for r in REVIEWS:
+        orig_lang = r["original_lang"]
+
+        # Build ordered variant list, deduped.
+        seen = set()
+        variants = []  # list of (lang_code, text)
+
+        variants.append((orig_lang, r["original_text"]))
+        seen.add(orig_lang)
+
+        if "en" not in seen and hreflang != orig_lang:
+            en = r["translations"].get("en")
+            if en:
+                variants.append(("en", en))
+                seen.add("en")
+
+        if hreflang not in seen:
+            page = r["translations"].get(hreflang)
+            if page:
+                variants.append((hreflang, page))
+                seen.add(hreflang)
+
+        show_labels = len(variants) > 1
+
+        quote_parts = []
+        for lang, text in variants:
+            label_html = ""
+            if show_labels:
+                label_name = html_escape(LANG_NAMES.get(lang, lang))
+                label_html = (
+                    f'          <div class="quote-lang" lang="{lang}">'
+                    f'{label_name}</div>\n'
+                )
+            text_dir = ' dir="rtl"' if lang == "ar" else ""
+            quote_parts.append(
+                f'{label_html}'
+                f'          <p lang="{lang}"{text_dir}>'
+                f'{html_escape(text)}</p>'
+            )
+        quote_html = "\n".join(quote_parts)
+
+        # Header: stars + name + device + date.
+        rating = r.get("rating", 5)
+        stars = "★" * rating + "☆" * (5 - rating)
+        attribution_bits = [html_escape(r["reviewer"])]
+        if r.get("device"):
+            attribution_bits.append(html_escape(r["device"]))
+        attribution_bits.append(html_escape(format_date(r["date"], hreflang)))
+        meta = " · ".join(attribution_bits)
+
+        cards.append(
+            '    <figure class="review">\n'
+            '      <header class="review-head">\n'
+            f'        <span class="stars" aria-label="{rating} / 5">'
+            f'{stars}</span>\n'
+            f'        <span class="meta">{meta}</span>\n'
+            '      </header>\n'
+            '      <blockquote>\n'
+            f'{quote_html}\n'
+            '      </blockquote>\n'
+            '    </figure>'
+        )
+
+    cards_html = "\n".join(cards)
+    return (
+        '  <section class="reviews" aria-labelledby="reviews-heading">\n'
+        f'    <h2 id="reviews-heading">{heading}</h2>\n'
+        f'{cards_html}\n'
+        f'    <p class="reviews-source">{source_label}</p>\n'
+        '  </section>'
+    )
+
+
 def hreflang_block() -> str:
     lines = []
     for _, slug, hreflang, _, _, _ in LOCALES:
@@ -238,6 +398,7 @@ def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
         "TITLE": html_escape(title),
         "SHORT_DESC": html_escape(short),
         "BODY_HTML": body_html,
+        "REVIEWS_HTML": render_testimonials(hreflang),
         "CANONICAL_URL": store_url(slug),
         "HREFLANG_LINKS": hreflang_block(),
         "LANG_SWITCHER": lang_switcher(slug),

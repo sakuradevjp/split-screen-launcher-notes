@@ -158,6 +158,86 @@
     .shots img { max-width: 320px; margin: 0 auto; }
   }
 
+  /* User reviews / testimonials */
+  .reviews {
+    margin: 56px 0 24px;
+  }
+  .reviews h2 {
+    font-size: 24px;
+    color: var(--primary);
+    margin: 0 0 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #E5E7EB;
+    position: relative;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .reviews h2::before {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 60px; height: 2px;
+    background: var(--primary);
+  }
+  .review {
+    margin: 0 0 20px;
+    padding: 22px 24px;
+    background: var(--bg-soft);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+  }
+  .review-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .review-head .stars {
+    color: #F5A623;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .review-head .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .review blockquote {
+    margin: 0;
+    padding: 0;
+  }
+  .review blockquote p {
+    margin: 0 0 12px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .review blockquote p:last-child {
+    margin-bottom: 0;
+  }
+  .quote-lang {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin: 14px 0 4px;
+    font-weight: 600;
+  }
+  .review blockquote > .quote-lang:first-of-type {
+    margin-top: 0;
+  }
+  .reviews-source {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+  }
+  [dir="rtl"] .review { border-left: none; border-right: 3px solid var(--accent); }
+  [dir="rtl"] .reviews h2::before { left: auto; right: 0; }
+  [dir="rtl"] .reviews-source { text-align: left; }
+
   /* Final CTA */
   .final-cta {
     background: var(--bg-soft);
@@ -224,6 +304,8 @@
       <img src="{{ASSET_BASE}}screenshot2.png" alt="{{TITLE}}">
       <img src="{{ASSET_BASE}}screenshot3.png" alt="{{TITLE}}">
     </div>
+
+{{REVIEWS_HTML}}
 
     <div class="final-cta">
       <p>{{FINAL_CTA_LEAD}}</p>

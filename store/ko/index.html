@@ -173,6 +173,86 @@
     .shots img { max-width: 320px; margin: 0 auto; }
   }
 
+  /* User reviews / testimonials */
+  .reviews {
+    margin: 56px 0 24px;
+  }
+  .reviews h2 {
+    font-size: 24px;
+    color: var(--primary);
+    margin: 0 0 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #E5E7EB;
+    position: relative;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .reviews h2::before {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 60px; height: 2px;
+    background: var(--primary);
+  }
+  .review {
+    margin: 0 0 20px;
+    padding: 22px 24px;
+    background: var(--bg-soft);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+  }
+  .review-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .review-head .stars {
+    color: #F5A623;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .review-head .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .review blockquote {
+    margin: 0;
+    padding: 0;
+  }
+  .review blockquote p {
+    margin: 0 0 12px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .review blockquote p:last-child {
+    margin-bottom: 0;
+  }
+  .quote-lang {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin: 14px 0 4px;
+    font-weight: 600;
+  }
+  .review blockquote > .quote-lang:first-of-type {
+    margin-top: 0;
+  }
+  .reviews-source {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+  }
+  [dir="rtl"] .review { border-left: none; border-right: 3px solid var(--accent); }
+  [dir="rtl"] .reviews h2::before { left: auto; right: 0; }
+  [dir="rtl"] .reviews-source { text-align: left; }
+
   /* Final CTA */
   .final-cta {
     background: var(--bg-soft);
@@ -272,26 +352,69 @@
       <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
     </div>
 
+  <section class="reviews" aria-labelledby="reviews-heading">
+    <h2 id="reviews-heading">사용자 리뷰</h2>
+    <figure class="review">
+      <header class="review-head">
+        <span class="stars" aria-label="5 / 5">★★★★★</span>
+        <span class="meta">Nurudeen E. · Redmi 12C · 2026년 4월 3일</span>
+      </header>
+      <blockquote>
+          <div class="quote-lang" lang="en">English</div>
+          <p lang="en">This is the best app in its category. I just tested several similar apps and they all require you sacrifice your soul and they don't even work reliably. Then I stumbled upon this and it just works. No questions asked, no unnecessary permissions request and it works completely offline. Big thank you to the developers. For anyone finding it difficult to make it work with whatsapp, just make the whatsapp app be at the bottom. I find that to work for me.</p>
+          <div class="quote-lang" lang="ko">한국어</div>
+          <p lang="ko">같은 카테고리에서 최고의 앱. 비슷한 앱 몇 개를 시험해 봤는데, 다들 영혼을 팔라는 수준이고 안정적으로 작동하지도 않았다. 그러다 우연히 이걸 발견했는데, 그냥 잘 된다. 묻는 것도 없고, 불필요한 권한 요청도 없고, 완전히 오프라인으로 작동한다. 개발자분께 진심으로 감사. WhatsApp과 조합이 잘 안 되는 분은 WhatsApp을 아래쪽에 놓아 보세요. 저는 그렇게 해서 잘 됐습니다.</p>
+      </blockquote>
+    </figure>
+    <figure class="review">
+      <header class="review-head">
+        <span class="stars" aria-label="5 / 5">★★★★★</span>
+        <span class="meta">Carlos C. · 2026년 4월 19일</span>
+      </header>
+      <blockquote>
+          <div class="quote-lang" lang="en">English</div>
+          <p lang="en">great productivity tool, what I do is to pair time sink apps with good for me apps; think vlc + anki</p>
+          <div class="quote-lang" lang="ko">한국어</div>
+          <p lang="ko">훌륭한 생산성 도구. 제 활용법은 시간을 잡아먹는 앱과 저에게 도움이 되는 앱을 짝으로 묶는 것. 예를 들어 VLC + Anki 같은 식.</p>
+      </blockquote>
+    </figure>
+    <figure class="review">
+      <header class="review-head">
+        <span class="stars" aria-label="5 / 5">★★★★★</span>
+        <span class="meta">Kazu · moto g24 power · 2026년 5월 16일</span>
+      </header>
+      <blockquote>
+          <div class="quote-lang" lang="pt-BR">Português</div>
+          <p lang="pt-BR">o melhor e grátis pode instalar e top</p>
+          <div class="quote-lang" lang="en">English</div>
+          <p lang="en">The best — and it's free. Install it. Top notch.</p>
+          <div class="quote-lang" lang="ko">한국어</div>
+          <p lang="ko">최고. 게다가 무료. 그냥 깔아라. 갑이다.</p>
+      </blockquote>
+    </figure>
+    <figure class="review">
+      <header class="review-head">
+        <span class="stars" aria-label="5 / 5">★★★★★</span>
+        <span class="meta">Fariz H. · POCO M3 · 2026년 4월 18일</span>
+      </header>
+      <blockquote>
+          <div class="quote-lang" lang="az">Azərbaycanca</div>
+          <p lang="az">çox gözəl</p>
+          <div class="quote-lang" lang="en">English</div>
+          <p lang="en">Very nice.</p>
+          <div class="quote-lang" lang="ko">한국어</div>
+          <p lang="ko">아주 좋다.</p>
+      </blockquote>
+    </figure>
+    <p class="reviews-source">Google Play에서</p>
+  </section>
+
     <div class="final-cta">
       <p>무료, 광고 없음. Google Play에서 시도해 보세요.</p>
       <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen&hl=ko" class="cta-btn">Google Play에서 받기</a>
     </div>
   </div>
 </main>
-
-<section style="max-width:760px;margin:1rem auto 2rem;padding:2rem 16px 0;border-top:1px solid var(--border,#e6e6ee)" aria-label="More from sakuradev">
-  <p style="font-size:.95rem;text-align:center;margin:0 0 1.25rem;color:var(--text-muted,#4a4a5e);letter-spacing:.08em;text-transform:uppercase;font-weight:600">sakuradev의 다른 앱</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem;max-width:640px;margin:0 auto">
-    <a href="https://sakuradevjp.github.io/notikeep-notes/" style="display:flex;align-items:center;gap:.85rem;background:var(--card,#f7f7fb);border:1px solid var(--border,#e6e6ee);border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:inherit">
-      <img src="https://sakuradevjp.github.io/notikeep.svg" alt="" width="32" height="32" style="flex-shrink:0;border-radius:6px;display:block;background:#fff">
-      <span style="line-height:1.4"><strong style="display:block;color:var(--text,#1a1a2e);font-size:.98rem">NotiKeep</strong><span style="color:var(--text-muted,#4a4a5e);font-size:.86rem">모든 Android 알림 저장 — 사진 포함</span></span>
-    </a>
-    <a href="https://sakuradevjp.github.io/" style="display:flex;align-items:center;gap:.85rem;background:var(--card,#f7f7fb);border:1px solid var(--border,#e6e6ee);border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:inherit">
-      <img src="https://sakuradevjp.github.io/avatar.png" alt="" width="32" height="32" style="flex-shrink:0;border-radius:6px;display:block;background:#fff">
-      <span style="line-height:1.4"><strong style="display:block;color:var(--text,#1a1a2e);font-size:.98rem">sakuradev의 모든 앱</strong><span style="color:var(--text-muted,#4a4a5e);font-size:.86rem">Windows 및 Android용 인디 앱</span></span>
-    </a>
-  </div>
-</section>
 
 <footer>
   <div class="container">
