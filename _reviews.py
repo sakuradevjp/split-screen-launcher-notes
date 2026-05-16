@@ -47,87 +47,6 @@ LANG_NAMES = {
 
 REVIEWS = [
     {
-        "id": "vanitha_2026_03_04",
-        "reviewer": "Vanitha Y.",
-        "device": "Redmi A3 Pro",
-        "android": "Android 16 Beta",
-        "rating": 5,
-        "date": _date(2026, 3, 4),
-        "original_lang": "en",
-        "original_text": (
-            "No any ads, Best experience. My Redmi 14C doesn't have this "
-            "split screen option so this app is a blessing for me. Highly "
-            "recommended."
-        ),
-        "translations": {
-            "ja": (
-                "広告ゼロ、最高の体験。私の Redmi 14C には分割画面の機能がないので、"
-                "このアプリは本当に救世主です。強くおすすめします。"
-            ),
-            "ko": (
-                "광고가 하나도 없고, 최고의 경험. 제 Redmi 14C에는 화면 분할 기능이 "
-                "없는데, 이 앱은 정말 구원자예요. 강력 추천합니다."
-            ),
-            "zh-CN": (
-                "完全没有广告，体验超棒。我的 Redmi 14C 没有分屏功能，这个 app "
-                "对我来说就是救星。强烈推荐。"
-            ),
-            "zh-TW": (
-                "完全沒有廣告，體驗超棒。我的 Redmi 14C 沒有分割畫面功能，這個 app "
-                "對我來說就是救星。強烈推薦。"
-            ),
-            "es": (
-                "Sin anuncios, la mejor experiencia. Mi Redmi 14C no tiene la "
-                "opción de pantalla dividida, así que esta app es una bendición "
-                "para mí. Muy recomendada."
-            ),
-            "pt-BR": (
-                "Sem nenhum anúncio, a melhor experiência. Meu Redmi 14C não tem "
-                "a opção de tela dividida, então esse app é uma benção pra mim. "
-                "Super recomendo."
-            ),
-            "fr": (
-                "Aucune pub, la meilleure expérience. Mon Redmi 14C n'a pas "
-                "l'option d'écran partagé, donc cette appli est une bénédiction "
-                "pour moi. Vivement recommandée."
-            ),
-            "de": (
-                "Keine Werbung, beste Erfahrung. Mein Redmi 14C hat keine "
-                "Split-Screen-Option, also ist diese App ein Segen für mich. "
-                "Klare Empfehlung."
-            ),
-            "it": (
-                "Nessuna pubblicità, la migliore esperienza. Il mio Redmi 14C "
-                "non ha l'opzione schermo diviso, quindi questa app è una manna "
-                "dal cielo. Consigliatissima."
-            ),
-            "ru": (
-                "Совсем без рекламы, лучший опыт. На моём Redmi 14C нет опции "
-                "разделённого экрана, поэтому это приложение — настоящее спасение. "
-                "Очень рекомендую."
-            ),
-            "ar": (
-                "بدون إعلانات على الإطلاق، تجربة رائعة. هاتفي Redmi 14C لا يحتوي "
-                "على خاصية تقسيم الشاشة، فهذا التطبيق نعمة بالنسبة لي. أوصي به بشدة."
-            ),
-            "hi": (
-                "कोई विज्ञापन नहीं, सबसे बढ़िया अनुभव। मेरे Redmi 14C में split "
-                "screen का विकल्प नहीं है, इसलिए यह ऐप मेरे लिए वरदान है। ज़ोरदार "
-                "सिफारिश।"
-            ),
-            "th": (
-                "ไม่มีโฆษณาเลย ประสบการณ์ดีที่สุด Redmi 14C ของฉันไม่มีฟีเจอร์ "
-                "แบ่งหน้าจอ แอปนี้เลยเป็นพรสำหรับฉัน แนะนำสุดๆ"
-            ),
-            "vi": (
-                "Không một quảng cáo, trải nghiệm tuyệt nhất. Redmi 14C của mình "
-                "không có chức năng chia màn hình nên app này như cứu tinh. "
-                "Cực kỳ khuyến nghị."
-            ),
-        },
-    },
-
-    {
         "id": "nurudeen_2026_04_03",
         "reviewer": "Nurudeen E.",
         "device": "Redmi 12C",
@@ -255,6 +174,87 @@ REVIEWS = [
                 "hỏi han gì, không xin quyền linh tinh, hoạt động hoàn toàn offline. "
                 "Cảm ơn nhà phát triển rất nhiều. Ai khó dùng cùng WhatsApp thì "
                 "đặt WhatsApp ở dưới — mình làm vậy là chạy."
+            ),
+        },
+    },
+
+    {
+        "id": "vanitha_2026_03_04",
+        "reviewer": "Vanitha Y.",
+        "device": "Redmi A3 Pro",
+        "android": "Android 16 Beta",
+        "rating": 5,
+        "date": _date(2026, 3, 4),
+        "original_lang": "en",
+        "original_text": (
+            "No any ads, Best experience. My Redmi 14C doesn't have this "
+            "split screen option so this app is a blessing for me. Highly "
+            "recommended."
+        ),
+        "translations": {
+            "ja": (
+                "広告ゼロ、最高の体験。私の Redmi 14C には分割画面の機能がないので、"
+                "このアプリは本当に救世主です。強くおすすめします。"
+            ),
+            "ko": (
+                "광고가 하나도 없고, 최고의 경험. 제 Redmi 14C에는 화면 분할 기능이 "
+                "없는데, 이 앱은 정말 구원자예요. 강력 추천합니다."
+            ),
+            "zh-CN": (
+                "完全没有广告，体验超棒。我的 Redmi 14C 没有分屏功能，这个 app "
+                "对我来说就是救星。强烈推荐。"
+            ),
+            "zh-TW": (
+                "完全沒有廣告，體驗超棒。我的 Redmi 14C 沒有分割畫面功能，這個 app "
+                "對我來說就是救星。強烈推薦。"
+            ),
+            "es": (
+                "Sin anuncios, la mejor experiencia. Mi Redmi 14C no tiene la "
+                "opción de pantalla dividida, así que esta app es una bendición "
+                "para mí. Muy recomendada."
+            ),
+            "pt-BR": (
+                "Sem nenhum anúncio, a melhor experiência. Meu Redmi 14C não tem "
+                "a opção de tela dividida, então esse app é uma benção pra mim. "
+                "Super recomendo."
+            ),
+            "fr": (
+                "Aucune pub, la meilleure expérience. Mon Redmi 14C n'a pas "
+                "l'option d'écran partagé, donc cette appli est une bénédiction "
+                "pour moi. Vivement recommandée."
+            ),
+            "de": (
+                "Keine Werbung, beste Erfahrung. Mein Redmi 14C hat keine "
+                "Split-Screen-Option, also ist diese App ein Segen für mich. "
+                "Klare Empfehlung."
+            ),
+            "it": (
+                "Nessuna pubblicità, la migliore esperienza. Il mio Redmi 14C "
+                "non ha l'opzione schermo diviso, quindi questa app è una manna "
+                "dal cielo. Consigliatissima."
+            ),
+            "ru": (
+                "Совсем без рекламы, лучший опыт. На моём Redmi 14C нет опции "
+                "разделённого экрана, поэтому это приложение — настоящее спасение. "
+                "Очень рекомендую."
+            ),
+            "ar": (
+                "بدون إعلانات على الإطلاق، تجربة رائعة. هاتفي Redmi 14C لا يحتوي "
+                "على خاصية تقسيم الشاشة، فهذا التطبيق نعمة بالنسبة لي. أوصي به بشدة."
+            ),
+            "hi": (
+                "कोई विज्ञापन नहीं, सबसे बढ़िया अनुभव। मेरे Redmi 14C में split "
+                "screen का विकल्प नहीं है, इसलिए यह ऐप मेरे लिए वरदान है। ज़ोरदार "
+                "सिफारिश।"
+            ),
+            "th": (
+                "ไม่มีโฆษณาเลย ประสบการณ์ดีที่สุด Redmi 14C ของฉันไม่มีฟีเจอร์ "
+                "แบ่งหน้าจอ แอปนี้เลยเป็นพรสำหรับฉัน แนะนำสุดๆ"
+            ),
+            "vi": (
+                "Không một quảng cáo, trải nghiệm tuyệt nhất. Redmi 14C của mình "
+                "không có chức năng chia màn hình nên app này như cứu tinh. "
+                "Cực kỳ khuyến nghị."
             ),
         },
     },
