@@ -307,12 +307,14 @@ def render_testimonials(hreflang: str) -> str:
             )
         quote_html = "\n".join(quote_parts)
 
-        # Header: stars + name + device + date.
+        # Header: stars + name + device + android version + date.
         rating = r.get("rating", 5)
         stars = "★" * rating + "☆" * (5 - rating)
         attribution_bits = [html_escape(r["reviewer"])]
         if r.get("device"):
             attribution_bits.append(html_escape(r["device"]))
+        if r.get("android"):
+            attribution_bits.append(html_escape(r["android"]))
         attribution_bits.append(html_escape(format_date(r["date"], hreflang)))
         meta = " · ".join(attribution_bits)
 
