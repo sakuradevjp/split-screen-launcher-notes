@@ -269,34 +269,25 @@
       <li><strong>Utilidades de terceros</strong> — apps independientes dedicadas a este único caso de uso. La mayoría se apoya en APIs de SO que se han restringido o eliminado en las últimas versiones de Android, por lo que el catálogo se ha adelgazado bastante.</li>
       <li><strong>Enfoques basados en automatización</strong> — Tasker y similares permiten scriptar el lanzamiento dividido, pero dependen de las mismas primitivas que las apps dedicadas, así que heredan las mismas roturas. Además, el usuario tiene que construir cada par a mano.</li>
     </ul>
-    <p>Con ese trasfondo, estas son las tres alternativas dedicadas más mencionadas en Google Play a principios de 2026:</p>
-    <div class="table-wrap"><table class="compare-table">
-      <thead><tr>
-        <th>Característica</th>
-        <th class="highlight">Split Screen Launcher<br><span style="font-weight:400;color:var(--text-muted);">(sakura.dev.jp)</span></th>
-        <th>Split Screen Launcher<br><span style="font-weight:400;color:var(--text-muted);">(CCS Software Inc.)</span></th>
-        <th>Split Screen Shortcut<br><span style="font-weight:400;color:var(--text-muted);">(Toolhouse)</span></th>
-      </tr></thead>
-      <tbody>
-        <tr><td data-label="Característica">Funciona en Android 15/16</td><td class="highlight" data-label="Esta app"><span class="check">✓</span> Sí</td><td data-label="CCS Software">Parcial / reportes de fallo</td><td data-label="Toolhouse"><span class="cross">✗</span> Reportada como rota</td></tr>
-        <tr><td data-label="Característica">Anuncios (versión gratis)</td><td class="highlight" data-label="Esta app"><span class="check">✓</span> Ninguno</td><td data-label="CCS Software"><span class="cross">✗</span> Banner + intersticial</td><td data-label="Toolhouse"><span class="cross">✗</span> Intersticial</td></tr>
-        <tr><td data-label="Característica">Tamaño del APK</td><td class="highlight" data-label="Esta app">~2,8 MB</td><td data-label="CCS Software">~15 MB</td><td data-label="Toolhouse">~8 MB</td></tr>
-        <tr><td data-label="Característica">Permiso de Accesibilidad</td><td class="highlight" data-label="Esta app">Solo en Android 9–12</td><td data-label="CCS Software">Siempre</td><td data-label="Toolhouse">Siempre</td></tr>
-        <tr><td data-label="Característica">Permiso de red en manifiesto</td><td class="highlight" data-label="Esta app"><span class="check">✓</span> No declarado</td><td data-label="CCS Software">Declarado (anuncios)</td><td data-label="Toolhouse">Declarado (anuncios)</td></tr>
-        <tr><td data-label="Característica">Precio Pro / premium</td><td class="highlight" data-label="Esta app">~1 USD / mes</td><td data-label="CCS Software">Reportado ~₱775 (~13 USD) a nivel local</td><td data-label="Toolhouse">Pago único ~3 USD</td></tr>
-        <tr><td data-label="Característica">Última actualización</td><td class="highlight" data-label="Esta app">Mayo de 2026</td><td data-label="CCS Software">Junio de 2025</td><td data-label="Toolhouse">2023</td></tr>
-      </tbody>
-    </table></div>
-    <p class="caption">Datos de la competencia basados en las fichas de Google Play en mayo de 2026. Los precios varían por región. En pantallas estrechas desplaza horizontalmente.</p>
-    <p>La app de CCS Software es el referente indiscutible de este nicho — más de 1,9 millones de descargas, muy por encima del resto — pero su última actualización es anterior a Android 15, y las reseñas recientes en Google Play se quejan de que ya no abre bien la pantalla dividida en Pixel 8, 9 y 10 con Android 15 o 16. Otra app, "Split Screen Easy Multitasking", cobra <strong>18,99 USD semanales</strong> por las funciones premium, algo muy criticado en hilos de Reddit.</p>
-    <p>Dicho de otro modo: el terreno está inusualmente despejado. Una app pequeña, mantenida activamente y sin anuncios lo tiene fácil para destacar — siempre que los usuarios la encuentren.</p>
+    <p>
+      El propio panorama de terceros está fragmentado. Google Play muestra decenas de utilidades dedicadas a la pantalla dividida, pero la actividad y la calidad están repartidas de forma muy desigual.
+    </p>
+    <p>
+      La app más descargada de este nicho ha superado los <strong>5 millones de instalaciones</strong> en Google Play, pero se mantiene en torno a las <strong>2,4 estrellas</strong>, una combinación poco habitual: gran alcance y, a la vez, una insatisfacción persistente en las reseñas. Otra alternativa muy instalada se actualizó por última vez a mediados de 2025 y todavía no ha publicado ningún parche para los cambios de la API de pantalla dividida de Android 15. Varias más aplican precios agresivos: se ha reportado un plan premium a <strong>18,99 USD a la semana</strong>, algo muy criticado en las comunidades de usuarios.
+    </p>
+    <p>
+      Los patrones comunes en este campo: la mayoría de apps o bien dejaron de actualizarse hacia Android 11 o 12, o vienen con banners y anuncios intersticiales intrusivos, o exigen el permiso de Servicio de Accesibilidad en todas las versiones de Android (nosotros prescindimos de ese requisito en Android 12L+). Eso deja el sector inusualmente escaso en opciones bien mantenidas y con pocos permisos.
+    </p>
+    <p>
+      Una app pequeña, mantenida activamente y sin anuncios como esta lo tiene fácil para destacar — siempre que los usuarios la encuentren.
+    </p>
   </section>
 
   <section id="pricing">
     <h2>6. Precio</h2>
     <p>La versión gratuita limita el número de pares guardados para que el usuario pruebe todo el flujo antes de decidir si encaja con sus hábitos. La funcionalidad básica — crear pares, lanzarlos, copia de seguridad/restauración — funciona sin pagar.</p>
     <p>La suscripción Pro cuesta <strong>alrededor de 1 USD al mes</strong> según la región, elimina el límite de pares y añade organización por carpetas y personalización del color de los iconos. Es una suscripción estándar de Google Play, cancelable en cualquier momento.</p>
-    <p>Como referencia: la versión premium de la app de CCS Software ronda los 13 USD en Filipinas y "Split Screen Easy Multitasking" cobra 18,99 USD semanales. A 1 USD al mes estamos aproximadamente un orden de magnitud por debajo del competidor de pago más cercano.</p>
+    <p>Como referencia: otras utilidades de pantalla dividida de pago en la misma categoría tienen planes premium que van desde un pago único de unos pocos dólares hasta una suscripción semanal de 18,99 USD. A 1 USD al mes estamos aproximadamente un orden de magnitud por debajo del competidor de pago más cercano.</p>
   </section>
 
   <section id="verdict">

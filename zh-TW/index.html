@@ -269,34 +269,25 @@
       <li><strong>第三方工具</strong> — 專注在這一個用例的獨立應用。多數建立在近年 Android 收窄或移除的 OS 級 API 之上，因此這類應用數量已經明顯減少。</li>
       <li><strong>自動化類做法</strong> — Tasker 等工具可以用腳本做分割啟動，但它們依賴與專用應用相同的底層基礎，因此繼承了相同的故障。此外還得使用者自己手動為每組配對撰寫流程。</li>
     </ul>
-    <p>在這個背景下，以下是截至 2026 年初在 Google Play 上最常被提起的三款專用替代品：</p>
-    <div class="table-wrap"><table class="compare-table">
-      <thead><tr>
-        <th>項目</th>
-        <th class="highlight">Split Screen Launcher<br><span style="font-weight:400;color:var(--text-muted);">(sakura.dev.jp)</span></th>
-        <th>Split Screen Launcher<br><span style="font-weight:400;color:var(--text-muted);">(CCS Software Inc.)</span></th>
-        <th>Split Screen Shortcut<br><span style="font-weight:400;color:var(--text-muted);">(Toolhouse)</span></th>
-      </tr></thead>
-      <tbody>
-        <tr><td data-label="項目">Android 15 / 16 可運作</td><td class="highlight" data-label="本應用"><span class="check">✓</span> 可</td><td data-label="CCS Software">部分可 / 有失敗回報</td><td data-label="Toolhouse"><span class="cross">✗</span> 有回報失效</td></tr>
-        <tr><td data-label="項目">廣告（免費版）</td><td class="highlight" data-label="本應用"><span class="check">✓</span> 無</td><td data-label="CCS Software"><span class="cross">✗</span> 橫幅 + 插頁</td><td data-label="Toolhouse"><span class="cross">✗</span> 插頁</td></tr>
-        <tr><td data-label="項目">APK 大小</td><td class="highlight" data-label="本應用">約 2.8 MB</td><td data-label="CCS Software">約 15 MB</td><td data-label="Toolhouse">約 8 MB</td></tr>
-        <tr><td data-label="項目">是否需要無障礙權限</td><td class="highlight" data-label="本應用">僅 Android 9–12</td><td data-label="CCS Software">一律需要</td><td data-label="Toolhouse">一律需要</td></tr>
-        <tr><td data-label="項目">manifest 中的網路權限</td><td class="highlight" data-label="本應用"><span class="check">✓</span> 未宣告</td><td data-label="CCS Software">有宣告（廣告）</td><td data-label="Toolhouse">有宣告（廣告）</td></tr>
-        <tr><td data-label="項目">Pro / 進階版價格</td><td class="highlight" data-label="本應用">約 $1 / 月</td><td data-label="CCS Software">當地回報約 ₱775（~$13）</td><td data-label="Toolhouse">一次性約 $3</td></tr>
-        <tr><td data-label="項目">最近更新</td><td class="highlight" data-label="本應用">2026 年 5 月</td><td data-label="CCS Software">2025 年 6 月</td><td data-label="Toolhouse">2023 年</td></tr>
-      </tbody>
-    </table></div>
-    <p class="caption">競品資料以 2026 年 5 月 Google Play 上架資訊為準。價格因地區而異。螢幕較窄時請橫向滾動。</p>
-    <p>CCS Software 的那款是這個利基市場的龍頭 — 下載量超過 190 萬，遠勝其他任何一款 — 但其最後一次更新還在 Android 15 之前，且 Google Play 上近期的使用者評論反映，在 Android 15 或 16 的 Pixel 8、9、10 上已無法正常進入分割畫面。另一款「Split Screen Easy Multitasking」對進階功能收取 <strong>每週 $18.99</strong>，在 Reddit 上被廣泛批評。</p>
-    <p>換句話說，這個領域目前異常虛弱。像這樣一款輕巧、持續維護、無廣告的應用要脫穎而出很容易 — 前提是使用者找得到。</p>
+    <p>
+      第三方這一塊本身也相當分散。Google Play 上掛著名號做分割畫面的工具有幾十款，但活躍度與品質落差很大。
+    </p>
+    <p>
+      這個利基類別中下載量最高的單一應用在 Google Play 上已突破 <strong>500 萬下載</strong> — 但評分卻只在 <strong>2.4 顆星</strong> 左右徘徊。這是一個少見的組合：曝光量大，評論裡卻長期堆滿不滿。另一款下載量也不小的替代品最後一次更新停留在 2025 年中，至今仍未針對 Android 15 的分割畫面 API 變更推出修正。還有幾款採用相當激進的定價策略 — 有一款進階方案被回報為 <strong>每週 $18.99</strong>，並在使用者社群中引發批評。
+    </p>
+    <p>
+      這個領域常見的幾種模式：大多數應用要嘛在 Android 11–12 前後就停止更新、要嘛內建擾人的橫幅或插頁廣告、要嘛不分 Android 版本一律要求無障礙服務權限（我們在 Android 12L+ 上拿掉了這個要求）。也因此，這個類別在「持續維護、低權限」這條軸線上異常稀薄。
+    </p>
+    <p>
+      像這樣一款輕巧、持續維護、無廣告的應用要脫穎而出很容易 — 前提是使用者找得到。
+    </p>
   </section>
 
   <section id="pricing">
     <h2>6. 價格</h2>
     <p>免費版會對可儲存的配對數量設上限，讓使用者在決定是否符合自己使用習慣前，就能完整體驗整個流程。核心功能 — 建立配對、啟動、備份/還原 — 都無需付費就能使用。</p>
     <p>Pro 訂閱依地區約為 <strong>每月 $1</strong>，可解除配對上限，並新增資料夾整理及圖示顏色自訂。一般的 Google Play 訂閱，可隨時取消。</p>
-    <p>作為參考：同類的 CCS Software 應用在菲律賓當地的進階版價格據回報約 $13，「Split Screen Easy Multitasking」則為每週 $18.99。$1/月大約是最接近的付費競品的十分之一。</p>
+    <p>作為參考：同類別中其他付費分割畫面工具的進階方案，價格從一次性收費幾美元、一路到每週訂閱 $18.99 都有。$1/月大約是最接近的付費競品的十分之一。</p>
   </section>
 
   <section id="verdict">

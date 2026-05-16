@@ -587,69 +587,16 @@
       <li><strong>自動化ベースのアプローチ</strong> — Tasker などのツールで分割起動をスクリプト化できますが、専用アプリと同じプリミティブに依存しているため、同じ故障モードを引き継ぎます。さらに、ペアごとに手作業で作り込む必要があります。</li>
     </ul>
     <p>
-      この背景を踏まえた上で、2026 年初頭時点で Google Play 上で最もよく引き合いに出される専用の代替 3 つを並べます：
-    </p>
-    <div class="table-wrap"><table class="compare-table">
-      <thead>
-        <tr>
-          <th>項目</th>
-          <th class="highlight">Split Screen Launcher<br><span style="font-weight:400; color:var(--text-muted);">(sakura.dev.jp)</span></th>
-          <th>Split Screen Launcher<br><span style="font-weight:400; color:var(--text-muted);">(CCS Software Inc.)</span></th>
-          <th>Split Screen Shortcut<br><span style="font-weight:400; color:var(--text-muted);">(Toolhouse)</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="項目">Android 15 / 16 で動作</td>
-          <td class="highlight" data-label="本アプリ"><span class="check">✓</span> 動作</td>
-          <td data-label="CCS Software">部分的 / 動作不良の報告あり</td>
-          <td data-label="Toolhouse"><span class="cross">✗</span> 動作不能との報告</td>
-        </tr>
-        <tr>
-          <td data-label="項目">広告（無料版）</td>
-          <td class="highlight" data-label="本アプリ"><span class="check">✓</span> なし</td>
-          <td data-label="CCS Software"><span class="cross">✗</span> バナー + インタースティシャル</td>
-          <td data-label="Toolhouse"><span class="cross">✗</span> インタースティシャル</td>
-        </tr>
-        <tr>
-          <td data-label="項目">APK サイズ</td>
-          <td class="highlight" data-label="本アプリ">約 2.8 MB</td>
-          <td data-label="CCS Software">約 15 MB</td>
-          <td data-label="Toolhouse">約 8 MB</td>
-        </tr>
-        <tr>
-          <td data-label="項目">アクセシビリティ権限の要否</td>
-          <td class="highlight" data-label="本アプリ">Android 9〜12 のみ</td>
-          <td data-label="CCS Software">常に必要</td>
-          <td data-label="Toolhouse">常に必要</td>
-        </tr>
-        <tr>
-          <td data-label="項目">マニフェストのネットワーク権限</td>
-          <td class="highlight" data-label="本アプリ"><span class="check">✓</span> 宣言なし</td>
-          <td data-label="CCS Software">宣言あり（広告）</td>
-          <td data-label="Toolhouse">宣言あり（広告）</td>
-        </tr>
-        <tr>
-          <td data-label="項目">Pro / プレミアムの価格</td>
-          <td class="highlight" data-label="本アプリ">月額 約 1 ドル</td>
-          <td data-label="CCS Software">現地で約 ₱775（約 13 ドル）との報告</td>
-          <td data-label="Toolhouse">買い切り 約 3 ドル</td>
-        </tr>
-        <tr>
-          <td data-label="項目">最終更新</td>
-          <td class="highlight" data-label="本アプリ">2026 年 5 月</td>
-          <td data-label="CCS Software">2025 年 6 月</td>
-          <td data-label="Toolhouse">2023 年</td>
-        </tr>
-      </tbody>
-    </table></div>
-    <p class="caption">競合の数字は 2026 年 5 月時点の Google Play 掲載情報に基づきます。価格は地域により異なります。画面が狭いときは横スクロールしてください。</p>
-
-    <p>
-      CCS Software のアプリはこのニッチの王者です — ダウンロード数が 190 万を超え、他を圧倒しています — ですが、最終更新は Android 15 より前であり、最近のユーザーレビューでは Pixel 8 / 9 / 10（Android 15 または 16）で分割画面が正しく起動しないとの苦情が目立ちます。別のアプリ「Split Screen Easy Multitasking」は、プレミアム機能に <strong>週 18.99 ドル</strong> を課金しており、Reddit で広く批判されています。
+      サードパーティの市場自体はかなり断片化しています。Google Play には専用の分割画面ユーティリティが数十本並んでいますが、アクティブさと品質のばらつきが大きい状態です。
     </p>
     <p>
-      つまり、この分野は今、異例なほど弱体化しています。小規模で積極的にメンテされ、広告がないこのようなアプリには、頭 1 つ抜け出すチャンスがあります — 見つけてもらえれば、の話ですが。
+      この分野で最もダウンロードされている 1 本は Google Play で <strong>500 万インストール</strong> を超えていますが、評価は <strong>2.4★ 前後</strong>。リーチは大きいのにレビューに不満が積み上がっているという、珍しい組み合わせです。次点クラスの 1 本は 2025 年中頃以降アップデートが止まっており、Android 15 で変わった分割画面 API への対応が入っていません。値付けの強気なものもあり、あるプレミアム枠は <strong>週 18.99 ドル</strong> と報告されていて、ユーザーコミュニティで批判を集めています。
+    </p>
+    <p>
+      この分野全体の傾向としては、Android 11〜12 あたりでアップデートが止まったもの、目立つバナー / インタースティシャル広告を出すもの、すべての Android バージョンで Accessibility 権限を要求するもの、のいずれかに当てはまるアプリが大半です（本アプリは Android 12L 以降でこの要件を外しています）。結果として、しっかりメンテされていて権限要求が最小、という選択肢は意外なほど薄い分野になっています。
+    </p>
+    <p>
+      小規模で積極的にメンテされ、広告がないこのようなアプリには、頭 1 つ抜け出すチャンスがあります — 見つけてもらえれば、の話ですが。
     </p>
   </section>
 
@@ -662,7 +609,7 @@
       Pro サブスクリプションは地域により <strong>月額約 1 ドル</strong>。ペア数上限を解除し、フォルダ整理とアイコン色のカスタマイズが追加されます。通常の Google Play サブスクなので、いつでもキャンセル可能です。
     </p>
     <p>
-      比較のために：同じカテゴリの CCS Software のアプリのプレミアムはフィリピンで現地価格約 13 ドル相当と報告されており、「Split Screen Easy Multitasking」は週 18.99 ドル。月 1 ドルというのは、近い有料競合のおよそ 1 桁安い水準です。
+      比較のために：同じカテゴリの他の有料分割画面ユーティリティでは、買い切り数ドルから週 18.99 ドルのサブスクまで価格帯が広がっています。月 1 ドルというのは、近い有料競合のおよそ 1 桁安い水準です。
     </p>
   </section>
 

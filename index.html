@@ -560,69 +560,16 @@
       <li><strong>Automation-based approaches</strong> — Tasker and similar tools can script a split-launch, but they rely on the same underlying primitives as dedicated apps, so they inherit the same breakage. They also require users to build each pair manually.</li>
     </ul>
     <p>
-      Against that backdrop, here are the three most commonly cited dedicated alternatives on Google Play as of early 2026:
-    </p>
-    <div class="table-wrap"><table class="compare-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th class="highlight">Split Screen Launcher<br><span style="font-weight:400; color:var(--text-muted);">(sakura.dev.jp)</span></th>
-          <th>Split Screen Launcher<br><span style="font-weight:400; color:var(--text-muted);">(CCS Software Inc.)</span></th>
-          <th>Split Screen Shortcut<br><span style="font-weight:400; color:var(--text-muted);">(Toolhouse)</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Feature">Works on Android 15 / 16</td>
-          <td class="highlight" data-label="This app"><span class="check">✓</span> Yes</td>
-          <td data-label="CCS Software">Partial / reports of failure</td>
-          <td data-label="Toolhouse"><span class="cross">✗</span> Reported broken</td>
-        </tr>
-        <tr>
-          <td data-label="Feature">Ads (free tier)</td>
-          <td class="highlight" data-label="This app"><span class="check">✓</span> None</td>
-          <td data-label="CCS Software"><span class="cross">✗</span> Banner + interstitial</td>
-          <td data-label="Toolhouse"><span class="cross">✗</span> Interstitial</td>
-        </tr>
-        <tr>
-          <td data-label="Feature">APK size</td>
-          <td class="highlight" data-label="This app">~2.8 MB</td>
-          <td data-label="CCS Software">~15 MB</td>
-          <td data-label="Toolhouse">~8 MB</td>
-        </tr>
-        <tr>
-          <td data-label="Feature">Accessibility permission required</td>
-          <td class="highlight" data-label="This app">Only on Android 9–12</td>
-          <td data-label="CCS Software">Always</td>
-          <td data-label="Toolhouse">Always</td>
-        </tr>
-        <tr>
-          <td data-label="Feature">Network permission in manifest</td>
-          <td class="highlight" data-label="This app"><span class="check">✓</span> Not declared</td>
-          <td data-label="CCS Software">Declared (ads)</td>
-          <td data-label="Toolhouse">Declared (ads)</td>
-        </tr>
-        <tr>
-          <td data-label="Feature">Pro / premium price</td>
-          <td class="highlight" data-label="This app">~$1 / month</td>
-          <td data-label="CCS Software">Reported ~₱775 (~$13) locally</td>
-          <td data-label="Toolhouse">One-time ~$3</td>
-        </tr>
-        <tr>
-          <td data-label="Feature">Last update</td>
-          <td class="highlight" data-label="This app">May 2026</td>
-          <td data-label="CCS Software">June 2025</td>
-          <td data-label="Toolhouse">2023</td>
-        </tr>
-      </tbody>
-    </table></div>
-    <p class="caption">Competitor figures based on current Google Play listings as of May 2026. Prices vary by region. Scroll horizontally on narrow screens.</p>
-
-    <p>
-      The CCS Software app is the 800-pound gorilla in this niche — it has 1.9 million+ downloads, far more than anything else — but its last update predates Android 15, and recent user reviews on Google Play complain it no longer launches split view correctly on Pixel 8, 9 and 10 devices running Android 15 or 16. A separate app, "Split Screen Easy Multitasking", charges <strong>$18.99 per week</strong> for premium features, which has been widely criticized in Reddit threads.
+      The third-party landscape itself is fragmented. Google Play surfaces dozens of dedicated split-screen utilities, but activity and quality are unevenly distributed.
     </p>
     <p>
-      In other words, the field is unusually weak right now. A small, actively maintained, ad-free app like this one has an easy path to standing out — but only if users can find it.
+      The single most-downloaded app in this niche has crossed <strong>5 million installs</strong> on Google Play — but sits at around <strong>2.4 stars</strong>, which is an unusual combination: large reach, persistent dissatisfaction in reviews. Another widely-installed alternative was last updated in mid-2025 and hasn't shipped a fix for the Android 15 split-screen API changes. Several others price aggressively — one premium tier has been reported at <strong>$18.99 per week</strong>, which has drawn criticism in user communities.
+    </p>
+    <p>
+      The common patterns across this field: most apps either stopped updating around Android 11–12, ship with intrusive banner or interstitial ads, or require the Accessibility Service permission across all Android versions (we drop that requirement on Android 12L+). That makes the field unusually thin in terms of well-maintained, low-permission options.
+    </p>
+    <p>
+      A small, actively maintained, ad-free app like this one has an easy path to standing out — but only if users can find it.
     </p>
   </section>
 
@@ -635,7 +582,7 @@
       The Pro subscription runs <strong>around $1 / month</strong> depending on region, removes the pair limit, and adds folder organization plus icon color customization. Standard Google Play subscription, cancel anytime.
     </p>
     <p>
-      For context: the same-category CCS Software app's premium tier has been reported at around $13 locally in the Philippines, and "Split Screen Easy Multitasking" charges $18.99/week. At $1/month this is roughly an order of magnitude cheaper than the closest paid competitor.
+      For context: other paid split-screen utilities in the same category have premium tiers ranging from a one-time fee of a few dollars up to a weekly subscription of $18.99. At $1/month this is roughly an order of magnitude cheaper than the closest paid competitor.
     </p>
   </section>
 
