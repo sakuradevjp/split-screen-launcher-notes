@@ -42,6 +42,7 @@ LANG_NAMES = {
     "th":    "ไทย",
     "vi":    "Tiếng Việt",
     "az":    "Azərbaycanca",
+    "nl":    "Nederlands",
 }
 
 
@@ -384,6 +385,34 @@ REVIEWS = [
             "hi":    "बहुत बढ़िया।",
             "th":    "เยี่ยมมาก",
             "vi":    "Rất tuyệt.",
+        },
+    },
+
+    {
+        "id": "sam_2026_05_17",
+        "reviewer": "Sam G.",
+        "device": "Vivo Y200 Pro 5G",
+        "android": "Android 15",
+        "rating": 5,
+        "date": _date(2026, 5, 17),
+        "original_lang": "nl",
+        "original_text": "op",
+        "translations": {
+            "en":    "OP (overpowered).",
+            "ja":    "やばい。",
+            "ko":    "최강.",
+            "zh-CN": "无敌。",
+            "zh-TW": "無敵。",
+            "es":    "Brutal.",
+            "pt-BR": "Demais.",
+            "fr":    "Une tuerie.",
+            "de":    "Krass.",
+            "it":    "Una bomba.",
+            "ru":    "Имба.",
+            "ar":    "خرافي.",
+            "hi":    "ज़बरदस्त।",
+            "th":    "เทพมาก",
+            "vi":    "Bá đạo.",
         },
     },
 ]
