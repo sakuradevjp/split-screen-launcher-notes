@@ -261,6 +261,74 @@ REVIEWS = [
     },
 
     {
+        "id": "pramila_2026_05_20",
+        "reviewer": "Pramila M.",
+        "device": "Redmi 10 Prime",
+        "android": "Android 11",
+        "rating": 5,
+        "date": _date(2026, 5, 20),
+        "original_lang": "en",
+        "original_text": (
+            "Wow, actually great, cuz it has no ads and it's very simple "
+            "to use, nice UI."
+        ),
+        "translations": {
+            "ja": (
+                "うわ、これ普通にすごい。広告がないし、使い方もすごくシンプル、"
+                "UIもいい。"
+            ),
+            "ko": (
+                "와, 진짜 좋다. 광고도 없고 쓰기도 아주 간단하고, UI도 깔끔하다."
+            ),
+            "zh-CN": (
+                "哇，真的不错，因为没有广告，用起来很简单，UI 也好看。"
+            ),
+            "zh-TW": (
+                "哇，真的不錯，因為沒有廣告，用起來很簡單，UI 也好看。"
+            ),
+            "es": (
+                "Vaya, la verdad que genial: no tiene anuncios, es muy fácil "
+                "de usar y la interfaz está muy bien."
+            ),
+            "pt-BR": (
+                "Nossa, muito bom mesmo — não tem anúncios, é super fácil de "
+                "usar e a interface é ótima."
+            ),
+            "fr": (
+                "Waouh, vraiment top : aucune pub, très simple à utiliser, "
+                "et une belle interface."
+            ),
+            "de": (
+                "Wow, echt klasse — keine Werbung, super einfach zu bedienen "
+                "und eine schöne Oberfläche."
+            ),
+            "it": (
+                "Wow, davvero ottima: niente pubblicità, facilissima da usare "
+                "e una bella interfaccia."
+            ),
+            "ru": (
+                "Ого, реально здорово — никакой рекламы, очень просто "
+                "пользоваться, и интерфейс приятный."
+            ),
+            "ar": (
+                "واو، رائع فعلًا — بدون إعلانات، وسهل الاستخدام جدًا، "
+                "وواجهة جميلة."
+            ),
+            "hi": (
+                "वाह, सच में बढ़िया — कोई विज्ञापन नहीं, इस्तेमाल करना बहुत "
+                "आसान, और UI भी अच्छा।"
+            ),
+            "th": (
+                "ว้าว ดีจริง ๆ ไม่มีโฆษณา ใช้งานง่ายมาก แล้ว UI ก็สวย"
+            ),
+            "vi": (
+                "Ồ, thật sự tuyệt — không có quảng cáo, dùng rất đơn giản, "
+                "giao diện đẹp."
+            ),
+        },
+    },
+
+    {
         "id": "carlos_2026_04_19",
         "reviewer": "Carlos C.",
         "device": None,  # Play Console returned "-"
@@ -413,74 +481,6 @@ REVIEWS = [
             "hi":    "ज़बरदस्त।",
             "th":    "เทพมาก",
             "vi":    "Bá đạo.",
-        },
-    },
-
-    {
-        "id": "pramila_2026_05_20",
-        "reviewer": "Pramila M.",
-        "device": "Redmi 10 Prime",
-        "android": "Android 11",
-        "rating": 5,
-        "date": _date(2026, 5, 20),
-        "original_lang": "en",
-        "original_text": (
-            "Wow, actually great, cuz it has no ads and it's very simple "
-            "to use, nice UI."
-        ),
-        "translations": {
-            "ja": (
-                "うわ、これ普通にすごい。広告がないし、使い方もすごくシンプル、"
-                "UIもいい。"
-            ),
-            "ko": (
-                "와, 진짜 좋다. 광고도 없고 쓰기도 아주 간단하고, UI도 깔끔하다."
-            ),
-            "zh-CN": (
-                "哇，真的不错，因为没有广告，用起来很简单，UI 也好看。"
-            ),
-            "zh-TW": (
-                "哇，真的不錯，因為沒有廣告，用起來很簡單，UI 也好看。"
-            ),
-            "es": (
-                "Vaya, la verdad que genial: no tiene anuncios, es muy fácil "
-                "de usar y la interfaz está muy bien."
-            ),
-            "pt-BR": (
-                "Nossa, muito bom mesmo — não tem anúncios, é super fácil de "
-                "usar e a interface é ótima."
-            ),
-            "fr": (
-                "Waouh, vraiment top : aucune pub, très simple à utiliser, "
-                "et une belle interface."
-            ),
-            "de": (
-                "Wow, echt klasse — keine Werbung, super einfach zu bedienen "
-                "und eine schöne Oberfläche."
-            ),
-            "it": (
-                "Wow, davvero ottima: niente pubblicità, facilissima da usare "
-                "e una bella interfaccia."
-            ),
-            "ru": (
-                "Ого, реально здорово — никакой рекламы, очень просто "
-                "пользоваться, и интерфейс приятный."
-            ),
-            "ar": (
-                "واو، رائع فعلًا — بدون إعلانات، وسهل الاستخدام جدًا، "
-                "وواجهة جميلة."
-            ),
-            "hi": (
-                "वाह, सच में बढ़िया — कोई विज्ञापन नहीं, इस्तेमाल करना बहुत "
-                "आसान, और UI भी अच्छा।"
-            ),
-            "th": (
-                "ว้าว ดีจริง ๆ ไม่มีโฆษณา ใช้งานง่ายมาก แล้ว UI ก็สวย"
-            ),
-            "vi": (
-                "Ồ, thật sự tuyệt — không có quảng cáo, dùng rất đơn giản, "
-                "giao diện đẹp."
-            ),
         },
     },
 ]
