@@ -5,8 +5,8 @@ Each entry has:
   - id            stable slug
   - reviewer      display name (rounded for privacy: "Nurudeen E.")
   - device        device model (or None when unknown)
-  - android       Android version label (e.g. "Android 14") — kept for
-                  data completeness but not currently shown on cards
+  - android       Android version label (e.g. "Android 14") — shown in
+                  the card header next to the reviewer and device
   - rating        integer 1–5
   - date          ISO date "YYYY-MM-DD"; per-locale formatting happens
                   in _build.py
