@@ -457,6 +457,33 @@ REVIEWS = [
     },
 
     {
+        "id": "musse_2026_05_26",
+        "reviewer": "Musse G.",
+        "device": "Galaxy A11",
+        "android": "Android 10",
+        "rating": 5,
+        "date": _date(2026, 5, 26),
+        "original_lang": "en",
+        "original_text": "perfect",
+        "translations": {
+            "ja":    "完璧。",
+            "ko":    "완벽.",
+            "zh-CN": "完美。",
+            "zh-TW": "完美。",
+            "es":    "Perfecta.",
+            "pt-BR": "Perfeita.",
+            "fr":    "Parfaite.",
+            "de":    "Perfekt.",
+            "it":    "Perfetta.",
+            "ru":    "Идеально.",
+            "ar":    "ممتاز.",
+            "hi":    "एकदम परफेक्ट।",
+            "th":    "สมบูรณ์แบบ",
+            "vi":    "Hoàn hảo.",
+        },
+    },
+
+    {
         "id": "sam_2026_05_17",
         "reviewer": "Sam G.",
         "device": "Vivo Y200 Pro 5G",
