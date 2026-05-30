@@ -48,6 +48,144 @@ LANG_NAMES = {
 
 REVIEWS = [
     {
+        "id": "dipesh_2026_05_30",
+        "reviewer": "Dipesh N.",
+        "device": None,  # Android CarPlay AI Box (not a Play-listed device)
+        "android": None,  # Play Console returned no androidOsVersion
+        "rating": 5,
+        "date": _date(2026, 5, 30),
+        "original_lang": "en",
+        "original_text": (
+            "I just purchased this app after trying out a few other apps "
+            "(that did not work). I sure am glad I got it. I run this app "
+            "in my BYD Sealion 7 android car play AI box and it works as "
+            "promised. No complex handling. Plain and simple pairing of "
+            "any apps. I normally run maps with Spotify and when my wife "
+            "is in the passenger seat, I run maps with Netflix (for her). "
+            "Kudos to you for creating this wonderful app. Keep updating. "
+            "Thanks"
+        ),
+        "translations": {
+            "ja": (
+                "他のアプリをいくつか試して(どれも動かなかった)からこのアプリを購入しました。"
+                "買って本当によかった。BYD Sealion 7 の Android CarPlay AI Box で"
+                "動かしてるんですが、書かれた通りに動きます。複雑な操作は一切なし、"
+                "どんなアプリでもシンプルにペアにできる。普段は地図と Spotify、"
+                "助手席に妻が乗っているときは地図と Netflix (妻用)。"
+                "素晴らしいアプリを作ってくれてありがとう。これからもアップデート続けてください。"
+            ),
+            "ko": (
+                "다른 앱을 몇 개 시도해 본 뒤(전부 작동하지 않았어요) 이 앱을 구입했어요. "
+                "사길 정말 잘했다 싶습니다. 제 BYD Sealion 7의 Android CarPlay AI Box에서 "
+                "돌리는데, 약속한 대로 작동합니다. 복잡한 조작은 없고, 어떤 앱이든 "
+                "그냥 간단하게 페어로 묶을 수 있어요. 평소엔 지도 + Spotify, 조수석에 "
+                "아내가 있을 때는 지도 + Netflix(아내용)로 씁니다. 멋진 앱을 만들어 "
+                "주셔서 감사합니다. 계속 업데이트 부탁드려요. 고맙습니다."
+            ),
+            "zh-CN": (
+                "试了几个别的 app 都不行，然后买了这个。买对了。我在 BYD 海狮 07 的 "
+                "Android CarPlay AI Box 上跑这个 app，效果跟介绍的一样。完全没有复杂的"
+                "操作，任何应用都能简单地配对。我平时用地图 + Spotify，老婆坐副驾时就用"
+                "地图 + Netflix（给她看）。感谢你们做出这么棒的 app。请继续更新。谢谢。"
+            ),
+            "zh-TW": (
+                "試了幾個別的 app 都不行，然後買了這個。買對了。我在 BYD Sealion 7 的 "
+                "Android CarPlay AI Box 上跑這個 app，效果跟介紹的一樣。完全沒有複雜的"
+                "操作，任何應用都能簡單地配對。我平常用地圖 + Spotify，老婆坐副駕時就用"
+                "地圖 + Netflix（給她看）。感謝你們做出這麼棒的 app。請繼續更新。謝謝。"
+            ),
+            "es": (
+                "Después de probar otras apps (que no funcionaron) compré esta. Y qué "
+                "bien hice. La uso en el AI Box de Android CarPlay de mi BYD Sealion 7 "
+                "y funciona como prometen. Sin nada complicado, simplemente puedes "
+                "emparejar cualquier app. Yo suelo poner mapas con Spotify, y cuando "
+                "mi esposa va de copiloto, mapas con Netflix (para ella). Mil gracias "
+                "por crear esta gran app. Sigan actualizando. Gracias."
+            ),
+            "pt-BR": (
+                "Depois de testar outros apps (que não funcionaram), comprei este. E "
+                "que bom que comprei. Rodo ele no AI Box do Android CarPlay do meu BYD "
+                "Sealion 7 e funciona como prometido. Nada complicado, é só emparelhar "
+                "qualquer app, de forma simples. Geralmente uso mapas com Spotify, e "
+                "quando minha esposa está no banco do passageiro, mapas com Netflix "
+                "(pra ela). Parabéns por criar esse app maravilhoso. Continuem "
+                "atualizando. Obrigado."
+            ),
+            "fr": (
+                "Après avoir essayé d'autres applis (qui ne marchaient pas), j'ai "
+                "acheté celle-ci. Je suis bien content de l'avoir prise. Je l'utilise "
+                "sur l'AI Box Android CarPlay de ma BYD Sealion 7 et elle fonctionne "
+                "comme promis. Aucune manipulation compliquée, on jumelle simplement "
+                "n'importe quelles applis. D'habitude j'utilise cartes + Spotify, et "
+                "quand ma femme est sur le siège passager, cartes + Netflix (pour "
+                "elle). Bravo pour cette super appli. Continuez à la mettre à jour. "
+                "Merci."
+            ),
+            "de": (
+                "Nach ein paar anderen Apps (die nicht funktionierten) habe ich diese "
+                "gekauft. Und das war eine gute Entscheidung. Ich nutze sie auf der "
+                "Android-CarPlay-AI-Box in meinem BYD Sealion 7 und sie funktioniert "
+                "genau wie versprochen. Keine komplizierte Bedienung, einfach "
+                "beliebige Apps koppeln. Normalerweise nutze ich Karten + Spotify, "
+                "und wenn meine Frau auf dem Beifahrersitz sitzt, Karten + Netflix "
+                "(für sie). Vielen Dank für diese großartige App. Bitte weiter "
+                "updaten. Danke."
+            ),
+            "it": (
+                "Dopo aver provato altre app (che non funzionavano) ho comprato "
+                "questa. Sono davvero contento di averlo fatto. La uso sull'AI Box "
+                "Android CarPlay della mia BYD Sealion 7 e funziona come promesso. "
+                "Nessuna gestione complicata, basta abbinare qualunque app. Di solito "
+                "uso mappe + Spotify, e quando mia moglie è sul sedile passeggero, "
+                "mappe + Netflix (per lei). Complimenti per questa fantastica app. "
+                "Continuate ad aggiornarla. Grazie."
+            ),
+            "ru": (
+                "После того как попробовал ещё пару приложений (которые не заработали), "
+                "купил это. И очень рад, что купил. Использую его на Android CarPlay "
+                "AI Box в моей BYD Sealion 7, и оно работает как обещано. Никаких "
+                "сложных настроек, просто пара любых приложений. Обычно у меня карты "
+                "+ Spotify, а когда жена на пассажирском сиденье — карты + Netflix "
+                "(для неё). Огромное спасибо за такое прекрасное приложение. "
+                "Продолжайте обновлять. Спасибо."
+            ),
+            "ar": (
+                "بعد أن جرّبت بضع تطبيقات أخرى (لم تعمل) اشتريت هذا التطبيق. وأنا "
+                "سعيد جدًا أنني فعلت. أشغّله على جهاز Android CarPlay AI Box في "
+                "سيارتي BYD Sealion 7 ويعمل كما هو موعود. لا توجد إعدادات معقدة، "
+                "فقط إقران بسيط لأي تطبيقات. عادةً أشغّل الخرائط مع Spotify، وعندما "
+                "تكون زوجتي في مقعد الراكب، الخرائط مع Netflix (لها). شكرًا لكم "
+                "على هذا التطبيق الرائع. واصلوا التحديثات. شكرًا."
+            ),
+            "hi": (
+                "कुछ और apps आज़माने के बाद (जो काम नहीं किए), मैंने यह app खरीदा। और सच "
+                "में, खरीदा अच्छा किया। मैं इसे अपनी BYD Sealion 7 के Android CarPlay "
+                "AI Box में चलाता हूँ — जैसा बताया गया था, वैसा ही चलता है। कोई पेचीदा "
+                "सेटिंग नहीं, बस किसी भी app को आसानी से pair कर लो। आम तौर पर मैं "
+                "Maps + Spotify, और जब पत्नी पैसेंजर सीट पर हो तो Maps + Netflix "
+                "(उनके लिए)। इतना बढ़िया app बनाने के लिए शुक्रिया। updates जारी रखें। "
+                "धन्यवाद।"
+            ),
+            "th": (
+                "หลังจากที่ลองแอปอื่นไม่กี่ตัว (ใช้ไม่ได้) ผมก็ซื้อแอปนี้ ดีใจมากที่ซื้อ "
+                "ผมใช้บน Android CarPlay AI Box ใน BYD Sealion 7 ของผม ทำงานตามที่บอกไว้เป๊ะ "
+                "ไม่มีอะไรซับซ้อน แค่จับคู่แอปไหนก็ได้ง่ายๆ ปกติผมใช้แผนที่ + Spotify "
+                "และเมื่อภรรยานั่งข้างจะใช้แผนที่ + Netflix (สำหรับเธอ) ขอบคุณที่ทำแอป"
+                "ดีๆ แบบนี้ อัปเดตต่อไปนะครับ ขอบคุณครับ"
+            ),
+            "vi": (
+                "Sau khi thử vài app khác (đều không chạy được), mình đã mua app này. "
+                "Mua xong thấy đúng đắn lắm. Mình chạy trên AI Box Android CarPlay "
+                "của xe BYD Sealion 7, và app chạy đúng như quảng cáo. Không thao "
+                "tác phức tạp gì cả, cứ thế ghép cặp bất kỳ app nào. Bình thường "
+                "mình dùng Maps + Spotify, còn khi vợ ngồi ghế phụ thì Maps + Netflix "
+                "(cho vợ). Cảm ơn rất nhiều vì đã làm ra app tuyệt vời này. Mong "
+                "tiếp tục cập nhật. Cảm ơn."
+            ),
+        },
+    },
+
+    {
         "id": "nurudeen_2026_04_03",
         "reviewer": "Nurudeen E.",
         "device": "Redmi 12C",
