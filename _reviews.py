@@ -48,6 +48,138 @@ LANG_NAMES = {
 
 REVIEWS = [
     {
+        "id": "nurudeen_2026_04_03",
+        "reviewer": "Nurudeen E.",
+        "device": "Redmi 12C",
+        "android": "Android 14",
+        "rating": 5,
+        "date": _date(2026, 4, 3),
+        "original_lang": "en",
+        "original_text": (
+            "This is the best app in its category. I just tested several "
+            "similar apps and they all require you sacrifice your soul and "
+            "they don't even work reliably. Then I stumbled upon this and "
+            "it just works. No questions asked, no unnecessary permissions "
+            "request and it works completely offline. Big thank you to the "
+            "developers. For anyone finding it difficult to make it work "
+            "with whatsapp, just make the whatsapp app be at the bottom. "
+            "I find that to work for me."
+        ),
+        "translations": {
+            "ja": (
+                "同カテゴリで最高のアプリ。似たアプリをいくつか試したけど、"
+                "どれも魂を売れと言わんばかりで、しかもまともに動かない。"
+                "そこで偶然見つけたのがこれ。とにかく、ちゃんと動く。"
+                "質問もなし、不要な権限要求もなし、完全オフラインで動作する。"
+                "開発者に心からの感謝を。WhatsAppと組み合わせがうまくいかない人は、"
+                "WhatsAppを下に置くといい。私はそれでうまくいった。"
+            ),
+            "ko": (
+                "같은 카테고리에서 최고의 앱. 비슷한 앱 몇 개를 시험해 봤는데, "
+                "다들 영혼을 팔라는 수준이고 안정적으로 작동하지도 않았다. "
+                "그러다 우연히 이걸 발견했는데, 그냥 잘 된다. 묻는 것도 없고, "
+                "불필요한 권한 요청도 없고, 완전히 오프라인으로 작동한다. "
+                "개발자분께 진심으로 감사. WhatsApp과 조합이 잘 안 되는 분은 "
+                "WhatsApp을 아래쪽에 놓아 보세요. 저는 그렇게 해서 잘 됐습니다."
+            ),
+            "zh-CN": (
+                "这是同类应用里最好的一个。我刚试了几个类似的应用，每一个都要让你"
+                "出卖灵魂，而且还不稳定。后来偶然发现了这款，它就是能用。不问东问西，"
+                "不要求多余权限，完全离线也能工作。非常感谢开发者。如果 WhatsApp "
+                "总是用不顺，把 WhatsApp 放到下面试试。我就是这样搞定的。"
+            ),
+            "zh-TW": (
+                "這是同類應用裡最好的一個。我剛試了幾個類似的應用，每一個都要你"
+                "出賣靈魂，而且還不穩定。後來偶然發現了這款，它就是能用。不問東問西，"
+                "不要求多餘權限，完全離線也能運作。非常感謝開發者。如果 WhatsApp "
+                "總是用不順，把 WhatsApp 放到下面試試。我就是這樣搞定的。"
+            ),
+            "es": (
+                "Es la mejor app de su categoría. Probé varias parecidas y todas "
+                "te piden venderles el alma, y ni siquiera funcionan bien. Después "
+                "di con esta y simplemente funciona. Sin preguntas, sin permisos "
+                "innecesarios, totalmente offline. Mil gracias a los desarrolladores. "
+                "Si te cuesta hacerlo funcionar con WhatsApp, pon la app de WhatsApp "
+                "abajo. A mí me funcionó."
+            ),
+            "pt-BR": (
+                "É o melhor app da categoria. Testei vários parecidos e todos pediam "
+                "você vender a alma, e nem funcionavam direito. Aí encontrei esse e "
+                "simplesmente funciona. Sem perguntas, sem permissões desnecessárias, "
+                "totalmente offline. Muito obrigado aos desenvolvedores. Se estiver "
+                "difícil fazer funcionar com o WhatsApp, deixa o WhatsApp embaixo. "
+                "Comigo deu certo assim."
+            ),
+            "fr": (
+                "C'est la meilleure appli de sa catégorie. J'ai testé plusieurs apps "
+                "similaires, elles te demandent toutes de vendre ton âme, et en plus "
+                "elles marchent mal. Puis je suis tombé sur celle-ci et ça marche, "
+                "point. Pas de questions, pas de permissions inutiles, totalement "
+                "hors ligne. Un grand merci aux développeurs. Si tu galères à la "
+                "faire marcher avec WhatsApp, mets WhatsApp en bas. Chez moi ça a "
+                "fonctionné."
+            ),
+            "de": (
+                "Die beste App in dieser Kategorie. Ich habe gerade mehrere ähnliche "
+                "Apps getestet — alle wollen, dass man seine Seele verkauft, und "
+                "laufen trotzdem nicht zuverlässig. Dann bin ich über diese "
+                "gestolpert, und sie funktioniert einfach. Keine Fragen, keine "
+                "unnötigen Berechtigungen, komplett offline. Großes Dankeschön an "
+                "die Entwickler. Wenn es mit WhatsApp schwierig wird: WhatsApp "
+                "einfach unten platzieren. Bei mir hat das geholfen."
+            ),
+            "it": (
+                "È la migliore app nella sua categoria. Ne ho appena provate diverse "
+                "simili — tutte ti chiedono di vendere l'anima e in più non funzionano "
+                "nemmeno bene. Poi mi sono imbattuto in questa e semplicemente "
+                "funziona. Nessuna domanda, nessun permesso superfluo, completamente "
+                "offline. Un grande grazie agli sviluppatori. Se fai fatica a farla "
+                "funzionare con WhatsApp, metti WhatsApp in basso. A me ha funzionato "
+                "così."
+            ),
+            "ru": (
+                "Лучшее приложение в своей категории. Только что попробовал несколько "
+                "похожих — все требуют продать душу и при этом нормально не работают. "
+                "А потом наткнулся на это, и оно просто работает. Без вопросов, без "
+                "лишних разрешений, полностью офлайн. Большое спасибо разработчикам. "
+                "Если не получается подружить с WhatsApp, поставьте WhatsApp вниз — "
+                "у меня сработало."
+            ),
+            "ar": (
+                "هذا أفضل تطبيق في فئته. جرّبت للتو عدة تطبيقات مشابهة، وكلها تطلب "
+                "منك أن تبيع روحك، ومع ذلك لا تعمل بشكل موثوق. ثم صادفت هذا التطبيق، "
+                "وهو ببساطة يعمل. بدون أسئلة، بدون أذونات زائدة، ويعمل تمامًا دون "
+                "اتصال. ألف شكر للمطوّرين. لمن يجد صعوبة في تشغيله مع واتساب: ضع "
+                "واتساب في الأسفل. هذا ما نجح معي."
+            ),
+            "hi": (
+                "अपनी श्रेणी में यह सबसे अच्छा ऐप है। मैंने अभी कई ऐसे ही ऐप आज़माए — "
+                "सब आपकी आत्मा बेचने को कहते हैं, और फिर भी ठीक से काम नहीं करते। "
+                "फिर मुझे यह मिला और यह बस काम करता है। न कोई सवाल, न ज़रूरत से ज़्यादा "
+                "अनुमतियाँ, पूरी तरह ऑफ़लाइन। डेवलपर्स का बहुत-बहुत धन्यवाद। अगर "
+                "WhatsApp के साथ चलाने में दिक्कत हो, तो WhatsApp को सबसे नीचे रखें — "
+                "मेरे लिए तो यही काम कर गया।"
+            ),
+            "th": (
+                "เป็นแอปที่ดีที่สุดในประเภทนี้ ผมเพิ่งลองหลายแอปที่คล้ายกัน "
+                "ทุกตัวเหมือนต้องขายวิญญาณ แถมยังทำงานไม่เสถียร "
+                "แล้วก็มาเจอตัวนี้ มันก็แค่ใช้งานได้ ไม่ถามอะไรเยอะ "
+                "ไม่ขอสิทธิ์เกินจำเป็น ทำงานออฟไลน์ได้ทั้งหมด ขอบคุณนักพัฒนามากครับ "
+                "ถ้าใครใช้กับ WhatsApp ไม่ลง ลองย้าย WhatsApp ไปไว้ด้านล่าง "
+                "ของผมแบบนั้นใช้ได้"
+            ),
+            "vi": (
+                "Đây là ứng dụng tốt nhất trong cùng loại. Mình vừa thử vài app "
+                "tương tự — cái nào cũng đòi bạn bán linh hồn, mà còn chạy không "
+                "ổn định. Rồi mình tình cờ thấy app này — nó cứ thế chạy. Không "
+                "hỏi han gì, không xin quyền linh tinh, hoạt động hoàn toàn offline. "
+                "Cảm ơn nhà phát triển rất nhiều. Ai khó dùng cùng WhatsApp thì "
+                "đặt WhatsApp ở dưới — mình làm vậy là chạy."
+            ),
+        },
+    },
+
+    {
         "id": "dipesh_2026_05_30",
         "reviewer": "Dipesh N.",
         "device": None,  # Android CarPlay AI Box (not a Play-listed device)
@@ -183,138 +315,6 @@ REVIEWS = [
                 "mình dùng Maps + Spotify, còn khi vợ ngồi ghế phụ thì Maps + Netflix "
                 "(cho vợ). Cảm ơn rất nhiều vì đã làm ra app tuyệt vời này. Mong "
                 "tiếp tục cập nhật. Cảm ơn."
-            ),
-        },
-    },
-
-    {
-        "id": "nurudeen_2026_04_03",
-        "reviewer": "Nurudeen E.",
-        "device": "Redmi 12C",
-        "android": "Android 14",
-        "rating": 5,
-        "date": _date(2026, 4, 3),
-        "original_lang": "en",
-        "original_text": (
-            "This is the best app in its category. I just tested several "
-            "similar apps and they all require you sacrifice your soul and "
-            "they don't even work reliably. Then I stumbled upon this and "
-            "it just works. No questions asked, no unnecessary permissions "
-            "request and it works completely offline. Big thank you to the "
-            "developers. For anyone finding it difficult to make it work "
-            "with whatsapp, just make the whatsapp app be at the bottom. "
-            "I find that to work for me."
-        ),
-        "translations": {
-            "ja": (
-                "同カテゴリで最高のアプリ。似たアプリをいくつか試したけど、"
-                "どれも魂を売れと言わんばかりで、しかもまともに動かない。"
-                "そこで偶然見つけたのがこれ。とにかく、ちゃんと動く。"
-                "質問もなし、不要な権限要求もなし、完全オフラインで動作する。"
-                "開発者に心からの感謝を。WhatsAppと組み合わせがうまくいかない人は、"
-                "WhatsAppを下に置くといい。私はそれでうまくいった。"
-            ),
-            "ko": (
-                "같은 카테고리에서 최고의 앱. 비슷한 앱 몇 개를 시험해 봤는데, "
-                "다들 영혼을 팔라는 수준이고 안정적으로 작동하지도 않았다. "
-                "그러다 우연히 이걸 발견했는데, 그냥 잘 된다. 묻는 것도 없고, "
-                "불필요한 권한 요청도 없고, 완전히 오프라인으로 작동한다. "
-                "개발자분께 진심으로 감사. WhatsApp과 조합이 잘 안 되는 분은 "
-                "WhatsApp을 아래쪽에 놓아 보세요. 저는 그렇게 해서 잘 됐습니다."
-            ),
-            "zh-CN": (
-                "这是同类应用里最好的一个。我刚试了几个类似的应用，每一个都要让你"
-                "出卖灵魂，而且还不稳定。后来偶然发现了这款，它就是能用。不问东问西，"
-                "不要求多余权限，完全离线也能工作。非常感谢开发者。如果 WhatsApp "
-                "总是用不顺，把 WhatsApp 放到下面试试。我就是这样搞定的。"
-            ),
-            "zh-TW": (
-                "這是同類應用裡最好的一個。我剛試了幾個類似的應用，每一個都要你"
-                "出賣靈魂，而且還不穩定。後來偶然發現了這款，它就是能用。不問東問西，"
-                "不要求多餘權限，完全離線也能運作。非常感謝開發者。如果 WhatsApp "
-                "總是用不順，把 WhatsApp 放到下面試試。我就是這樣搞定的。"
-            ),
-            "es": (
-                "Es la mejor app de su categoría. Probé varias parecidas y todas "
-                "te piden venderles el alma, y ni siquiera funcionan bien. Después "
-                "di con esta y simplemente funciona. Sin preguntas, sin permisos "
-                "innecesarios, totalmente offline. Mil gracias a los desarrolladores. "
-                "Si te cuesta hacerlo funcionar con WhatsApp, pon la app de WhatsApp "
-                "abajo. A mí me funcionó."
-            ),
-            "pt-BR": (
-                "É o melhor app da categoria. Testei vários parecidos e todos pediam "
-                "você vender a alma, e nem funcionavam direito. Aí encontrei esse e "
-                "simplesmente funciona. Sem perguntas, sem permissões desnecessárias, "
-                "totalmente offline. Muito obrigado aos desenvolvedores. Se estiver "
-                "difícil fazer funcionar com o WhatsApp, deixa o WhatsApp embaixo. "
-                "Comigo deu certo assim."
-            ),
-            "fr": (
-                "C'est la meilleure appli de sa catégorie. J'ai testé plusieurs apps "
-                "similaires, elles te demandent toutes de vendre ton âme, et en plus "
-                "elles marchent mal. Puis je suis tombé sur celle-ci et ça marche, "
-                "point. Pas de questions, pas de permissions inutiles, totalement "
-                "hors ligne. Un grand merci aux développeurs. Si tu galères à la "
-                "faire marcher avec WhatsApp, mets WhatsApp en bas. Chez moi ça a "
-                "fonctionné."
-            ),
-            "de": (
-                "Die beste App in dieser Kategorie. Ich habe gerade mehrere ähnliche "
-                "Apps getestet — alle wollen, dass man seine Seele verkauft, und "
-                "laufen trotzdem nicht zuverlässig. Dann bin ich über diese "
-                "gestolpert, und sie funktioniert einfach. Keine Fragen, keine "
-                "unnötigen Berechtigungen, komplett offline. Großes Dankeschön an "
-                "die Entwickler. Wenn es mit WhatsApp schwierig wird: WhatsApp "
-                "einfach unten platzieren. Bei mir hat das geholfen."
-            ),
-            "it": (
-                "È la migliore app nella sua categoria. Ne ho appena provate diverse "
-                "simili — tutte ti chiedono di vendere l'anima e in più non funzionano "
-                "nemmeno bene. Poi mi sono imbattuto in questa e semplicemente "
-                "funziona. Nessuna domanda, nessun permesso superfluo, completamente "
-                "offline. Un grande grazie agli sviluppatori. Se fai fatica a farla "
-                "funzionare con WhatsApp, metti WhatsApp in basso. A me ha funzionato "
-                "così."
-            ),
-            "ru": (
-                "Лучшее приложение в своей категории. Только что попробовал несколько "
-                "похожих — все требуют продать душу и при этом нормально не работают. "
-                "А потом наткнулся на это, и оно просто работает. Без вопросов, без "
-                "лишних разрешений, полностью офлайн. Большое спасибо разработчикам. "
-                "Если не получается подружить с WhatsApp, поставьте WhatsApp вниз — "
-                "у меня сработало."
-            ),
-            "ar": (
-                "هذا أفضل تطبيق في فئته. جرّبت للتو عدة تطبيقات مشابهة، وكلها تطلب "
-                "منك أن تبيع روحك، ومع ذلك لا تعمل بشكل موثوق. ثم صادفت هذا التطبيق، "
-                "وهو ببساطة يعمل. بدون أسئلة، بدون أذونات زائدة، ويعمل تمامًا دون "
-                "اتصال. ألف شكر للمطوّرين. لمن يجد صعوبة في تشغيله مع واتساب: ضع "
-                "واتساب في الأسفل. هذا ما نجح معي."
-            ),
-            "hi": (
-                "अपनी श्रेणी में यह सबसे अच्छा ऐप है। मैंने अभी कई ऐसे ही ऐप आज़माए — "
-                "सब आपकी आत्मा बेचने को कहते हैं, और फिर भी ठीक से काम नहीं करते। "
-                "फिर मुझे यह मिला और यह बस काम करता है। न कोई सवाल, न ज़रूरत से ज़्यादा "
-                "अनुमतियाँ, पूरी तरह ऑफ़लाइन। डेवलपर्स का बहुत-बहुत धन्यवाद। अगर "
-                "WhatsApp के साथ चलाने में दिक्कत हो, तो WhatsApp को सबसे नीचे रखें — "
-                "मेरे लिए तो यही काम कर गया।"
-            ),
-            "th": (
-                "เป็นแอปที่ดีที่สุดในประเภทนี้ ผมเพิ่งลองหลายแอปที่คล้ายกัน "
-                "ทุกตัวเหมือนต้องขายวิญญาณ แถมยังทำงานไม่เสถียร "
-                "แล้วก็มาเจอตัวนี้ มันก็แค่ใช้งานได้ ไม่ถามอะไรเยอะ "
-                "ไม่ขอสิทธิ์เกินจำเป็น ทำงานออฟไลน์ได้ทั้งหมด ขอบคุณนักพัฒนามากครับ "
-                "ถ้าใครใช้กับ WhatsApp ไม่ลง ลองย้าย WhatsApp ไปไว้ด้านล่าง "
-                "ของผมแบบนั้นใช้ได้"
-            ),
-            "vi": (
-                "Đây là ứng dụng tốt nhất trong cùng loại. Mình vừa thử vài app "
-                "tương tự — cái nào cũng đòi bạn bán linh hồn, mà còn chạy không "
-                "ổn định. Rồi mình tình cờ thấy app này — nó cứ thế chạy. Không "
-                "hỏi han gì, không xin quyền linh tinh, hoạt động hoàn toàn offline. "
-                "Cảm ơn nhà phát triển rất nhiều. Ai khó dùng cùng WhatsApp thì "
-                "đặt WhatsApp ở dưới — mình làm vậy là chạy."
             ),
         },
     },
