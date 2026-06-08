@@ -163,8 +163,21 @@
     display: block;
   }
   @media (max-width: 720px) {
-    .shots { grid-template-columns: 1fr; }
-    .shots img { max-width: 320px; margin: 0 auto; }
+    .shots {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-padding: 0 24px;
+      scrollbar-width: thin;
+    }
+    .shots img {
+      flex: 0 0 72%;
+      max-width: none;
+      margin: 0;
+      scroll-snap-align: center;
+    }
   }
 
   /* User reviews / testimonials */
