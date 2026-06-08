@@ -105,6 +105,15 @@
     border: 1px solid var(--border);
   }
   .cta-btn.secondary:hover { background: #f1f5f9; }
+  .hero-reviews {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .hero-reviews .star { color: #F5A623; }
+  .hero-reviews:hover { color: var(--primary); text-decoration: underline; }
   .hero-img {
     display: block; width: 100%; max-width: 280px; margin: 0 auto;
     border-radius: 16px;
@@ -317,6 +326,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen&hl=ja" class="cta-btn">Google Play で入手</a>
         <a href="https://sakuradevjp.github.io/split-screen-launcher-notes/ja/" class="cta-btn secondary">開発者ノート</a>
       </div>
+      <a href="#reviews-heading" class="hero-reviews"><span class="star">★</span> ユーザーの声</a>
     </div>
     <figure style="margin:0;">
       <img class="hero-img" src="../../assets/screenshot3.png" alt="Split Screen Launcher">
@@ -345,12 +355,6 @@
     <p>無料版ではペアを2個まで保存できます。Proにアップグレードすると、ペア無制限・デスクトップショートカット・フォルダ整理・カラーカスタマイズが解放されます。広告なしでの提供と個人開発の継続を応援してください！</p>
     <h2>ユーザー補助（Accessibility）APIについて</h2>
     <p>Android 9〜12 では、分割画面を起動するためにユーザー補助サービスを使用します。このサービスは分割画面の起動のみに使用され、画面の内容を収集・送信することはありません。Android 12L 以降ではユーザー補助サービスは不要です。</p>
-
-    <div class="shots">
-      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
-    </div>
 
   <section class="reviews" aria-labelledby="reviews-heading">
     <h2 id="reviews-heading">ユーザーの声</h2>
@@ -494,6 +498,12 @@
     </figure>
     <p class="reviews-source">Google Play より</p>
   </section>
+
+    <div class="shots">
+      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
+    </div>
 
     <div class="final-cta">
       <p>無料・広告なし。Google Play で試してみてください。</p>

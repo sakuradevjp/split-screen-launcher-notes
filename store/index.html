@@ -105,6 +105,15 @@
     border: 1px solid var(--border);
   }
   .cta-btn.secondary:hover { background: #f1f5f9; }
+  .hero-reviews {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .hero-reviews .star { color: #F5A623; }
+  .hero-reviews:hover { color: var(--primary); text-decoration: underline; }
   .hero-img {
     display: block; width: 100%; max-width: 280px; margin: 0 auto;
     border-radius: 16px;
@@ -317,6 +326,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen&hl=en" class="cta-btn">Get on Google Play</a>
         <a href="https://sakuradevjp.github.io/split-screen-launcher-notes/" class="cta-btn secondary">Developer notes</a>
       </div>
+      <a href="#reviews-heading" class="hero-reviews"><span class="star">★</span> What users say</a>
     </div>
     <figure style="margin:0;">
       <img class="hero-img" src="../assets/screenshot3.png" alt="Split Screen Launcher">
@@ -345,12 +355,6 @@
     <p>Free version: up to 2 pairs. Upgrade to Pro to save unlimited pairs, pin pairs to home screen, plus folder organization and custom colors. Your purchase keeps the app ad-free and supports continued indie development!</p>
     <h2>Accessibility API Usage</h2>
     <p>On Android 9–12, this app uses an Accessibility Service to trigger split screen mode. The service is used solely for launching split screen and does not collect or transmit any screen content. On Android 12L and above, the Accessibility Service is not required.</p>
-
-    <div class="shots">
-      <img src="../assets/screenshot1.png" alt="Split Screen Launcher">
-      <img src="../assets/screenshot2.png" alt="Split Screen Launcher">
-      <img src="../assets/screenshot3.png" alt="Split Screen Launcher">
-    </div>
 
   <section class="reviews" aria-labelledby="reviews-heading">
     <h2 id="reviews-heading">What users say</h2>
@@ -464,6 +468,12 @@
     </figure>
     <p class="reviews-source">via Google Play</p>
   </section>
+
+    <div class="shots">
+      <img src="../assets/screenshot1.png" alt="Split Screen Launcher">
+      <img src="../assets/screenshot2.png" alt="Split Screen Launcher">
+      <img src="../assets/screenshot3.png" alt="Split Screen Launcher">
+    </div>
 
     <div class="final-cta">
       <p>Free, no ads. Try it on Google Play.</p>

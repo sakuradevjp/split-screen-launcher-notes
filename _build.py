@@ -410,6 +410,7 @@ def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
         "CTA_GET": html_escape(ui["CTA_GET"]),
         "CTA_NOTES": html_escape(ui["CTA_NOTES"]),
         "FINAL_CTA_LEAD": html_escape(ui["FINAL_CTA_LEAD"]),
+        "REVIEWS_LINK_LABEL": html_escape(ui["REVIEWS_HEADING"]),
     }
 
     out = TEMPLATE

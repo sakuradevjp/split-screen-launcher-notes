@@ -105,6 +105,15 @@
     border: 1px solid var(--border);
   }
   .cta-btn.secondary:hover { background: #f1f5f9; }
+  .hero-reviews {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .hero-reviews .star { color: #F5A623; }
+  .hero-reviews:hover { color: var(--primary); text-decoration: underline; }
   .hero-img {
     display: block; width: 100%; max-width: 280px; margin: 0 auto;
     border-radius: 16px;
@@ -317,6 +326,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen&hl=ko" class="cta-btn">Google Play에서 받기</a>
         <a href="https://sakuradevjp.github.io/split-screen-launcher-notes/ko/" class="cta-btn secondary">개발자 노트</a>
       </div>
+      <a href="#reviews-heading" class="hero-reviews"><span class="star">★</span> 사용자 리뷰</a>
     </div>
     <figure style="margin:0;">
       <img class="hero-img" src="../../assets/screenshot3.png" alt="Split Screen Launcher">
@@ -345,12 +355,6 @@
     <p>무료 버전에서는 최대 2개의 페어를 저장할 수 있습니다. Pro로 업그레이드하면 무제한 페어, 홈 화면 바로가기, 폴더 정리, 색상 커스터마이즈가 잠금 해제됩니다. 광고 없는 앱 제공과 1인 개발의 지속을 응원해 주세요!</p>
     <h2>접근성(Accessibility) API에 관하여</h2>
     <p>Android 9~12에서는 분할 화면을 실행하기 위해 접근성 서비스를 사용합니다. 이 서비스는 분할 화면 실행에만 사용되며, 화면의 내용을 수집하거나 전송하지 않습니다. Android 12L 이상에서는 접근성 서비스가 필요하지 않습니다.</p>
-
-    <div class="shots">
-      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
-    </div>
 
   <section class="reviews" aria-labelledby="reviews-heading">
     <h2 id="reviews-heading">사용자 리뷰</h2>
@@ -494,6 +498,12 @@
     </figure>
     <p class="reviews-source">Google Play에서</p>
   </section>
+
+    <div class="shots">
+      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
+    </div>
 
     <div class="final-cta">
       <p>무료, 광고 없음. Google Play에서 시도해 보세요.</p>

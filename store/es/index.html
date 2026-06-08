@@ -105,6 +105,15 @@
     border: 1px solid var(--border);
   }
   .cta-btn.secondary:hover { background: #f1f5f9; }
+  .hero-reviews {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .hero-reviews .star { color: #F5A623; }
+  .hero-reviews:hover { color: var(--primary); text-decoration: underline; }
   .hero-img {
     display: block; width: 100%; max-width: 280px; margin: 0 auto;
     border-radius: 16px;
@@ -317,6 +326,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen&hl=es" class="cta-btn">Obtener en Google Play</a>
         <a href="https://sakuradevjp.github.io/split-screen-launcher-notes/es/" class="cta-btn secondary">Notas del desarrollador</a>
       </div>
+      <a href="#reviews-heading" class="hero-reviews"><span class="star">★</span> Lo que dicen los usuarios</a>
     </div>
     <figure style="margin:0;">
       <img class="hero-img" src="../../assets/screenshot3.png" alt="Split Screen Launcher">
@@ -345,12 +355,6 @@
     <p>La versión gratuita permite hasta 2 pares. Actualiza a Pro para pares ilimitados, accesos directos en pantalla de inicio, organización por carpetas y colores personalizados. Mantén la app sin anuncios y apoya el desarrollo independiente.</p>
     <h2>Uso de la Accessibility API</h2>
     <p>En Android 9–12, esta app utiliza un Servicio de Accesibilidad para activar el modo de pantalla dividida. El servicio se utiliza únicamente para iniciar la pantalla dividida y no recopila ni transmite ningún contenido de la pantalla. En Android 12L y versiones posteriores, el Servicio de Accesibilidad no es necesario.</p>
-
-    <div class="shots">
-      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
-    </div>
 
   <section class="reviews" aria-labelledby="reviews-heading">
     <h2 id="reviews-heading">Lo que dicen los usuarios</h2>
@@ -494,6 +498,12 @@
     </figure>
     <p class="reviews-source">vía Google Play</p>
   </section>
+
+    <div class="shots">
+      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
+    </div>
 
     <div class="final-cta">
       <p>Gratis, sin anuncios. Pruébalo en Google Play.</p>

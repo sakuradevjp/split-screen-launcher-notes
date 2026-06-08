@@ -105,6 +105,15 @@
     border: 1px solid var(--border);
   }
   .cta-btn.secondary:hover { background: #f1f5f9; }
+  .hero-reviews {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .hero-reviews .star { color: #F5A623; }
+  .hero-reviews:hover { color: var(--primary); text-decoration: underline; }
   .hero-img {
     display: block; width: 100%; max-width: 280px; margin: 0 auto;
     border-radius: 16px;
@@ -317,6 +326,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen&hl=ru" class="cta-btn">Установить из Google Play</a>
         <a href="https://sakuradevjp.github.io/split-screen-launcher-notes/ru/" class="cta-btn secondary">Заметки разработчика</a>
       </div>
+      <a href="#reviews-heading" class="hero-reviews"><span class="star">★</span> Отзывы пользователей</a>
     </div>
     <figure style="margin:0;">
       <img class="hero-img" src="../../assets/screenshot3.png" alt="Split Screen Launcher">
@@ -345,12 +355,6 @@
     <p>Бесплатная версия позволяет создать до 2 пар. Перейдите на Pro для неограниченного количества пар, ярлыков на главном экране, папок и пользовательских цветов. Сохраните приложение без рекламы и поддержите независимую разработку!</p>
     <h2>Использование Accessibility API</h2>
     <p>На Android 9–12 это приложение использует Службу специальных возможностей для запуска режима разделённого экрана. Служба используется исключительно для запуска разделённого экрана и не собирает и не передаёт никакого содержимого экрана. На Android 12L и выше Служба специальных возможностей не требуется.</p>
-
-    <div class="shots">
-      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
-      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
-    </div>
 
   <section class="reviews" aria-labelledby="reviews-heading">
     <h2 id="reviews-heading">Отзывы пользователей</h2>
@@ -494,6 +498,12 @@
     </figure>
     <p class="reviews-source">из Google Play</p>
   </section>
+
+    <div class="shots">
+      <img src="../../assets/screenshot1.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot2.png" alt="Split Screen Launcher">
+      <img src="../../assets/screenshot3.png" alt="Split Screen Launcher">
+    </div>
 
     <div class="final-cta">
       <p>Бесплатно, без рекламы. Попробуйте в Google Play.</p>

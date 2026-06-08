@@ -90,6 +90,15 @@
     border: 1px solid var(--border);
   }
   .cta-btn.secondary:hover { background: #f1f5f9; }
+  .hero-reviews {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .hero-reviews .star { color: #F5A623; }
+  .hero-reviews:hover { color: var(--primary); text-decoration: underline; }
   .hero-img {
     display: block; width: 100%; max-width: 280px; margin: 0 auto;
     border-radius: 16px;
@@ -288,6 +297,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen&hl={{PLAY_HL}}" class="cta-btn">{{CTA_GET}}</a>
         <a href="{{NOTES_LINK}}" class="cta-btn secondary">{{CTA_NOTES}}</a>
       </div>
+      <a href="#reviews-heading" class="hero-reviews"><span class="star">★</span> {{REVIEWS_LINK_LABEL}}</a>
     </div>
     <figure style="margin:0;">
       <img class="hero-img" src="{{ASSET_BASE}}screenshot3.png" alt="{{TITLE}}">
@@ -299,13 +309,13 @@
   <div class="container">
     {{BODY_HTML}}
 
+{{REVIEWS_HTML}}
+
     <div class="shots">
       <img src="{{ASSET_BASE}}screenshot1.png" alt="{{TITLE}}">
       <img src="{{ASSET_BASE}}screenshot2.png" alt="{{TITLE}}">
       <img src="{{ASSET_BASE}}screenshot3.png" alt="{{TITLE}}">
     </div>
-
-{{REVIEWS_HTML}}
 
     <div class="final-cta">
       <p>{{FINAL_CTA_LEAD}}</p>
