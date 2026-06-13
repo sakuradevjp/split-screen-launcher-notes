@@ -125,6 +125,24 @@
     header.hero .sub { font-size: 16px; }
   }
 
+  /* Demo video */
+  .video { margin: 0 0 8px; }
+  .video > h2:first-child { margin-top: 0; }
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .video-embed iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
   /* Content body */
   main {
     padding: 56px 0;
@@ -348,6 +366,16 @@
 
 <main>
   <div class="container">
+    <section class="video" aria-label="شاهده أثناء العمل">
+      <h2>شاهده أثناء العمل</h2>
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/8-yhbEk3TAU?rel=0"
+                title="Split Screen Launcher" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </section>
+
         <ul class="lead-bullets">
       <li>يدعم أحدث إصدارات Android باستمرار.</li>
       <li>بدون إعلانات</li>

@@ -52,6 +52,31 @@ def html_escape(s: str) -> str:
              .replace('"', "&quot;"))
 
 
+# Public PV per page language — the channel/SEO copies (NOT the unlisted ones
+# embedded in the Play listing). ja gets the Japanese cut; every other locale
+# gets the English cut, matching the Play listing's video locale split.
+PUBLIC_VIDEO_DEFAULT = "8-yhbEk3TAU"
+PUBLIC_VIDEO_BY_LANG = {"ja": "qp4EX2daJbQ"}
+
+
+def video_html(hreflang: str, title: str) -> str:
+    vid = PUBLIC_VIDEO_BY_LANG.get(hreflang, PUBLIC_VIDEO_DEFAULT)
+    heading = html_escape(UI.get(hreflang, UI["en"])["VIDEO_HEADING"])
+    label = html_escape(title)
+    return (
+        f'    <section class="video" aria-label="{heading}">\n'
+        f'      <h2>{heading}</h2>\n'
+        '      <div class="video-embed">\n'
+        f'        <iframe src="https://www.youtube.com/embed/{vid}?rel=0"\n'
+        f'                title="{label}" loading="lazy"\n'
+        '                allow="accelerometer; autoplay; clipboard-write; '
+        'encrypted-media; gyroscope; picture-in-picture; web-share"\n'
+        '                allowfullscreen></iframe>\n'
+        '      </div>\n'
+        '    </section>'
+    )
+
+
 # Bullet markers seen in localized Play descriptions.
 BULLET_RE = re.compile(r"^[\*\-•・·]\s*")
 
@@ -399,6 +424,7 @@ def build_locale(play_locale, slug, hreflang, _name, direction, play_hl):
         "DIR_ATTR": ' dir="rtl"' if direction == "rtl" else "",
         "TITLE": html_escape(title),
         "SHORT_DESC": html_escape(short),
+        "VIDEO_HTML": video_html(hreflang, title),
         "BODY_HTML": body_html,
         "REVIEWS_HTML": render_testimonials(hreflang),
         "CANONICAL_URL": store_url(slug),
