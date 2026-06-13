@@ -299,7 +299,7 @@ def render_testimonials(hreflang: str) -> str:
                     f'          <div class="quote-lang" lang="{lang}">'
                     f'{label_name}</div>\n'
                 )
-            text_dir = ' dir="rtl"' if lang == "ar" else ""
+            text_dir = ' dir="rtl"' if lang in ("ar", "fa") else ""
             quote_parts.append(
                 f'{label_html}'
                 f'          <p lang="{lang}"{text_dir}>'

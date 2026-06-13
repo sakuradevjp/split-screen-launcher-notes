@@ -43,6 +43,7 @@ LANG_NAMES = {
     "vi":    "Tiếng Việt",
     "az":    "Azərbaycanca",
     "nl":    "Nederlands",
+    "fa":    "فارسی",
 }
 
 
@@ -401,6 +402,36 @@ REVIEWS = [
     },
 
     {
+        "id": "anonymous_redmi_a3_2026_06_12",
+        "reviewer": "Anonymous",
+        "device": "Redmi A3",
+        "android": "Android 16",
+        "rating": 5,
+        "date": _date(2026, 6, 12),
+        "original_lang": "en",
+        "original_text": (
+            "best app for split screen it worked on my Redmi A3, "
+            "Redmi A3 does not support split screen"
+        ),
+        "translations": {
+            "ja": "分割画面に最高のアプリ。私の Redmi A3 は分割画面に対応していないのに、ちゃんと動いた。",
+            "ko": "화면 분할에 최고의 앱. 제 Redmi A3는 화면 분할을 지원하지 않는데도 잘 작동했어요.",
+            "zh-CN": "最好的分屏应用。我的 Redmi A3 不支持分屏，但它居然能用。",
+            "zh-TW": "最好的分割畫面應用。我的 Redmi A3 不支援分割畫面，但它居然能用。",
+            "es": "La mejor app para pantalla dividida. Mi Redmi A3 no admite pantalla dividida, pero funcionó.",
+            "pt-BR": "Melhor app para tela dividida. Meu Redmi A3 não tem suporte a tela dividida, mas funcionou.",
+            "fr": "La meilleure appli pour l'écran partagé. Mon Redmi A3 ne gère pas l'écran partagé, mais ça a marché.",
+            "de": "Beste App für geteilten Bildschirm. Mein Redmi A3 unterstützt kein Split-Screen, aber es hat funktioniert.",
+            "it": "La migliore app per lo schermo diviso. Il mio Redmi A3 non supporta lo schermo diviso, eppure ha funzionato.",
+            "ru": "Лучшее приложение для разделённого экрана. Мой Redmi A3 не поддерживает разделение экрана, но оно заработало.",
+            "ar": "أفضل تطبيق لتقسيم الشاشة. هاتفي Redmi A3 لا يدعم تقسيم الشاشة، ومع ذلك عمل.",
+            "hi": "स्प्लिट स्क्रीन के लिए सबसे अच्छा ऐप। मेरा Redmi A3 स्प्लिट स्क्रीन सपोर्ट नहीं करता, फिर भी यह चल गया।",
+            "th": "แอปแบ่งหน้าจอที่ดีที่สุด Redmi A3 ของผมไม่รองรับการแบ่งหน้าจอ แต่มันก็ใช้งานได้",
+            "vi": "Ứng dụng chia màn hình tốt nhất. Redmi A3 của mình không hỗ trợ chia màn hình mà vẫn chạy được.",
+        },
+    },
+
+    {
         "id": "pramila_2026_05_20",
         "reviewer": "Pramila M.",
         "device": "Redmi 10 Prime",
@@ -620,6 +651,34 @@ REVIEWS = [
             "hi":    "बहुत बढ़िया।",
             "th":    "เยี่ยมมาก",
             "vi":    "Rất tuyệt.",
+        },
+    },
+
+    {
+        "id": "ahmadreza_2026_06_12",
+        "reviewer": "Ahmadreza",
+        "device": "Redmi 10C",
+        "android": "Android 12",
+        "rating": 5,
+        "date": _date(2026, 6, 12),
+        "original_lang": "fa",
+        "original_text": "خیلی خوبه",
+        "translations": {
+            "en":    "Very good.",
+            "ja":    "とても良い。",
+            "ko":    "아주 좋아요.",
+            "zh-CN": "非常好。",
+            "zh-TW": "非常好。",
+            "es":    "Muy bueno.",
+            "pt-BR": "Muito bom.",
+            "fr":    "Très bien.",
+            "de":    "Sehr gut.",
+            "it":    "Ottimo.",
+            "ru":    "Очень хорошо.",
+            "ar":    "جيد جدًا.",
+            "hi":    "बहुत अच्छा।",
+            "th":    "ดีมาก",
+            "vi":    "Rất tốt.",
         },
     },
 
