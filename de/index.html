@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Split Screen Launcher im Test — Das Android-16-taugliche App-Pair-Tool</title>
-<meta name="description" content="Entwicklernotizen zu Split Screen Launcher: Wie wir eines der wenigen Splitscreen-Tools gebaut haben, das unter Android 15 und 16 noch läuft. Die Design-Entscheidungen hinter dem werbefreien, 2,8 MB großen Ansatz ohne Bedienungshilfen-Berechtigung auf Android 12L+.">
+<title>Split Screen Launcher im Test — Das Android-16- und 17-taugliche App-Pair-Tool</title>
+<meta name="description" content="Entwicklernotizen zu Split Screen Launcher: Wie wir eines der wenigen Splitscreen-Tools gebaut haben, das unter Android 15, 16 und 17 noch läuft. Die Design-Entscheidungen hinter dem werbefreien, leichtgewichtigen Ansatz ohne Bedienungshilfen-Berechtigung auf Android 12L+.">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/de/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -118,9 +118,9 @@
       <div class="meta">
         <span class="tag">Entwicklernotizen</span>
         <span>Vom <strong style="color:var(--text);">Split Screen Launcher-Team</strong></span>
-        <span>•</span><span>Mai 2026</span><span>•</span><span>ca. 8 Min. Lesezeit</span>
+        <span>•</span><span>Juni 2026</span><span>•</span><span>ca. 8 Min. Lesezeit</span>
       </div>
-      <h1>Split Screen Launcher: Eine der wenigen Splitscreen-Apps, die unter Android 15 und 16 noch funktioniert</h1>
+      <h1>Split Screen Launcher: Eine der wenigen Splitscreen-Apps, die unter Android 15, 16 und 17 noch funktioniert</h1>
       <p class="sub">Pixel- und Pur-Android-Geräten fehlt Samsungs „App Pair"-Funktion. In diesem Beitrag zeigen wir, wie Split Screen Launcher diese Lücke schließt, warum die meisten Alternativen bei den jüngsten Android-Versionen abgestürzt sind und welche Design-Entscheidungen wir auf dem Weg getroffen haben.</p>
       <div class="hero-cta">
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Bei Google Play holen</a>
@@ -136,7 +136,7 @@
 
 <div class="byline container">
   <span>Kategorie: Produktivitäts-Tools</span>
-  <span>Getestet auf: Pixel 9 Pro (Android 16), Pixel 7a (Android 15)</span>
+  <span>Getestet auf: Pixel 9 Pro (Android 16 &amp; 17), Pixel 7a (Android 15)</span>
 </div>
 
 <article class="content container">
@@ -144,9 +144,9 @@
   <div class="tech-note" style="margin-top:40px;margin-bottom:32px;font-style:normal;">
     <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">Kurzfassung</strong>
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
-      <li>Eines der wenigen Android-Splitscreen-Tools, die unter Android 15 und 16 zuverlässig funktionieren.</li>
+      <li>Eines der wenigen Android-Splitscreen-Tools, die unter Android 15, 16 und 17 zuverlässig funktionieren.</li>
       <li>Die meisten Mitbewerber sind zerbrochen, als Google die zugrunde liegenden APIs geändert hat; wir haben bei jeder aktuellen OS-Umstellung weiter Updates ausgeliefert.</li>
-      <li>Keine Werbung, kein Internetzugriff erforderlich, unter Android 12L+ kein Bedienungshilfen-Dienst nötig. Gesamtgröße: ~2,8 MB.</li>
+      <li>Keine Werbung, kein Internetzugriff erforderlich, unter Android 12L+ kein Bedienungshilfen-Dienst nötig. Leichtgewichtig, ohne Hintergrunddienste.</li>
       <li>Die kostenlose Stufe deckt den Kernnutzen ab. Das Pro-Abo kostet etwa 1 $/Monat – ungefähr ein Zehntel des nächstgelegenen kostenpflichtigen Konkurrenten.</li>
       <li>Natives App Pair auf Smartphones ist im Grunde Samsung-exklusiv – Android 15 hat die Funktion zwar auf OS-Ebene eingeführt, aber nur für Geräte mit großem Display, sodass Pixel-Smartphones (und jedes andere Nicht-Samsung-Smartphone) außen vor bleiben.</li>
       <li>Wer auf Pixel unterwegs ist und Galaxys App Pair vermisst, erhält hier den dichtesten Ersatz, den wir gesehen haben.</li>
@@ -158,6 +158,7 @@
     <ol>
       <li><a href="#background">Hintergrund: Warum „App Pair" unter Android wichtig ist</a></li>
       <li><a href="#what-is">Was Split Screen Launcher tatsächlich macht</a></li>
+      <li><a href="#app-pair-alternative">Eine Samsung-App-Pair-Alternative für Pixel</a></li>
       <li><a href="#android15">Das Android-15/16-Problem – und warum die meisten Mitbewerber ausfielen</a></li>
       <li><a href="#privacy">Berechtigungen und Datenschutz</a></li>
       <li><a href="#compare">Vergleich mit anderen Splitscreen-Apps</a></li>
@@ -179,6 +180,12 @@
     <p>Auf Smartphones ist natives App Pair damit praktisch ein Samsung-exklusives Feature. Alle anderen sind entweder auf Androids manuellen Splitscreen angewiesen (App öffnen, Übersicht-Taste lange drücken, ziehen, wiederholen) oder installieren einen Drittanbieter-Launcher wie diesen hier.</p>
   </section>
 
+  <section id="app-pair-alternative">
+    <h2>Eine Samsung-App-Pair-Alternative für Pixel und Pur-Android</h2>
+    <p>Wenn du von einem Galaxy-Smartphone auf ein Pixel gewechselt bist – oder auf irgendein Pur-Android-Smartphone – und eine Samsung-App-Pair-Alternative suchst, dann ist das genau die Lücke, für die wir Split Screen Launcher gebaut haben. Du bekommst dasselbe „beide Apps mit einem Tipp nebeneinander starten"-Verhalten, ohne ein Samsung-Gerät oder das Edge-Panel zu brauchen.</p>
+    <p>Es ist außerdem eine der wenigen Optionen, die nach wie vor eine Splitscreen-App ist, die unter Android 15, 16 und 17 funktioniert – ohne Werbung, ohne Tracking-SDKs und ohne Bedienungshilfen-Berechtigung ab Android 12L. Die meisten älteren App-Pair-Tools stützen sich auf System-Verknüpfungen, die jüngere Android-Versionen abgeschnitten haben (warum, erläutern wir weiter unten in Abschnitt 3); diese App erreicht den Splitscreen über einen Weg, den wir über jedes OS-Update hinweg am Laufen gehalten haben.</p>
+  </section>
+
   <section id="what-is">
     <h2>2. Was Split Screen Launcher tatsächlich macht</h2>
     <p>Split Screen Launcher ist ein Tool mit nur einem Zweck. Man wählt zwei Apps, gibt dem Paar einen Namen („Pendeln", „Arbeit", „YouTube + X") und das Paar erscheint als Zeile in der App. Ein Tipp darauf öffnet beide Apps nebeneinander.</p>
@@ -196,7 +203,7 @@
         <figcaption>Ergebnis: Zwei Apps Seite an Seite im Splitscreen, gestartet mit einem einzigen Tipp auf das Paar. Beispiel: Maps + Nachrichten.</figcaption>
       </figure>
     </div>
-    <p>Das ist tatsächlich der gesamte Funktionsumfang. Kein eingebauter Browser, keine schwebenden Widgets, keine Integration in die Benachrichtigungsleiste. Die APK ist etwa <strong>2,8 MB</strong> groß – kleiner als die meisten App-Symbole – und lässt nichts im Hintergrund laufen.</p>
+    <p>Das ist tatsächlich der gesamte Funktionsumfang. Kein eingebauter Browser, keine schwebenden Widgets, keine Integration in die Benachrichtigungsleiste. Die App ist leichtgewichtig – ein paar Megabyte – und lässt nichts im Hintergrund laufen.</p>
     <p>Paare, die wir beim Testen genutzt haben:</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Google Maps + Spotify</strong> – beim Autofahren</li>
@@ -205,9 +212,10 @@
       <li><strong>Gmail + Slack</strong> – Arbeits-Triage</li>
       <li><strong>Taschenrechner + Chrome</strong> – Preisvergleich zwischen Tabs</li>
     </ul>
+    <p>Ein Anwendungsfall, den wir nicht erwartet hatten: das Auto. Ein Nutzer erzählte uns, dass er Split Screen Launcher auf der Android-KI-Box in seinem Fahrzeug nutzt und <strong>Maps + Spotify</strong> für Navigation mit Musik paart – und auf <strong>Maps + Netflix</strong> umschaltet für die Person auf dem Beifahrersitz. Weil ein Paar mit einem einzigen Tipp startet, passt das viel besser zu einem Auto-Head-Unit als das lange Drücken durch das Übersichtsmenü.</p>
     <p>Ein leicht zu übersehendes Detail, das wir aber gesondert erwähnen: Die Paardaten lassen sich in eine Sicherungsdatei exportieren. Klingt belanglos, aber mehrere Konkurrenten in dieser Kategorie legen ihre Paare im privaten App-Speicher ab – ohne Exportpfad. Ein Handywechsel bedeutet dort, jedes Paar von Hand neu anzulegen. Wir haben Backup/Restore gerade deshalb von Anfang an als erstklassige Funktion eingebaut, damit ein Wechsel von Pixel zu Pixel den gesamten Satz in Sekunden wiederherstellt.</p>
     <p>Eine weitere Design-Entscheidung, die wir vorab ansprechen sollten: Standardmäßig <strong>leben Paare innerhalb der App – es werden keine Homescreen-Symbole angelegt</strong>. Der Grund liegt teils in der Schlichtheit (der Homescreen wird nicht mit Paar-Symbolen zugemüllt) und teils in der Architektur – die App ist nicht an einen bestimmten Launcher (Pixel, Nova etc.) gebunden. Wie in Abschnitt 3 angemerkt, sind Launcher, die auf Verknüpfungen setzen, genau die, die bei Android-15- und 16-Übergängen gerne brechen; innerhalb der App zu bleiben macht den Wechsel von Gerät zu Gerät reibungsärmer.</p>
-    <p>Mit v1.8.0 (Mai 2026) kam außerdem eine optionale „An den Homescreen anheften"-Aktion für Pro-Nutzer hinzu, die ein Paar lieber mit einem einzigen Tipp vom Homescreen aus starten. Wir wollten die ursprüngliche Haltung „Homescreen schlicht halten" beibehalten und gleichzeitig dem Wunsch „Ich möchte den Splitscreen direkt von einem Homescreen-Symbol aus starten" gerecht werden. Das auf dem Homescreen angezeigte Symbol stapelt die beiden App-Symbole vertikal, sodass das Paar visuell von normalen Launcher-Symbolen unterscheidbar bleibt.</p>
+    <p>Eine optionale „An den Homescreen anheften"-Aktion lässt Pro-Nutzer ein Paar mit einem einzigen Tipp direkt vom Homescreen aus starten. Wir wollten die ursprüngliche Haltung „Homescreen schlicht halten" beibehalten und gleichzeitig dem Wunsch „Ich möchte den Splitscreen direkt von einem Homescreen-Symbol aus starten" gerecht werden. Das auf dem Homescreen angezeigte Symbol stapelt die beiden App-Symbole vertikal, sodass das Paar visuell von normalen Launcher-Symbolen unterscheidbar bleibt.</p>
   </section>
 
   <section id="who-for">
@@ -245,20 +253,23 @@
     <div class="tech-note">
       Das Ergebnis: <em>Eine Mehrheit der Splitscreen-Tools bei Google Play – einschließlich des meistgeladenen in dieser Kategorie – hat Meldungen über inkonsistentes Verhalten auf aktuellen Pixel-Geräten erhalten, insbesondere unter Android 15 / 16</em>. Die Nutzerbewertungen dieser Apps enthalten eine bemerkenswerte Anzahl solcher Meldungen ab Ende 2025.
     </div>
-    <p>Split Screen Launcher erreicht den Splitscreen unter Android 15 und 16 zuverlässig auf einem anderen Weg. Den genauen Mechanismus behalten wir für uns – es brauchte einiges an Experimentieren, um eine Kombination zu finden, die über mehrere OS-Versionen hinweg funktioniert, und das Rezept zu veröffentlichen hieße, es jedem zerbrochenen Mitbewerber in die Hand zu drücken. Sagen können wir: Unsere Release-Historie spiegelt aktive Pflege durch die Android-12-, 12L-, 14-, 15- und 16-Übergänge wider, und wir wollen dieses Tempo beibehalten.</p>
+    <p>Split Screen Launcher erreicht den Splitscreen unter Android 15, 16 und dem neuen Android 17 zuverlässig auf einem anderen Weg. Den genauen Mechanismus behalten wir für uns – es brauchte einiges an Experimentieren, um eine Kombination zu finden, die über mehrere OS-Versionen hinweg funktioniert, und das Rezept zu veröffentlichen hieße, es jedem zerbrochenen Mitbewerber in die Hand zu drücken. Sagen können wir: Unsere Release-Historie spiegelt aktive Pflege durch die Android-12-, 12L-, 14-, 15-, 16- und 17-Übergänge wider, und wir wollen dieses Tempo beibehalten.</p>
     <div class="callout">
       <strong>(Wichtig) Apps, die sich standardmäßig nicht teilen:</strong> Einige Apps deklarieren <code>android:resizeableActivity="false"</code> in ihrem Manifest – Pur-Kamera und Google Files sind die offensichtlichen Beispiele – und statt ein Paar zu bilden, öffnen sie sich einfach allein im Vollbild (Samsungs eingebautes App Pair verhält sich genauso).
       <br><br>
       (Workaround) Aktiviert man unter <code>Einstellungen → System → Entwickleroptionen → Aktivitäten in einstellbarer Größe erzwingen</code> sowie <code>Nicht skalierbare Apps in Mehrfenster zulassen</code>, funktionieren auch diese Apps im Splitscreen. Die In-App-Hilfe („So nutzt du Apps mit ‚Funktioniert evtl. nicht'") enthält die Schritt-für-Schritt-Anleitung.
+      <br><br>
+      (Update) Aktuelle Versionen kommen außerdem mit mehreren Apps zurecht, die sich früher dem Paaren widersetzt haben – darunter <strong>Alexa</strong> und <strong>Google Calendar</strong> –, sodass sie sich nun korrekt im Splitscreen öffnen.
     </div>
   </section>
 
   <section id="privacy">
     <h2>4. Berechtigungen und Datenschutz</h2>
-    <p>Unter <strong>Android 12L und neuer</strong> braucht die App weder Laufzeit-Berechtigungen noch einen Bedienungshilfen-Dienst. Alles läuft über Standard-Activity-Flags.</p>
+    <p>Unter <strong>Android 12L und neuer</strong> braucht das Starten eines Paares keinerlei Laufzeit-Berechtigungen und keinen Bedienungshilfen-Dienst – der Kern-Splitscreen-Ablauf läuft über Standard-Activity-Flags.</p>
+    <p>Die einzige optionale Ausnahme ist das <strong>paarweise Auto-Drehen</strong>. Schaltet man es für ein Paar ein, fordert die App an diesem Punkt über den System-Einstellungsdialog die spezielle Berechtigung <code>WRITE_SETTINGS</code> an – sie wird nie vorab verlangt, und du bekommst sie nicht zu Gesicht, solange du diese Funktion nicht nutzt.</p>
     <p>Unter <strong>Android 9 bis 12</strong> braucht die App die Bedienungshilfen-Berechtigung, weil das die einzige verfügbare API ist. Die Play-Store-Beschreibung sagt klar, dass dieser Dienst ausschließlich dazu dient, den Splitscreen zu starten. Die von Google Play angezeigte Berechtigungsliste ist so kurz, dass sie komplett auf einen Bildschirm passt – kein Standort, keine Kontakte, kein Speicher und (bemerkenswerterweise) kein Netzwerk. In dieser Ecke des Play Store ist das für sich genommen schon ungewöhnlich.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Im Klartext:</strong> In älteren Android-Versionen gab es keine offizielle API, um den Splitscreen auszulösen, also war der Bedienungshilfen-Dienst der einzige gangbare Weg. Das ist eine Alt-Einschränkung, nichts, was die App verwendet, um deinen Bildschirm auszulesen.</p>
-    <p>Zum Vergleich: Die meisten kostenlosen Splitscreen-Apps im Play Store bündeln Werbe-SDKs (AdMob, Unity, IronSource), was die <code>INTERNET</code>-Berechtigung plus das dazugehörige Tracker-Paket bedeutet. Wir haben uns stattdessen für ein minimales Abomodell entschieden – teils, um die Berechtigungsliste sauber zu halten, teils, weil Werbe-SDKs die Größe eines 2,8-MB-Tools mehr als verdreifachen würden.</p>
+    <p>Zum Vergleich: Die meisten kostenlosen Splitscreen-Apps im Play Store bündeln Werbe-SDKs (AdMob, Unity, IronSource), was die <code>INTERNET</code>-Berechtigung plus das dazugehörige Tracker-Paket bedeutet. Wir haben uns stattdessen für ein minimales Abomodell entschieden – teils, um die Berechtigungsliste sauber zu halten, teils, weil Werbe-SDKs die Größe eines so kleinen Tools aufblähen würden.</p>
   </section>
 
   <section id="compare">
@@ -270,7 +281,7 @@
       <li><strong>Automatisierungsansätze</strong> – Tasker und vergleichbare Tools können einen Split-Start skripten, sie setzen aber auf den gleichen Grundbausteinen auf wie dedizierte Apps und erben damit dieselben Defekte. Außerdem muss der Nutzer jedes Paar selbst konstruieren.</li>
     </ul>
     <p>Auch das Drittanbieter-Umfeld selbst ist fragmentiert. Google Play führt Dutzende dedizierter Splitscreen-Tools, doch Aktivität und Qualität sind ungleich verteilt.</p>
-    <p>Die meistgeladene App in dieser Nische hat auf Google Play die Marke von <strong>5 Millionen Installationen</strong> überschritten – liegt aber bei etwa <strong>2,4 Sternen</strong>, eine ungewöhnliche Kombination: große Reichweite, anhaltende Unzufriedenheit in den Rezensionen. Eine andere weitverbreitete Alternative wurde zuletzt Mitte 2025 aktualisiert und hat keinen Fix für die Splitscreen-API-Änderungen von Android 15 ausgeliefert. Mehrere weitere setzen aggressive Preise an – für eine Premium-Stufe wurde von <strong>18,99 $ pro Woche</strong> berichtet, was in Nutzer-Communities Kritik hervorgerufen hat.</p>
+    <p>Die meistgeladenen Apps in dieser Nische haben Millionen von Installationen angehäuft, doch die Spitzenreiter des Feldes sind überraschend schwach: Der größte von ihnen verbindet diese große Reichweite mit einer mittelmäßigen Bewertung, und eine andere weitverbreitete Alternative wurde zuletzt Mitte 2025 aktualisiert und hat noch immer keinen Fix für die Splitscreen-API-Änderungen von Android 15/16 ausgeliefert. Mehrere weitere setzen aggressive Preise an, mit happigen Wochen-Abos, die in Nutzer-Communities Kritik hervorgerufen haben.</p>
     <p>Die gemeinsamen Muster in diesem Feld: Die meisten Apps haben entweder rund um Android 11–12 aufgehört, Updates zu liefern, kommen mit aufdringlicher Banner- oder Interstitial-Werbung daher oder verlangen über alle Android-Versionen hinweg die Bedienungshilfen-Berechtigung (wir verzichten ab Android 12L+ darauf). Damit ist das Feld an gut gepflegten, berechtigungsarmen Optionen ungewöhnlich dünn besetzt.</p>
     <p>Eine kleine, aktiv gepflegte, werbefreie App wie diese hat es leicht, herauszustechen – sofern Nutzer sie finden.</p>
   </section>
@@ -279,7 +290,7 @@
     <h2>6. Preis</h2>
     <p>Die kostenlose Stufe begrenzt die Anzahl gespeicherter Paare, damit Nutzer den kompletten Ablauf ausprobieren können, bevor sie entscheiden, ob die App zu ihren Gewohnheiten passt. Die Kernfunktionen – Paare anlegen, starten, Backup/Restore – funktionieren alle ohne Bezahlung.</p>
     <p>Das Pro-Abo kostet je nach Region <strong>ungefähr 1 $ pro Monat</strong>, hebt das Paar-Limit auf und bringt Ordner-Organisation sowie Icon-Farb-Anpassung mit. Standard-Google-Play-Abo, jederzeit kündbar.</p>
-    <p>Zur Einordnung: Andere bezahlte Splitscreen-Tools derselben Kategorie haben Premium-Stufen, die von einer Einmalgebühr von wenigen Dollar bis zu einem Wochen-Abo von 18,99 $ reichen. Mit 1 $/Monat liegen wir also ungefähr eine Größenordnung unter dem nächstgelegenen bezahlten Mitbewerber.</p>
+    <p>Zur Einordnung: Andere bezahlte Splitscreen-Tools derselben Kategorie haben Premium-Stufen, die von einer Einmalgebühr von wenigen Dollar bis zu happigen Wochen-Abos reichen. Mit 1 $/Monat liegen wir also ungefähr eine Größenordnung unter dem nächstgelegenen bezahlten Mitbewerber.</p>
   </section>
 
   <section id="verdict">
@@ -291,13 +302,14 @@
         <div class="pros">
           <h4>Pro</h4>
           <ul>
-            <li>Funktioniert tatsächlich unter Android 15 und 16</li>
+            <li>Funktioniert tatsächlich unter Android 15, 16 und 17</li>
             <li>Keine Werbung in keiner Stufe</li>
-            <li>2,8 MB, keine Hintergrunddienste</li>
+            <li>Leichtgewichtig, keine Hintergrunddienste</li>
             <li>Unter Android 12L+ keine Bedienungshilfen-Berechtigung</li>
             <li>Keine Netzwerk-Berechtigung deklariert</li>
             <li>Pro-Stufe ab ~1 $/Monat, 10× günstiger als die Konkurrenz</li>
             <li>Backup/Restore für Gerätewechsel</li>
+            <li>Optionale paarweise Bildschirmdrehung (z. B. ein Video-Paar ins Querformat zwingen)</li>
             <li>In 15 Sprachen lokalisiert</li>
           </ul>
         </div>
@@ -305,7 +317,7 @@
           <h4>Kontra</h4>
           <ul>
             <li>Zwischen Tipp und Erscheinen des Splitscreens liegt eine spürbare Verzögerung von ~1 Sekunde. Das sind weitgehend systemseitige Kosten – der Eintritt in den Split-Modus unter Android 12L+ umfasst mehrere Task-Übergänge, die das System intern sequenziert, sodass jede App in dieser Kategorie im Bereich von 0,8–1,2 s liegt. Kein Bug, aber man sollte darauf vorbereitet sein</li>
-            <li>Kein schwebendes Widget, keine Gestensteuerung, keine Tasker-Integration. Homescreen-Verknüpfungen sind seit v1.8.0 optional (Pro), alles andere bleibt aber innerhalb der App</li>
+            <li>Kein schwebendes Widget, keine Gestensteuerung, keine Tasker-Integration. Homescreen-Verknüpfungen sind optional (Pro), alles andere bleibt aber innerhalb der App</li>
             <li>Die Liste beim Paaranlegen zeigt alle installierten Apps ohne Kategorien, was ab ~60 Apps auf dem Gerät mühsam wird</li>
             <li>Einzelentwickler, also keine taggleichen Fixes zu erwarten, wenn du auf einer Nicht-Pixel-ROM in einen Randfall läufst</li>
           </ul>

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Split Screen Launcher 리뷰 — Android 16에서도 동작하는 앱 페어 도구</title>
-<meta name="description" content="Split Screen Launcher 개발자 노트: Android 15, 16에서도 안정적으로 동작하는 몇 안 되는 화면 분할 유틸리티를 어떻게 만들었는지. Android 12L+에서 광고 없음, 2.8 MB, 접근성 권한 불필요를 실현한 설계 결정의 기록.">
+<title>Split Screen Launcher 리뷰 — Android 16과 17에서도 동작하는 앱 페어 도구</title>
+<meta name="description" content="Split Screen Launcher 개발자 노트: Android 15, 16, 17에서도 안정적으로 동작하는 몇 안 되는 화면 분할 유틸리티를 어떻게 만들었는지. Android 12L+에서 광고 없음, 가벼운 용량, 접근성 권한 불필요를 실현한 설계 결정의 기록.">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ko/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -166,11 +166,11 @@
         <span class="tag">개발자 노트</span>
         <span>글: <strong style="color:var(--text);">Split Screen Launcher 팀</strong></span>
         <span>•</span>
-        <span>2026년 5월</span>
+        <span>2026년 6월</span>
         <span>•</span>
         <span>약 8분 분량</span>
       </div>
-      <h1>Split Screen Launcher: Android 15와 16에서도 여전히 동작하는 몇 안 되는 화면 분할 앱</h1>
+      <h1>Split Screen Launcher: Android 15, 16, 17에서도 여전히 동작하는 몇 안 되는 화면 분할 앱</h1>
       <p class="sub">
         Pixel이나 순정 Android 폰에는 삼성의 "앱 페어" 기능이 없습니다.
         이 글에서는 Split Screen Launcher가 그 공백을 어떻게 메우는지, 왜 대부분의 대안이 최근 Android 업데이트에서 멈췄는지, 그리고 그 과정에서 내린 설계 결정들을 정리했습니다.
@@ -189,7 +189,7 @@
 
 <div class="byline container">
   <span>카테고리: 생산성 도구</span>
-  <span>테스트 기기: Pixel 9 Pro(Android 16), Pixel 7a(Android 15)</span>
+  <span>테스트 기기: Pixel 9 Pro(Android 16 및 17), Pixel 7a(Android 15)</span>
 </div>
 
 <article class="content container">
@@ -197,9 +197,9 @@
   <div class="tech-note" style="margin-top: 40px; margin-bottom: 32px; font-style: normal;">
     <strong style="display:block; color:#3A7AFE; font-size:13px; letter-spacing:0.08em; margin-bottom:8px; text-transform:uppercase;">요약</strong>
     <ul style="margin:0; padding-left: 20px; font-size:15px; line-height:1.7;">
-      <li>Android 15와 16에서도 안정적으로 동작하는 몇 안 되는 화면 분할 유틸리티 중 하나입니다.</li>
+      <li>Android 15, 16, 17에서도 안정적으로 동작하는 몇 안 되는 화면 분할 유틸리티 중 하나입니다.</li>
       <li>대부분의 경쟁 앱은 Google이 내부 API를 바꿀 때마다 멈췄지만, 이 앱은 최근의 모든 OS 전환에서도 업데이트를 이어왔습니다.</li>
-      <li>광고 없음, 인터넷 접속 불필요, Android 12L+에서는 접근성 서비스도 필요 없음. 전체 용량 약 2.8 MB.</li>
+      <li>광고 없음, 인터넷 접속 불필요, Android 12L+에서는 접근성 서비스도 필요 없음. 가벼운 용량에 백그라운드 서비스도 없음.</li>
       <li>무료 버전으로 핵심 기능은 충분히 사용 가능합니다. Pro 구독은 월 약 $1로, 가장 가까운 유료 경쟁 앱의 약 10분의 1 수준입니다.</li>
       <li>스마트폰에서 OS 표준 앱 페어를 쓸 수 있는 곳은 사실상 삼성뿐입니다 — Android 15에서 OS 차원의 기능이 추가됐지만 대화면 기기 한정이라, Pixel 스마트폰(일반 모델)과 그 외 비삼성 스마트폰은 모두 대상에서 빠졌습니다.</li>
       <li>Pixel을 쓰면서 Galaxy의 앱 페어가 그리웠다면, 지금까지 본 것 중 가장 가까운 대체재입니다.</li>
@@ -211,6 +211,7 @@
     <ol>
       <li><a href="#background">배경: Android에서 "앱 페어"가 왜 중요한가</a></li>
       <li><a href="#what-is">Split Screen Launcher가 실제로 하는 일</a></li>
+      <li><a href="#app-pair-alternative">Pixel을 위한 삼성 앱 페어 대체재</a></li>
       <li><a href="#android15">Android 15/16 문제 — 그리고 왜 대부분의 경쟁 앱이 멈췄는가</a></li>
       <li><a href="#privacy">권한과 개인정보</a></li>
       <li><a href="#compare">다른 화면 분할 앱과의 비교</a></li>
@@ -240,6 +241,16 @@
     </p>
   </section>
 
+  <section id="app-pair-alternative">
+    <h2>Pixel과 순정 Android를 위한 삼성 앱 페어 대체재</h2>
+    <p>
+      Galaxy 폰에서 Pixel로 — 혹은 다른 순정 Android 폰으로 — 넘어왔고 삼성 앱 페어를 대신할 무언가를 찾고 있다면, 바로 그 공백을 메우려고 Split Screen Launcher를 만들었습니다. 삼성 기기나 Edge Panel 없이도 "두 앱을 나란히 한 번에 실행"하는 똑같은 한 번 탭 동작을 누릴 수 있습니다.
+    </p>
+    <p>
+      또한 Android 15, 16, 17에서 여전히 동작하는 몇 안 되는 화면 분할 앱 중 하나입니다 — 광고도, 추적 SDK도 없고, Android 12L 이상에서는 접근성 권한도 필요 없습니다. 오래된 앱 페어 도구 대부분은 최근 Android에서 막혀버린 시스템 바로가기에 기대고 있지만(이유는 아래 섹션 3에서 다룹니다), 이 앱은 OS 업데이트마다 우리가 계속 살려온 경로로 분할 화면에 도달합니다.
+    </p>
+  </section>
+
   <section id="what-is">
     <h2>2. Split Screen Launcher가 실제로 하는 일</h2>
     <p>
@@ -260,7 +271,7 @@
       </figure>
     </div>
     <p>
-      기능은 정말 이게 전부입니다. 내장 브라우저도, 플로팅 위젯도, 알림 패널 연동도 없습니다. APK는 약 <strong>2.8 MB</strong>로, 웬만한 앱 아이콘보다 작고 백그라운드에서 아무것도 돌리지 않습니다.
+      기능은 정말 이게 전부입니다. 내장 브라우저도, 플로팅 위젯도, 알림 패널 연동도 없습니다. 앱은 가볍고 — 몇 메가바이트에 불과합니다 — 백그라운드에서 아무것도 돌리지 않습니다.
     </p>
     <p>
       테스트하면서 실제로 썼던 페어 예시:
@@ -273,13 +284,16 @@
       <li><strong>계산기 + Chrome</strong> — 여러 탭의 가격 비교</li>
     </ul>
     <p>
+      미처 예상하지 못한 사용 사례가 하나 있습니다: 자동차입니다. 한 사용자는 차량에 설치된 Android AI 박스에서 Split Screen Launcher를 돌리면서, 길안내와 음악을 위해 <strong>Maps + Spotify</strong>를 페어로 쓰다가 조수석에 앉은 사람을 위해 <strong>Maps + Netflix</strong>로 바꾼다고 알려줬습니다. 페어 실행이 한 번 탭으로 끝나기 때문에, 최근 앱 메뉴를 길게 눌러 조작하는 것보다 차량 헤드유닛에 훨씬 잘 맞습니다.
+    </p>
+    <p>
       놓치기 쉬워서 한 가지 짚어두자면, 페어 데이터는 백업 파일로 내보낼 수 있습니다. 사소해 보이지만 이 카테고리의 경쟁 앱 상당수는 페어를 앱 전용 저장소에만 넣어두고 내보내기 경로를 제공하지 않습니다. 기기를 바꾸면 모든 페어를 손으로 다시 만들어야 한다는 뜻입니다. 우리는 Pixel에서 Pixel로 갈아탈 때 몇 초 만에 전체 세트가 복원되도록 백업/복원을 1급 기능으로 구현했습니다.
     </p>
     <p>
       미리 언급해 둘 설계 결정이 하나 더 있습니다: 기본적으로 <strong>페어는 앱 안에 존재하며, 홈 화면에는 아이콘이 만들어지지 않습니다</strong>. 이유는 절반은 단순함을 위해서이고(홈 화면이 페어 아이콘으로 어수선해지지 않습니다), 절반은 구조적인 이유 때문입니다 — 앱이 특정 런처(Pixel, Nova 등)에 묶이지 않습니다. 섹션 3에서 언급하듯, 바로가기에 의존하는 런처야말로 Android 15와 16 전환에서 잘 부서지는 유형입니다. 앱 내부에 머무르는 방식이 기기 간 이전을 더 매끄럽게 만듭니다.
     </p>
     <p>
-      그리고 v1.8.0(2026년 5월)에서 홈 화면 한 번 탭으로 페어를 실행하고 싶은 Pro 사용자를 위해 선택형 홈 화면 고정 기능을 추가했습니다. 원래의 "홈 화면을 단순하게 유지한다"는 자세를 그대로 유지하면서, "홈 아이콘에서 분할 화면을 바로 실행하고 싶다"는 요구에도 응답하고자 했습니다. 홈에 표시되는 아이콘은 두 앱 아이콘을 위아래로 쌓은 형태라, 일반 런처 아이콘과 시각적으로 구분됩니다.
+      선택형 홈 화면 고정 동작을 켜면 Pro 사용자는 홈 화면에서 바로 한 번 탭으로 페어를 실행할 수 있습니다. 원래의 "홈 화면을 단순하게 유지한다"는 자세를 그대로 유지하면서, "홈 아이콘에서 분할 화면을 바로 실행하고 싶다"는 요구에도 응답하고자 했습니다. 홈에 표시되는 아이콘은 두 앱 아이콘을 위아래로 쌓은 형태라, 일반 런처 아이콘과 시각적으로 구분됩니다.
     </p>
   </section>
 
@@ -327,19 +341,24 @@
       그 결과 <em>Google Play의 화면 분할 유틸리티 대다수 — 이 카테고리에서 다운로드 1위 앱을 포함 — 에서 최신 Pixel 기기, 특히 Android 15 / 16에서의 동작 불안정 보고가 눈에 띄게 나타나고 있습니다</em>. 해당 앱들의 사용자 리뷰에는 2025년 말 이후의 이러한 보고가 적지 않게 포함되어 있습니다.
     </div>
     <p>
-      Split Screen Launcher는 다른 경로로 Android 15와 16에서도 안정적으로 분할 화면에 도달합니다. 정확한 구현 방식은 공개하지 않습니다 — OS 버전을 가로질러 동작하는 조합을 찾기까지 꽤 많은 실험이 필요했고, 레시피를 공개하는 것은 사실상 멈춘 경쟁 앱들 모두에게 손에 쥐어 주는 꼴이 됩니다. 대신 말씀드릴 수 있는 것은, 릴리스 이력이 Android 12, 12L, 14, 15, 16 전환을 넘나드는 활발한 유지 보수를 보여준다는 것, 그리고 그 속도를 계속 이어갈 예정이라는 점입니다.
+      Split Screen Launcher는 다른 경로로 Android 15, 16, 그리고 새로 나온 Android 17에서도 안정적으로 분할 화면에 도달합니다. 정확한 구현 방식은 공개하지 않습니다 — OS 버전을 가로질러 동작하는 조합을 찾기까지 꽤 많은 실험이 필요했고, 레시피를 공개하는 것은 사실상 멈춘 경쟁 앱들 모두에게 손에 쥐어 주는 꼴이 됩니다. 대신 말씀드릴 수 있는 것은, 릴리스 이력이 Android 12, 12L, 14, 15, 16, 17 전환을 넘나드는 활발한 유지 보수를 보여준다는 것, 그리고 그 속도를 계속 이어갈 예정이라는 점입니다.
     </p>
     <div class="callout">
       <strong>(중요) 기본 상태에서는 분할되지 않는 앱:</strong> 일부 앱은 매니페스트에 <code>android:resizeableActivity="false"</code>를 선언합니다 — 순정 카메라와 Google Files가 대표적입니다 — 그대로 실행하면 페어를 만들지 않고 그 앱만 단독 전체 화면으로 열립니다(삼성의 기본 앱 페어도 동일하게 동작합니다).
       <br><br>
       (우회 방법) Android의 <code>설정 → 시스템 → 개발자 옵션 → 액티비티 크기 조절 가능</code>과 <code>크기 조절 불가능한 앱을 멀티 윈도우에서 사용</code>을 모두 켜면, 이 앱들도 화면 분할에서 동작합니다. 앱 내부 도움말("'동작하지 않을 수 있음' 앱 사용법")에 단계별 안내가 있습니다.
+      <br><br>
+      (업데이트) 최근 버전에서는 예전에 페어로 잘 묶이지 않던 몇몇 앱 — 그중 <strong>Alexa</strong>와 <strong>Google Calendar</strong> — 도 처리하게 되어, 이제 분할 화면에서 제대로 열립니다.
     </div>
   </section>
 
   <section id="privacy">
     <h2>4. 권한과 개인정보</h2>
     <p>
-      <strong>Android 12L 이상</strong>에서는 런타임 권한도, 접근성 서비스도 필요하지 않습니다. 모든 것은 표준 Activity 플래그로 처리됩니다.
+      <strong>Android 12L 이상</strong>에서는 페어를 실행하는 데 런타임 권한도, 접근성 서비스도 필요하지 않습니다 — 핵심 화면 분할 동작은 표준 Activity 플래그로 처리됩니다.
+    </p>
+    <p>
+      한 가지 선택적 예외는 <strong>페어별 자동 회전</strong>입니다. 특정 페어에 이 기능을 켜면 바로 그 시점에 앱이 시스템 설정 대화상자를 통해 <code>WRITE_SETTINGS</code> 특수 권한을 요청합니다 — 미리 요구하는 일은 절대 없으며, 이 기능을 쓰지 않는 한 권한 요청을 보게 되지 않습니다.
     </p>
     <p>
       <strong>Android 9 ~ 12</strong>에서는 접근성 서비스 권한이 필요합니다. 사용 가능한 유일한 API이기 때문입니다. Play Store 소개 페이지에는 이 서비스가 화면 분할 실행에만 쓰인다는 점을 명시해 두었습니다. Google Play에 노출되는 권한 목록은 한 화면에서 다 읽을 수 있을 만큼 짧습니다 — 위치도, 연락처도, 저장소도, 그리고 (특히) 네트워크도 없습니다. Play Store의 이 구석 치고는 이미 드문 일입니다.
@@ -348,7 +367,7 @@
       <strong style="color:var(--text);">쉽게 말하면:</strong> 예전 Android에서는 화면 분할을 트리거하는 공식 API가 없었기 때문에 접근성 서비스가 유일한 현실적 경로였습니다. 이는 레거시 제약일 뿐, 앱이 화면을 읽기 위해 사용하는 것이 아닙니다.
     </p>
     <p>
-      비교하자면 Play Store의 무료 화면 분할 앱 대부분은 광고 SDK(AdMob, Unity, IronSource)를 포함하고 있어 <code>INTERNET</code> 권한과 그에 딸린 추적 묶음을 같이 실어 나릅니다. 우리는 대신 최소한의 구독으로 수익을 내기로 했습니다 — 일부는 권한 발자국을 깨끗하게 유지하기 위해서이고, 일부는 2.8 MB 유틸리티에 광고 SDK를 욱여넣으면 크기가 세 배 이상으로 불어나기 때문입니다.
+      비교하자면 Play Store의 무료 화면 분할 앱 대부분은 광고 SDK(AdMob, Unity, IronSource)를 포함하고 있어 <code>INTERNET</code> 권한과 그에 딸린 추적 묶음을 같이 실어 나릅니다. 우리는 대신 최소한의 구독으로 수익을 내기로 했습니다 — 일부는 권한 발자국을 깨끗하게 유지하기 위해서이고, 일부는 이렇게 작은 유틸리티에 광고 SDK를 욱여넣으면 크기가 크게 불어나기 때문입니다.
     </p>
   </section>
 
@@ -366,7 +385,7 @@
       서드파티 진영 자체도 꽤 단편화되어 있습니다. Google Play에는 화면 분할 전용 유틸리티가 수십 개 올라와 있지만, 활성도와 품질의 편차가 큰 상태입니다.
     </p>
     <p>
-      이 분야에서 가장 많이 다운로드된 한 앱은 Google Play에서 <strong>500만 인스톨</strong>을 넘었지만 평점은 <strong>2.4점</strong> 정도에 머물러 있습니다 — 도달 범위는 큰데 리뷰에는 불만이 꾸준히 쌓여 있는, 흔치 않은 조합입니다. 그 다음급의 한 앱은 2025년 중반 이후 업데이트가 멈춰 있어, Android 15에서 바뀐 화면 분할 API에 아직 대응하지 못하고 있습니다. 가격대가 공격적인 앱도 있는데, 어떤 프리미엄 등급은 <strong>주당 $18.99</strong>로 보고되어 사용자 커뮤니티에서 비판을 받기도 했습니다.
+      이 분야에서 가장 많이 다운로드된 앱들은 수백만 건의 인스톨을 쌓았지만, 정작 선두 주자들은 의외로 약합니다. 그중 가장 큰 앱은 그 넓은 도달 범위에 어울리지 않게 평범한 평점에 머물러 있고, 또 다른 널리 설치된 대안은 2025년 중반 이후 업데이트가 멈춰 있어 Android 15 / 16에서 바뀐 화면 분할 API에 아직 대응하지 못하고 있습니다. 가격대가 공격적인 앱도 여럿 있는데, 비싼 주간 구독으로 사용자 커뮤니티에서 비판을 받기도 했습니다.
     </p>
     <p>
       이 분야 전체에서 공통적으로 보이는 패턴은 다음과 같습니다. 대부분의 앱이 Android 11~12 무렵에 업데이트가 멈췄거나, 거슬리는 배너·전면 광고를 동반하거나, 모든 Android 버전에서 접근성 서비스 권한을 요구합니다(본 앱은 Android 12L 이상에서 이 요구사항을 제거했습니다). 그 결과로 잘 관리되고 권한 요구가 적은 선택지는 의외로 얇은 분야가 되었습니다.
@@ -385,7 +404,7 @@
       Pro 구독은 지역에 따라 <strong>월 약 $1</strong>로, 페어 한도를 해제하고 폴더 정리와 아이콘 색상 커스터마이징을 추가합니다. 표준 Google Play 구독이며 언제든 해지 가능합니다.
     </p>
     <p>
-      참고로, 같은 카테고리의 다른 유료 화면 분할 유틸리티들의 프리미엄 등급은 일회성 몇 달러부터 주당 $18.99 구독까지 폭넓게 분포해 있습니다. 월 $1은 가장 가까운 유료 경쟁 앱과 비교해도 대략 한 자릿수 저렴한 수준입니다.
+      참고로, 같은 카테고리의 다른 유료 화면 분할 유틸리티들의 프리미엄 등급은 일회성 몇 달러부터 비싼 주간 구독까지 폭넓게 분포해 있습니다. 월 $1은 가장 가까운 유료 경쟁 앱과 비교해도 대략 한 자릿수 저렴한 수준입니다.
     </p>
   </section>
 
@@ -400,13 +419,14 @@
         <div class="pros">
           <h4>장점</h4>
           <ul>
-            <li>Android 15와 16에서 실제로 동작함</li>
+            <li>Android 15, 16, 17에서 실제로 동작함</li>
             <li>어떤 플랜에도 광고 없음</li>
-            <li>2.8 MB, 백그라운드 서비스 없음</li>
+            <li>가벼운 용량, 백그라운드 서비스 없음</li>
             <li>Android 12L+에서는 접근성 권한 불필요</li>
             <li>네트워크 권한을 아예 선언하지 않음</li>
             <li>Pro 플랜 월 약 $1 — 경쟁 앱 대비 10배 저렴</li>
             <li>기기 이전을 위한 백업/복원</li>
+            <li>페어별 선택형 화면 회전(예: 영상 페어를 가로 모드로 강제)</li>
             <li>15개 언어 지원</li>
           </ul>
         </div>
@@ -414,7 +434,7 @@
           <h4>단점</h4>
           <ul>
             <li>탭부터 분할 화면이 나타나기까지 약 1초의 체감 지연이 있습니다. 이는 대부분 OS 측 비용입니다 — Android 12L+에서 분할 모드에 들어가려면 시스템이 여러 태스크 전환을 내부적으로 순차 처리해야 하므로, 이 카테고리의 어떤 앱이든 0.8~1.2초 범위에 들어옵니다. 버그가 아니지만 기대치 설정 차원에서 언급할 만합니다</li>
-            <li>플로팅 위젯, 제스처 바인딩, Tasker 연동이 없습니다. 홈 화면 바로가기는 v1.8.0부터 선택 가능(Pro)하지만, 그 외에는 모두 앱 내부에 머무는 설계입니다</li>
+            <li>플로팅 위젯, 제스처 바인딩, Tasker 연동이 없습니다. 홈 화면 바로가기는 선택 가능(Pro)하지만, 그 외에는 모두 앱 내부에 머무는 설계입니다</li>
             <li>페어 생성 목록은 설치된 앱을 카테고리 구분 없이 전부 보여줘, 기기에 앱이 60개를 넘어가면 조금 번거로워집니다</li>
             <li>1인 개발자이다 보니, Pixel 외 ROM의 엣지 케이스를 만나더라도 당일 수정은 기대하지 마세요</li>
           </ul>

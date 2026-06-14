@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Split Screen Launcher 评测 — 兼容 Android 16 的应用对工具</title>
-<meta name="description" content="Split Screen Launcher 开发者笔记:如何打造少数仍能在 Android 15 和 16 上稳定运行的分屏工具之一。Android 12L+ 上实现无广告、2.8 MB、无需无障碍权限的设计决策。">
+<title>Split Screen Launcher 评测 — 兼容 Android 16 和 17 的应用对工具</title>
+<meta name="description" content="Split Screen Launcher 开发者笔记:如何打造少数仍能在 Android 15、16 和 17 上稳定运行的分屏工具之一。Android 12L+ 上实现无广告、轻量、无需无障碍权限的设计决策。">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-CN/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -118,9 +118,9 @@
       <div class="meta">
         <span class="tag">开发者笔记</span>
         <span>作者：<strong style="color:var(--text);">Split Screen Launcher 团队</strong></span>
-        <span>•</span><span>2026 年 5 月</span><span>•</span><span>约 8 分钟阅读</span>
+        <span>•</span><span>2026 年 6 月</span><span>•</span><span>约 8 分钟阅读</span>
       </div>
-      <h1>Split Screen Launcher：少数仍能在 Android 15 和 16 上运行的分屏应用之一</h1>
+      <h1>Split Screen Launcher：少数仍能在 Android 15、16 和 17 上运行的分屏应用之一</h1>
       <p class="sub">Pixel 和原生 Android 手机没有三星的"应用对"功能。本文介绍 Split Screen Launcher 如何填补这一空缺，为什么大多数替代品在近期 Android 版本上失效，以及我们在开发中所做的设计选择。</p>
       <div class="hero-cta">
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">在 Google Play 获取</a>
@@ -136,7 +136,7 @@
 
 <div class="byline container">
   <span>类别：生产力工具</span>
-  <span>测试设备：Pixel 9 Pro (Android 16)、Pixel 7a (Android 15)</span>
+  <span>测试设备：Pixel 9 Pro (Android 16 &amp; 17)、Pixel 7a (Android 15)</span>
 </div>
 
 <article class="content container">
@@ -144,9 +144,9 @@
   <div class="tech-note" style="margin-top:40px;margin-bottom:32px;font-style:normal;">
     <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">速览</strong>
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
-      <li>少数仍能在 Android 15 和 16 上稳定运行的分屏工具之一。</li>
+      <li>少数仍能在 Android 15、16 和 17 上稳定运行的分屏工具之一。</li>
       <li>大多数竞品在 Google 修改底层 API 时停摆；我们在近年每一次 OS 过渡中都持续发布更新。</li>
-      <li>无广告、无需联网、Android 12L+ 上无需无障碍服务。总体积约 2.8 MB。</li>
+      <li>无广告、无需联网、Android 12L+ 上无需无障碍服务。轻量，没有后台服务。</li>
       <li>免费版已覆盖核心用法。Pro 订阅约为每月 $1，仅为最接近付费竞品价格的约十分之一。</li>
       <li>手机端的原生"应用对"基本上是三星独占——Android 15 虽然在系统层面加入了这个功能，但仅限大屏设备，Pixel 手机（以及其他所有非三星手机）都被排除在外。</li>
       <li>如果你在使用 Pixel，又怀念 Galaxy 的"应用对"，这是我们见过最接近的替代方案。</li>
@@ -158,6 +158,7 @@
     <ol>
       <li><a href="#background">背景：为什么 Android 上的"应用对"很重要</a></li>
       <li><a href="#what-is">Split Screen Launcher 究竟能做什么</a></li>
+      <li><a href="#app-pair-alternative">面向 Pixel 的三星应用对替代方案</a></li>
       <li><a href="#android15">Android 15/16 难题 — 以及大多数竞品为何停摆</a></li>
       <li><a href="#privacy">权限与隐私</a></li>
       <li><a href="#compare">与其他分屏应用的对比</a></li>
@@ -179,6 +180,12 @@
     <p>所以在手机上，原生"应用对"基本上就是三星独有的功能。其他厂商的用户要么用 Android 自带的手动分屏（打开应用、长按最近任务、拖动、再来一遍），要么就装一款像本文这样的第三方启动器。</p>
   </section>
 
+  <section id="app-pair-alternative">
+    <h2>面向 Pixel 和原生 Android 的三星应用对替代方案</h2>
+    <p>如果你从 Galaxy 手机换到了 Pixel —— 或换到任何一款原生 Android 手机 —— 正在寻找一款三星应用对的替代方案，那么 Split Screen Launcher 正是为填补这一空缺而打造的。你能获得同样的一键"并排启动两款应用"体验，无需三星设备，也不用 Edge 面板。</p>
+    <p>它还是少数仍能在 Android 15、16 和 17 上运行的分屏应用之一 —— 无广告、无追踪 SDK，在 Android 12L 及以上也无需无障碍权限。大多数较旧的应用对工具依赖近期 Android 版本已经关闭的系统快捷方式（我们会在下文第 3 节详细解释原因）；而这一款通过一条我们在每次系统更新中都保持可用的路径进入分屏。</p>
+  </section>
+
   <section id="what-is">
     <h2>2. Split Screen Launcher 究竟能做什么</h2>
     <p>Split Screen Launcher 是一款单一用途的工具。你选两款应用，给这对组合起个名字（如"通勤""工作""YouTube + X"），它就会作为一行出现在应用里。点击这一行，两款应用就会并排打开。</p>
@@ -196,7 +203,7 @@
         <figcaption>结果：点击应用对一次，两款应用就以分屏并排打开。图示：地图 + 消息。</figcaption>
       </figure>
     </div>
-    <p>功能真的就这些。没有内置浏览器，没有悬浮小部件，没有通知面板集成。APK 约 <strong>2.8 MB</strong>，比大多数应用图标还小，也不会在后台运行任何东西。</p>
+    <p>功能真的就这些。没有内置浏览器，没有悬浮小部件，没有通知面板集成。应用很轻量 —— 只有几兆字节 —— 也不会在后台运行任何东西。</p>
     <p>测试期间我们使用的应用对示例：</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Google 地图 + Spotify</strong> —— 开车时</li>
@@ -205,9 +212,10 @@
       <li><strong>Gmail + Slack</strong> —— 工作分流</li>
       <li><strong>计算器 + Chrome</strong> —— 跨标签页比价</li>
     </ul>
+    <p>有一个我们没料到的使用场景：车里。一位用户告诉我们，他在车载的 Android AI 盒子上运行 Split Screen Launcher，导航配音乐时用 <strong>Maps + Spotify</strong>，给副驾座上的人则切换到 <strong>Maps + Netflix</strong>。由于启动一个应用对只需轻点一下，它比在最近任务菜单里长按操作更适合车机。</p>
     <p>有个细节容易被忽略，但值得单独提一下：应用对数据可以导出为备份文件。听上去不起眼，但同品类的几款竞品把应用对存在应用私有目录里，没有任何导出途径——换手机就意味着手动重建所有应用对。我们一开始就把备份/恢复做成一流功能，正是为了让 Pixel 到 Pixel 的迁移能在几秒内恢复整套配置。</p>
     <p>另一个需要提前说明的设计取舍：默认情况下，<strong>应用对都存在于应用内部 —— 不会创建桌面图标</strong>。原因一半是为了简洁（桌面不会被应用对图标堆满），一半是出于架构考虑 —— 应用不会被特定启动器（Pixel、Nova 等）所绑定。正如第 3 节所述，基于快捷方式的启动器正是 Android 15 和 16 过渡时最容易失效的那一类；把操作留在应用内部，可以让换机迁移更顺滑。</p>
-    <p>v1.8.0（2026 年 5 月）为想从桌面图标一键启动应用对的 Pro 用户新增了一个可选的"固定到桌面"功能。我们希望保留原本"桌面保持简洁"的姿态，同时也回应"想直接从桌面图标启动分屏"的需求。桌面上显示的图标把两款应用图标上下堆叠，使应用对在视觉上和普通启动器图标区分开。</p>
+    <p>一个可选的"固定到桌面"功能让 Pro 用户可以直接从桌面图标一键启动应用对。我们希望保留原本"桌面保持简洁"的姿态，同时也回应"想直接从桌面图标启动分屏"的需求。桌面上显示的图标把两款应用图标上下堆叠，使应用对在视觉上和普通启动器图标区分开。</p>
   </section>
 
   <section id="who-for">
@@ -245,20 +253,23 @@
     <div class="tech-note">
       结果是，<em>Google Play 上大多数分屏工具 —— 包括该品类下载量最大的那款 —— 都收到了在近期 Pixel 设备上（尤其是 Android 15 / 16）行为不稳定的反馈</em>。这些应用的用户评论里，从 2025 年末起也出现了相当数量的此类报告。
     </div>
-    <p>Split Screen Launcher 通过另一条路径，在 Android 15 和 16 上依然能稳定进入分屏。具体机制我们不公开——找到一套跨系统版本可用的组合，花了相当多的实验，而把方法公开等于把它交给每一个已停摆的竞品。能说的是：我们的发布历史显示，在 Android 12、12L、14、15、16 每一次过渡中都有活跃的维护，并且我们打算继续保持这个节奏。</p>
+    <p>Split Screen Launcher 通过另一条路径，在 Android 15、16 以及全新的 Android 17 上依然能稳定进入分屏。具体机制我们不公开——找到一套跨系统版本可用的组合，花了相当多的实验，而把方法公开等于把它交给每一个已停摆的竞品。能说的是：我们的发布历史显示，在 Android 12、12L、14、15、16 和 17 每一次过渡中都有活跃的维护，并且我们打算继续保持这个节奏。</p>
     <div class="callout">
       <strong>（重要）默认不会进入分屏的应用：</strong>有些应用在清单中声明了 <code>android:resizeableActivity="false"</code> —— 原生相机和 Google Files 就是典型代表 —— 直接启动它们不会形成分屏对，而是只把这一个应用单独以全屏方式打开（三星自带的应用对也是同样的行为）。
       <br><br>
       （变通方案）同时打开 <code>设置 → 系统 → 开发者选项 → 强制将活动设为可调整大小</code> 和 <code>允许将不可调整大小的应用置于多窗口</code>，这些应用就也能在分屏中工作了。应用内帮助页（"如何使用'可能无法工作'的应用"）有详细步骤。
+      <br><br>
+      （更新）近期版本还处理了几款过去难以配对的应用——其中包括 <strong>Alexa</strong> 和 <strong>Google Calendar</strong>——它们现在都能正确地在分屏中打开。
     </div>
   </section>
 
   <section id="privacy">
     <h2>4. 权限与隐私</h2>
-    <p>在 <strong>Android 12L 及以上</strong>，应用无需任何运行时权限，也无需无障碍服务。一切通过标准的 Activity 标记完成。</p>
+    <p>在 <strong>Android 12L 及以上</strong>，启动一个应用对无需任何运行时权限，也无需无障碍服务 —— 核心分屏流程使用标准的 Activity 标记完成。</p>
+    <p>唯一可选的例外是 <strong>按应用对自动旋转</strong>。如果你为某个应用对开启该功能，应用会在那一刻通过系统设置对话框请求 <code>WRITE_SETTINGS</code> 特殊权限 —— 它绝不会提前索取，除非你使用该功能，否则你根本不会看到它。</p>
     <p>在 <strong>Android 9 到 12</strong>，应用确实需要无障碍服务权限，因为那是唯一可用的 API。Play Store 商品页明确说明该服务仅用于触发分屏模式。Google Play 显示的权限列表足够短，一屏就能看完——没有位置、没有通讯录、没有存储，而且（特别是）没有网络。在 Play Store 的这个角落，这本身就很少见。</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">说人话：</strong>在较旧的 Android 上没有官方 API 可以触发分屏，无障碍服务是当时唯一可行的路径。这是一项遗留约束，而非应用用它来读取你屏幕的借口。</p>
-    <p>对比之下，Play Store 上大多数免费分屏应用都捆绑了广告 SDK（AdMob、Unity、IronSource），这意味着它们会附带 <code>INTERNET</code> 权限和随之而来的追踪器包。我们选择用最小的订阅来盈利——一方面是为了保持权限足迹干净，另一方面是因为把广告 SDK 塞进一个 2.8 MB 的工具会让体积膨胀三倍以上。</p>
+    <p>对比之下，Play Store 上大多数免费分屏应用都捆绑了广告 SDK（AdMob、Unity、IronSource），这意味着它们会附带 <code>INTERNET</code> 权限和随之而来的追踪器包。我们选择用最小的订阅来盈利——一方面是为了保持权限足迹干净，另一方面是因为把广告 SDK 塞进一个这么小的工具会让它的体积大幅膨胀。</p>
   </section>
 
   <section id="compare">
@@ -273,7 +284,7 @@
       第三方阵营自身也参差不齐。Google Play 上能找到几十款专做分屏的工具，但活跃度和质量的分布极不均衡。
     </p>
     <p>
-      该品类中下载量最高的那款应用，在 Google Play 上的安装量已突破 <strong>500 万</strong>——但评分却只有 <strong>约 2.4 星</strong>。这是一个相当少见的组合：覆盖面很大，评论区却长期充斥不满。另一款装机量同样可观的替代品，最后一次更新停留在 2025 年年中，至今没有针对 Android 15 分屏 API 变更发布任何修复。还有几款的定价相当激进——据用户反映，其中一款的高级版收费高达 <strong>每周 $18.99</strong>，在用户社区中招致不少批评。
+      该品类中下载量最高的几款应用累积了数百万的安装量，但这个领域的领头羊却出人意料地薄弱：其中最大的那款覆盖面虽广，评分却平平；另一款装机量同样可观的替代品，最后一次更新停留在 2025 年年中，至今没有针对 Android 15 / 16 分屏 API 变更发布任何修复。还有几款的定价相当激进，高昂的按周订阅在用户社区中招致不少批评。
     </p>
     <p>
       整个领域的共同模式大致是：大多数应用要么在 Android 11–12 前后就停止更新，要么塞进了打扰式的横幅或插屏广告，要么在所有 Android 版本上都要求无障碍服务权限（我们在 Android 12L+ 上去掉了这项要求）。这使得"持续维护、权限克制"的选项在这个领域出乎意料地稀少。
@@ -287,7 +298,7 @@
     <h2>6. 价格</h2>
     <p>免费版会限制可保存的应用对数量，让用户在决定是否合用之前就能体验完整流程。核心功能——创建应用对、启动、备份/恢复——全部免费。</p>
     <p>Pro 订阅约为 <strong>每月 $1</strong>，价格因地区略有差异，订阅后解除应用对数量限制，并新增文件夹分组和图标颜色自定义。普通的 Google Play 订阅，随时可取消。</p>
-    <p>作为对比：同品类的其他付费分屏工具，其高级版定价从一次性几美元到每周 $18.99 的订阅不等。$1/月大约比最接近的付费竞品价格便宜一个数量级。</p>
+    <p>作为对比：同品类的其他付费分屏工具，其高级版定价从一次性几美元到高昂的按周订阅不等。$1/月大约比最接近的付费竞品价格便宜一个数量级。</p>
   </section>
 
   <section id="verdict">
@@ -299,13 +310,14 @@
         <div class="pros">
           <h4>优点</h4>
           <ul>
-            <li>在 Android 15 和 16 上真的能用</li>
+            <li>在 Android 15、16 和 17 上真的能用</li>
             <li>任何套餐都没有广告</li>
-            <li>2.8 MB，没有后台服务</li>
+            <li>轻量，没有后台服务</li>
             <li>Android 12L+ 上无需无障碍权限</li>
             <li>完全没有声明网络权限</li>
             <li>Pro 版约 $1/月，是竞品的十分之一</li>
             <li>支持备份 / 恢复，便于设备迁移</li>
+            <li>可选的按应用对屏幕旋转（例如强制让视频应用对横屏）</li>
             <li>支持 15 种语言本地化</li>
           </ul>
         </div>
@@ -313,7 +325,7 @@
           <h4>缺点</h4>
           <ul>
             <li>从点击到分屏出现之间大约有 1 秒的可感知延迟。这主要是 OS 端的开销——Android 12L+ 进入分屏模式涉及系统内部多次任务切换，所以这个品类的任何应用都会落在 0.8–1.2 秒的区间。不是 bug，但值得提前告知</li>
-            <li>没有悬浮小部件、手势绑定、Tasker 集成。桌面快捷方式自 v1.8.0 起作为可选项（Pro），其他功能依然全部留在应用内</li>
+            <li>没有悬浮小部件、手势绑定、Tasker 集成。桌面快捷方式作为可选项（Pro），其他功能依然全部留在应用内</li>
             <li>应用对创建列表会无分类地显示所有已安装应用，设备上超过约 60 款应用后会略显繁琐</li>
             <li>独立开发者，所以如果你在非 Pixel 的 ROM 上遇到边缘场景，不要指望当天修复</li>
           </ul>

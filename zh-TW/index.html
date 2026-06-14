@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Split Screen Launcher 評測 — 相容 Android 16 的應用程式配對工具</title>
-<meta name="description" content="Split Screen Launcher 開發者筆記:如何打造少數仍能在 Android 15 與 16 上穩定運作的分割畫面工具之一。Android 12L+ 實現無廣告、2.8 MB、不需無障礙權限的設計決策。">
+<title>Split Screen Launcher 評測 — 相容 Android 16 與 17 的應用程式配對工具</title>
+<meta name="description" content="Split Screen Launcher 開發者筆記:如何打造少數仍能在 Android 15、16 與 17 上穩定運作的分割畫面工具之一。Android 12L+ 實現無廣告、輕量、不需無障礙權限的設計決策。">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-TW/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -118,9 +118,9 @@
       <div class="meta">
         <span class="tag">開發者筆記</span>
         <span>作者：<strong style="color:var(--text);">Split Screen Launcher 團隊</strong></span>
-        <span>•</span><span>2026 年 5 月</span><span>•</span><span>約 8 分鐘閱讀</span>
+        <span>•</span><span>2026 年 6 月</span><span>•</span><span>約 8 分鐘閱讀</span>
       </div>
-      <h1>Split Screen Launcher：少數仍能在 Android 15 與 16 上運作的分割畫面應用程式之一</h1>
+      <h1>Split Screen Launcher：少數仍能在 Android 15、16 與 17 上運作的分割畫面應用程式之一</h1>
       <p class="sub">Pixel 與原生 Android 手機沒有三星的「應用程式配對」功能。本文介紹 Split Screen Launcher 如何填補這個空白、為何大多數替代品在近期的 Android 版本中失效，以及我們一路走來所做的設計決定。</p>
       <div class="hero-cta">
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">在 Google Play 下載</a>
@@ -136,7 +136,7 @@
 
 <div class="byline container">
   <span>分類：生產力工具</span>
-  <span>測試裝置：Pixel 9 Pro（Android 16）、Pixel 7a（Android 15）</span>
+  <span>測試裝置：Pixel 9 Pro（Android 16 與 17）、Pixel 7a（Android 15）</span>
 </div>
 
 <article class="content container">
@@ -144,9 +144,9 @@
   <div class="tech-note" style="margin-top:40px;margin-bottom:32px;font-style:normal;">
     <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">重點摘要</strong>
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
-      <li>少數仍能在 Android 15 與 16 上穩定運作的分割畫面工具之一。</li>
+      <li>少數仍能在 Android 15、16 與 17 上穩定運作的分割畫面工具之一。</li>
       <li>多數競品在 Google 調整底層 API 時失效；我們在近期每一次 OS 版本切換中都持續推送更新。</li>
-      <li>無廣告、無需網路連線、在 Android 12L+ 上無需無障礙服務。總大小約 2.8 MB。</li>
+      <li>無廣告、無需網路連線、在 Android 12L+ 上無需無障礙服務。輕量，無背景服務。</li>
       <li>免費版已涵蓋核心用途。Pro 訂閱約每月 $1，約為最接近的付費競品的十分之一。</li>
       <li>手機端的原生應用程式配對基本上是三星獨有 — Android 15 雖然在 OS 層級加入了這項功能，但僅限大螢幕裝置，Pixel 手機（以及其他所有非三星手機）都不在範圍內。</li>
       <li>如果你使用 Pixel，又懷念 Galaxy 的應用程式配對，這是我們看過最接近的替代品。</li>
@@ -158,6 +158,7 @@
     <ol>
       <li><a href="#background">背景：為什麼 Android 上的「應用程式配對」很重要</a></li>
       <li><a href="#what-is">Split Screen Launcher 實際能做什麼</a></li>
+      <li><a href="#app-pair-alternative">給 Pixel 的三星應用程式配對替代方案</a></li>
       <li><a href="#android15">Android 15/16 難題 — 為何大多數競品失效</a></li>
       <li><a href="#privacy">權限與隱私</a></li>
       <li><a href="#compare">與其他分割畫面應用的比較</a></li>
@@ -179,6 +180,12 @@
     <p>換句話說，在手機這一端，原生應用程式配對實際上是三星獨有的功能。其他品牌的使用者要嘛沿用 Android 內建的手動分割畫面（開應用、長按多工鍵、拖曳、再來一次），要嘛安裝像本應用這樣的第三方啟動器。</p>
   </section>
 
+  <section id="app-pair-alternative">
+    <h2>給 Pixel 與原生 Android 的三星應用程式配對替代方案</h2>
+    <p>如果你從 Galaxy 手機換到 Pixel — 或換到任何一款原生 Android 手機 — 正在找三星應用程式配對的替代方案，這正是我們打造 Split Screen Launcher 想填補的空白。你可以獲得同樣的一鍵「並排啟動兩個應用」體驗，無需三星裝置，也不必用到 Edge Panel。</p>
+    <p>它也是少數仍然能在 Android 15、16 與 17 上運作的分割畫面應用之一 — 無廣告、無追蹤 SDK，在 Android 12L 以上也不需要無障礙權限。多數較舊的應用程式配對工具仰賴近期 Android 版本已關閉的系統捷徑（我們會在下方第 3 節說明原因）；而本應用透過一條我們在每次 OS 更新中都維持運作的路徑進入分割畫面。</p>
+  </section>
+
   <section id="what-is">
     <h2>2. Split Screen Launcher 實際能做什麼</h2>
     <p>Split Screen Launcher 是一款專注於單一用途的工具。你選兩個應用、幫它們取個名字（「通勤」、「工作」、「YouTube + X」），這組配對就會以一列的形式出現在應用中。點一下，兩個應用就會並排打開。</p>
@@ -196,7 +203,7 @@
         <figcaption>結果：點一下配對，兩個應用便以分割畫面並排打開。圖示：地圖 + 訊息。</figcaption>
       </figure>
     </div>
-    <p>整個功能真的就這些。沒有內建瀏覽器、沒有浮動小工具、沒有通知列整合。APK 大約 <strong>2.8 MB</strong>，比多數應用圖示還小，而且不會在背景執行任何東西。</p>
+    <p>整個功能真的就這些。沒有內建瀏覽器、沒有浮動小工具、沒有通知列整合。應用很輕量 — 只有幾 MB — 而且不會在背景執行任何東西。</p>
     <p>測試時我們使用的配對範例：</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Google 地圖 + Spotify</strong> — 開車</li>
@@ -205,9 +212,10 @@
       <li><strong>Gmail + Slack</strong> — 工作訊息分流</li>
       <li><strong>計算機 + Chrome</strong> — 多分頁比價</li>
     </ul>
+    <p>有一個我們沒料到的使用情境：車上。一位使用者告訴我們，他在車內的 Android AI 車機上跑 Split Screen Launcher，把 <strong>地圖 + Spotify</strong> 配在一起做導航配音樂 — 並切換到 <strong>地圖 + Netflix</strong> 給副駕乘客看。因為啟動一組配對只需點一下，相較於在多工選單裡長按，它更適合車載主機。</p>
     <p>有個細節容易被漏看，值得特別提：配對資料可以匯出成備份檔。聽起來不起眼，但同類競品常常把配對存在應用私有目錄裡，完全沒有匯出管道——換手機就得手動重建整份配對。我們從一開始就把備份/還原做成一級功能，正是為了讓 Pixel 換 Pixel 時幾秒就能恢復所有配對。</p>
     <p>另一個值得先講清楚的設計取捨：預設情況下，<strong>配對都存在於應用內部 — 不會建立主畫面圖示</strong>。原因一半是為了保持簡潔（主畫面不會被配對圖示塞爆），一半是基於架構考量 — 應用不會被特定啟動器（Pixel、Nova 等）綁架。如同第 3 節所述，依賴捷徑的啟動器正是 Android 15 與 16 切換時最容易壞掉的那一類；把操作留在應用內，可以讓換機遷移更順暢。</p>
-    <p>v1.8.0（2026 年 5 月）為想從主畫面一鍵啟動配對的 Pro 使用者新增了一個可選的「釘選到主畫面」功能。我們想保留原本「主畫面保持簡潔」的姿態，同時也回應「想直接從主畫面圖示啟動分割畫面」的需求。主畫面顯示的圖示會把兩款應用圖示上下堆疊，讓配對在視覺上和一般啟動器圖示有所區別。</p>
+    <p>有一個可選的「釘選到主畫面」功能，讓 Pro 使用者可以直接從主畫面一鍵啟動配對。我們想保留原本「主畫面保持簡潔」的姿態，同時也回應「想直接從主畫面圖示啟動分割畫面」的需求。主畫面顯示的圖示會把兩款應用圖示上下堆疊，讓配對在視覺上和一般啟動器圖示有所區別。</p>
   </section>
 
   <section id="who-for">
@@ -245,20 +253,23 @@
     <div class="tech-note">
       結果是 <em>Google Play 上大多數分割畫面工具——包括這個類別下載量最高的那款——在近期 Pixel 裝置（尤其是 Android 15 / 16）上都陸續出現動作不穩定的回報</em>。這些應用的使用者評論中，從 2025 年底開始可以看到不少類似的反映。
     </div>
-    <p>Split Screen Launcher 透過另一條路徑，在 Android 15 與 16 上依舊能穩定進入分割畫面。具體的機制我們不會公開 — 要找到一套能跨 OS 版本運作的組合花了不少試驗，公開做法等於把它交給每一個已經壞掉的競品。能說的是，我們的發布紀錄顯示，在 Android 12、12L、14、15、16 的每次切換中都有持續維護，而且我們打算繼續保持這個節奏。</p>
+    <p>Split Screen Launcher 透過另一條路徑，在 Android 15、16 以及全新的 Android 17 上依舊能穩定進入分割畫面。具體的機制我們不會公開 — 要找到一套能跨 OS 版本運作的組合花了不少試驗，公開做法等於把它交給每一個已經壞掉的競品。能說的是，我們的發布紀錄顯示，在 Android 12、12L、14、15、16、17 的每次切換中都有持續維護，而且我們打算繼續保持這個節奏。</p>
     <div class="callout">
       <strong>（重要）預設無法分割的應用：</strong>有些應用在 manifest 中宣告 <code>android:resizeableActivity="false"</code> — 原生相機與 Google Files 就是代表 — 直接啟動它們不會形成配對，而是只把這個應用單獨以全螢幕開啟（三星內建的應用程式配對也是同樣行為）。
       <br><br>
       （變通方式）同時開啟 <code>設定 → 系統 → 開發人員選項 → 強制活動可調整大小</code> 與 <code>允許不可調整大小的應用程式進入多視窗</code>，這些應用就也能在分割畫面下使用。應用內說明頁面（「如何使用『可能無法運作』的應用」）有逐步教學。
+      <br><br>
+      （更新）近期版本也能處理幾款過去抗拒配對的應用 — 其中包括 <strong>Alexa</strong> 與 <strong>Google Calendar</strong> — 所以它們現在都能正確地以分割畫面開啟。
     </div>
   </section>
 
   <section id="privacy">
     <h2>4. 權限與隱私</h2>
-    <p>在 <strong>Android 12L 以上</strong>，應用不需任何執行階段權限，也不需要無障礙服務。所有操作都透過標準 Activity 旗標完成。</p>
+    <p>在 <strong>Android 12L 以上</strong>，啟動一組配對不需任何執行階段權限，也不需要無障礙服務 — 核心的分割畫面流程使用標準 Activity 旗標。</p>
+    <p>唯一的可選例外是<strong>每組配對的自動旋轉</strong>。如果你為某組配對開啟這項功能，應用會在那個當下透過系統設定對話框請求 <code>WRITE_SETTINGS</code> 特殊權限 — 它從不會在一開始就索取，除非你使用這項功能，否則你不會看到它。</p>
     <p>在 <strong>Android 9 到 12</strong>，應用確實需要無障礙服務權限，因為這是唯一可用的 API。Play Store 商店頁面明確說明這項服務僅用來觸發分割畫面。Google Play 顯示的權限清單短到可以在一個畫面看完 — 沒有位置、沒有通訊錄、沒有儲存空間，而且（特別是）沒有網路。對 Play Store 的這個角落來說，這已經算是異類。</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">白話來說：</strong>舊版 Android 沒有官方 API 可以觸發分割畫面，因此無障礙服務是當時唯一可行的路徑。這是遺留限制，不是應用拿來讀你螢幕的藉口。</p>
-    <p>作為對照，Play Store 上多數免費分割畫面應用都內建廣告 SDK（AdMob、Unity、IronSource），這表示它們附帶 <code>INTERNET</code> 權限及伴隨而來的追蹤器組。我們選擇改用最小化的訂閱來營收 — 一方面是為了讓權限足跡保持乾淨；另一方面是因為把廣告 SDK 塞進一個 2.8 MB 的工具，體積會膨脹超過三倍。</p>
+    <p>作為對照，Play Store 上多數免費分割畫面應用都內建廣告 SDK（AdMob、Unity、IronSource），這表示它們附帶 <code>INTERNET</code> 權限及伴隨而來的追蹤器組。我們選擇改用最小化的訂閱來營收 — 一方面是為了讓權限足跡保持乾淨；另一方面是因為把廣告 SDK 塞進一個這麼小的工具，體積會大幅膨脹。</p>
   </section>
 
   <section id="compare">
@@ -273,7 +284,7 @@
       第三方這一塊本身也相當分散。Google Play 上掛著名號做分割畫面的工具有幾十款，但活躍度與品質落差很大。
     </p>
     <p>
-      這個利基類別中下載量最高的單一應用在 Google Play 上已突破 <strong>500 萬下載</strong> — 但評分卻只在 <strong>2.4 顆星</strong> 左右徘徊。這是一個少見的組合：曝光量大，評論裡卻長期堆滿不滿。另一款下載量也不小的替代品最後一次更新停留在 2025 年中，至今仍未針對 Android 15 的分割畫面 API 變更推出修正。還有幾款採用相當激進的定價策略 — 有一款進階方案被回報為 <strong>每週 $18.99</strong>，並在使用者社群中引發批評。
+      這個利基類別中下載量最高的幾款應用都累積了數百萬次下載，但領頭者卻意外地虛弱：其中規模最大的那款雖然觸及面廣，評分卻只是平庸；另一款下載量也不小的替代品最後一次更新停留在 2025 年中，至今仍未針對 Android 15 / 16 的分割畫面 API 變更推出修正。還有幾款採用相當激進的定價策略，動輒高昂的每週訂閱在使用者社群中引發批評。
     </p>
     <p>
       這個領域常見的幾種模式：大多數應用要嘛在 Android 11–12 前後就停止更新、要嘛內建擾人的橫幅或插頁廣告、要嘛不分 Android 版本一律要求無障礙服務權限（我們在 Android 12L+ 上拿掉了這個要求）。也因此，這個類別在「持續維護、低權限」這條軸線上異常稀薄。
@@ -287,7 +298,7 @@
     <h2>6. 價格</h2>
     <p>免費版會對可儲存的配對數量設上限，讓使用者在決定是否符合自己使用習慣前，就能完整體驗整個流程。核心功能 — 建立配對、啟動、備份/還原 — 都無需付費就能使用。</p>
     <p>Pro 訂閱依地區約為 <strong>每月 $1</strong>，可解除配對上限，並新增資料夾整理及圖示顏色自訂。一般的 Google Play 訂閱，可隨時取消。</p>
-    <p>作為參考：同類別中其他付費分割畫面工具的進階方案，價格從一次性收費幾美元、一路到每週訂閱 $18.99 都有。$1/月大約是最接近的付費競品的十分之一。</p>
+    <p>作為參考：同類別中其他付費分割畫面工具的進階方案，價格從一次性收費幾美元、一路到高昂的每週訂閱都有。$1/月大約是最接近的付費競品的十分之一。</p>
   </section>
 
   <section id="verdict">
@@ -299,13 +310,14 @@
         <div class="pros">
           <h4>優點</h4>
           <ul>
-            <li>在 Android 15 與 16 上真的能用</li>
+            <li>在 Android 15、16 與 17 上真的能用</li>
             <li>所有方案皆無廣告</li>
-            <li>2.8 MB，無背景服務</li>
+            <li>輕量，無背景服務</li>
             <li>Android 12L+ 不需要無障礙權限</li>
             <li>完全未宣告網路權限</li>
             <li>Pro 方案約 $1/月，比競品便宜 10 倍</li>
             <li>備份 / 還原，適合換機</li>
+            <li>可選的每組配對畫面旋轉（例如強制讓影片配對橫向顯示）</li>
             <li>15 種語言在地化</li>
           </ul>
         </div>
@@ -313,7 +325,7 @@
           <h4>缺點</h4>
           <ul>
             <li>從點擊到分割畫面出現之間，會有大約 1 秒的可感延遲。這多半是 OS 端的代價 — Android 12L+ 進入分割模式涉及多次系統內部的任務切換，所以這個類別的任何應用都會落在 0.8–1.2 秒之間。不是 bug，但值得先讓使用者知道</li>
-            <li>沒有浮動小工具、沒有手勢綁定、沒有 Tasker 整合。主畫面捷徑自 v1.8.0 起改為可選功能（Pro），但其他功能仍全部留在應用內</li>
+            <li>沒有浮動小工具、沒有手勢綁定、沒有 Tasker 整合。主畫面捷徑為可選功能（Pro），但其他功能仍全部留在應用內</li>
             <li>建立配對的清單會無分類列出所有已安裝應用，一旦裝置上超過約 60 個應用就會變得有點繁瑣</li>
             <li>獨立開發者，所以如果你在非 Pixel 的 ROM 上遇到邊緣案例，不要期待當天修好</li>
           </ul>
