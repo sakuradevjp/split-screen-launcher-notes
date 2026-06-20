@@ -409,7 +409,7 @@
         In this post, we walk through how Split Screen Launcher fills that gap, why most alternatives broke on recent Android releases, and the design decisions we made along the way.
       </p>
       <div class="hero-cta">
-        <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Get on Google Play</a>
+        <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Get it on Google Play</a>
         <a href="#verdict" class="cta-btn secondary">Jump to summary</a>
       </div>
     </div>
@@ -480,7 +480,7 @@
       If you've moved from a Galaxy phone to a Pixel — or to any stock-Android phone — and you're looking for a Samsung App Pair alternative, this is the gap we built Split Screen Launcher to fill. You get the same one-tap "launch both apps side-by-side" behavior, without needing a Samsung device or the Edge Panel.
     </p>
     <p>
-      It's also one of the few options that is still a split-screen app that works on Android 15, 16, and 17 — with no ads, no tracking SDKs, and no Accessibility permission on Android 12L and up. Most older app-pair tools lean on system shortcuts that recent Android releases closed off (we get into why in section 3 below); this one reaches split view through a path we've kept working across each OS update.
+      It's also one of the few options that is still a split-screen app that works on Android 15, 16, and 17 — with no ads, no tracking SDKs, and no Accessibility permission on Android 12L and up. Most older app-pair tools lean on system shortcuts that recent Android releases closed off (we explain why in Section 3 below); this one reaches split view through a path we've kept working across each OS update.
     </p>
   </section>
 
@@ -523,7 +523,7 @@
       One detail worth calling out because it's easy to miss: pair data exports to a backup file. That sounds trivial, but several competing apps in this category store their pairs in app-private storage with no export path — switching phones means rebuilding every pair by hand. We made the backup/restore a first-class feature precisely so a Pixel-to-Pixel migration restores the full set in seconds.
     </p>
     <p>
-      And another design choice worth flagging up front: by default, <strong>pairs live inside the app — no home-screen icons are created</strong>. The reason is partly to keep things simple (the home screen doesn't get cluttered with pair icons) and partly architectural — the app isn't tied to specific launchers (Pixel, Nova, etc.). As noted in section 3, shortcut-dependent launchers are exactly the kind that tend to break across Android 15 and 16 transitions; staying inside the app makes phone-to-phone migration smoother.
+      And another design choice worth noting up front: by default, <strong>pairs live inside the app — no home-screen icons are created</strong>. The reason is partly to keep things simple (the home screen doesn't get cluttered with pair icons) and partly architectural — the app isn't tied to specific launchers (Pixel, Nova, etc.). As noted in section 3, shortcut-dependent launchers are exactly the kind that tend to break across Android 15 and 16 transitions; staying inside the app makes phone-to-phone migration smoother.
     </p>
     <p>
       An optional pin-to-home action lets Pro users launch a pair with a single tap straight from the home screen. We wanted to keep the original "keep the home screen simple" posture intact while still answering the "I want to launch the split right from a home icon" need. The icon shown on home stacks the two app icons vertically, so the pair stays visually distinct from regular launcher icons.
@@ -532,7 +532,7 @@
 
   <section id="who-for">
     <h2>Who this app is for (and who should skip it)</h2>
-    <p style="color:var(--text-muted); margin-bottom: 18px;">Before we dive into the technical side, here's a quick fit-check so you can decide whether the rest of this article is worth your time.</p>
+    <p style="color:var(--text-muted); margin-bottom: 18px;">Before we dive into the technical side, here's a quick check so you can decide whether the rest of this article is worth your time.</p>
     <div class="fit-check-grid">
       <div style="background: #F0F7F0; border: 1px solid #C8E6C9; border-radius: 8px; padding: 18px 22px;">
         <h3 style="border-left: 4px solid #4CAF50; color:#2E7D32; font-size: 17px; margin-top:0; margin-bottom: 12px;">Good fit if you…</h3>
@@ -656,7 +656,7 @@
             <li>No ads on any tier</li>
             <li>Lightweight, no background services</li>
             <li>No Accessibility permission on Android 12L+</li>
-            <li>No network permission declared at all</li>
+            <li>No network permission</li>
             <li>Pro tier at ~$1/month is 10× cheaper than competitors</li>
             <li>Backup / restore for device migrations</li>
             <li>Optional per-pair screen rotation (e.g. force a video pair to landscape)</li>
@@ -675,7 +675,7 @@
       </div>
     </div>
     <p style="text-align: center; margin-top: 28px;">
-      <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Install from Google Play</a>
+      <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Get it on Google Play</a>
     </p>
   </section>
 

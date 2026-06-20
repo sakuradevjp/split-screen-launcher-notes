@@ -121,7 +121,7 @@
         <span>•</span><span>Tháng 6/2026</span><span>•</span><span>đọc ~8 phút</span>
       </div>
       <h1>Split Screen Launcher: một trong số ít ứng dụng chia đôi màn hình vẫn chạy trên Android 15, 16 và 17</h1>
-      <p class="sub">Điện thoại Pixel và Android gốc không có tính năng "App Pair" của Samsung. Trong bài này, chúng tôi kể lại cách Split Screen Launcher lấp khoảng trống đó, vì sao phần lớn giải pháp thay thế đã hỏng trên các bản Android gần đây, và những lựa chọn thiết kế chúng tôi đã đưa ra trên đường.</p>
+      <p class="sub">Điện thoại Pixel và Android gốc không có tính năng "App Pair" của Samsung. Trong bài này, chúng tôi kể lại cách Split Screen Launcher lấp khoảng trống đó, vì sao phần lớn giải pháp thay thế đã ngừng hoạt động trên các bản Android gần đây, và những lựa chọn thiết kế chúng tôi đã đưa ra trên đường.</p>
       <div class="hero-cta">
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Tải trên Google Play</a>
         <a href="#verdict" class="cta-btn secondary">Xem phần tóm tắt</a>
@@ -145,7 +145,7 @@
     <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">Tóm tắt nhanh</strong>
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.8;">
       <li>Một trong số ít tiện ích chia đôi màn hình trên Android còn chạy ổn định trên Android 15, 16 và 17.</li>
-      <li>Phần lớn đối thủ gãy đổ khi Google thay đổi API nền; chúng tôi thì tiếp tục phát hành cập nhật qua từng đợt chuyển đổi OS gần đây.</li>
+      <li>Phần lớn đối thủ không còn hoạt động khi Google thay đổi API nền; chúng tôi thì tiếp tục phát hành cập nhật qua từng đợt chuyển đổi OS gần đây.</li>
       <li>Không quảng cáo, không cần truy cập internet, không cần Accessibility Service trên Android 12L trở lên. Nhẹ, không có dịch vụ chạy ngầm.</li>
       <li>Gói miễn phí đủ cho nhu cầu cốt lõi. Gói Pro khoảng 1 USD/tháng, tức bằng khoảng một phần mười so với đối thủ trả phí gần nhất.</li>
       <li>App Pair gốc trên điện thoại về cơ bản chỉ có ở Samsung — Android 15 đã đưa tính năng này vào cấp hệ điều hành, nhưng chỉ dành cho thiết bị màn hình lớn, bỏ rơi điện thoại Pixel (và mọi điện thoại không phải Samsung khác).</li>
@@ -159,7 +159,7 @@
       <li><a href="#background">Bối cảnh: vì sao "App Pair" quan trọng trên Android</a></li>
       <li><a href="#what-is">Split Screen Launcher thực sự làm gì</a></li>
       <li><a href="#app-pair-alternative">Một lựa chọn thay thế App Pair của Samsung cho Pixel</a></li>
-      <li><a href="#android15">Vấn đề Android 15/16 — và vì sao đa số đối thủ hỏng</a></li>
+      <li><a href="#android15">Vấn đề Android 15/16 — và vì sao đa số đối thủ ngừng hoạt động</a></li>
       <li><a href="#privacy">Quyền và quyền riêng tư</a></li>
       <li><a href="#compare">So với các ứng dụng chia đôi màn hình khác</a></li>
       <li><a href="#pricing">Giá</a></li>
@@ -214,7 +214,7 @@
     </ul>
     <p>Một trường hợp dùng mà chúng tôi không ngờ tới: trong xe hơi. Một người dùng cho chúng tôi biết họ chạy Split Screen Launcher trên chiếc Android AI box trên xe của mình, ghép <strong>Maps + Spotify</strong> để dẫn đường kèm nhạc — rồi chuyển sang <strong>Maps + Netflix</strong> cho người ngồi ghế phụ. Vì mở một cặp chỉ là một cú chạm, nó hợp với màn hình trung tâm trên xe hơn hẳn so với việc nhấn giữ lần mò qua menu recents.</p>
     <p>Một chi tiết dễ bị bỏ qua nhưng đáng nhắc: dữ liệu cặp có thể xuất ra tệp sao lưu. Nghe có vẻ vặt, nhưng nhiều đối thủ trong cùng hạng mục lại lưu cặp vào vùng riêng của ứng dụng mà không có lối xuất ra — đổi máy đồng nghĩa với dựng lại từng cặp bằng tay. Chúng tôi đưa sao lưu/khôi phục lên thành tính năng hạng nhất ngay từ đầu để việc chuyển Pixel sang Pixel khôi phục toàn bộ bộ cặp chỉ trong vài giây.</p>
-    <p>Một lựa chọn thiết kế nữa đáng nói trước: theo mặc định, <strong>các cặp nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính</strong>. Lý do một phần để giữ sự đơn giản (màn hình chính không bị nhồi biểu tượng cặp) và một phần là về kiến trúc — ứng dụng không bị ràng buộc với một launcher cụ thể nào (Pixel, Nova, v.v.). Như đã nói ở mục 3, các launcher dựa vào lối tắt chính là loại hay hỏng ở mỗi đợt chuyển Android 15 và 16; ở lại trong ứng dụng giúp việc chuyển máy giữa các điện thoại trơn tru hơn.</p>
+    <p>Một lựa chọn thiết kế nữa đáng nói trước: theo mặc định, <strong>các cặp nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính</strong>. Lý do một phần để giữ sự đơn giản (màn hình chính không bị nhồi biểu tượng cặp) và một phần là về kiến trúc — ứng dụng không bị ràng buộc với một launcher cụ thể nào (Pixel, Nova, v.v.). Như đã nói ở mục 3, các launcher dựa vào lối tắt chính là loại thường bị vô hiệu hóa ở mỗi đợt chuyển Android 15 và 16; ở lại trong ứng dụng giúp việc chuyển máy giữa các điện thoại trơn tru hơn.</p>
     <p>Một hành động "ghim ra màn hình chính" tùy chọn cho phép người dùng Pro mở một cặp bằng một cú chạm trực tiếp từ màn hình chính. Chúng tôi muốn giữ nguyên tinh thần ban đầu "giữ màn hình chính đơn giản" mà vẫn đáp ứng được nhu cầu "tôi muốn mở chia đôi màn hình ngay từ một biểu tượng trên màn hình chính". Biểu tượng hiển thị trên màn hình chính xếp chồng hai biểu tượng ứng dụng theo chiều dọc, để cặp đó vẫn dễ phân biệt về mặt hình ảnh so với biểu tượng launcher thông thường.</p>
   </section>
 
@@ -242,18 +242,18 @@
         </ul>
       </div>
     </div>
-    <p style="margin-top:20px;color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Vẫn còn quan tâm?</strong> Phần còn lại bàn về nền kỹ thuật — vì sao Android 15 và 16 làm hỏng phần lớn giải pháp thay thế, và các quyết định thiết kế đứng sau cách tiếp cận của chúng tôi.</p>
+    <p style="margin-top:20px;color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Vẫn còn quan tâm?</strong> Phần còn lại bàn về nền kỹ thuật — vì sao Android 15 và 16 khiến phần lớn giải pháp thay thế ngừng hoạt động, và các quyết định thiết kế đứng sau cách tiếp cận của chúng tôi.</p>
   </section>
 
   <section id="android15">
-    <h2>3. Vấn đề Android 15/16 — và vì sao đa số đối thủ hỏng</h2>
+    <h2>3. Vấn đề Android 15/16 — và vì sao đa số đối thủ ngừng hoạt động</h2>
     <p>Đây là phần thú vị, và lý do khiến phần lớn ứng dụng đối thủ đã ngừng hoạt động.</p>
-    <p>Trong lịch sử, các launcher chia đôi màn hình dựa vào một nhóm nhỏ API cấp hệ điều hành mà Google dần thắt chặt hoặc gỡ bỏ. Mỗi bản Android mới lại đục đi cách mà ứng dụng bên thứ ba có thể mở hai ứng dụng song song. Android 15 và 16 nói riêng đã đóng nốt những lối phổ biến nhất. Các cách lách ở tầng shell cũng hỏng theo kiểu tương tự.</p>
+    <p>Trong lịch sử, các launcher chia đôi màn hình dựa vào một nhóm nhỏ API cấp hệ điều hành mà Google dần thắt chặt hoặc gỡ bỏ. Mỗi bản Android mới lại đục đi cách mà ứng dụng bên thứ ba có thể mở hai ứng dụng song song. Android 15 và 16 nói riêng đã đóng nốt những lối phổ biến nhất. Các cách lách ở tầng shell cũng ngừng hoạt động theo kiểu tương tự.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Nói đơn giản:</strong> những "mẹo" mà ứng dụng bên thứ ba dùng để gạt máy sang chế độ chia đôi màn hình không còn hiệu quả trên Android 15 và 16. Phần lớn ứng dụng trong hạng mục này chưa bao giờ phát hành bản vá.</p>
     <div class="tech-note">
       Kết quả là <em>đa số tiện ích chia đôi màn hình trên Google Play — kể cả cái được tải về nhiều nhất trong hạng mục — đã nhận được các báo cáo về hành vi không nhất quán trên các máy Pixel đời mới, đặc biệt trên Android 15 / 16</em>. Đánh giá người dùng dành cho những ứng dụng đó có một số lượng đáng chú ý các báo cáo như vậy từ cuối 2025 trở đi.
     </div>
-    <p>Split Screen Launcher đi đến chế độ chia đôi màn hình một cách đáng tin trên Android 15, 16 và bản Android 17 mới qua một con đường khác. Chúng tôi giữ kín cơ chế chính xác — để tìm được tổ hợp chạy qua nhiều bản OS phải thử nghiệm khá nhiều, và công khai công thức coi như trao nó cho tất cả đối thủ đã hỏng. Điều chúng tôi có thể nói: lịch sử phát hành của chúng tôi cho thấy sự bảo trì chủ động qua các đợt Android 12, 12L, 14, 15, 16 và 17, và chúng tôi có ý định giữ nhịp đó.</p>
+    <p>Split Screen Launcher đi đến chế độ chia đôi màn hình một cách đáng tin trên Android 15, 16 và bản Android 17 mới qua một con đường khác. Chúng tôi giữ kín cơ chế chính xác — để tìm được tổ hợp chạy qua nhiều bản OS phải thử nghiệm khá nhiều, và công khai công thức coi như trao nó cho tất cả đối thủ không còn hoạt động. Điều chúng tôi có thể nói: lịch sử phát hành của chúng tôi cho thấy sự bảo trì chủ động qua các đợt Android 12, 12L, 14, 15, 16 và 17, và chúng tôi có ý định giữ nhịp đó.</p>
     <div class="callout">
       <strong>(Quan trọng) Những ứng dụng mặc định không vào chia đôi màn hình:</strong> một số ứng dụng khai <code>android:resizeableActivity="false"</code> trong manifest — Camera gốc và Google Files là những ví dụ điển hình — và thay vì tạo thành cặp, chúng chỉ tự mở một mình ở chế độ toàn màn hình (App Pair của Samsung cũng có hành vi tương tự).
       <br><br>
@@ -277,8 +277,8 @@
     <p>Trước phần bảng, hãy phác vài nét về toàn cảnh. Tính năng kiểu "App Pair" được tiếp cận theo mấy hướng:</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Triển khai riêng của hãng</strong> — App Pair của Samsung (từ One UI, 2017), cùng các biến thể ở Xiaomi, OPPO và LG đời cũ. Chỉ chạy trên máy của chính hãng đó.</li>
-      <li><strong>Tiện ích bên thứ ba</strong> — ứng dụng độc lập chuyên phục vụ trường hợp dùng duy nhất này. Phần lớn xây trên API cấp hệ điều hành bị thu hẹp hoặc bỏ đi trong các bản Android gần đây, nên thị trường này mỏng đi rõ rệt.</li>
-      <li><strong>Hướng dựa trên tự động hóa</strong> — Tasker và công cụ tương tự có thể viết kịch bản cho việc mở chia đôi màn hình, nhưng cũng dựa trên cùng những nguyên lý như các ứng dụng chuyên dụng nên thừa hưởng cùng kiểu hỏng. Thêm nữa, người dùng phải tự dựng từng cặp bằng tay.</li>
+      <li><strong>Tiện ích bên thứ ba</strong> — ứng dụng độc lập chuyên phục vụ trường hợp dùng duy nhất này. Phần lớn xây trên API cấp hệ điều hành bị thu hẹp hoặc bỏ đi trong các bản Android gần đây, nên thị trường này thu hẹp lại rõ rệt.</li>
+      <li><strong>Hướng dựa trên tự động hóa</strong> — Tasker và công cụ tương tự có thể viết kịch bản cho việc mở chia đôi màn hình, nhưng cũng dựa trên cùng những nguyên lý như các ứng dụng chuyên dụng nên gặp phải cùng một lỗi kỹ thuật. Thêm nữa, người dùng phải tự dựng từng cặp bằng tay.</li>
     </ul>
     <p>Bản thân mảng ứng dụng bên thứ ba cũng phân mảnh. Google Play niêm yết hàng chục tiện ích chuyên về chia đôi màn hình, nhưng mức độ hoạt động và chất lượng phân bố rất không đồng đều.</p>
     <p>Các ứng dụng được tải nhiều nhất trong ngách này đã gom được hàng triệu lượt cài, nhưng những cái dẫn đầu lại yếu một cách bất ngờ: cái lớn nhất kết hợp phạm vi phủ rộng đó với một điểm đánh giá tầm thường, còn một lựa chọn cũng nhiều lượt cài khác thì có lần cập nhật cuối vào giữa năm 2025 và vẫn chưa phát hành bản sửa nào cho những thay đổi API chia đôi màn hình của Android 15/16. Vài ứng dụng khác lại đặt giá rất nặng tay, với những gói đăng ký theo tuần đắt đỏ, gây không ít chỉ trích trong các cộng đồng người dùng.</p>

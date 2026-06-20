@@ -31,7 +31,7 @@ LOCALES = [
 
 # Small UI strings keyed by hreflang code.
 UI = {
-    "en":    {"CTA_GET": "Get on Google Play",   "CTA_NOTES": "Developer notes",   "FINAL_CTA_LEAD": "Free, no ads. Try it on Google Play.",
+    "en":    {"CTA_GET": "Get it on Google Play", "CTA_NOTES": "Developer notes",   "FINAL_CTA_LEAD": "Free, no ads. Try it on Google Play.",
               "REVIEWS_HEADING": "What users say", "REVIEWS_SOURCE": "via Google Play", "VIDEO_HEADING": "See it in action"},
     "ja":    {"CTA_GET": "Google Play で入手",     "CTA_NOTES": "開発者ノート",        "FINAL_CTA_LEAD": "無料・広告なし。Google Play で試してみてください。",
               "REVIEWS_HEADING": "ユーザーの声",     "REVIEWS_SOURCE": "Google Play より", "VIDEO_HEADING": "デモを見る"},

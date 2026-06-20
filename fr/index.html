@@ -145,10 +145,10 @@
     <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">En bref</strong>
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>L'un des rares utilitaires d'écran partagé pour Android qui fonctionnent encore de façon fiable sur Android 15, 16 et 17.</li>
-      <li>La plupart des concurrents ont cassé quand Google a modifié les API sous-jacentes ; nous, nous avons continué à publier des mises à jour à chaque transition récente du système.</li>
+      <li>La plupart des concurrents ont cessé de fonctionner quand Google a modifié les API sous-jacentes ; nous, nous avons continué à publier des mises à jour à chaque transition récente du système.</li>
       <li>Aucune publicité, aucun accès Internet requis, aucun service d'accessibilité requis sur Android 12L+. Légère, sans aucun service en arrière-plan.</li>
       <li>Le niveau gratuit couvre l'usage de base. L'abonnement Pro tourne autour de 1 $/mois, soit à peu près un dixième du concurrent payant le plus proche.</li>
-      <li>L'App Pair natif sur téléphone reste pour ainsi dire l'apanage de Samsung — Android 15 l'a intégré au système, mais uniquement pour les appareils à grand écran, laissant de côté les Pixel (et tous les autres téléphones non Samsung).</li>
+      <li>L'App Pair natif sur téléphone reste pour ainsi dire l'apanage de Samsung — Android 15 l'a intégré au système, mais uniquement pour les appareils à grand écran, excluant les Pixel (et tous les autres téléphones non Samsung).</li>
       <li>Si vous êtes passé à Pixel et que l'App Pair du Galaxy vous manque, c'est le remplaçant le plus proche que nous ayons vu.</li>
     </ul>
   </div>
@@ -212,7 +212,7 @@
       <li><strong>Gmail + Slack</strong> — tri du boulot</li>
       <li><strong>Calculatrice + Chrome</strong> — comparaison de prix entre onglets</li>
     </ul>
-    <p>Un cas d'usage que nous n'avions pas anticipé : la voiture. Un utilisateur nous a raconté qu'il fait tourner Split Screen Launcher sur le boîtier Android AI de son véhicule, en associant <strong>Maps + Spotify</strong> pour la navigation avec de la musique — et en basculant sur <strong>Maps + Netflix</strong> pour la personne installée côté passager. Comme lancer une paire tient en un seul tap, ça convient bien mieux à un autoradio que de naviguer par appui long dans le menu des récents.</p>
+    <p>Un cas d'usage que nous n'avions pas anticipé : la voiture. Un utilisateur nous a raconté qu'il fait tourner Split Screen Launcher sur le système d'infodivertissement Android de son véhicule, en associant <strong>Maps + Spotify</strong> pour la navigation avec de la musique — et en basculant sur <strong>Maps + Netflix</strong> pour la personne installée côté passager. Comme lancer une paire tient en un seul tap, ça convient bien mieux à un système embarqué que de naviguer par appui long dans le menu des récents.</p>
     <p>Un détail qu'il serait facile de manquer et qui mérite d'être souligné : les données des paires s'exportent dans un fichier de sauvegarde. Ça paraît anodin, mais plusieurs concurrents de la catégorie rangent leurs paires dans un stockage privé sans chemin d'export — changer de téléphone, c'est refaire chaque paire à la main. Nous avons fait de la sauvegarde/restauration une fonctionnalité de premier ordre précisément pour qu'une migration Pixel vers Pixel restaure la totalité en quelques secondes.</p>
     <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : par défaut, <strong>les paires vivent dans l'appli — aucune icône n'est créée sur l'écran d'accueil</strong>. La raison tient pour partie à la simplicité (l'écran d'accueil ne se remplit pas d'icônes de paires) et pour partie à l'architecture — l'appli n'est pas liée à un lanceur en particulier (Pixel, Nova, etc.). Comme indiqué en section 3, les lanceurs qui reposent sur des raccourcis sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16 ; rester à l'intérieur de l'appli rend la migration d'un téléphone à l'autre plus fluide.</p>
     <p>Une action facultative d'épinglage à l'écran d'accueil permet aux utilisateurs Pro de lancer une paire d'un seul tap directement depuis l'accueil. Nous voulions garder intacte la posture initiale « écran d'accueil simple » tout en répondant au besoin « je veux lancer l'écran partagé directement depuis une icône de l'accueil ». L'icône affichée sur l'accueil empile verticalement les deux icônes des applis, pour que la paire reste visuellement distincte des icônes de lanceur classiques.</p>
@@ -238,7 +238,7 @@
           <li>Vous n'utilisez presque jamais l'écran partagé</li>
           <li>Vous voulez un widget flottant, un lancement par geste ou une intégration Tasker</li>
           <li>Vous êtes sur Samsung — l'App Pair intégré à One UI est déjà excellent</li>
-          <li>Vous êtes sur une surcouche Android lourdement personnalisée (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — ces constructeurs modifient les rouages internes de l'écran partagé, et le comportement sur ces appareils est donc fourni au mieux, sans garantie</li>
+          <li>Vous êtes sur une surcouche Android lourdement personnalisée (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — ces constructeurs modifient les mécanismes internes de l'écran partagé, et le comportement sur ces appareils est donc fourni au mieux, sans garantie</li>
         </ul>
       </div>
     </div>

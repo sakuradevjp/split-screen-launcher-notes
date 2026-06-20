@@ -145,7 +145,7 @@
     <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">Resumen rápido</strong>
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>Una de las pocas utilidades de pantalla dividida para Android que sigue funcionando de forma fiable en Android 15, 16 y 17.</li>
-      <li>La mayoría de la competencia se rompió cuando Google modificó las APIs subyacentes; nosotros seguimos publicando actualizaciones en cada transición reciente del SO.</li>
+      <li>La mayoría de la competencia dejó de funcionar cuando Google modificó las APIs subyacentes; nosotros seguimos publicando actualizaciones en cada transición reciente del SO.</li>
       <li>Sin anuncios, sin acceso a internet y sin necesidad de Servicio de Accesibilidad en Android 12L+. Ligero, sin servicios en segundo plano.</li>
       <li>El plan gratuito cubre el uso básico. La suscripción Pro cuesta alrededor de 1 USD al mes, aproximadamente una décima parte que el competidor de pago más cercano.</li>
       <li>En los teléfonos, el App Pair nativo es básicamente exclusivo de Samsung — Android 15 lo incorporó a nivel del SO, pero solo para dispositivos de pantalla grande, dejando fuera a los teléfonos Pixel (y a todos los demás teléfonos no-Samsung).</li>
@@ -163,7 +163,7 @@
       <li><a href="#privacy">Permisos y privacidad</a></li>
       <li><a href="#compare">Comparativa con otras apps de pantalla dividida</a></li>
       <li><a href="#pricing">Precio</a></li>
-      <li><a href="#who-for">Para quién es esta app (y quién debería saltársela)</a></li>
+      <li><a href="#who-for">Para quién es esta app (y quién debería omitirla)</a></li>
       <li><a href="#verdict">Resumen</a></li>    </ol>
   </div>
 
@@ -186,7 +186,7 @@
       Si has pasado de un Galaxy a un Pixel — o a cualquier teléfono con Android puro — y buscas una alternativa al App Pair de Samsung, este es el hueco que construimos Split Screen Launcher para cubrir. Obtienes el mismo comportamiento de "abrir ambas apps lado a lado con un solo toque", sin necesidad de un dispositivo Samsung ni del Edge Panel.
     </p>
     <p>
-      También es una de las pocas opciones que sigue siendo una app de pantalla dividida que funciona en Android 15, 16 y 17 — sin anuncios, sin SDKs de seguimiento y sin permiso de Accesibilidad en Android 12L y posteriores. La mayoría de las herramientas de pares de apps más antiguas se apoyan en atajos del sistema que las últimas versiones de Android han cerrado (lo explicamos en la sección 3, más abajo); esta llega a la pantalla dividida por una vía que hemos mantenido funcionando en cada actualización del SO.
+      También es una de las pocas opciones que sigue siendo una app de pantalla dividida que funciona en Android 15, 16 y 17 — sin anuncios, sin SDKs de seguimiento y sin permiso de Accesibilidad en Android 12L y posteriores. La mayoría de las herramientas de pares de apps más antiguas dependen de atajos del sistema que las últimas versiones de Android han cerrado (lo explicamos en la sección 3, más abajo); esta llega a la pantalla dividida por una vía que hemos mantenido funcionando en cada actualización del SO.
     </p>
   </section>
 
@@ -216,14 +216,14 @@
       <li><strong>Gmail + Slack</strong> — gestión del día a día laboral</li>
       <li><strong>Calculadora + Chrome</strong> — comparar precios entre pestañas</li>
     </ul>
-    <p>Un caso de uso que no anticipamos: el coche. Un usuario nos contó que usa Split Screen Launcher en la caja de IA con Android de su vehículo, emparejando <strong>Maps + Spotify</strong> para la navegación con música — y cambiando a <strong>Maps + Netflix</strong> para quien va en el asiento del copiloto. Como abrir un par es un solo toque, encaja en una unidad de cabeza de coche mucho mejor que tener que mantener pulsado el menú de recientes.</p>
+    <p>Un caso de uso que no anticipamos: el coche. Un usuario nos contó que usa Split Screen Launcher en la caja de IA con Android de su vehículo, emparejando <strong>Maps + Spotify</strong> para la navegación con música — y cambiando a <strong>Maps + Netflix</strong> para quien va en el asiento del copiloto. Como abrir un par es un solo toque, encaja en un sistema de infoentretenimiento mucho mejor que tener que mantener pulsado el menú de recientes.</p>
     <p>Un detalle fácil de pasar por alto y que conviene destacar: los datos de los pares se pueden exportar a un archivo de copia de seguridad. Parece trivial, pero varias apps competidoras guardan sus pares en almacenamiento privado sin forma de exportarlos, lo que obliga a reconstruirlos a mano al cambiar de móvil. Hicimos que la copia de seguridad/restauración fuera una función de primera categoría justamente para que, al pasar de un Pixel a otro, todos los pares se restauren en segundos.</p>
     <p>Otra decisión de diseño que conviene dejar clara: por defecto, <strong>los pares viven dentro de la app: no se crean iconos en la pantalla de inicio</strong>. La razón es en parte por sencillez (la pantalla de inicio no se llena de iconos de pares) y en parte arquitectónica: la app no queda atada a lanzadores concretos (Pixel, Nova, etc.). Como comentamos en la sección 3, los lanzadores que dependen de accesos directos son precisamente los que tienden a romperse en los saltos a Android 15 y 16; mantener todo dentro de la app hace que la migración de un teléfono a otro sea más fluida.</p>
     <p>Una acción opcional para fijar pares en la pantalla de inicio permite a los usuarios Pro abrir un par con un solo toque directamente desde el escritorio. Queríamos mantener intacta la postura original de "pantalla de inicio simple" sin dejar de responder a la necesidad de "quiero lanzar la pantalla dividida desde un icono del escritorio". El icono que aparece en el escritorio apila los dos iconos de las apps en vertical, de modo que el par se distingue visualmente de los iconos normales del lanzador.</p>
   </section>
 
   <section id="who-for">
-    <h2>Para quién es esta app (y quién debería saltársela)</h2>
+    <h2>Para quién es esta app (y quién debería omitirla)</h2>
     <p style="color:var(--text-muted);margin-bottom:18px;">Antes de entrar en la parte técnica, aquí tienes una comprobación rápida para decidir si merece la pena seguir leyendo.</p>
     <div class="fit-check-grid">
       <div style="background:#F0F7F0;border:1px solid #C8E6C9;border-radius:8px;padding:18px 22px;">
@@ -242,7 +242,7 @@
           <li>Casi nunca usas la pantalla dividida</li>
           <li>Quieres un widget flotante, lanzamiento por gestos o integración con Tasker</li>
           <li>Tienes un Samsung: el App Pair nativo de One UI ya es excelente</li>
-          <li>Usas una capa de personalización muy modificada (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — esos fabricantes alteran las tripas de la pantalla dividida, así que en esos casos el comportamiento depende del dispositivo</li>
+          <li>Usas una capa de personalización muy modificada (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — esos fabricantes alteran la funcionalidad interna de pantalla dividida, así que en esos casos el comportamiento depende del dispositivo</li>
         </ul>
       </div>
     </div>
@@ -288,7 +288,7 @@
       El propio panorama de terceros está fragmentado. Google Play muestra decenas de utilidades dedicadas a la pantalla dividida, pero la actividad y la calidad están repartidas de forma muy desigual.
     </p>
     <p>
-      Las apps más descargadas de este nicho acumulan millones de instalaciones, pero los líderes del sector son sorprendentemente flojos: la mayor de ellas combina ese gran alcance con una puntuación de reseñas mediocre, y otra alternativa muy instalada se actualizó por última vez a mediados de 2025 y todavía no ha publicado ningún parche para los cambios de la API de pantalla dividida de Android 15/16. Varias más aplican precios agresivos, con elevadas suscripciones semanales que han sido muy criticadas en las comunidades de usuarios.
+      Las apps más descargadas de este nicho acumulan millones de instalaciones, pero los líderes del sector son sorprendentemente deficientes: la mayor de ellas combina ese gran alcance con una puntuación de reseñas mediocre, y otra alternativa muy instalada se actualizó por última vez a mediados de 2025 y todavía no ha publicado ningún parche para los cambios de la API de pantalla dividida de Android 15/16. Varias más aplican precios agresivos, con elevadas suscripciones semanales que han sido muy criticadas en las comunidades de usuarios.
     </p>
     <p>
       Los patrones comunes en este campo: la mayoría de apps o bien dejaron de actualizarse hacia Android 11 o 12, o vienen con banners y anuncios intersticiales intrusivos, o exigen el permiso de Servicio de Accesibilidad en todas las versiones de Android (nosotros prescindimos de ese requisito en Android 12L+). Eso deja el sector inusualmente escaso en opciones bien mantenidas y con pocos permisos.

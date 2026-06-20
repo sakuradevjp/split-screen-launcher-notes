@@ -121,7 +121,7 @@
         <span>•</span><span>Juni 2026</span><span>•</span><span>ca. 8 Min. Lesezeit</span>
       </div>
       <h1>Split Screen Launcher: Eine der wenigen Splitscreen-Apps, die unter Android 15, 16 und 17 noch funktioniert</h1>
-      <p class="sub">Pixel- und Pur-Android-Geräten fehlt Samsungs „App Pair"-Funktion. In diesem Beitrag zeigen wir, wie Split Screen Launcher diese Lücke schließt, warum die meisten Alternativen bei den jüngsten Android-Versionen abgestürzt sind und welche Design-Entscheidungen wir auf dem Weg getroffen haben.</p>
+      <p class="sub">Pixel- und Stock-Android-Geräten fehlt Samsungs „App Pair"-Funktion. In diesem Beitrag zeigen wir, wie Split Screen Launcher diese Lücke schließt, warum die meisten Alternativen bei den jüngsten Android-Versionen nicht mehr funktionierten und welche Design-Entscheidungen wir auf dem Weg getroffen haben.</p>
       <div class="hero-cta">
         <a href="https://play.google.com/store/apps/details?id=com.ryodev.splitscreen" class="cta-btn">Bei Google Play holen</a>
         <a href="#verdict" class="cta-btn secondary">Zum Fazit springen</a>
@@ -145,7 +145,7 @@
     <strong style="display:block;color:#3A7AFE;font-size:13px;letter-spacing:0.08em;margin-bottom:8px;text-transform:uppercase;">Kurzfassung</strong>
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>Eines der wenigen Android-Splitscreen-Tools, die unter Android 15, 16 und 17 zuverlässig funktionieren.</li>
-      <li>Die meisten Mitbewerber sind zerbrochen, als Google die zugrunde liegenden APIs geändert hat; wir haben bei jeder aktuellen OS-Umstellung weiter Updates ausgeliefert.</li>
+      <li>Die meisten Mitbewerber funktionierten nicht mehr, als Google die zugrunde liegenden APIs geändert hat; wir haben bei jeder aktuellen OS-Umstellung weiter Updates ausgeliefert.</li>
       <li>Keine Werbung, kein Internetzugriff erforderlich, unter Android 12L+ kein Bedienungshilfen-Dienst nötig. Leichtgewichtig, ohne Hintergrunddienste.</li>
       <li>Die kostenlose Stufe deckt den Kernnutzen ab. Das Pro-Abo kostet etwa 1 $/Monat – ungefähr ein Zehntel des nächstgelegenen kostenpflichtigen Konkurrenten.</li>
       <li>Natives App Pair auf Smartphones ist im Grunde Samsung-exklusiv – Android 15 hat die Funktion zwar auf OS-Ebene eingeführt, aber nur für Geräte mit großem Display, sodass Pixel-Smartphones (und jedes andere Nicht-Samsung-Smartphone) außen vor bleiben.</li>
@@ -181,8 +181,8 @@
   </section>
 
   <section id="app-pair-alternative">
-    <h2>Eine Samsung-App-Pair-Alternative für Pixel und Pur-Android</h2>
-    <p>Wenn du von einem Galaxy-Smartphone auf ein Pixel gewechselt bist – oder auf irgendein Pur-Android-Smartphone – und eine Samsung-App-Pair-Alternative suchst, dann ist das genau die Lücke, für die wir Split Screen Launcher gebaut haben. Du bekommst dasselbe „beide Apps mit einem Tipp nebeneinander starten"-Verhalten, ohne ein Samsung-Gerät oder das Edge-Panel zu brauchen.</p>
+    <h2>Eine Samsung-App-Pair-Alternative für Pixel und Stock-Android</h2>
+    <p>Wenn du von einem Galaxy-Smartphone auf ein Pixel gewechselt bist – oder auf irgendein Stock-Android-Smartphone – und eine Samsung-App-Pair-Alternative suchst, dann ist das genau die Lücke, für die wir Split Screen Launcher gebaut haben. Du bekommst dasselbe „beide Apps mit einem Tipp nebeneinander starten"-Verhalten, ohne ein Samsung-Gerät oder das Edge-Panel zu brauchen.</p>
     <p>Es ist außerdem eine der wenigen Optionen, die nach wie vor eine Splitscreen-App ist, die unter Android 15, 16 und 17 funktioniert – ohne Werbung, ohne Tracking-SDKs und ohne Bedienungshilfen-Berechtigung ab Android 12L. Die meisten älteren App-Pair-Tools stützen sich auf System-Verknüpfungen, die jüngere Android-Versionen abgeschnitten haben (warum, erläutern wir weiter unten in Abschnitt 3); diese App erreicht den Splitscreen über einen Weg, den wir über jedes OS-Update hinweg am Laufen gehalten haben.</p>
   </section>
 
@@ -212,7 +212,7 @@
       <li><strong>Gmail + Slack</strong> – Arbeits-Triage</li>
       <li><strong>Taschenrechner + Chrome</strong> – Preisvergleich zwischen Tabs</li>
     </ul>
-    <p>Ein Anwendungsfall, den wir nicht erwartet hatten: das Auto. Ein Nutzer erzählte uns, dass er Split Screen Launcher auf der Android-KI-Box in seinem Fahrzeug nutzt und <strong>Maps + Spotify</strong> für Navigation mit Musik paart – und auf <strong>Maps + Netflix</strong> umschaltet für die Person auf dem Beifahrersitz. Weil ein Paar mit einem einzigen Tipp startet, passt das viel besser zu einem Auto-Head-Unit als das lange Drücken durch das Übersichtsmenü.</p>
+    <p>Ein Anwendungsfall, den wir nicht erwartet hatten: das Auto. Ein Nutzer erzählte uns, dass er Split Screen Launcher auf der Android-KI-Box in seinem Fahrzeug nutzt und <strong>Maps + Spotify</strong> für Navigation mit Musik paart – und auf <strong>Maps + Netflix</strong> umschaltet für die Person auf dem Beifahrersitz. Weil ein Paar mit einem einzigen Tipp startet, passt das viel besser zu einem Infotainment-System als das lange Drücken durch das Übersichtsmenü.</p>
     <p>Ein leicht zu übersehendes Detail, das wir aber gesondert erwähnen: Die Paardaten lassen sich in eine Sicherungsdatei exportieren. Klingt belanglos, aber mehrere Konkurrenten in dieser Kategorie legen ihre Paare im privaten App-Speicher ab – ohne Exportpfad. Ein Handywechsel bedeutet dort, jedes Paar von Hand neu anzulegen. Wir haben Backup/Restore gerade deshalb von Anfang an als erstklassige Funktion eingebaut, damit ein Wechsel von Pixel zu Pixel den gesamten Satz in Sekunden wiederherstellt.</p>
     <p>Eine weitere Design-Entscheidung, die wir vorab ansprechen sollten: Standardmäßig <strong>leben Paare innerhalb der App – es werden keine Homescreen-Symbole angelegt</strong>. Der Grund liegt teils in der Schlichtheit (der Homescreen wird nicht mit Paar-Symbolen zugemüllt) und teils in der Architektur – die App ist nicht an einen bestimmten Launcher (Pixel, Nova etc.) gebunden. Wie in Abschnitt 3 angemerkt, sind Launcher, die auf Verknüpfungen setzen, genau die, die bei Android-15- und 16-Übergängen gerne brechen; innerhalb der App zu bleiben macht den Wechsel von Gerät zu Gerät reibungsärmer.</p>
     <p>Eine optionale „An den Homescreen anheften"-Aktion lässt Pro-Nutzer ein Paar mit einem einzigen Tipp direkt vom Homescreen aus starten. Wir wollten die ursprüngliche Haltung „Homescreen schlicht halten" beibehalten und gleichzeitig dem Wunsch „Ich möchte den Splitscreen direkt von einem Homescreen-Symbol aus starten" gerecht werden. Das auf dem Homescreen angezeigte Symbol stapelt die beiden App-Symbole vertikal, sodass das Paar visuell von normalen Launcher-Symbolen unterscheidbar bleibt.</p>
@@ -226,7 +226,7 @@
         <h3 style="border-left:4px solid #4CAF50;color:#2E7D32;font-size:17px;margin-top:0;margin-bottom:12px;">Passt zu dir, wenn du …</h3>
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
           <li>regelmäßig die gleichen zwei Apps gemeinsam nutzt (Karten + Musik, E-Mail + Chat)</li>
-          <li>auf Pixel oder Pur-Android bist und Samsungs App Pair vermisst</li>
+          <li>auf Pixel oder Stock-Android bist und Samsungs App Pair vermisst</li>
           <li>Apps ohne Werbung und Tracking-SDKs bevorzugst</li>
           <li>Android 12L oder neuer nutzt (keine Bedienungshilfen-Berechtigung nötig)</li>
           <li>etwas willst, das auch nach OS-Updates weiterläuft</li>
@@ -242,7 +242,7 @@
         </ul>
       </div>
     </div>
-    <p style="margin-top:20px;color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Noch interessiert?</strong> Der Rest des Artikels behandelt den technischen Hintergrund – warum Android 15 und 16 die meisten Alternativen zerlegt haben und welche Design-Entscheidungen hinter unserem Ansatz stehen.</p>
+    <p style="margin-top:20px;color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Noch interessiert?</strong> Der Rest des Artikels behandelt den technischen Hintergrund – warum Android 15 und 16 die meisten Alternativen deaktiviert haben und welche Design-Entscheidungen hinter unserem Ansatz stehen.</p>
   </section>
 
   <section id="android15">
@@ -253,7 +253,7 @@
     <div class="tech-note">
       Das Ergebnis: <em>Eine Mehrheit der Splitscreen-Tools bei Google Play – einschließlich des meistgeladenen in dieser Kategorie – hat Meldungen über inkonsistentes Verhalten auf aktuellen Pixel-Geräten erhalten, insbesondere unter Android 15 / 16</em>. Die Nutzerbewertungen dieser Apps enthalten eine bemerkenswerte Anzahl solcher Meldungen ab Ende 2025.
     </div>
-    <p>Split Screen Launcher erreicht den Splitscreen unter Android 15, 16 und dem neuen Android 17 zuverlässig auf einem anderen Weg. Den genauen Mechanismus behalten wir für uns – es brauchte einiges an Experimentieren, um eine Kombination zu finden, die über mehrere OS-Versionen hinweg funktioniert, und das Rezept zu veröffentlichen hieße, es jedem zerbrochenen Mitbewerber in die Hand zu drücken. Sagen können wir: Unsere Release-Historie spiegelt aktive Pflege durch die Android-12-, 12L-, 14-, 15-, 16- und 17-Übergänge wider, und wir wollen dieses Tempo beibehalten.</p>
+    <p>Split Screen Launcher erreicht den Splitscreen unter Android 15, 16 und dem neuen Android 17 zuverlässig auf einem anderen Weg. Den genauen Mechanismus behalten wir für uns – es brauchte einiges an Experimentieren, um eine Kombination zu finden, die über mehrere OS-Versionen hinweg funktioniert, und das Rezept zu veröffentlichen hieße, es jedem Mitbewerber, der nicht mehr funktioniert, in die Hand zu drücken. Sagen können wir: Unsere Release-Historie spiegelt aktive Pflege durch die Android-12-, 12L-, 14-, 15-, 16- und 17-Übergänge wider, und wir wollen dieses Tempo beibehalten.</p>
     <div class="callout">
       <strong>(Wichtig) Apps, die sich standardmäßig nicht teilen:</strong> Einige Apps deklarieren <code>android:resizeableActivity="false"</code> in ihrem Manifest – Pur-Kamera und Google Files sind die offensichtlichen Beispiele – und statt ein Paar zu bilden, öffnen sie sich einfach allein im Vollbild (Samsungs eingebautes App Pair verhält sich genauso).
       <br><br>
@@ -297,7 +297,7 @@
     <h2>7. Fazit – für wen sie gedacht ist</h2>
     <div class="verdict">
       <h3>Für wen ist sie? <span class="grade">Ehrlicher Blick</span></h3>
-      <p style="margin-top:12px;">Wir halten diese App nicht für jeden geeignet. Wenn du noch keine feste Zwei-App-Gewohnheit hast (Karten + Musik, E-Mail + Chat etc.), wirst du sie wahrscheinlich nicht oft öffnen. Aber wenn du Pur-Android nutzt und Galaxys App Pair seit dem Wechsel auf Pixel vermisst, haben wir sie für dich gebaut – und wir haben versucht, den am wenigsten kompromissbehafteten Weg zurück zu diesem Verhalten zu liefern. Die werbefreie Haltung und der Preis von 1 $/Monat sind bewusste Entscheidungen, und wir halten sie für die richtigen in dieser Kategorie.</p>
+      <p style="margin-top:12px;">Wir halten diese App nicht für jeden geeignet. Wenn du noch keine feste Zwei-App-Gewohnheit hast (Karten + Musik, E-Mail + Chat etc.), wirst du sie wahrscheinlich nicht oft öffnen. Aber wenn du Stock-Android nutzt und Galaxys App Pair seit dem Wechsel auf Pixel vermisst, haben wir sie für dich gebaut – und wir haben versucht, den am wenigsten kompromissbehafteten Weg zurück zu diesem Verhalten zu liefern. Die werbefreie Haltung und der Preis von 1 $/Monat sind bewusste Entscheidungen, und wir halten sie für die richtigen in dieser Kategorie.</p>
       <div class="pros-cons">
         <div class="pros">
           <h4>Pro</h4>
