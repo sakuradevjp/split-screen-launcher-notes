@@ -60,20 +60,30 @@ def html_escape(s: str) -> str:
 PUBLIC_VIDEO_DEFAULT = "gN123gjWkak"           # en migration PV (public, embeddable) — channel/web SEO copy (edge-panel ASO). Play listing uses the CLEAN 9KyfJArJ0XQ
 PUBLIC_VIDEO_BY_LANG = {"ja": "hWImFjdmnZU"}  # ja migration PV (public, embeddable) — channel/web SEO copy (edge-panel ASO). Play listing uses the CLEAN blexZNPHCpA
 
+# Vertical 9:16 Shorts (public, embeddable). Shown only on phones; wider screens
+# keep the 16:9 PV above. The small script at the end of _template.html picks one
+# per .video-embed from these data-* attrs (single iframe, no double load).
+SHORT_VIDEO_DEFAULT = "GuJ56KoiRc0"            # en Short
+SHORT_VIDEO_BY_LANG = {"ja": "BzKV5RAJO4U"}    # ja Short
+
 
 def video_html(hreflang: str, title: str) -> str:
     vid = PUBLIC_VIDEO_BY_LANG.get(hreflang, PUBLIC_VIDEO_DEFAULT)
+    short = SHORT_VIDEO_BY_LANG.get(hreflang, SHORT_VIDEO_DEFAULT)
     heading = html_escape(UI.get(hreflang, UI["en"])["VIDEO_HEADING"])
     label = html_escape(title)
+    allow = ("accelerometer; autoplay; clipboard-write; encrypted-media; "
+             "gyroscope; picture-in-picture; web-share")
     return (
         f'    <section class="video" aria-label="{heading}">\n'
         f'      <h2>{heading}</h2>\n'
-        '      <div class="video-embed">\n'
-        f'        <iframe src="https://www.youtube.com/embed/{vid}?rel=0"\n'
-        f'                title="{label}" loading="lazy"\n'
-        '                allow="accelerometer; autoplay; clipboard-write; '
-        'encrypted-media; gyroscope; picture-in-picture; web-share"\n'
-        '                allowfullscreen></iframe>\n'
+        f'      <div class="video-embed" data-land="{vid}" data-port="{short}" data-title="{label}">\n'
+        '        <noscript>\n'
+        f'          <iframe src="https://www.youtube.com/embed/{vid}?rel=0"\n'
+        f'                  title="{label}"\n'
+        f'                  allow="{allow}"\n'
+        '                  allowfullscreen></iframe>\n'
+        '        </noscript>\n'
         '      </div>\n'
         '    </section>'
     )

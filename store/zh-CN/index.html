@@ -137,6 +137,12 @@
     background: #000;
     box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
+  .video-embed.is-portrait {
+    aspect-ratio: 9 / 16;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .video-embed iframe {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
@@ -368,11 +374,13 @@
   <div class="container">
     <section class="video" aria-label="观看演示视频">
       <h2>观看演示视频</h2>
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0"
-                title="Split Screen Launcher" loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+      <div class="video-embed" data-land="gN123gjWkak" data-port="GuJ56KoiRc0" data-title="Split Screen Launcher">
+        <noscript>
+          <iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0"
+                  title="Split Screen Launcher"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </noscript>
       </div>
     </section>
 
@@ -587,6 +595,31 @@
     </p>
   </div>
 </footer>
+
+<script>
+/* Pick one player per .video-embed: vertical Short on phones, 16:9 on wider
+   screens. Renders a single iframe (no double YouTube load); <noscript> keeps
+   the 16:9 copy for crawlers / JS-off. */
+(function () {
+  var portrait = window.matchMedia('(max-width: 640px)').matches;
+  var allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; ' +
+              'gyroscope; picture-in-picture; web-share';
+  var boxes = document.querySelectorAll('.video-embed[data-land]');
+  for (var i = 0; i < boxes.length; i++) {
+    var box = boxes[i];
+    var useShort = portrait && box.dataset.port;
+    if (useShort) box.classList.add('is-portrait');
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube.com/embed/' +
+            (useShort ? box.dataset.port : box.dataset.land) + '?rel=0';
+    f.title = box.dataset.title || '';
+    f.loading = 'lazy';
+    f.setAttribute('allow', allow);
+    f.setAttribute('allowfullscreen', '');
+    box.appendChild(f);
+  }
+})();
+</script>
 
 </body>
 </html>
