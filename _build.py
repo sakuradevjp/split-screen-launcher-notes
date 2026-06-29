@@ -57,8 +57,8 @@ def html_escape(s: str) -> str:
 # ja gets the Japanese cut; every other locale gets the English cut, matching
 # the Play listing's video locale split.
 # (pre-v3.0 public copies were en=8-yhbEk3TAU / ja=qp4EX2daJbQ.)
-PUBLIC_VIDEO_DEFAULT = "9KyfJArJ0XQ"           # en v3 SideEdge PV (unlisted, embeddable) — same as Play listing
-PUBLIC_VIDEO_BY_LANG = {"ja": "blexZNPHCpA"}  # ja v3 SideEdge PV (unlisted, embeddable) — same as Play listing
+PUBLIC_VIDEO_DEFAULT = "gN123gjWkak"           # en migration PV (public, embeddable) — channel/web SEO copy (edge-panel ASO). Play listing uses the CLEAN 9KyfJArJ0XQ
+PUBLIC_VIDEO_BY_LANG = {"ja": "hWImFjdmnZU"}  # ja migration PV (public, embeddable) — channel/web SEO copy (edge-panel ASO). Play listing uses the CLEAN blexZNPHCpA
 
 
 def video_html(hreflang: str, title: str) -> str:
