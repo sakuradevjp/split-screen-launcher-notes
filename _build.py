@@ -52,11 +52,13 @@ def html_escape(s: str) -> str:
              .replace('"', "&quot;"))
 
 
-# Public PV per page language — the channel/SEO copies (NOT the unlisted ones
-# embedded in the Play listing). ja gets the Japanese cut; every other locale
-# gets the English cut, matching the Play listing's video locale split.
-PUBLIC_VIDEO_DEFAULT = "8-yhbEk3TAU"
-PUBLIC_VIDEO_BY_LANG = {"ja": "qp4EX2daJbQ"}
+# PV per page language. For v3.0 we embed the SideEdge PV — the SAME unlisted
+# video used on the Play listing (unlisted is still embeddable in an iframe).
+# ja gets the Japanese cut; every other locale gets the English cut, matching
+# the Play listing's video locale split.
+# (pre-v3.0 public copies were en=8-yhbEk3TAU / ja=qp4EX2daJbQ.)
+PUBLIC_VIDEO_DEFAULT = "9KyfJArJ0XQ"           # en v3 SideEdge PV (unlisted, embeddable) — same as Play listing
+PUBLIC_VIDEO_BY_LANG = {"ja": "blexZNPHCpA"}  # ja v3 SideEdge PV (unlisted, embeddable) — same as Play listing
 
 
 def video_html(hreflang: str, title: str) -> str:

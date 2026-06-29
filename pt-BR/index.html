@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Análise do Split Screen Launcher — A ferramenta de pares de apps compatível com Android 16 e 17</title>
-<meta name="description" content="Notas do desenvolvedor do Split Screen Launcher: como construímos um dos poucos utilitários de tela dividida que ainda funcionam no Android 15, 16 e 17. As decisões de design por trás da abordagem sem anúncios, leve e sem permissão de Acessibilidade no Android 12L+.">
+<title>Split Screen Launcher — Alternativa ao App Pair e ao Edge Panel para Pixel (Android 17), com SideEdge</title>
+<meta name="description" content="Notas do desenvolvedor do Split Screen Launcher: uma alternativa ao App Pair da Samsung e ao Edge Panel para Pixel e Android puro, agora com a barra lateral retrátil SideEdge. Como mantivemos a tela dividida funcionando no Android 15, 16 e 17 — sem anúncios, leve.">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/pt-BR/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -128,7 +128,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="../assets/screenshot3.png" alt="Tela principal do Split Screen Launcher mostrando pares de apps salvos">
+      <img class="hero-img" src="../assets/shots/pt-BR/1.png" alt="Tela principal do Split Screen Launcher mostrando pares de apps salvos">
       <figcaption style="color:#64748b;text-align:center;margin-top:10px;font-size:12px;font-style:italic;">Split Screen Launcher em um Pixel 9 Pro (Android 16). Os pares salvos são gerenciados dentro do app — tocar em qualquer linha abre os dois apps em tela dividida de uma só vez.</figcaption>
     </figure>
   </div>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>Um dos poucos utilitários de tela dividida para Android que ainda funcionam de maneira confiável no Android 15, 16 e 17.</li>
       <li>A maior parte dos concorrentes parou de funcionar quando o Google mudou as APIs internas; nós continuamos publicando atualizações em todas as transições recentes do sistema.</li>
-      <li>Sem anúncios, sem acesso à internet, sem Serviço de Acessibilidade no Android 12L+. Leve, sem serviços em segundo plano.</li>
+      <li>Sem anúncios, sem necessidade de acesso à internet. O núcleo de tela dividida não precisa de Serviço de Acessibilidade no Android 12L+; a barra lateral opcional SideEdge usa um apenas para esconder a aba dela em telas de login/senha. Leve, sem serviços em segundo plano.</li>
       <li>O plano gratuito cobre o uso básico. A assinatura Pro custa cerca de US$ 1/mês — aproximadamente um décimo do concorrente pago mais próximo.</li>
       <li>Nos celulares, o App Pair nativo é, na prática, exclusivo da Samsung — o Android 15 trouxe o recurso no nível do sistema, mas só para dispositivos de tela grande, deixando os celulares Pixel (e qualquer outro celular que não seja Samsung) de fora.</li>
       <li>Se você usa Pixel e sente falta do App Pair do Galaxy, é o substituto mais próximo que já vimos.</li>
@@ -158,6 +158,7 @@
     <ol>
       <li><a href="#background">Contexto: por que o "App Pair" importa no Android</a></li>
       <li><a href="#what-is">O que o Split Screen Launcher de fato faz</a></li>
+      <li><a href="#sideedge">SideEdge — abra seus pares de qualquer tela</a></li>
       <li><a href="#app-pair-alternative">Uma alternativa ao App Pair da Samsung para o Pixel</a></li>
       <li><a href="#android15">O problema do Android 15/16 — e por que a maioria dos rivais caiu</a></li>
       <li><a href="#privacy">Permissões e privacidade</a></li>
@@ -183,31 +184,27 @@
   <section id="app-pair-alternative">
     <h2>Uma alternativa ao App Pair da Samsung para o Pixel e o Android puro</h2>
     <p>Se você trocou um Galaxy por um Pixel — ou por qualquer celular com Android puro — e está procurando uma alternativa ao App Pair da Samsung, é exatamente essa lacuna que construímos o Split Screen Launcher para preencher. Você tem o mesmo comportamento de "abrir os dois apps lado a lado com um toque", sem precisar de um aparelho Samsung nem do Edge Panel.</p>
-    <p>É também uma das poucas opções que continua sendo um app de tela dividida que funciona no Android 15, 16 e 17 — sem anúncios, sem SDKs de rastreamento e sem permissão de Acessibilidade no Android 12L e posteriores. A maioria das ferramentas de pares de apps mais antigas se apoia em atalhos do sistema que as versões recentes do Android fecharam (explicamos o porquê na seção 3, mais abaixo); esta chega à tela dividida por um caminho que mantivemos funcionando a cada atualização do sistema.</p>
+    <p>É também uma das poucas opções que continua sendo um app de tela dividida que funciona no Android 15, 16 e 17 — sem anúncios, sem SDKs de rastreamento e sem permissão de Acessibilidade para o núcleo de tela dividida no Android 12L e posteriores (a barra lateral opcional SideEdge é a única exceção). A maioria das ferramentas de pares de apps mais antigas se apoia em atalhos do sistema que as versões recentes do Android fecharam (explicamos o porquê na seção 3, mais abaixo); esta chega à tela dividida por um caminho que mantivemos funcionando a cada atualização do sistema.</p>
   </section>
 
   <section id="what-is">
     <h2>2. O que o Split Screen Launcher de fato faz</h2>
-    <p>O Split Screen Launcher é um utilitário de propósito único. Você escolhe dois apps, dá um nome ao par ("Deslocamento", "Trabalho", "YouTube + X") e o par aparece como uma linha dentro do app. Tocar na linha abre os dois lado a lado.</p>
+    <p>O Split Screen Launcher é um utilitário de propósito único. Você escolhe dois apps, dá um nome ao par ("Deslocamento", "Trabalho", "YouTube + Instagram") e o par aparece como uma linha dentro do app. Tocar na linha abre os dois lado a lado.</p>
     <div class="img-row">
       <figure>
-        <img src="../assets/screenshot2.png" alt="Criando um novo par de apps">
-        <figcaption>Criação do par: escolha quaisquer dois apps instalados e salve como um par nomeado. Essa configuração única transforma os próximos lançamentos em um único toque.</figcaption>
+        <img src="../assets/shots/pt-BR/3.png" alt="Dois apps em tela dividida — Fotos e Spotify">
+        <figcaption>Um toque em um par coloca os dois apps em tela dividida. Aqui: Google Fotos em cima, Spotify embaixo.</figcaption>
       </figure>
       <figure>
-        <img src="../assets/screenshot3.png" alt="Lista de pares salvos">
-        <figcaption>Todos os pares ficam dentro do próprio app — não são criados ícones na tela inicial. É uma escolha deliberada para não depender das manias do Pixel/Nova nem das mudanças do sistema.</figcaption>
-      </figure>
-      <figure>
-        <img src="../assets/screenshot1.png" alt="Dois apps rodando em tela dividida">
-        <figcaption>Resultado: dois apps lado a lado em tela dividida, abertos com um único toque no par. Exemplo: Mapas + Mensagens.</figcaption>
+        <img src="../assets/shots/pt-BR/4.png" alt="Dois apps em tela dividida — YouTube e Instagram">
+        <figcaption>Outro par salvo: YouTube em cima, Instagram embaixo. Sem a dança de segurar os recentes — a tela dividida fica a um toque de distância.</figcaption>
       </figure>
     </div>
     <p>Esse é praticamente o conjunto todo de recursos. Sem navegador embutido, sem widget flutuante, sem integração com a gaveta de notificações. O app é leve — alguns megabytes — e não executa nada em segundo plano.</p>
     <p>Pares que usamos durante os testes:</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Google Maps + Spotify</strong> — dirigindo</li>
-      <li><strong>YouTube + X (Twitter)</strong> — segunda tela</li>
+      <li><strong>YouTube + Instagram</strong> — segunda tela</li>
       <li><strong>Chrome + Google Keep</strong> — pesquisa com anotações</li>
       <li><strong>Gmail + Slack</strong> — triagem de trabalho</li>
       <li><strong>Calculadora + Chrome</strong> — comparando preços em várias abas</li>
@@ -216,6 +213,30 @@
     <p>Um detalhe fácil de ignorar e que merece destaque: os dados dos pares podem ser exportados para um arquivo de backup. Parece banal, mas vários concorrentes da categoria guardam os pares no armazenamento privado do app, sem caminho de exportação — trocar de aparelho significa refazer todos os pares à mão. Fizemos do backup/restauração um recurso de primeira classe justamente para que uma migração de Pixel para Pixel restaure todo o conjunto em segundos.</p>
     <p>Outra escolha de design que vale deixar clara desde já: por padrão, <strong>os pares vivem dentro do próprio app — não são criados ícones na tela inicial</strong>. O motivo é, em parte, simplicidade (a tela inicial não fica poluída por ícones de pares) e, em parte, arquitetural — o app não fica amarrado a lançadores específicos (Pixel, Nova etc.). Como dissemos na seção 3, lançadores que dependem de atalhos são justamente os que tendem a quebrar nas transições para Android 15 e 16; manter tudo dentro do app deixa a migração de aparelho para aparelho mais tranquila.</p>
     <p>Uma ação opcional para fixar pares na tela inicial permite que usuários Pro abram um par com um único toque direto da tela de início. Quisemos preservar a postura original de "tela inicial enxuta" e, ao mesmo tempo, atender à necessidade de "quero abrir a tela dividida direto de um ícone na tela inicial". O ícone exibido na tela inicial empilha verticalmente os dois ícones dos apps, de modo que o par se diferencia visualmente dos ícones comuns do lançador.</p>
+  </section>
+
+  <section id="sideedge">
+    <h2>SideEdge — abra seus pares de qualquer tela</h2>
+    <p>A versão 3.0 traz o <strong>SideEdge</strong>: uma barra lateral retrátil que você puxa a partir da borda da tela. Ela lista seus pares salvos e apps individuais, então você pode disparar uma tela dividida — ou ir direto para um único app — a partir de <em>qualquer</em> tela, sem precisar voltar antes à tela inicial.</p>
+    <p>Se você veio de um Galaxy, essa é a parte que vai parecer familiar. O <strong>Edge Panel</strong> da Samsung é como muita gente abria os App Pairs na One UI — uma aba na lateral da tela que desliza uma bandeja de atalhos. O SideEdge é a nossa versão dessa ideia, levada a <strong>qualquer</strong> celular ou tablet Android. Ele não é um substituto completo da versão da Samsung, mas entrega uma experiência parecida — e, como o resto do app, é sem anúncios. Se você estava procurando uma alternativa ao Edge Panel no Pixel ou no Android puro, esta é uma das opções mais próximas que encontramos.</p>
+    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/9KyfJArJ0XQ?rel=0"
+              title="Split Screen Launcher — SideEdge" loading="lazy"
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/pt-BR/2.png" alt="Gaveta da barra lateral SideEdge listando pares de apps e apps individuais">
+        <figcaption>Deslize a partir da borda e o SideEdge se abre, listando seus apps e pares. Toque para abrir.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/pt-BR/8.png" alt="Personalizando a aba do SideEdge — lado, tamanho, cor, transparência">
+        <figcaption>O SideEdge é totalmente personalizável — lado (esquerda/direita), tamanho, cor, transparência e mais.</figcaption>
+      </figure>
+    </div>
+    <p>Uma aba flutuante posicionada sobre uma tela de login ou senha impediria você de digitar nela. Por isso o SideEdge usa um Serviço de Acessibilidade para uma única tarefa específica — reconhecer essas telas de segurança e tirar a aba do caminho para que você possa digitar, trazendo-a de volta quando você terminar. Ele nunca lê, coleta ou transmite o conteúdo da tela. O detalhamento completo está em <a href="#privacy">Permissões e privacidade</a>, mais abaixo.</p>
   </section>
 
   <section id="who-for">
@@ -228,7 +249,7 @@
           <li>Usa os mesmos dois apps juntos regularmente (mapas + música, e-mail + chat)</li>
           <li>Está em um Pixel ou Android puro e sente falta do App Pair da Samsung</li>
           <li>Prefere apps sem anúncios ou SDKs de rastreamento</li>
-          <li>Usa Android 12L ou mais novo (sem precisar da permissão de Acessibilidade)</li>
+          <li>Usa Android 12L ou mais novo (sem permissão de Acessibilidade para o núcleo de tela dividida; só o SideEdge usa uma)</li>
           <li>Quer algo que continue funcionando a cada nova versão do SO</li>
         </ul>
       </div>
@@ -265,7 +286,7 @@
 
   <section id="privacy">
     <h2>4. Permissões e privacidade</h2>
-    <p>No <strong>Android 12L e posteriores</strong>, abrir um par não exige nenhuma permissão em tempo de execução nem Serviço de Acessibilidade — o fluxo principal de tela dividida usa flags padrão de Activity.</p>
+    <p>No <strong>Android 12L e posteriores</strong>, abrir um par não exige nenhuma permissão em tempo de execução nem Serviço de Acessibilidade — o fluxo principal de tela dividida usa flags padrão de Activity. O único recurso que de fato usa um Serviço de Acessibilidade é o <strong>SideEdge</strong>: se você ativar a barra lateral, o serviço é usado para uma única finalidade específica — reconhecer telas de login e senha e tirar a aba flutuante do caminho para que ela nunca cubra um prompt de segurança, trazendo-a de volta quando você terminar. Ele nunca lê, coleta ou transmite o conteúdo da tela.</p>
     <p>A única exceção opcional é a <strong>rotação automática por par</strong>. Se você ativar isso para um par, o app solicita a permissão especial <code>WRITE_SETTINGS</code> por meio da caixa de diálogo das Configurações do sistema naquele momento — ela nunca é pedida de antemão, e você não a verá a menos que use esse recurso.</p>
     <p>No <strong>Android 9 a 12</strong>, o app precisa de permissão do Serviço de Acessibilidade, porque essa é a única API disponível. A ficha na Play Store deixa explícito que o serviço só é usado para ativar o modo de tela dividida. A lista de permissões mostrada pelo Google Play é tão curta que cabe inteira em uma tela — sem localização, sem contatos, sem armazenamento e (principalmente) sem rede. Já é algo incomum nesse canto da Play Store.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Em poucas palavras:</strong> em versões mais antigas do Android não havia API oficial para disparar a tela dividida, então o Serviço de Acessibilidade era o único caminho viável. É uma restrição herdada, não algo que o app use para ler sua tela.</p>
@@ -282,7 +303,7 @@
     </ul>
     <p>O próprio cenário de apps de terceiros é fragmentado. A Google Play exibe dezenas de utilitários dedicados a tela dividida, mas a atividade e a qualidade estão distribuídas de forma irregular.</p>
     <p>Os apps mais baixados desse nicho acumularam milhões de instalações, mas os líderes do campo são surpreendentemente fracos: o maior deles combina esse grande alcance com uma nota de avaliação medíocre, e outra alternativa bastante instalada teve sua última atualização em meados de 2025 e ainda não publicou correção para as mudanças nas APIs de tela dividida do Android 15/16. Vários outros adotam preços agressivos, com assinaturas semanais caras que geraram críticas em comunidades de usuários.</p>
-    <p>Os padrões mais comuns nesse campo: a maior parte dos apps ou parou de receber atualizações por volta do Android 11–12, ou vem com banners e intersticiais invasivos, ou exige a permissão de Serviço de Acessibilidade em todas as versões do Android (no nosso caso, essa exigência é eliminada a partir do Android 12L). Isso deixa o campo anormalmente fraco quando se busca opções bem mantidas e com poucas permissões.</p>
+    <p>Os padrões mais comuns nesse campo: a maior parte dos apps ou parou de receber atualizações por volta do Android 11–12, ou vem com banners e intersticiais invasivos, ou exige a permissão de Serviço de Acessibilidade em todas as versões do Android (aqui o núcleo de tela dividida elimina essa exigência a partir do Android 12L+; só a barra lateral opcional SideEdge a usa). Isso deixa o campo anormalmente fraco quando se busca opções bem mantidas e com poucas permissões.</p>
     <p>Um app pequeno, mantido ativamente e sem anúncios como este tem caminho fácil para se destacar — desde que os usuários consigam encontrá-lo.</p>
   </section>
 
@@ -305,7 +326,7 @@
             <li>Realmente funciona no Android 15, 16 e 17</li>
             <li>Sem anúncios em qualquer plano</li>
             <li>Leve, sem serviços em segundo plano</li>
-            <li>Sem permissão de Acessibilidade no Android 12L+</li>
+            <li>Sem permissão de Acessibilidade para o núcleo de tela dividida no Android 12L+ (só o SideEdge opcional usa uma)</li>
             <li>Nenhuma permissão de rede declarada</li>
             <li>Plano Pro a ~US$ 1/mês, 10× mais barato que os concorrentes</li>
             <li>Backup / restauração para trocas de aparelho</li>

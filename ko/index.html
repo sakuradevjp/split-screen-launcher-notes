@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Split Screen Launcher 리뷰 — Android 16과 17에서도 동작하는 앱 페어 도구</title>
-<meta name="description" content="Split Screen Launcher 개발자 노트: Android 15, 16, 17에서도 안정적으로 동작하는 몇 안 되는 화면 분할 유틸리티를 어떻게 만들었는지. Android 12L+에서 광고 없음, 가벼운 용량, 접근성 권한 불필요를 실현한 설계 결정의 기록.">
+<title>Split Screen Launcher — Pixel용 앱 페어·Edge Panel 대체(Android 17 대응) SideEdge 탑재</title>
+<meta name="description" content="Split Screen Launcher 개발자 노트: Pixel·순정 Android를 위한 삼성 앱 페어·Edge Panel 대체. 새 기능 SideEdge 사이드바 탑재. Android 15 / 16 / 17에서 화면 분할을 계속 동작시켜 온 설계 결정, 광고 없음·가벼운 용량.">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ko/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -181,7 +181,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="../assets/screenshot3.png" alt="저장된 앱 페어가 보이는 Split Screen Launcher 메인 화면">
+      <img class="hero-img" src="../assets/shots/ko/1.png" alt="저장된 앱 페어가 보이는 Split Screen Launcher 메인 화면">
       <figcaption style="color:#64748b; text-align:center; margin-top:10px; font-size:12px; font-style:italic;">Pixel 9 Pro(Android 16) 위의 Split Screen Launcher. 저장된 페어는 앱 안에서 관리되며, 행을 탭하면 두 앱이 한 번에 분할 화면으로 실행됩니다.</figcaption>
     </figure>
   </div>
@@ -199,7 +199,7 @@
     <ul style="margin:0; padding-left: 20px; font-size:15px; line-height:1.7;">
       <li>Android 15, 16, 17에서도 안정적으로 동작하는 몇 안 되는 화면 분할 유틸리티 중 하나입니다.</li>
       <li>대부분의 경쟁 앱은 Google이 내부 API를 바꿀 때마다 멈췄지만, 이 앱은 최근의 모든 OS 전환에서도 업데이트를 이어왔습니다.</li>
-      <li>광고 없음, 인터넷 접속 불필요, Android 12L+에서는 접근성 서비스도 필요 없음. 가벼운 용량에 백그라운드 서비스도 없음.</li>
+      <li>광고 없음, 인터넷 접속 불필요. 화면 분할 핵심 기능은 Android 12L 이상에서 접근성 서비스가 필요 없음(선택형 SideEdge 사이드바만, 로그인/비밀번호 화면에서 핸들을 숨기기 위해 사용). 가벼운 용량에 백그라운드 서비스도 없음.</li>
       <li>무료 버전으로 핵심 기능은 충분히 사용 가능합니다. Pro 구독은 월 약 $1로, 가장 가까운 유료 경쟁 앱의 약 10분의 1 수준입니다.</li>
       <li>스마트폰에서 OS 표준 앱 페어를 쓸 수 있는 곳은 사실상 삼성뿐입니다 — Android 15에서 OS 차원의 기능이 추가됐지만 대화면 기기 한정이라, Pixel 스마트폰(일반 모델)과 그 외 비삼성 스마트폰은 모두 대상에서 빠졌습니다.</li>
       <li>Pixel을 쓰면서 Galaxy의 앱 페어가 그리웠다면, 지금까지 본 것 중 가장 가까운 대체재입니다.</li>
@@ -211,6 +211,7 @@
     <ol>
       <li><a href="#background">배경: Android에서 "앱 페어"가 왜 중요한가</a></li>
       <li><a href="#what-is">Split Screen Launcher가 실제로 하는 일</a></li>
+      <li><a href="#sideedge">SideEdge — 어느 화면에서나 페어 실행</a></li>
       <li><a href="#app-pair-alternative">Pixel을 위한 삼성 앱 페어 대체재</a></li>
       <li><a href="#android15">Android 15/16 문제 — 그리고 왜 대부분의 경쟁 앱이 멈췄는가</a></li>
       <li><a href="#privacy">권한과 개인정보</a></li>
@@ -247,27 +248,23 @@
       Galaxy 폰에서 Pixel로 — 혹은 다른 순정 Android 폰으로 — 넘어왔고 삼성 앱 페어를 대신할 무언가를 찾고 있다면, 바로 그 공백을 메우려고 Split Screen Launcher를 만들었습니다. 삼성 기기나 Edge Panel 없이도 "두 앱을 나란히 한 번에 실행"하는 똑같은 한 번 탭 동작을 누릴 수 있습니다.
     </p>
     <p>
-      또한 Android 15, 16, 17에서 여전히 동작하는 몇 안 되는 화면 분할 앱 중 하나입니다 — 광고도, 추적 SDK도 없고, Android 12L 이상에서는 접근성 권한도 필요 없습니다. 오래된 앱 페어 도구 대부분은 최근 Android에서 막혀버린 시스템 바로가기에 기대고 있지만(이유는 아래 섹션 3에서 다룹니다), 이 앱은 OS 업데이트마다 우리가 계속 살려온 경로로 분할 화면에 도달합니다.
+      또한 Android 15, 16, 17에서 여전히 동작하는 몇 안 되는 화면 분할 앱 중 하나입니다 — 광고도, 추적 SDK도 없고, 화면 분할 핵심 기능은 Android 12L 이상에서 접근성 권한도 필요 없습니다(선택형 SideEdge 사이드바만 한 가지 예외입니다). 오래된 앱 페어 도구 대부분은 최근 Android에서 막혀버린 시스템 바로가기에 기대고 있지만, 이 앱은 OS 업데이트마다 우리가 계속 살려온 경로로 분할 화면에 도달합니다.
     </p>
   </section>
 
   <section id="what-is">
     <h2>2. Split Screen Launcher가 실제로 하는 일</h2>
     <p>
-      Split Screen Launcher는 한 가지 용도에 집중한 유틸리티입니다. 앱 두 개를 고르고, 그 페어에 이름("출퇴근", "업무", "YouTube + X" 등)을 붙이면 앱 안에 한 줄로 나타납니다. 그걸 탭하면 두 앱이 나란히 열립니다.
+      Split Screen Launcher는 한 가지 용도에 집중한 유틸리티입니다. 앱 두 개를 고르고, 그 페어에 이름("출퇴근", "업무", "YouTube + Instagram" 등)을 붙이면 앱 안에 한 줄로 나타납니다. 그걸 탭하면 두 앱이 나란히 열립니다.
     </p>
     <div class="img-row">
       <figure>
-        <img src="../assets/screenshot2.png" alt="새 앱 페어 만들기">
-        <figcaption>페어 생성: 설치된 앱 중 두 개를 골라 이름 붙여 저장합니다. 이 일회성 설정 덕분에 이후 실행은 탭 한 번으로 끝납니다.</figcaption>
+        <img src="../assets/shots/ko/3.png" alt="화면 분할로 실행되는 두 앱 — 사진과 Spotify">
+        <figcaption>페어를 한 번 탭하면 두 앱이 분할 뷰로 열립니다. 여기서는 위에 Google 포토, 아래에 Spotify.</figcaption>
       </figure>
       <figure>
-        <img src="../assets/screenshot3.png" alt="저장된 페어 목록">
-        <figcaption>모든 페어는 앱 안에 존재하며, 홈 화면에는 아이콘이 생기지 않습니다. Pixel/Nova 런처 특성과 OS 변경에 런처가 영향받지 않도록 한 의도적 선택입니다.</figcaption>
-      </figure>
-      <figure>
-        <img src="../assets/screenshot1.png" alt="화면 분할로 실행되는 두 앱">
-        <figcaption>결과: 페어 한 번 탭으로 두 앱이 나란히 분할 뷰로 열립니다. 예시: 지도 + 메시지.</figcaption>
+        <img src="../assets/shots/ko/4.png" alt="화면 분할로 실행되는 두 앱 — YouTube와 Instagram">
+        <figcaption>또 다른 저장된 페어: 위에 YouTube, 아래에 Instagram. 최근 앱을 길게 누르는 번거로움 없이, 분할은 탭 한 번이면 됩니다.</figcaption>
       </figure>
     </div>
     <p>
@@ -278,7 +275,7 @@
     </p>
     <ul style="padding-left: 20px; margin-bottom: 18px;">
       <li><strong>Google 지도 + Spotify</strong> — 운전할 때</li>
-      <li><strong>YouTube + X(Twitter)</strong> — 세컨드 스크린 감상</li>
+      <li><strong>YouTube + Instagram</strong> — 세컨드 스크린 감상</li>
       <li><strong>Chrome + Google Keep</strong> — 리서치 + 메모</li>
       <li><strong>Gmail + Slack</strong> — 업무 메시지 분류</li>
       <li><strong>계산기 + Chrome</strong> — 여러 탭의 가격 비교</li>
@@ -297,6 +294,36 @@
     </p>
   </section>
 
+  <section id="sideedge">
+    <h2>SideEdge — 어느 화면에서나 페어 실행</h2>
+    <p>
+      버전 3.0에서 <strong>SideEdge</strong>를 추가했습니다. 화면 가장자리에서 슥 끌어내는 사이드바로, 저장한 페어와 단일 앱이 목록으로 표시됩니다. 먼저 홈 화면으로 돌아가지 않아도, <em>어느</em> 화면에서나 분할을 실행하거나 한 앱으로 바로 건너뛸 수 있습니다.
+    </p>
+    <p>
+      Galaxy 폰에서 넘어왔다면, 바로 이 부분이 익숙하게 느껴질 것입니다. 삼성의 <strong>Edge Panel</strong>(화면 옆 탭에서 바로가기 트레이를 끌어내는 방식)로 앱 페어를 실행하던 분이 많았을 텐데요. SideEdge는 그 아이디어를 <strong>모든</strong> Android 스마트폰·태블릿에서 쓸 수 있게 옮긴 것입니다. 삼성 버전을 완전히 대체하지는 못하지만, 비슷한 경험을 누릴 수 있고 — 앱의 나머지 부분과 마찬가지로 광고가 없습니다. Pixel이나 순정 Android에서 Edge Panel 대체재를 찾고 있었다면, 지금까지 본 것 중 가장 가까운 선택지 중 하나입니다.
+    </p>
+    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/9KyfJArJ0XQ?rel=0"
+              title="Split Screen Launcher — SideEdge" loading="lazy"
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/ko/2.png" alt="앱 페어와 단일 앱이 나열된 SideEdge 사이드바 드로어">
+        <figcaption>가장자리에서 스와이프하면 SideEdge가 열리며 앱과 페어가 목록으로 나타납니다. 탭하면 실행됩니다.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/ko/8.png" alt="SideEdge 핸들 커스터마이징 — 위치, 크기, 색상, 투명도">
+        <figcaption>SideEdge는 자유롭게 커스터마이징할 수 있습니다 — 위치(좌/우), 크기, 색상, 투명도 등.</figcaption>
+      </figure>
+    </div>
+    <p>
+      로그인이나 비밀번호 화면 위에 떠 있는 핸들은 입력을 가로막을 수 있습니다. 그래서 SideEdge는 단 한 가지 좁은 용도로만 접근성 서비스를 사용합니다 — 그러한 보안 화면을 인식해 핸들을 옆으로 비켜 입력할 수 있게 하고, 끝나면 다시 되돌려 놓는 것입니다. 화면 내용을 읽거나 수집하거나 전송하는 일은 결코 없습니다. 자세한 내용은 아래 <a href="#privacy">권한과 개인정보</a>를 참고하세요.
+    </p>
+  </section>
+
   <section id="who-for">
     <h2>이 앱이 맞는 사람(그리고 건너뛰어도 되는 사람)</h2>
     <p style="color:var(--text-muted); margin-bottom: 18px;">기술적인 이야기로 들어가기 전에, 이 글을 계속 읽을 가치가 있는지 빠르게 확인할 수 있는 체크리스트입니다.</p>
@@ -307,7 +334,7 @@
           <li>같은 앱 두 개를 자주 같이 쓴다(지도 + 음악, 메일 + 채팅)</li>
           <li>Pixel이나 순정 Android를 쓰면서 삼성의 앱 페어가 그립다</li>
           <li>광고나 추적 SDK가 없는 앱을 선호한다</li>
-          <li>Android 12L 이상을 사용한다(접근성 권한 불필요)</li>
+          <li>Android 12L 이상을 사용한다(화면 분할 핵심 기능은 접근성 권한 불필요, SideEdge만 사용)</li>
           <li>OS 버전이 바뀌어도 계속 동작하는 앱을 원한다</li>
         </ul>
       </div>
@@ -355,7 +382,7 @@
   <section id="privacy">
     <h2>4. 권한과 개인정보</h2>
     <p>
-      <strong>Android 12L 이상</strong>에서는 페어를 실행하는 데 런타임 권한도, 접근성 서비스도 필요하지 않습니다 — 핵심 화면 분할 동작은 표준 Activity 플래그로 처리됩니다.
+      <strong>Android 12L 이상</strong>에서는 페어를 실행하는 데 런타임 권한도, 접근성 서비스도 필요하지 않습니다 — 핵심 화면 분할 동작은 표준 Activity 플래그로 처리됩니다. 접근성 서비스를 사용하는 유일한 기능이 <strong>SideEdge</strong>입니다. 사이드바를 켰을 때만, 단 한 가지 좁은 용도로 — 로그인과 비밀번호 화면을 인식해 떠 있는 핸들을 옆으로 비켜(보안 화면을 가리지 않도록) 두고, 끝나면 다시 되돌려 놓는 데에만 — 사용합니다. 화면 내용을 읽거나 수집하거나 전송하는 일은 결코 없습니다.
     </p>
     <p>
       한 가지 선택적 예외는 <strong>페어별 자동 회전</strong>입니다. 특정 페어에 이 기능을 켜면 바로 그 시점에 앱이 시스템 설정 대화상자를 통해 <code>WRITE_SETTINGS</code> 특수 권한을 요청합니다 — 미리 요구하는 일은 절대 없으며, 이 기능을 쓰지 않는 한 권한 요청을 보게 되지 않습니다.
@@ -388,7 +415,7 @@
       이 분야에서 가장 많이 다운로드된 앱들은 수백만 건의 인스톨을 쌓았지만, 정작 선두 주자들은 의외로 약합니다. 그중 가장 큰 앱은 그 높은 다운로드 수에 걸맞지 않게 평범한 평점에 머물러 있고, 또 다른 널리 설치된 대안은 2025년 중반 이후 업데이트가 멈춰 있어 Android 15 / 16에서 바뀐 화면 분할 API에 아직 대응하지 못하고 있습니다. 가격대가 공격적인 앱도 여럿 있는데, 비싼 주간 구독으로 사용자 커뮤니티에서 비판을 받기도 했습니다.
     </p>
     <p>
-      이 분야 전체에서 공통적으로 보이는 패턴은 다음과 같습니다. 대부분의 앱이 Android 11~12 무렵에 업데이트가 멈췄거나, 거슬리는 배너·전면 광고를 동반하거나, 모든 Android 버전에서 접근성 서비스 권한을 요구합니다(본 앱은 Android 12L 이상에서 이 요구사항을 제거했습니다). 그 결과로 잘 관리되고 권한 요구가 적은 선택지는 의외로 얇은 분야가 되었습니다.
+      이 분야 전체에서 공통적으로 보이는 패턴은 다음과 같습니다. 대부분의 앱이 Android 11~12 무렵에 업데이트가 멈췄거나, 거슬리는 배너·전면 광고를 동반하거나, 모든 Android 버전에서 접근성 서비스 권한을 요구합니다(본 앱의 화면 분할 핵심 기능은 Android 12L 이상에서 이 요구사항을 제거했고, 선택형 SideEdge 사이드바만 사용합니다). 그 결과로 잘 관리되고 권한 요구가 적은 선택지는 의외로 얇은 분야가 되었습니다.
     </p>
     <p>
       이렇게 작고, 활발히 유지 보수되며, 광고가 없는 앱이 두드러지기는 어렵지 않은 환경입니다 — 사용자들이 찾아주기만 한다면 말이죠.
@@ -422,7 +449,7 @@
             <li>Android 15, 16, 17에서 실제로 동작함</li>
             <li>어떤 플랜에도 광고 없음</li>
             <li>가벼운 용량, 백그라운드 서비스 없음</li>
-            <li>Android 12L+에서는 접근성 권한 불필요</li>
+            <li>화면 분할 핵심 기능은 Android 12L+에서 접근성 권한 불필요(선택형 SideEdge만 사용)</li>
             <li>네트워크 권한을 아예 선언하지 않음</li>
             <li>Pro 플랜 월 약 $1 — 경쟁 앱 대비 10배 저렴</li>
             <li>기기 이전을 위한 백업/복원</li>

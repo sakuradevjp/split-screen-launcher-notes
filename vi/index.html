@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Đánh giá Split Screen Launcher — Công cụ App Pair tương thích Android 16 & 17</title>
-<meta name="description" content="Ghi chú của nhà phát triển về Split Screen Launcher: cách chúng tôi xây dựng một trong số ít tiện ích chia đôi màn hình vẫn hoạt động trên Android 15, 16 và 17. Các quyết định thiết kế đằng sau cách tiếp cận không quảng cáo, nhẹ, không cần quyền Accessibility trên Android 12L+.">
+<title>Split Screen Launcher — Lựa chọn thay thế App Pair & Edge Panel cho Pixel (Android 17), kèm SideEdge</title>
+<meta name="description" content="Ghi chú của nhà phát triển về Split Screen Launcher: một lựa chọn thay thế Samsung App Pair và Edge Panel cho Pixel và Android gốc, nay có thêm thanh bên kéo ra SideEdge. Cách chúng tôi giữ chia đôi màn hình hoạt động trên Android 15, 16 và 17 — không quảng cáo, nhẹ.">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/vi/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -128,7 +128,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="../assets/screenshot3.png" alt="Màn hình chính của Split Screen Launcher hiển thị các cặp ứng dụng đã lưu">
+      <img class="hero-img" src="../assets/shots/vi/1.png" alt="Màn hình chính của Split Screen Launcher hiển thị các cặp ứng dụng đã lưu">
       <figcaption style="color:#64748b;text-align:center;margin-top:10px;font-size:12px;font-style:italic;">Split Screen Launcher trên Pixel 9 Pro (Android 16). Các cặp đã lưu được quản lý ngay trong ứng dụng — chạm vào bất kỳ hàng nào sẽ mở cả hai ứng dụng ở chế độ chia đôi màn hình cùng một lúc.</figcaption>
     </figure>
   </div>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.8;">
       <li>Một trong số ít tiện ích chia đôi màn hình trên Android còn chạy ổn định trên Android 15, 16 và 17.</li>
       <li>Phần lớn đối thủ không còn hoạt động khi Google thay đổi API nền; chúng tôi thì tiếp tục phát hành cập nhật qua từng đợt chuyển đổi OS gần đây.</li>
-      <li>Không quảng cáo, không cần truy cập internet, không cần Accessibility Service trên Android 12L trở lên. Nhẹ, không có dịch vụ chạy ngầm.</li>
+      <li>Không quảng cáo, không cần truy cập internet. Phần lõi chia đôi màn hình không cần Accessibility Service trên Android 12L trở lên; thanh bên SideEdge tùy chọn chỉ dùng nó để ẩn tay nắm trên các màn hình đăng nhập/mật khẩu. Nhẹ, không có dịch vụ chạy ngầm.</li>
       <li>Gói miễn phí đủ cho nhu cầu cốt lõi. Gói Pro khoảng 1 USD/tháng, tức bằng khoảng một phần mười so với đối thủ trả phí gần nhất.</li>
       <li>App Pair gốc trên điện thoại về cơ bản chỉ có ở Samsung — Android 15 đã đưa tính năng này vào cấp hệ điều hành, nhưng chỉ dành cho thiết bị màn hình lớn, bỏ rơi điện thoại Pixel (và mọi điện thoại không phải Samsung khác).</li>
       <li>Nếu bạn dùng Pixel và nhớ App Pair của Galaxy, đây là lựa chọn thay thế gần gũi nhất mà chúng tôi từng thấy.</li>
@@ -158,6 +158,7 @@
     <ol>
       <li><a href="#background">Bối cảnh: vì sao "App Pair" quan trọng trên Android</a></li>
       <li><a href="#what-is">Split Screen Launcher thực sự làm gì</a></li>
+      <li><a href="#sideedge">SideEdge — mở các cặp của bạn từ bất kỳ màn hình nào</a></li>
       <li><a href="#app-pair-alternative">Một lựa chọn thay thế App Pair của Samsung cho Pixel</a></li>
       <li><a href="#android15">Vấn đề Android 15/16 — và vì sao đa số đối thủ ngừng hoạt động</a></li>
       <li><a href="#privacy">Quyền và quyền riêng tư</a></li>
@@ -183,31 +184,27 @@
   <section id="app-pair-alternative">
     <h2>Một lựa chọn thay thế App Pair của Samsung cho Pixel và Android gốc</h2>
     <p>Nếu bạn đã chuyển từ điện thoại Galaxy sang Pixel — hoặc sang bất kỳ điện thoại Android gốc nào — và đang tìm một lựa chọn thay thế cho App Pair của Samsung, thì đây chính là khoảng trống mà chúng tôi tạo ra Split Screen Launcher để lấp đầy. Bạn có được đúng hành vi "mở cả hai ứng dụng song song chỉ bằng một cú chạm", mà không cần thiết bị Samsung hay Edge Panel.</p>
-    <p>Nó cũng là một trong số ít lựa chọn vẫn là ứng dụng chia đôi màn hình chạy được trên Android 15, 16 và 17 — không quảng cáo, không SDK theo dõi, và không cần quyền Accessibility trên Android 12L trở lên. Phần lớn các công cụ app-pair cũ dựa vào những lối tắt hệ thống mà các bản Android gần đây đã đóng lại (chúng tôi sẽ nói rõ vì sao ở mục 3 bên dưới); cái này đi đến chế độ chia đôi màn hình qua một con đường mà chúng tôi đã giữ cho hoạt động qua từng đợt cập nhật OS.</p>
+    <p>Nó cũng là một trong số ít lựa chọn vẫn là ứng dụng chia đôi màn hình chạy được trên Android 15, 16 và 17 — không quảng cáo, không SDK theo dõi, và không cần quyền Accessibility cho phần lõi chia đôi màn hình trên Android 12L trở lên (thanh bên SideEdge tùy chọn là ngoại lệ duy nhất). Phần lớn các công cụ app-pair cũ dựa vào những lối tắt hệ thống mà các bản Android gần đây đã đóng lại (chúng tôi sẽ nói rõ vì sao ở mục 3 bên dưới); cái này đi đến chế độ chia đôi màn hình qua một con đường mà chúng tôi đã giữ cho hoạt động qua từng đợt cập nhật OS.</p>
   </section>
 
   <section id="what-is">
     <h2>2. Split Screen Launcher thực sự làm gì</h2>
-    <p>Split Screen Launcher là một tiện ích có mục đích duy nhất. Bạn chọn hai ứng dụng, đặt tên cho cặp ("Đi làm", "Công việc", "YouTube + X"), và cặp đó hiện lên dưới dạng một hàng trong ứng dụng. Chạm vào, cả hai ứng dụng mở ra song song.</p>
+    <p>Split Screen Launcher là một tiện ích có mục đích duy nhất. Bạn chọn hai ứng dụng, đặt tên cho cặp ("Đi làm", "Công việc", "YouTube + Instagram"), và cặp đó hiện lên dưới dạng một hàng trong ứng dụng. Chạm vào, cả hai ứng dụng mở ra song song.</p>
     <div class="img-row">
       <figure>
-        <img src="../assets/screenshot2.png" alt="Tạo một cặp ứng dụng mới">
-        <figcaption>Tạo cặp: chọn hai ứng dụng đã cài bất kỳ và lưu thành cặp có tên. Việc thiết lập một lần này biến các lần mở sau thành chỉ một cú chạm.</figcaption>
+        <img src="../assets/shots/vi/3.png" alt="Hai ứng dụng ở chế độ chia đôi màn hình — Photos và Spotify">
+        <figcaption>Một cú chạm vào một cặp là đưa cả hai ứng dụng vào chế độ chia đôi màn hình. Ở đây: Google Photos phía trên, Spotify phía dưới.</figcaption>
       </figure>
       <figure>
-        <img src="../assets/screenshot3.png" alt="Danh sách các cặp đã lưu">
-        <figcaption>Mọi cặp đều nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính. Đây là lựa chọn có chủ đích để launcher không phụ thuộc vào cách hành xử của Pixel/Nova và các thay đổi của hệ điều hành.</figcaption>
-      </figure>
-      <figure>
-        <img src="../assets/screenshot1.png" alt="Hai ứng dụng chạy trong chế độ chia đôi màn hình">
-        <figcaption>Kết quả: hai ứng dụng chạy song song ở chế độ chia đôi màn hình, mở bằng một cú chạm duy nhất vào cặp. Ví dụ: Bản đồ + Tin nhắn.</figcaption>
+        <img src="../assets/shots/vi/4.png" alt="Hai ứng dụng ở chế độ chia đôi màn hình — YouTube và Instagram">
+        <figcaption>Một cặp đã lưu khác: YouTube ở trên, Instagram ở dưới. Không còn màn nhấn giữ trong recents — chế độ chia đôi chỉ cách một cú chạm.</figcaption>
       </figure>
     </div>
     <p>Toàn bộ tính năng thật sự chỉ có vậy. Không trình duyệt tích hợp, không widget nổi, không tích hợp khay thông báo. Ứng dụng nhẹ — chỉ vài megabyte — và không chạy gì ngầm nền.</p>
     <p>Những cặp chúng tôi dùng trong lúc thử nghiệm:</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Google Maps + Spotify</strong> — lúc lái xe</li>
-      <li><strong>YouTube + X (Twitter)</strong> — xem kiểu "second screen"</li>
+      <li><strong>YouTube + Instagram</strong> — xem kiểu "second screen"</li>
       <li><strong>Chrome + Google Keep</strong> — tra cứu kèm ghi chú</li>
       <li><strong>Gmail + Slack</strong> — phân loại công việc</li>
       <li><strong>Máy tính + Chrome</strong> — so giá giữa các tab</li>
@@ -216,6 +213,30 @@
     <p>Một chi tiết dễ bị bỏ qua nhưng đáng nhắc: dữ liệu cặp có thể xuất ra tệp sao lưu. Nghe có vẻ vặt, nhưng nhiều đối thủ trong cùng hạng mục lại lưu cặp vào vùng riêng của ứng dụng mà không có lối xuất ra — đổi máy đồng nghĩa với dựng lại từng cặp bằng tay. Chúng tôi đưa sao lưu/khôi phục lên thành tính năng hạng nhất ngay từ đầu để việc chuyển Pixel sang Pixel khôi phục toàn bộ bộ cặp chỉ trong vài giây.</p>
     <p>Một lựa chọn thiết kế nữa đáng nói trước: theo mặc định, <strong>các cặp nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính</strong>. Lý do một phần để giữ sự đơn giản (màn hình chính không bị nhồi biểu tượng cặp) và một phần là về kiến trúc — ứng dụng không bị ràng buộc với một launcher cụ thể nào (Pixel, Nova, v.v.). Như đã nói ở mục 3, các launcher dựa vào lối tắt chính là loại thường bị vô hiệu hóa ở mỗi đợt chuyển Android 15 và 16; ở lại trong ứng dụng giúp việc chuyển máy giữa các điện thoại trơn tru hơn.</p>
     <p>Một hành động "ghim ra màn hình chính" tùy chọn cho phép người dùng Pro mở một cặp bằng một cú chạm trực tiếp từ màn hình chính. Chúng tôi muốn giữ nguyên tinh thần ban đầu "giữ màn hình chính đơn giản" mà vẫn đáp ứng được nhu cầu "tôi muốn mở chia đôi màn hình ngay từ một biểu tượng trên màn hình chính". Biểu tượng hiển thị trên màn hình chính xếp chồng hai biểu tượng ứng dụng theo chiều dọc, để cặp đó vẫn dễ phân biệt về mặt hình ảnh so với biểu tượng launcher thông thường.</p>
+  </section>
+
+  <section id="sideedge">
+    <h2>SideEdge — mở các cặp của bạn từ bất kỳ màn hình nào</h2>
+    <p>Phiên bản 3.0 bổ sung <strong>SideEdge</strong>: một thanh bên bạn vuốt vào từ mép màn hình. Nó liệt kê các cặp đã lưu và các ứng dụng đơn lẻ của bạn, nên bạn có thể bật một chế độ chia đôi — hoặc nhảy thẳng vào một ứng dụng — từ <em>bất kỳ</em> màn hình nào, mà không phải quay về màn hình chính trước.</p>
+    <p>Nếu bạn từng dùng điện thoại Galaxy, đây là phần sẽ thấy quen thuộc. <strong>Edge Panel</strong> của Samsung là cách mà rất nhiều người mở App Pair trên One UI — một tab ở cạnh màn hình kéo ra một khay phím tắt. SideEdge là cách chúng tôi diễn giải ý tưởng đó, mang đến cho <strong>bất kỳ</strong> điện thoại hay máy tính bảng Android nào. Nó không phải là bản thay thế hoàn chỉnh cho phiên bản của Samsung, nhưng đem lại trải nghiệm tương tự — và như phần còn lại của ứng dụng, nó hoàn toàn không có quảng cáo. Nếu bạn đang tìm một lựa chọn thay thế Edge Panel trên Pixel hoặc Android gốc, đây là một trong những phương án gần gũi nhất mà chúng tôi tìm được.</p>
+    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/9KyfJArJ0XQ?rel=0"
+              title="Split Screen Launcher — SideEdge" loading="lazy"
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/vi/2.png" alt="Ngăn kéo thanh bên SideEdge liệt kê các cặp ứng dụng và ứng dụng đơn lẻ">
+        <figcaption>Vuốt vào từ mép màn hình và SideEdge mở ra, liệt kê các ứng dụng và cặp của bạn. Chạm để mở.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/vi/8.png" alt="Tùy chỉnh tay nắm SideEdge — cạnh, kích thước, màu sắc, độ trong suốt">
+        <figcaption>SideEdge tùy chỉnh được hoàn toàn — cạnh (trái/phải), kích thước, màu sắc, độ trong suốt và nhiều thứ khác.</figcaption>
+      </figure>
+    </div>
+    <p>Một tay nắm nổi nằm đè lên màn hình đăng nhập hay mật khẩu sẽ chặn bạn gõ vào đó. Vì vậy SideEdge dùng một Accessibility Service cho một mục đích cực kỳ giới hạn — nhận diện những màn hình bảo mật ấy và tạm thời dịch chuyển tay nắm để không cản trở việc nhập liệu, rồi đưa nó trở lại khi bạn xong. Nó không bao giờ đọc, thu thập hay truyền đi nội dung màn hình. Chi tiết đầy đủ ở mục <a href="#privacy">Quyền và quyền riêng tư</a> bên dưới.</p>
   </section>
 
   <section id="who-for">
@@ -228,7 +249,7 @@
           <li>Thường xuyên dùng cùng hai ứng dụng với nhau (bản đồ + nhạc, email + chat)</li>
           <li>Dùng Pixel hoặc Android gốc và nhớ App Pair của Samsung</li>
           <li>Ưu tiên ứng dụng không có quảng cáo và SDK theo dõi</li>
-          <li>Dùng Android 12L hoặc mới hơn (không cần quyền Accessibility)</li>
+          <li>Dùng Android 12L hoặc mới hơn (phần lõi chia đôi màn hình không cần quyền Accessibility; chỉ SideEdge mới dùng)</li>
           <li>Muốn thứ gì đó tiếp tục chạy qua các đợt nâng phiên bản OS</li>
         </ul>
       </div>
@@ -265,7 +286,7 @@
 
   <section id="privacy">
     <h2>4. Quyền và quyền riêng tư</h2>
-    <p>Trên <strong>Android 12L trở lên</strong>, việc mở một cặp không cần quyền runtime nào và không cần Accessibility Service — luồng chia đôi màn hình cốt lõi dùng các cờ Activity chuẩn.</p>
+    <p>Trên <strong>Android 12L trở lên</strong>, việc mở một cặp không cần quyền runtime nào và không cần Accessibility Service — luồng chia đôi màn hình cốt lõi dùng các cờ Activity chuẩn. Tính năng duy nhất thực sự dùng Accessibility Service là <strong>SideEdge</strong>: nếu bạn bật thanh bên, dịch vụ này được dùng cho một mục đích hẹp duy nhất — nhận diện các màn hình đăng nhập và mật khẩu rồi giấu tay nắm nổi ra khỏi đường để nó không bao giờ che một lời nhắc bảo mật, sau đó đưa lại khi bạn xong. Nó không bao giờ đọc, thu thập hay truyền đi nội dung màn hình.</p>
     <p>Ngoại lệ duy nhất là tùy chọn <strong>tự xoay theo từng cặp</strong>. Nếu bạn bật nó cho một cặp, đến lúc đó ứng dụng mới yêu cầu quyền đặc biệt <code>WRITE_SETTINGS</code> thông qua hộp thoại Cài đặt của hệ thống — không bao giờ hỏi trước, và bạn sẽ không thấy nó trừ khi bạn dùng tính năng đó.</p>
     <p>Trên <strong>Android 9 đến 12</strong>, ứng dụng cần quyền Accessibility Service, vì đó là API duy nhất có sẵn. Trang trên Play Store nêu rõ dịch vụ chỉ được dùng để kích hoạt chế độ chia đôi màn hình. Danh sách quyền Google Play hiển thị ngắn đến mức đọc hết trong một màn hình — không vị trí, không danh bạ, không bộ nhớ, và (đặc biệt) không mạng. Chỉ riêng vậy đã hiếm gặp ở góc này của Play Store.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Nói đơn giản:</strong> trên các bản Android cũ không có API chính thức để kích hoạt chia đôi màn hình, nên Accessibility Service là con đường khả dĩ duy nhất. Đó là ràng buộc di sản, không phải thứ ứng dụng dùng để đọc màn hình của bạn.</p>
@@ -282,7 +303,7 @@
     </ul>
     <p>Bản thân mảng ứng dụng bên thứ ba cũng phân mảnh. Google Play niêm yết hàng chục tiện ích chuyên về chia đôi màn hình, nhưng mức độ hoạt động và chất lượng phân bố rất không đồng đều.</p>
     <p>Các ứng dụng được tải nhiều nhất trong ngách này đã gom được hàng triệu lượt cài, nhưng những cái dẫn đầu lại yếu một cách bất ngờ: cái lớn nhất kết hợp phạm vi phủ rộng đó với một điểm đánh giá tầm thường, còn một lựa chọn cũng nhiều lượt cài khác thì có lần cập nhật cuối vào giữa năm 2025 và vẫn chưa phát hành bản sửa nào cho những thay đổi API chia đôi màn hình của Android 15/16. Vài ứng dụng khác lại đặt giá rất nặng tay, với những gói đăng ký theo tuần đắt đỏ, gây không ít chỉ trích trong các cộng đồng người dùng.</p>
-    <p>Các đặc điểm chung của mảng này: phần lớn ứng dụng hoặc đã ngừng cập nhật quanh Android 11–12, hoặc đi kèm quảng cáo dạng banner và toàn màn hình gây phiền, hoặc yêu cầu quyền Accessibility Service trên mọi phiên bản Android (chúng tôi bỏ yêu cầu đó từ Android 12L trở lên). Điều đó khiến mảng này mỏng đi bất thường về số lượng lựa chọn được bảo trì tốt và đòi ít quyền.</p>
+    <p>Các đặc điểm chung của mảng này: phần lớn ứng dụng hoặc đã ngừng cập nhật quanh Android 11–12, hoặc đi kèm quảng cáo dạng banner và toàn màn hình gây phiền, hoặc yêu cầu quyền Accessibility Service trên mọi phiên bản Android (phần lõi chia đôi màn hình ở đây bỏ yêu cầu đó từ Android 12L trở lên; chỉ thanh bên SideEdge tùy chọn mới dùng nó). Điều đó khiến mảng này mỏng đi bất thường về số lượng lựa chọn được bảo trì tốt và đòi ít quyền.</p>
     <p>Một ứng dụng nhỏ, được bảo trì chủ động và không quảng cáo như thế này có lối đi rất thuận để nổi bật — miễn người dùng tìm thấy.</p>
   </section>
 
@@ -305,7 +326,7 @@
             <li>Thực sự chạy trên Android 15, 16 và 17</li>
             <li>Không quảng cáo ở mọi gói</li>
             <li>Nhẹ, không có dịch vụ nền</li>
-            <li>Không cần quyền Accessibility trên Android 12L trở lên</li>
+            <li>Phần lõi chia đôi màn hình không cần quyền Accessibility trên Android 12L trở lên (chỉ SideEdge tùy chọn mới dùng)</li>
             <li>Không khai quyền mạng nào</li>
             <li>Gói Pro ~1 USD/tháng, rẻ hơn đối thủ 10 lần</li>
             <li>Sao lưu/khôi phục để chuyển máy</li>

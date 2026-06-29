@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Split Screen Launcher レビュー — Android 16 / 17 対応のアプリペアツール</title>
-<meta name="description" content="Split Screen Launcher 開発者ノート：Android 15 / 16 / 17 でも動作し続ける数少ない分割画面ユーティリティをどう作ったか。Android 12L+ で広告なし・軽量・アクセシビリティ権限不要を実現した設計判断の記録。">
+<title>Split Screen Launcher — Pixel 向け App Pair・Edge Panel 代替（Android 17 対応）SideEdge 搭載</title>
+<meta name="description" content="Split Screen Launcher 開発者ノート：Pixel・純正 Android 向けの Samsung アプリペア／Edge Panel 代替。新機能 SideEdge サイドバー搭載。Android 15 / 16 / 17 で分割画面を動かし続けた設計判断、広告なし・軽量。">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ja/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -405,7 +405,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="../assets/screenshot3.png" alt="保存済みアプリペアが並ぶ Split Screen Launcher のメイン画面">
+      <img class="hero-img" src="../assets/shots/ja/1.png" alt="保存済みアプリペアが並ぶ Split Screen Launcher のメイン画面">
       <figcaption style="color:#64748b; text-align:center; margin-top:10px; font-size:12px; font-style:italic;">Pixel 9 Pro（Android 16）上の Split Screen Launcher。保存したペアはアプリ内で管理でき、行をタップするだけで 2 つのアプリが同時に分割画面で起動します。</figcaption>
     </figure>
   </div>
@@ -423,7 +423,7 @@
     <ul style="margin:0; padding-left: 20px; font-size:15px; line-height:1.7;">
       <li>Android 15 / 16 / 17 でも安定して動作する、数少ない分割画面ユーティリティの 1 つです。</li>
       <li>多くの競合は Google が内部 API を変更したタイミングで壊れましたが、本アプリは近年のすべての OS 移行を通じてアップデートを続けています。</li>
-      <li>広告なし、インターネット接続不要、Android 12L 以降ではアクセシビリティサービスも不要。軽量で、バックグラウンドサービスもありません。</li>
+      <li>広告なし、インターネット接続不要。分割画面のコアは Android 12L 以降ではアクセシビリティサービス不要（任意機能の SideEdge だけが、ログイン/パスワード画面でハンドルを隠すために使用）。軽量で、バックグラウンドサービスもありません。</li>
       <li>無料版でコア機能はカバー。Pro サブスクリプションは月額約 1 ドル — 近い有料競合の約 10 分の 1 です。</li>
       <li>スマホで OS 標準のアプリペアが使えるのは実質 Samsung だけです — Android 15 で機能は来ましたが、Pixel スマホ（通常モデル）には対応していません。</li>
       <li>Pixel ユーザーで Galaxy のアプリペアが恋しい方にとって、現時点で最も近い代替といえる存在です。</li>
@@ -435,6 +435,7 @@
     <ol>
       <li><a href="#background">背景：なぜ Android で「アプリペア」が重要なのか</a></li>
       <li><a href="#what-is">Split Screen Launcher で実際にできること</a></li>
+      <li><a href="#sideedge">SideEdge — どの画面からでもペアを起動</a></li>
       <li><a href="#app-pair-alternative">Pixel 向けの Samsung アプリペア代替</a></li>
       <li><a href="#android15">Android 15 / 16 問題 — なぜ多くの競合が壊れたのか</a></li>
       <li><a href="#privacy">権限とプライバシー</a></li>
@@ -447,7 +448,7 @@
   <section id="background">
     <h2>1. 背景：なぜ Android で「アプリペア」が重要なのか</h2>
     <p>
-      Android は 7.0（Nougat、2016 年）以降、分割画面によるマルチタスキングをサポートしてきました。しかし <strong>2 つのアプリの組み合わせを保存して一緒に起動する</strong> 機能は、OS レベルでは一度も提供されてきませんでした。Samsung は 2017 年に One UI に「アプリペア」として追加しており、Galaxy から Pixel に乗り換えたユーザーはほぼ即座にその不在に気付きます。
+      Android は 7.0（Nougat、2016 年）以降、分割画面によるマルチタスキングをサポートしてきました。しかし <strong>2 つのアプリの組み合わせを保存して一緒に起動する</strong> 機能は、OS レベルでは一度も提供されてきませんでした。Samsung は 2017 年に One UI に「アプリペア」として追加しており、Galaxy から Pixel に乗り換えたユーザーは、なぜその機能がないのだろう？と疑問に思うと思います。
     </p>
     <p>
       回避策としては、2 段階の手順（アプリ A を開く、アプリ B を隣のウィンドウに開く）を自動化するサードパーティ製ランチャーを入れることになります。Google Play には同種のアプリが何十本も並んでいますが、見た目以上にカオスな状況です — Android のリリースごとに分割画面の呼び出し方が変わり、多くのアプリが更新されないまま取り残されているからです。
@@ -471,27 +472,23 @@
       Galaxy から Pixel へ — あるいは純正 Android のスマホへ乗り換えて、Samsung のアプリペアの代わりを探しているなら、まさにそのギャップを埋めるために Split Screen Launcher を作りました。Samsung 端末も Edge Panel も使わずに、ワンタップで「2 つのアプリを並べて起動する」のと同じ操作が手に入ります。
     </p>
     <p>
-      しかも、Android 15 / 16 / 17 でも動作し続ける数少ない分割画面アプリの 1 つでもあります — 広告なし、トラッキング SDK なし、Android 12L 以降ではアクセシビリティ権限も不要です。古いアプリペアツールの多くは、近年の Android で塞がれたシステムのショートカットに依存しています（その理由は後述のセクション 3 で説明します）。本アプリは、各 OS アップデートを通じて動かし続けてきた別の経路で分割画面に到達します。
+      しかも、Android 15 / 16 / 17 でも動作し続ける数少ない分割画面アプリの 1 つでもあります — 広告なし、トラッキング SDK なし、分割画面のコアは Android 12L 以降ではアクセシビリティ権限も不要です（SideEdge を利用する時は除く）。古いアプリペアツールの多くは、近年の Android で塞がれたシステムのショートカットに依存しています。本アプリは、各 OS アップデートを通じて動かし続けてきた別の経路で画面分割します。
     </p>
   </section>
 
   <section id="what-is">
     <h2>2. Split Screen Launcher で実際にできること</h2>
     <p>
-      Split Screen Launcher は目的特化のユーティリティです。アプリを 2 つ選び、ペアに名前（「通勤」「仕事」「YouTube + X」など）を付ければ、アプリ内にそのペアが一行として並びます。それをタップするだけで、2 つのアプリが並んで起動します。
+      Split Screen Launcher は目的特化のユーティリティです。アプリを 2 つ選び、ペアに名前（「通勤」「仕事」「YouTube + Instagram」など）を付ければ、アプリ内にそのペアが一行として並びます。それをタップするだけで、2 つのアプリが並んで起動します。
     </p>
     <div class="img-row">
       <figure>
-        <img src="../assets/screenshot2.png" alt="新しいアプリペアを作成する画面">
-        <figcaption>ペア作成：インストール済みのアプリから任意の 2 つを選び、名前付きのペアとして保存します。この初回設定のおかげで、以降の起動は 1 タップで済みます。</figcaption>
+        <img src="../assets/shots/ja/3.png" alt="分割画面で動作する 2 つのアプリ — 写真と音楽">
+        <figcaption>ペアを 1 タップすると、2 つのアプリが分割画面で並びます。ここでは上に Google フォト、下に Spotify。</figcaption>
       </figure>
       <figure>
-        <img src="../assets/screenshot3.png" alt="保存されたペアの一覧">
-        <figcaption>保存したペアはすべてアプリ内に存在し、ホーム画面にはアイコンが作られません。これは意図的な設計で、Pixel/Nova 等のランチャーの癖や OS の変更に左右されないようにするためです。</figcaption>
-      </figure>
-      <figure>
-        <img src="../assets/screenshot1.png" alt="分割画面で動作している 2 つのアプリ">
-        <figcaption>結果：ペアを 1 タップしたら、2 つのアプリが分割画面で並んで起動します。例：地図 + メッセージ。</figcaption>
+        <img src="../assets/shots/ja/4.png" alt="分割画面で動作する 2 つのアプリ — YouTube と Instagram">
+        <figcaption>別の保存済みペア：上に YouTube、下に Instagram。リーセント画面を長押しして…という手間なし、分割は 1 タップです。</figcaption>
       </figure>
     </div>
     <p>
@@ -502,7 +499,7 @@
     </p>
     <ul style="padding-left: 20px; margin-bottom: 18px;">
       <li><strong>Google マップ + Spotify</strong> — ドライブ中</li>
-      <li><strong>YouTube + X（Twitter）</strong> — セカンドスクリーン</li>
+      <li><strong>YouTube + Instagram</strong> — セカンドスクリーン</li>
       <li><strong>Chrome + Google Keep</strong> — リサーチとメモ</li>
       <li><strong>Gmail + Slack</strong> — 仕事の仕分け</li>
       <li><strong>電卓 + Chrome</strong> — 複数タブの価格比較</li>
@@ -521,6 +518,36 @@
     </p>
   </section>
 
+  <section id="sideedge">
+    <h2>SideEdge — どの画面からでもペアを起動</h2>
+    <p>
+      バージョン 3.0 で <strong>SideEdge</strong> を追加しました。画面の端からスッと引き出すサイドバーで、保存したペアや単体アプリが一覧表示されます。ホーム画面に戻らなくても、<em>どの画面からでも</em>分割画面を起動したり、1 つのアプリへ切り替えたりできます。
+    </p>
+    <p>
+      Galaxy から乗り換えた方には、馴染みのある形だと思います。Samsung の <strong>Edge Panel</strong>（画面の横のタブから引き出すショートカットのトレイ）でアプリペアを起動していた方も多いはずです。SideEdge はその発想を、<strong>あらゆる</strong> Android スマホ・タブレットで使えるようにしたものです。Samsung製の完全な代替とはなりませんが、似たような体験が得られます。Pixel や純正 Android で Edge Panel の代わりを探していたなら、まさにこの機能がその選択肢になるはずです。
+    </p>
+    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/blexZNPHCpA?rel=0"
+              title="Split Screen Launcher — SideEdge" loading="lazy"
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/ja/2.png" alt="ペアと単体アプリが並ぶ SideEdge のドロワー">
+        <figcaption>画面の端からスワイプで SideEdge が開き、アプリとペアが一覧表示されます。タップするだけで起動します。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/ja/8.png" alt="SideEdge ハンドルの外観カスタマイズ — 位置・大きさ・色・透明度">
+        <figcaption>SideEdge は自由にカスタマイズできます（位置（左右）・大きさ・色・透明度など）。</figcaption>
+      </figure>
+    </div>
+    <p>
+      SideEdge は、そのままだとログインやパスワードの入力画面に重なってしまう可能性があります。その場合、キーの入力ができなくなってしまいます。そこで、SideEdge は、アクセシビリティサービスを用いて、セキュリティ画面を認識し、ハンドルを退避させて、入力不能の回避動作を行います。画面の内容を読み取ったり、収集・送信したりすることは一切ありません。詳しくは下の<a href="#privacy">権限とプライバシー</a>をご覧ください。
+    </p>
+  </section>
+
   <section id="who-for">
     <h2>このアプリが合う人（そうでない人）</h2>
     <p style="color:var(--text-muted); margin-bottom: 18px;">技術的な話に入る前に、この先を読む価値があるかどうか、簡単な適合チェックを用意しました。</p>
@@ -531,7 +558,7 @@
           <li>同じ 2 つのアプリをいつも組み合わせて使う（マップ + 音楽、メール + チャットなど）</li>
           <li>Pixel または純正 Android を使っていて、Samsung のアプリペアが恋しい</li>
           <li>広告やトラッキング SDK のないアプリを好む</li>
-          <li>Android 12L 以降を使用している（アクセシビリティ権限不要）</li>
+          <li>Android 12L 以降を使用している（分割のコアはアクセシビリティ権限不要。SideEdge のみ使用）</li>
           <li>OS のメジャーアップデートを越えて動き続けるものを探している</li>
         </ul>
       </div>
@@ -579,7 +606,7 @@
   <section id="privacy">
     <h2>4. 権限とプライバシー</h2>
     <p>
-      <strong>Android 12L 以降</strong> では、ペアの起動にランタイム権限もアクセシビリティサービスも必要ありません — 分割画面のコア処理は標準の Activity フラグで完結します。
+      <strong>Android 12L 以降</strong> では、ペアの起動にランタイム権限もアクセシビリティサービスも必要ありません — 分割画面のコア処理は標準の Activity フラグで完結します。アクセシビリティサービスを使う唯一の機能が <strong>SideEdge</strong> です。サイドバーをオンにした場合にのみ、ログインやパスワードの入力画面を認識してフローティングのハンドルを退避させ（セキュリティ画面を覆わないように）、入力が終わると元に戻す、という一点のためだけに使います。画面の内容を読み取ったり、収集・送信したりすることはありません。
     </p>
     <p>
       唯一の任意の例外が <strong>ペアごとの自動回転</strong> です。ある特定のペアでこれをオンにすると、その時点で初めて、アプリがシステムの設定ダイアログを通じて <code>WRITE_SETTINGS</code> 特別権限をリクエストします — 前もって要求されることはなく、この機能を使わない限り表示されることもありません。
@@ -646,7 +673,7 @@
             <li>Android 15 / 16 / 17 で実際に動作する</li>
             <li>どのプランでも広告なし</li>
             <li>軽量、バックグラウンドサービスなし</li>
-            <li>Android 12L 以降はアクセシビリティ権限不要</li>
+            <li>分割のコアは Android 12L 以降アクセシビリティ権限不要（SideEdge のみ使用）</li>
             <li>ネットワーク権限をまったく宣言していない</li>
             <li>Pro プランは月約 1 ドルで、競合の 10 分の 1</li>
             <li>機種移行のためのバックアップ / 復元</li>

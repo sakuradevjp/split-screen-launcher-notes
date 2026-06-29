@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Test de Split Screen Launcher — L'outil de paires d'applis compatible Android 16 et 17</title>
-<meta name="description" content="Notes du développeur sur Split Screen Launcher : comment nous avons construit l'un des rares utilitaires d'écran partagé qui fonctionne encore sur Android 15, 16 et 17. Les choix de conception derrière l'approche sans pub, légère et sans autorisation d'accessibilité sur Android 12L+.">
+<title>Split Screen Launcher — alternative à l'App Pair et à l'Edge Panel pour Pixel (Android 17), avec SideEdge</title>
+<meta name="description" content="Notes du développeur sur Split Screen Launcher : une alternative à l'App Pair de Samsung et à l'Edge Panel pour Pixel et Android pur, désormais dotée de la barre latérale SideEdge. Comment nous avons gardé l'écran partagé en état de marche sur Android 15, 16 et 17 — sans pub, légère.">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/fr/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -128,7 +128,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="../assets/screenshot3.png" alt="Écran principal de Split Screen Launcher avec les paires d'applis sauvegardées">
+      <img class="hero-img" src="../assets/shots/fr/1.png" alt="Écran principal de Split Screen Launcher avec les paires d'applis sauvegardées">
       <figcaption style="color:#64748b;text-align:center;margin-top:10px;font-size:12px;font-style:italic;">Split Screen Launcher sur un Pixel 9 Pro (Android 16). Les paires sauvegardées sont gérées dans l'appli : toucher n'importe quelle ligne lance les deux applis en écran partagé d'un seul coup.</figcaption>
     </figure>
   </div>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>L'un des rares utilitaires d'écran partagé pour Android qui fonctionnent encore de façon fiable sur Android 15, 16 et 17.</li>
       <li>La plupart des concurrents ont cessé de fonctionner quand Google a modifié les API sous-jacentes ; nous, nous avons continué à publier des mises à jour à chaque transition récente du système.</li>
-      <li>Aucune publicité, aucun accès Internet requis, aucun service d'accessibilité requis sur Android 12L+. Légère, sans aucun service en arrière-plan.</li>
+      <li>Aucune publicité, aucun accès Internet requis. Le cœur de l'écran partagé ne nécessite aucun service d'accessibilité sur Android 12L+ ; la barre latérale SideEdge, facultative, en utilise un uniquement pour masquer sa poignée sur les écrans de connexion et de mot de passe. Légère, sans aucun service en arrière-plan.</li>
       <li>Le niveau gratuit couvre l'usage de base. L'abonnement Pro tourne autour de 1 $/mois, soit à peu près un dixième du concurrent payant le plus proche.</li>
       <li>L'App Pair natif sur téléphone reste pour ainsi dire l'apanage de Samsung — Android 15 l'a intégré au système, mais uniquement pour les appareils à grand écran, excluant les Pixel (et tous les autres téléphones non Samsung).</li>
       <li>Si vous êtes passé à Pixel et que l'App Pair du Galaxy vous manque, c'est le remplaçant le plus proche que nous ayons vu.</li>
@@ -158,6 +158,7 @@
     <ol>
       <li><a href="#background">Contexte : pourquoi l'« App Pair » compte sur Android</a></li>
       <li><a href="#what-is">Ce que fait vraiment Split Screen Launcher</a></li>
+      <li><a href="#sideedge">SideEdge — lancez vos paires depuis n'importe quel écran</a></li>
       <li><a href="#app-pair-alternative">Une alternative à l'App Pair de Samsung pour Pixel</a></li>
       <li><a href="#android15">Le problème Android 15/16 — et pourquoi la plupart des concurrents sont tombés</a></li>
       <li><a href="#privacy">Autorisations et confidentialité</a></li>
@@ -183,31 +184,27 @@
   <section id="app-pair-alternative">
     <h2>Une alternative à l'App Pair de Samsung pour Pixel et Android pur</h2>
     <p>Si vous êtes passé d'un Galaxy à un Pixel — ou à n'importe quel téléphone sous Android pur — et que vous cherchez une alternative à l'App Pair de Samsung, c'est précisément le vide que nous avons conçu Split Screen Launcher pour combler. Vous retrouvez le même comportement « lancer les deux applis côte à côte en un seul tap », sans avoir besoin d'un appareil Samsung ni de l'Edge Panel.</p>
-    <p>C'est aussi l'une des rares options qui reste une appli d'écran partagé fonctionnant sur Android 15, 16 et 17 — sans pub, sans SDK de suivi et sans autorisation d'accessibilité à partir d'Android 12L. La plupart des anciens outils de paires d'applis s'appuient sur des raccourcis système que les versions récentes d'Android ont fermés (nous expliquons pourquoi en section 3 ci-dessous) ; celui-ci atteint l'écran partagé par un chemin que nous avons maintenu en état de marche à chaque mise à jour du système.</p>
+    <p>C'est aussi l'une des rares options qui reste une appli d'écran partagé fonctionnant sur Android 15, 16 et 17 — sans pub, sans SDK de suivi et sans autorisation d'accessibilité pour le cœur de l'écran partagé à partir d'Android 12L (la barre latérale SideEdge, facultative, est la seule exception). La plupart des anciens outils de paires d'applis s'appuient sur des raccourcis système que les versions récentes d'Android ont fermés ; celui-ci atteint l'écran partagé par un chemin que nous avons maintenu en état de marche à chaque mise à jour du système.</p>
   </section>
 
   <section id="what-is">
     <h2>2. Ce que fait vraiment Split Screen Launcher</h2>
-    <p>Split Screen Launcher est un utilitaire à fonction unique. Vous choisissez deux applis, vous nommez la paire (« Trajet », « Travail », « YouTube + X »), et la paire apparaît sous forme de ligne dans l'appli. Tapez dessus, les deux applis s'ouvrent côte à côte.</p>
+    <p>Split Screen Launcher est un utilitaire à fonction unique. Vous choisissez deux applis, vous nommez la paire (« Trajet », « Travail », « YouTube + Instagram »), et la paire apparaît sous forme de ligne dans l'appli. Tapez dessus, les deux applis s'ouvrent côte à côte.</p>
     <div class="img-row">
       <figure>
-        <img src="../assets/screenshot2.png" alt="Création d'une nouvelle paire d'applis">
-        <figcaption>Création de paire : choisissez deux applis installées au hasard et sauvegardez-les comme paire nommée. Cette configuration unique transforme les lancements suivants en un seul tap.</figcaption>
+        <img src="../assets/shots/fr/3.png" alt="Deux applis en écran partagé — Photos et Spotify">
+        <figcaption>Un seul tap sur une paire fait basculer les deux applis en écran partagé. Ici : Google Photos en haut, Spotify en bas.</figcaption>
       </figure>
       <figure>
-        <img src="../assets/screenshot3.png" alt="Liste des paires sauvegardées">
-        <figcaption>Toutes les paires vivent à l'intérieur de l'appli : aucun raccourci n'est créé sur l'écran d'accueil. C'est un choix délibéré pour que le lanceur ne dépende pas des particularités de Pixel/Nova ni des changements du système.</figcaption>
-      </figure>
-      <figure>
-        <img src="../assets/screenshot1.png" alt="Deux applis lancées en écran partagé">
-        <figcaption>Résultat : deux applis côte à côte en écran partagé, lancées d'un seul tap sur la paire. Exemple : Maps + Messages.</figcaption>
+        <img src="../assets/shots/fr/4.png" alt="Deux applis en écran partagé — YouTube et Instagram">
+        <figcaption>Autre paire sauvegardée : YouTube en haut, Instagram en bas. Plus besoin de jongler avec l'appui long sur les récents — l'écran partagé est à un tap.</figcaption>
       </figure>
     </div>
     <p>C'est à peu près tout l'ensemble de fonctionnalités. Pas de navigateur intégré, pas de widget flottant, pas d'intégration avec le volet de notifications. L'appli est légère — quelques mégaoctets — et rien ne tourne en arrière-plan.</p>
     <p>Exemples de paires utilisées pendant nos tests :</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Google Maps + Spotify</strong> — en voiture</li>
-      <li><strong>YouTube + X (Twitter)</strong> — second écran</li>
+      <li><strong>YouTube + Instagram</strong> — second écran</li>
       <li><strong>Chrome + Google Keep</strong> — recherche avec prise de notes</li>
       <li><strong>Gmail + Slack</strong> — tri du boulot</li>
       <li><strong>Calculatrice + Chrome</strong> — comparaison de prix entre onglets</li>
@@ -216,6 +213,30 @@
     <p>Un détail qu'il serait facile de manquer et qui mérite d'être souligné : les données des paires s'exportent dans un fichier de sauvegarde. Ça paraît anodin, mais plusieurs concurrents de la catégorie rangent leurs paires dans un stockage privé sans chemin d'export — changer de téléphone, c'est refaire chaque paire à la main. Nous avons fait de la sauvegarde/restauration une fonctionnalité de premier ordre précisément pour qu'une migration Pixel vers Pixel restaure la totalité en quelques secondes.</p>
     <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : par défaut, <strong>les paires vivent dans l'appli — aucune icône n'est créée sur l'écran d'accueil</strong>. La raison tient pour partie à la simplicité (l'écran d'accueil ne se remplit pas d'icônes de paires) et pour partie à l'architecture — l'appli n'est pas liée à un lanceur en particulier (Pixel, Nova, etc.). Comme indiqué en section 3, les lanceurs qui reposent sur des raccourcis sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16 ; rester à l'intérieur de l'appli rend la migration d'un téléphone à l'autre plus fluide.</p>
     <p>Une action facultative d'épinglage à l'écran d'accueil permet aux utilisateurs Pro de lancer une paire d'un seul tap directement depuis l'accueil. Nous voulions garder intacte la posture initiale « écran d'accueil simple » tout en répondant au besoin « je veux lancer l'écran partagé directement depuis une icône de l'accueil ». L'icône affichée sur l'accueil empile verticalement les deux icônes des applis, pour que la paire reste visuellement distincte des icônes de lanceur classiques.</p>
+  </section>
+
+  <section id="sideedge">
+    <h2>SideEdge — lancez vos paires depuis n'importe quel écran</h2>
+    <p>La version 3.0 ajoute <strong>SideEdge</strong> : une barre latérale que l'on fait glisser depuis le bord de l'écran. Elle liste vos paires sauvegardées et vos applis seules, de sorte que vous pouvez déclencher un écran partagé — ou ouvrir directement une seule appli — depuis <em>n'importe quel</em> écran, sans repasser par l'écran d'accueil.</p>
+    <p>Si vous venez d'un Galaxy, c'est la partie qui vous semblera familière. L'<strong>Edge Panel</strong> de Samsung est la façon dont beaucoup de gens lançaient leurs App Pairs sur One UI — un onglet sur le côté de l'écran qui déploie un tiroir de raccourcis. SideEdge est notre interprétation de cette idée, portée sur <strong>n'importe quel</strong> téléphone ou tablette Android. Ce n'est pas un remplacement complet de la version de Samsung, mais il offre une expérience similaire — et, comme le reste de l'appli, il est sans pub. Si vous cherchiez une alternative à l'Edge Panel sur Pixel ou Android pur, c'est l'une des options les plus proches que nous ayons trouvées.</p>
+    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/9KyfJArJ0XQ?rel=0"
+              title="Split Screen Launcher — SideEdge" loading="lazy"
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/fr/2.png" alt="Tiroir de la barre latérale SideEdge listant les paires et les applis seules">
+        <figcaption>Faites glisser depuis le bord et SideEdge s'ouvre, listant vos applis et vos paires. Tapez pour lancer.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/fr/8.png" alt="Personnalisation de la poignée SideEdge — côté, taille, couleur, transparence">
+        <figcaption>SideEdge est entièrement personnalisable : côté (gauche/droite), taille, couleur, transparence, et plus encore.</figcaption>
+      </figure>
+    </div>
+    <p>Une poignée flottante posée par-dessus un écran de connexion ou de mot de passe vous empêcherait d'y saisir du texte. SideEdge utilise donc un service d'accessibilité pour une seule tâche bien précise — reconnaître ces écrans de sécurité et écarter la poignée pour vous laisser taper, puis la ramener une fois que vous avez terminé. Il ne lit, ne collecte ni ne transmet jamais le contenu de l'écran. Tous les détails figurent dans <a href="#privacy">Autorisations et confidentialité</a> ci-dessous.</p>
   </section>
 
   <section id="who-for">
@@ -228,7 +249,7 @@
           <li>Vous utilisez souvent les mêmes deux applis ensemble (cartes + musique, mail + chat)</li>
           <li>Vous êtes sur Pixel ou Android pur et l'App Pair de Samsung vous manque</li>
           <li>Vous préférez les applis sans pubs ni SDK de suivi</li>
-          <li>Vous êtes sur Android 12L ou plus récent (pas d'autorisation d'accessibilité)</li>
+          <li>Vous êtes sur Android 12L ou plus récent (pas d'autorisation d'accessibilité pour le cœur de l'écran partagé ; seul SideEdge en utilise une)</li>
           <li>Vous voulez quelque chose qui continue de marcher à chaque nouvelle version du système</li>
         </ul>
       </div>
@@ -265,7 +286,7 @@
 
   <section id="privacy">
     <h2>4. Autorisations et confidentialité</h2>
-    <p>Sur <strong>Android 12L et plus récent</strong>, lancer une paire ne demande aucune autorisation d'exécution ni service d'accessibilité — le flux principal d'écran partagé repose sur des flags Activity standards.</p>
+    <p>Sur <strong>Android 12L et plus récent</strong>, lancer une paire ne demande aucune autorisation d'exécution ni service d'accessibilité — le flux principal d'écran partagé repose sur des flags Activity standards. La seule fonction qui utilise bel et bien un service d'accessibilité est <strong>SideEdge</strong> : si vous activez la barre latérale, le service sert un unique objectif bien précis — reconnaître les écrans de connexion et de mot de passe et écarter la poignée flottante pour qu'elle ne recouvre jamais une invite de sécurité, puis la ramener une fois que vous avez terminé. Il ne lit, ne collecte ni ne transmet jamais le contenu de l'écran.</p>
     <p>La seule exception facultative est la <strong>rotation automatique par paire</strong>. Si vous l'activez pour une paire, l'appli demande à ce moment-là l'autorisation spéciale <code>WRITE_SETTINGS</code> via la boîte de dialogue système des Paramètres — elle n'est jamais demandée d'emblée, et vous ne la verrez pas tant que vous n'utilisez pas cette fonction.</p>
     <p>Sur <strong>Android 9 à 12</strong>, l'appli a besoin de l'autorisation du service d'accessibilité, car c'est la seule API disponible. La fiche Play Store indique explicitement que ce service ne sert qu'à déclencher le mode écran partagé. La liste d'autorisations affichée par Google Play est assez courte pour tenir sur un seul écran — pas de localisation, pas de contacts, pas de stockage et (surtout) pas de réseau. C'est déjà inhabituel dans ce coin du Play Store.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">En clair :</strong> sur les anciennes versions d'Android, il n'existait pas d'API officielle pour déclencher l'écran partagé, donc le service d'accessibilité était la seule voie praticable. C'est une contrainte héritée, pas un moyen pour l'appli de lire votre écran.</p>
@@ -282,7 +303,7 @@
     </ul>
     <p>Le paysage des applis tierces est lui-même fragmenté. Google Play recense des dizaines d'utilitaires dédiés à l'écran partagé, mais l'activité et la qualité y sont inégalement réparties.</p>
     <p>Les applis les plus téléchargées de ce créneau ont cumulé des millions d'installations, et pourtant les têtes d'affiche du domaine sont étonnamment faibles : la plus grosse d'entre elles combine cette large audience avec une note d'avis médiocre, et une autre alternative très installée n'a pas été mise à jour depuis la mi-2025 et n'a toujours pas livré de correctif pour les changements d'API d'écran partagé d'Android 15/16. Plusieurs autres pratiquent des tarifs agressifs, avec des abonnements hebdomadaires élevés qui ont suscité des critiques dans les communautés d'utilisateurs.</p>
-    <p>Les schémas communs à cette catégorie : la plupart des applis ont soit cessé d'être mises à jour aux alentours d'Android 11–12, soit embarquent des publicités intrusives en bannière ou en interstitiel, soit exigent l'autorisation du service d'accessibilité sur toutes les versions d'Android (nous, nous nous en passons à partir d'Android 12L). Le terrain est donc inhabituellement maigre en options bien entretenues et peu gourmandes en autorisations.</p>
+    <p>Les schémas communs à cette catégorie : la plupart des applis ont soit cessé d'être mises à jour aux alentours d'Android 11–12, soit embarquent des publicités intrusives en bannière ou en interstitiel, soit exigent l'autorisation du service d'accessibilité sur toutes les versions d'Android (ici, le cœur de l'écran partagé s'en passe à partir d'Android 12L ; seule la barre latérale SideEdge, facultative, l'utilise). Le terrain est donc inhabituellement maigre en options bien entretenues et peu gourmandes en autorisations.</p>
     <p>Une appli petite, activement maintenue et sans pub comme celle-ci a un boulevard pour se détacher — à condition que les utilisateurs la trouvent.</p>
   </section>
 
@@ -305,7 +326,7 @@
             <li>Fonctionne vraiment sur Android 15, 16 et 17</li>
             <li>Aucune pub, quel que soit le niveau</li>
             <li>Légère, aucun service en arrière-plan</li>
-            <li>Pas d'autorisation d'accessibilité sur Android 12L+</li>
+            <li>Pas d'autorisation d'accessibilité pour le cœur de l'écran partagé sur Android 12L+ (seul SideEdge, facultatif, en utilise une)</li>
             <li>Aucune autorisation réseau déclarée</li>
             <li>Offre Pro à ~1 $/mois, 10× moins chère que la concurrence</li>
             <li>Sauvegarde / restauration pour les changements d'appareil</li>

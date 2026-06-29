@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Split Screen Launcher Review — The Android 16 & 17-Compatible App Pair Tool</title>
-<meta name="description" content="Developer notes on Split Screen Launcher: how we built one of the few split-screen utilities still working on Android 15, 16, and 17. Design decisions behind the no-ads, lightweight, no-Accessibility-permission approach on Android 12L+.">
+<title>Split Screen Launcher — App Pair & Edge Panel Alternative for Pixel (Android 17), with SideEdge</title>
+<meta name="description" content="Developer notes on Split Screen Launcher: a Samsung App Pair and Edge Panel alternative for Pixel and stock Android, now with the SideEdge pull-out sidebar. How we kept split screen working on Android 15, 16, and 17 — no ads, lightweight.">
 <style>
   :root {
     --primary: #3A7AFE;
@@ -414,7 +414,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="https://i.imgur.com/LiOGzcE.png" alt="Split Screen Launcher main screen showing saved app pairs">
+      <img class="hero-img" src="assets/shots/en/1.png" alt="Split Screen Launcher main screen showing saved app pairs">
       <figcaption style="color:#64748b; text-align:center; margin-top:10px; font-size:12px; font-style:italic;">Split Screen Launcher on Pixel 9 Pro (Android 16). Saved pairs are managed inside the app — tapping any row launches both apps in split view at once.</figcaption>
     </figure>
   </div>
@@ -432,7 +432,7 @@
     <ul style="margin:0; padding-left: 20px; font-size:15px; line-height:1.7;">
       <li>One of the few Android split-screen utilities still working reliably on Android 15, 16, and 17.</li>
       <li>Most competitors broke when Google changed the underlying APIs; ours kept shipping updates across every recent OS transition.</li>
-      <li>No ads, no internet access required, no Accessibility Service required on Android 12L+. Lightweight, with no background services.</li>
+      <li>No ads, no internet access required. The split-screen core needs no Accessibility Service on Android 12L+; the optional SideEdge sidebar uses one only to hide its handle on login/password screens. Lightweight, with no background services.</li>
       <li>Free tier covers core usage. Pro subscription is around $1/month — roughly one tenth of the nearest paid competitor.</li>
       <li>Native App Pair on phones is essentially Samsung-only — Android 15 added it at the OS level, but only for large-screen devices, leaving Pixel phones (and every other non-Samsung phone) out.</li>
       <li>If you're on Pixel and miss Galaxy's App Pair, this is the closest drop-in replacement we've seen.</li>
@@ -444,6 +444,7 @@
     <ol>
       <li><a href="#background">Background: why "App Pair" matters on Android</a></li>
       <li><a href="#what-is">What Split Screen Launcher actually does</a></li>
+      <li><a href="#sideedge">SideEdge — launch your pairs from any screen</a></li>
       <li><a href="#app-pair-alternative">A Samsung App Pair alternative for Pixel</a></li>
       <li><a href="#android15">The Android 15/16 problem — and why most competitors broke</a></li>
       <li><a href="#privacy">Permissions and privacy</a></li>
@@ -480,27 +481,23 @@
       If you've moved from a Galaxy phone to a Pixel — or to any stock-Android phone — and you're looking for a Samsung App Pair alternative, this is the gap we built Split Screen Launcher to fill. You get the same one-tap "launch both apps side-by-side" behavior, without needing a Samsung device or the Edge Panel.
     </p>
     <p>
-      It's also one of the few options that is still a split-screen app that works on Android 15, 16, and 17 — with no ads, no tracking SDKs, and no Accessibility permission on Android 12L and up. Most older app-pair tools lean on system shortcuts that recent Android releases closed off (we explain why in Section 3 below); this one reaches split view through a path we've kept working across each OS update.
+      It's also one of the few options that is still a split-screen app that works on Android 15, 16, and 17 — with no ads, no tracking SDKs, and no Accessibility permission for the split-screen core on Android 12L and up (the optional SideEdge sidebar is the one exception). Most older app-pair tools lean on system shortcuts that recent Android releases closed off; this one reaches split view through a path we've kept working across each OS update.
     </p>
   </section>
 
   <section id="what-is">
     <h2>2. What Split Screen Launcher actually does</h2>
     <p>
-      Split Screen Launcher is a single-purpose utility. You pick two apps, name the pair ("Commute", "Work", "YouTube + X"), and the pair shows up as a row in the app. Tapping it opens both apps side-by-side.
+      Split Screen Launcher is a single-purpose utility. You pick two apps, name the pair ("Commute", "Work", "YouTube + Instagram"), and the pair shows up as a row in the app. Tapping it opens both apps side-by-side.
     </p>
     <div class="img-row">
       <figure>
-        <img src="https://i.imgur.com/E6Aj3Zp.png" alt="Creating a new app pair">
-        <figcaption>Pair creation: pick any two installed apps and save them as a named pair. The one-time setup is what makes subsequent launches a single tap.</figcaption>
+        <img src="assets/shots/en/3.png" alt="Two apps in split screen — Photos and Spotify">
+        <figcaption>One tap on a pair drops both apps into split view. Here: Google Photos above, Spotify below.</figcaption>
       </figure>
       <figure>
-        <img src="https://i.imgur.com/LiOGzcE.png" alt="List of saved pairs">
-        <figcaption>All pairs live inside the app itself — no home-screen icons are created. This is a deliberate choice that keeps the launcher unaffected by Pixel/Nova quirks and OS changes.</figcaption>
-      </figure>
-      <figure>
-        <img src="https://i.imgur.com/0P3S51c.png" alt="Two apps running in split screen">
-        <figcaption>Result: two apps side-by-side in split view, launched from a single tap on the pair. Example shown: Gmail + YouTube.</figcaption>
+        <img src="assets/shots/en/4.png" alt="Two apps in split screen — YouTube and Instagram">
+        <figcaption>Another saved pair: YouTube up top, Instagram below. No long-press-the-recents dance — the split is one tap away.</figcaption>
       </figure>
     </div>
     <p>
@@ -511,7 +508,7 @@
     </p>
     <ul style="padding-left: 20px; margin-bottom: 18px;">
       <li><strong>Google Maps + Spotify</strong> — driving</li>
-      <li><strong>YouTube + X (Twitter)</strong> — second-screen viewing</li>
+      <li><strong>YouTube + Instagram</strong> — second-screen viewing</li>
       <li><strong>Chrome + Google Keep</strong> — research with notes</li>
       <li><strong>Gmail + Slack</strong> — work triage</li>
       <li><strong>Calculator + Chrome</strong> — comparing prices across tabs</li>
@@ -530,6 +527,36 @@
     </p>
   </section>
 
+  <section id="sideedge">
+    <h2>SideEdge — launch your pairs from any screen</h2>
+    <p>
+      Version 3.0 adds <strong>SideEdge</strong>: a pull-out sidebar you swipe in from the edge of the screen. It lists your saved pairs and single apps, so you can fire a split — or jump straight to one app — from <em>any</em> screen, without first going back to the home screen.
+    </p>
+    <p>
+      If you came from a Galaxy phone, this is the part that will feel familiar. Samsung's <strong>Edge Panel</strong> is how a lot of people launched App Pairs on One UI — a tab on the side of the screen that slides out a tray of shortcuts. SideEdge is our take on that idea, brought to <strong>any</strong> Android phone or tablet. It isn't a complete replacement for Samsung's version, but it gets you a similar experience — and like the rest of the app, it's ad-free. If you've been looking for an Edge Panel alternative on Pixel or stock Android, this is one of the closest options we've found.
+    </p>
+    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/9KyfJArJ0XQ?rel=0"
+              title="Split Screen Launcher — SideEdge" loading="lazy"
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="assets/shots/en/2.png" alt="SideEdge sidebar drawer listing app pairs and single apps">
+        <figcaption>Swipe in from the edge and SideEdge opens, listing your apps and pairs. Tap to launch.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/shots/en/8.png" alt="Customizing the SideEdge handle — side, size, color, transparency">
+        <figcaption>SideEdge is fully customizable — side (left/right), size, color, transparency, and more.</figcaption>
+      </figure>
+    </div>
+    <p>
+      A floating handle sitting on top of a login or password screen would block you from typing into it. So SideEdge uses an Accessibility Service for one narrow job — to recognize those security screens and pull the handle out of the way so you can type, then bring it back when you're done. It never reads, collects, or transmits screen content. Full detail is in <a href="#privacy">Permissions and privacy</a> below.
+    </p>
+  </section>
+
   <section id="who-for">
     <h2>Who this app is for (and who should skip it)</h2>
     <p style="color:var(--text-muted); margin-bottom: 18px;">Before we dive into the technical side, here's a quick check so you can decide whether the rest of this article is worth your time.</p>
@@ -540,7 +567,7 @@
           <li>Use the same two apps together regularly (maps + music, email + chat)</li>
           <li>Are on Pixel or stock Android and miss Samsung's App Pair</li>
           <li>Prefer apps without ads or tracking SDKs</li>
-          <li>Run Android 12L or newer (no Accessibility permission required)</li>
+          <li>Run Android 12L or newer (no Accessibility permission for the split-screen core; only SideEdge uses one)</li>
           <li>Want something that keeps working across OS version bumps</li>
         </ul>
       </div>
@@ -588,7 +615,7 @@
   <section id="privacy">
     <h2>4. Permissions and privacy</h2>
     <p>
-      On <strong>Android 12L and newer</strong>, launching a pair requires no runtime permissions and no Accessibility Service — the core split-screen flow uses standard Activity flags.
+      On <strong>Android 12L and newer</strong>, launching a pair requires no runtime permissions and no Accessibility Service — the core split-screen flow uses standard Activity flags. The one feature that does use an Accessibility Service is <strong>SideEdge</strong>: if you turn the sidebar on, the service is used for a single narrow purpose — to recognize login and password screens and tuck the floating handle out of the way so it never covers a security prompt, then bring it back when you're done. It never reads, collects, or transmits screen content.
     </p>
     <p>
       The one optional exception is <strong>per-pair auto-rotate</strong>. If you turn that on for a pair, the app requests the <code>WRITE_SETTINGS</code> special permission through the system Settings dialog at that point — it's never asked for up front, and you won't see it unless you use that feature.
@@ -621,7 +648,7 @@
       The most-downloaded apps in this niche have racked up millions of installs, yet the field's leaders are surprisingly weak: the biggest of them combines that large reach with a mediocre review score, and another widely-installed alternative was last updated in mid-2025 and still hasn't shipped a fix for the Android 15 / 16 split-screen API changes. Several others price aggressively, with steep weekly subscriptions that have drawn criticism in user communities.
     </p>
     <p>
-      The common patterns across this field: most apps either stopped updating around Android 11–12, ship with intrusive banner or interstitial ads, or require the Accessibility Service permission across all Android versions (we drop that requirement on Android 12L+). That makes the field unusually thin in terms of well-maintained, low-permission options.
+      The common patterns across this field: most apps either stopped updating around Android 11–12, ship with intrusive banner or interstitial ads, or require the Accessibility Service permission across all Android versions (the split-screen core here drops that requirement on Android 12L+; only the optional SideEdge sidebar uses it). That makes the field unusually thin in terms of well-maintained, low-permission options.
     </p>
     <p>
       A small, actively maintained, ad-free app like this one has an easy path to standing out — but only if users can find it.
@@ -655,7 +682,7 @@
             <li>Actually works on Android 15, 16, and 17</li>
             <li>No ads on any tier</li>
             <li>Lightweight, no background services</li>
-            <li>No Accessibility permission on Android 12L+</li>
+            <li>No Accessibility permission for the split-screen core on Android 12L+ (only optional SideEdge uses one)</li>
             <li>No network permission</li>
             <li>Pro tier at ~$1/month is 10× cheaper than competitors</li>
             <li>Backup / restore for device migrations</li>

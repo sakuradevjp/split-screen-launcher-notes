@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="RPeFRbPtUKcboLMVO3Kq-iB7prdmXvIFXj_dpZLpyEc">
-<title>Split Screen Launcher 評測 — 相容 Android 16 與 17 的應用程式配對工具</title>
-<meta name="description" content="Split Screen Launcher 開發者筆記:如何打造少數仍能在 Android 15、16 與 17 上穩定運作的分割畫面工具之一。Android 12L+ 實現無廣告、輕量、不需無障礙權限的設計決策。">
+<title>Split Screen Launcher — Pixel 的 App Pair 與 Edge Panel 替代方案（Android 17 相容），搭載 SideEdge</title>
+<meta name="description" content="Split Screen Launcher 開發者筆記:Pixel 與原生 Android 的三星 App Pair 與 Edge Panel 替代方案,現已搭載 SideEdge 滑出式側邊欄。我們如何讓分割畫面在 Android 15、16 與 17 上持續運作 — 無廣告、輕量。">
 <link rel="canonical" href="https://sakuradevjp.github.io/split-screen-launcher-notes/zh-TW/">
 <link rel="icon" type="image/png" href="https://sakuradevjp.github.io/split-screen-launcher-notes/favicon.png">
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
@@ -128,7 +128,7 @@
       </div>
     </div>
     <figure style="margin:0;">
-      <img class="hero-img" src="../assets/screenshot3.png" alt="Split Screen Launcher 主畫面，顯示已儲存的應用程式配對">
+      <img class="hero-img" src="../assets/shots/zh-TW/1.png" alt="Split Screen Launcher 主畫面，顯示已儲存的應用程式配對">
       <figcaption style="color:#64748b;text-align:center;margin-top:10px;font-size:12px;font-style:italic;">運行於 Pixel 9 Pro（Android 16）的 Split Screen Launcher。已儲存的配對都在應用內管理，點一下任一列即可同時以分割畫面啟動兩個應用程式。</figcaption>
     </figure>
   </div>
@@ -146,7 +146,7 @@
     <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;">
       <li>少數仍能在 Android 15、16 與 17 上穩定運作的分割畫面工具之一。</li>
       <li>多數競品在 Google 調整底層 API 時失效；我們在近期每一次 OS 版本切換中都持續推送更新。</li>
-      <li>無廣告、無需網路連線、在 Android 12L+ 上無需無障礙服務。輕量，無背景服務。</li>
+      <li>無廣告、無需網路連線。分割畫面核心在 Android 12L+ 上無需無障礙服務（僅可選的 SideEdge 側邊欄會用到,只為了在登入/密碼畫面上隱藏自己的把手）。輕量,無背景服務。</li>
       <li>免費版已涵蓋核心用途。Pro 訂閱約每月 $1，約為最接近的付費競品的十分之一。</li>
       <li>手機端的原生應用程式配對基本上是三星獨有 — Android 15 雖然在 OS 層級加入了這項功能，但僅限大螢幕裝置，Pixel 手機（以及其他所有非三星手機）都不在範圍內。</li>
       <li>如果你使用 Pixel，又懷念 Galaxy 的應用程式配對，這是我們看過最接近的替代品。</li>
@@ -158,6 +158,7 @@
     <ol>
       <li><a href="#background">背景：為什麼 Android 上的「應用程式配對」很重要</a></li>
       <li><a href="#what-is">Split Screen Launcher 實際能做什麼</a></li>
+      <li><a href="#sideedge">SideEdge — 從任何畫面啟動你的配對</a></li>
       <li><a href="#app-pair-alternative">給 Pixel 的三星應用程式配對替代方案</a></li>
       <li><a href="#android15">Android 15/16 難題 — 為何大多數競品失效</a></li>
       <li><a href="#privacy">權限與隱私</a></li>
@@ -183,31 +184,27 @@
   <section id="app-pair-alternative">
     <h2>給 Pixel 與原生 Android 的三星應用程式配對替代方案</h2>
     <p>如果你從 Galaxy 手機換到 Pixel — 或換到任何一款原生 Android 手機 — 正在找三星應用程式配對的替代方案，這正是我們打造 Split Screen Launcher 想填補的空白。你可以獲得同樣的一鍵「並排啟動兩個應用」體驗，無需三星裝置，也不必用到 Edge Panel。</p>
-    <p>它也是少數仍然能在 Android 15、16 與 17 上運作的分割畫面應用之一 — 無廣告、無追蹤 SDK，在 Android 12L 以上也不需要無障礙權限。多數較舊的應用程式配對工具仰賴近期 Android 版本已關閉的系統捷徑（我們會在下方第 3 節說明原因）；而本應用透過一條我們在每次 OS 更新中都維持運作的路徑進入分割畫面。</p>
+    <p>它也是少數仍然能在 Android 15、16 與 17 上運作的分割畫面應用之一 — 無廣告、無追蹤 SDK，分割畫面核心在 Android 12L 以上也不需要無障礙權限（可選的 SideEdge 側邊欄是唯一的例外）。多數較舊的應用程式配對工具仰賴近期 Android 版本已關閉的系統捷徑；而本應用透過一條我們在每次 OS 更新中都維持運作的路徑進入分割畫面。</p>
   </section>
 
   <section id="what-is">
     <h2>2. Split Screen Launcher 實際能做什麼</h2>
-    <p>Split Screen Launcher 是一款專注於單一用途的工具。你選兩個應用、幫它們取個名字（「通勤」、「工作」、「YouTube + X」），這組配對就會以一列的形式出現在應用中。點一下，兩個應用就會並排打開。</p>
+    <p>Split Screen Launcher 是一款專注於單一用途的工具。你選兩個應用、幫它們取個名字（「通勤」、「工作」、「YouTube + Instagram」），這組配對就會以一列的形式出現在應用中。點一下，兩個應用就會並排打開。</p>
     <div class="img-row">
       <figure>
-        <img src="../assets/screenshot2.png" alt="建立新的應用程式配對">
-        <figcaption>建立配對：從已安裝的應用中選任兩個，命名後儲存。一次設定之後，後續啟動只需點一下。</figcaption>
+        <img src="../assets/shots/zh-TW/3.png" alt="兩個應用以分割畫面執行 — Google 相簿與 Spotify">
+        <figcaption>點一下配對，兩個應用便一起進入分割畫面。圖示：上方 Google 相簿，下方 Spotify。</figcaption>
       </figure>
       <figure>
-        <img src="../assets/screenshot3.png" alt="已儲存的配對清單">
-        <figcaption>所有配對都存在應用內——不會建立主畫面圖示。這是刻意的選擇，讓啟動器不受 Pixel/Nova 的習慣及 OS 變更影響。</figcaption>
-      </figure>
-      <figure>
-        <img src="../assets/screenshot1.png" alt="兩個應用以分割畫面執行">
-        <figcaption>結果：點一下配對，兩個應用便以分割畫面並排打開。圖示：地圖 + 訊息。</figcaption>
+        <img src="../assets/shots/zh-TW/4.png" alt="兩個應用以分割畫面執行 — YouTube 與 Instagram">
+        <figcaption>另一組已儲存的配對：上方 YouTube，下方 Instagram。不必再長按多工鍵那一套——分割只需點一下。</figcaption>
       </figure>
     </div>
     <p>整個功能真的就這些。沒有內建瀏覽器、沒有浮動小工具、沒有通知列整合。應用很輕量 — 只有幾 MB — 而且不會在背景執行任何東西。</p>
     <p>測試時我們使用的配對範例：</p>
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Google 地圖 + Spotify</strong> — 開車</li>
-      <li><strong>YouTube + X（Twitter）</strong> — 第二螢幕觀看</li>
+      <li><strong>YouTube + Instagram</strong> — 第二螢幕觀看</li>
       <li><strong>Chrome + Google Keep</strong> — 一邊查資料一邊筆記</li>
       <li><strong>Gmail + Slack</strong> — 工作訊息分流</li>
       <li><strong>計算機 + Chrome</strong> — 多分頁比價</li>
@@ -216,6 +213,30 @@
     <p>有個細節容易被漏看，值得特別提：配對資料可以匯出成備份檔。聽起來不起眼，但同類競品常常把配對存在應用私有目錄裡，完全沒有匯出管道——換手機就得手動重建整份配對。我們從一開始就把備份/還原做成一級功能，正是為了讓 Pixel 換 Pixel 時幾秒就能恢復所有配對。</p>
     <p>另一個值得先講清楚的設計取捨：預設情況下，<strong>配對都存在於應用內部 — 不會建立主畫面圖示</strong>。原因一半是為了保持簡潔（主畫面不會被配對圖示塞爆），一半是基於架構考量 — 應用不會被特定啟動器（Pixel、Nova 等）綁架。如同第 3 節所述，依賴捷徑的啟動器正是 Android 15 與 16 切換時最容易壞掉的那一類；把操作留在應用內，可以讓換機遷移更順暢。</p>
     <p>有一個可選的「釘選到主畫面」功能，讓 Pro 使用者可以直接從主畫面一鍵啟動配對。我們想保留原本「主畫面保持簡潔」的姿態，同時也回應「想直接從主畫面圖示啟動分割畫面」的需求。主畫面顯示的圖示會把兩款應用圖示上下堆疊，讓配對在視覺上和一般啟動器圖示有所區別。</p>
+  </section>
+
+  <section id="sideedge">
+    <h2>SideEdge — 從任何畫面啟動你的配對</h2>
+    <p>3.0 版新增了 <strong>SideEdge</strong>：一個從螢幕邊緣滑入的側邊欄。它會列出你已儲存的配對和單一應用程式，讓你能從<em>任何</em>畫面啟動分割畫面 — 或直接跳到單一應用 — 而不必先回到主畫面。</p>
+    <p>如果你從 Galaxy 手機換過來，這部分會讓你覺得似曾相識。三星的 <strong>Edge Panel</strong>（側螢幕面板）正是許多人在 One UI 上啟動應用程式配對的方式 — 螢幕側邊的一個標籤，滑出一排捷徑。SideEdge 是我們對這個想法的詮釋，把它帶到<strong>任何一款</strong> Android 手機或平板上。它不是三星版本的完整替代品，但能帶來相近的體驗 — 而且和應用其他部分一樣，沒有廣告。如果你一直在 Pixel 或原生 Android 上尋找 Edge Panel 的替代方案，這是我們找到最接近的選擇之一。</p>
+    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/9KyfJArJ0XQ?rel=0"
+              title="Split Screen Launcher — SideEdge" loading="lazy"
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/zh-TW/2.png" alt="SideEdge 側邊欄抽屜列出應用程式配對與單一應用">
+        <figcaption>從邊緣滑入，SideEdge 便會展開，列出你的應用與配對。點一下即可啟動。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/zh-TW/8.png" alt="自訂 SideEdge 把手 — 位置、大小、顏色、透明度">
+        <figcaption>SideEdge 可完整自訂 — 位置（左/右）、大小、顏色、透明度等等。</figcaption>
+      </figure>
+    </div>
+    <p>一個浮動把手若疊在登入或密碼畫面上，會擋住你的輸入。因此 SideEdge 使用無障礙服務只為了一個非常特定的單一目的 — 辨識這類安全畫面，把把手暫時移開讓你能輸入，等你結束後再把它帶回來。它從不讀取、收集或傳送畫面內容。完整細節請見下方的<a href="#privacy">權限與隱私</a>。</p>
   </section>
 
   <section id="who-for">
@@ -228,7 +249,7 @@
           <li>經常把同兩個應用搭配使用（地圖+音樂、電郵+聊天）</li>
           <li>使用 Pixel 或原生 Android，懷念三星的應用程式配對</li>
           <li>偏好無廣告、不帶追蹤 SDK 的應用</li>
-          <li>系統是 Android 12L 或更新版本（不需要無障礙權限）</li>
+          <li>系統是 Android 12L 或更新版本（分割畫面核心不需要無障礙權限，只有 SideEdge 會用到）</li>
           <li>想要一款能跨 OS 版本持續運作的工具</li>
         </ul>
       </div>
@@ -265,7 +286,7 @@
 
   <section id="privacy">
     <h2>4. 權限與隱私</h2>
-    <p>在 <strong>Android 12L 以上</strong>，啟動一組配對不需任何執行階段權限，也不需要無障礙服務 — 核心的分割畫面流程使用標準 Activity 旗標。</p>
+    <p>在 <strong>Android 12L 以上</strong>，啟動一組配對不需任何執行階段權限，也不需要無障礙服務 — 核心的分割畫面流程使用標準 Activity 旗標。唯一會用到無障礙服務的功能是 <strong>SideEdge</strong>：當你開啟側邊欄時，服務只用於一個很侷限的目的 — 辨識登入和密碼畫面，把浮動把手暫時移開，讓它絕不會蓋住安全提示，等你結束後再把它帶回來。它從不讀取、收集或傳送畫面內容。</p>
     <p>唯一的可選例外是<strong>每組配對的自動旋轉</strong>。如果你為某組配對開啟這項功能，應用會在那個當下透過系統設定對話框請求 <code>WRITE_SETTINGS</code> 特殊權限 — 它從不會在一開始就索取，除非你使用這項功能，否則你不會看到它。</p>
     <p>在 <strong>Android 9 到 12</strong>，應用確實需要無障礙服務權限，因為這是唯一可用的 API。Play Store 商店頁面明確說明這項服務僅用來觸發分割畫面。Google Play 顯示的權限清單短到可以在一個畫面看完 — 沒有位置、沒有通訊錄、沒有儲存空間，而且（特別是）沒有網路。在這類應用程式中，這已經算是異類。</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">白話來說：</strong>舊版 Android 沒有官方 API 可以觸發分割畫面，因此無障礙服務是當時唯一可行的路徑。這是遺留限制，不是應用拿來讀你螢幕的藉口。</p>
@@ -287,7 +308,7 @@
       這個利基類別中下載量最高的幾款應用都累積了數百萬次下載，但領頭者卻存在明顯的弱點：其中規模最大的那款雖然觸及面廣，評分卻只是平庸；另一款下載量也不小的替代品最後一次更新停留在 2025 年中，至今仍未針對 Android 15 / 16 的分割畫面 API 變更推出修正。還有幾款採用相當激進的定價策略，動輒高昂的每週訂閱在使用者社群中引發批評。
     </p>
     <p>
-      這個領域常見的幾種模式：大多數應用要嘛在 Android 11–12 前後就停止更新、要嘛內建擾人的橫幅或插頁廣告、要嘛不分 Android 版本一律要求無障礙服務權限（我們在 Android 12L+ 上拿掉了這個要求）。也因此，這個類別在「持續維護、低權限」這條軸線上異常稀薄。
+      這個領域常見的幾種模式：大多數應用要嘛在 Android 11–12 前後就停止更新、要嘛內建擾人的橫幅或插頁廣告、要嘛不分 Android 版本一律要求無障礙服務權限（本應用的分割畫面核心在 Android 12L+ 上拿掉了這個要求，只有可選的 SideEdge 側邊欄會用到）。也因此，這個類別在「持續維護、低權限」這條軸線上異常稀薄。
     </p>
     <p>
       像這樣一款輕巧、持續維護、無廣告的應用要脫穎而出很容易 — 前提是使用者找得到。
@@ -313,7 +334,7 @@
             <li>在 Android 15、16 與 17 上真的能用</li>
             <li>所有方案皆無廣告</li>
             <li>輕量，無背景服務</li>
-            <li>Android 12L+ 不需要無障礙權限</li>
+            <li>分割畫面核心在 Android 12L+ 不需要無障礙權限（只有可選的 SideEdge 會用到）</li>
             <li>完全未宣告網路權限</li>
             <li>Pro 方案約 $1/月，比競品便宜 10 倍</li>
             <li>備份 / 還原，適合換機</li>
