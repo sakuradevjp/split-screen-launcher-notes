@@ -210,15 +210,18 @@
       <li><strong>Máy tính + Chrome</strong> — so giá giữa các tab</li>
     </ul>
     <p>Một trường hợp dùng mà chúng tôi không ngờ tới: trong xe hơi. Một người dùng cho chúng tôi biết họ chạy Split Screen Launcher trên chiếc Android AI box trên xe của mình, ghép <strong>Maps + Spotify</strong> để dẫn đường kèm nhạc — rồi chuyển sang <strong>Maps + Netflix</strong> cho người ngồi ghế phụ. Vì mở một cặp chỉ là một cú chạm, nó hợp với màn hình trung tâm trên xe hơn hẳn so với việc nhấn giữ lần mò qua menu recents.</p>
+    <h3>Khởi chạy không cần chạm — MacroDroid, Automate, Tasker</h3>
     <p>Một trường hợp dùng nữa mà chúng tôi không lên kế hoạch đã đến từ một góc hoàn toàn khác: xe máy. Một người lái xe có gắn máy tính bảng trên ghi đông muốn MacroDroid của họ tự động mở một cặp đã lưu — một macro kích hoạt khi bật máy, mở chế độ chia đôi màn hình mà không cần chạm vào gì khi đang đi. Yêu cầu đó trở thành một tính năng. Từ phiên bản 3.0.4, MacroDroid có thể mở một cặp đã lưu thông qua bộ chọn phím tắt chuẩn của Android, để macro kích hoạt chế độ chia đôi theo cùng cách nó kích hoạt bất kỳ hành động nào khác. Chúng tôi chưa kiểm thử riêng lẻ các công cụ tự động hóa khác như Tasker hay Automate, nhưng vì tính năng này dựa vào bộ chọn chuẩn của Android thay vì bất cứ thứ gì đặc thù của ứng dụng, chúng sẽ hoạt động theo cách tương tự. Đây là tính năng Pro, chỉ giới hạn ở việc mở các cặp đã lưu sẵn. Nếu bạn không dùng công cụ tự động hóa thì điều này không liên quan — nhưng đối với nhóm người dùng dùng tay rảnh khi đang trên đường, nó lấp khoảng trống giữa "một cú chạm" và "không cú chạm nào".</p>
-    <p>Với những ai tò mò, đây là cách thiết lập trong MacroDroid:</p>
+    <h4>Thiết lập trong MacroDroid</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
       <li>Trong macro của bạn, thêm một <strong>Action → Applications → Launch Shortcut</strong>.</li>
       <li>Trong danh sách "Select Shortcut", chọn <strong>Split Screen</strong>.</li>
       <li>Chọn cặp đã lưu cụ thể mà bạn muốn kích hoạt.</li>
       <li>Gắn nó với bất kỳ trigger nào bạn thích — một thiết bị Bluetooth kết nối, cắm sạc, hay một thời điểm trong ngày.</li>
     </ol>
-    <p>Vậy là xong. Khi macro kích hoạt, cặp của bạn mở ở chế độ chia đôi màn hình, không cần chạm vào gì. (Người lái xe của chúng tôi gắn nó với việc bật máy xe máy; của bạn cũng có thể chạy từ kết nối Bluetooth của ô tô.)</p>
+    <p>Vậy là xong. Khi trigger kích hoạt, cặp tự hiện lên mà không cần chạm vào gì.<br>
+      Ví dụ 1: khởi động máy → ứng dụng cảm biến áp suất lốp + ứng dụng gọi điện mở ra.<br>
+      Ví dụ 2: Bluetooth kết nối → ứng dụng dẫn đường + ứng dụng nghe nhạc mở ra.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="Danh sách 'Select Shortcut' của MacroDroid hiển thị Split Screen trong số các phím tắt có sẵn">
@@ -226,10 +229,12 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen hỏi cặp đã lưu nào cần mở">
-        <figcaption>Chọn nó và Split Screen hỏi bạn muốn mở cặp đã lưu nào — macro sẽ kích hoạt chế độ chia đôi đó mà không cần chạm vào gì.</figcaption>
+        <figcaption>Phím tắt sau đó liệt kê các cặp đã lưu trong Split Screen để bạn chọn.</figcaption>
       </figure>
     </div>
+    <h3>Sao lưu / xuất dữ liệu</h3>
     <p>Một chi tiết dễ bị bỏ qua nhưng đáng nhắc: dữ liệu cặp có thể xuất ra tệp sao lưu. Nghe có vẻ vặt, nhưng nhiều đối thủ trong cùng hạng mục lại lưu cặp vào vùng riêng của ứng dụng mà không có lối xuất ra — đổi máy đồng nghĩa với dựng lại từng cặp bằng tay. Chúng tôi đưa sao lưu/khôi phục lên thành tính năng hạng nhất ngay từ đầu để việc chuyển Pixel sang Pixel khôi phục toàn bộ bộ cặp chỉ trong vài giây.</p>
+    <h3>Màn hình chính gọn gàng</h3>
     <p>Một lựa chọn thiết kế nữa đáng nói trước: theo mặc định, <strong>các cặp nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính</strong>. Lý do một phần để giữ sự đơn giản (màn hình chính không bị nhồi biểu tượng cặp) và một phần là về kiến trúc — ứng dụng không bị ràng buộc với một launcher cụ thể nào (Pixel, Nova, v.v.). Như đã nói ở mục 3, các launcher dựa vào lối tắt chính là loại thường bị vô hiệu hóa ở mỗi đợt chuyển Android 15 và 16; ở lại trong ứng dụng giúp việc chuyển máy giữa các điện thoại trơn tru hơn.</p>
     <p>Một hành động "ghim ra màn hình chính" tùy chọn cho phép người dùng Pro mở một cặp bằng một cú chạm trực tiếp từ màn hình chính. Chúng tôi muốn giữ nguyên tinh thần ban đầu "giữ màn hình chính đơn giản" mà vẫn đáp ứng được nhu cầu "tôi muốn mở chia đôi màn hình ngay từ một biểu tượng trên màn hình chính". Biểu tượng hiển thị trên màn hình chính xếp chồng hai biểu tượng ứng dụng theo chiều dọc, để cặp đó vẫn dễ phân biệt về mặt hình ảnh so với biểu tượng launcher thông thường.</p>
   </section>
@@ -305,8 +310,13 @@
 
   <section id="privacy">
     <h2>4. Quyền và quyền riêng tư</h2>
-    <p>Trên <strong>Android 12L trở lên</strong>, việc mở một cặp không cần quyền runtime nào và không cần Accessibility Service — luồng chia đôi màn hình cốt lõi dùng các cờ Activity chuẩn. Tính năng duy nhất thực sự dùng Accessibility Service là <strong>SideEdge</strong>: nếu bạn bật thanh bên, dịch vụ này được dùng cho một mục đích hẹp duy nhất — nhận diện các màn hình đăng nhập và mật khẩu rồi giấu tay nắm nổi ra khỏi đường để nó không bao giờ che một lời nhắc bảo mật, sau đó đưa lại khi bạn xong. Nó không bao giờ đọc, thu thập hay truyền đi nội dung màn hình.</p>
-    <p>Ngoại lệ duy nhất là tùy chọn <strong>tự xoay theo từng cặp</strong>. Nếu bạn bật nó cho một cặp, đến lúc đó ứng dụng mới yêu cầu quyền đặc biệt <code>WRITE_SETTINGS</code> thông qua hộp thoại Cài đặt của hệ thống — không bao giờ hỏi trước, và bạn sẽ không thấy nó trừ khi bạn dùng tính năng đó.</p>
+    <p>Trên <strong>Android 12L trở lên</strong>, việc mở một cặp không cần quyền runtime nào và không cần Accessibility Service — luồng chia đôi màn hình cốt lõi dùng các cờ Activity chuẩn. Quyền bổ sung chỉ được yêu cầu cho hai thứ bạn tự bật lên.</p>
+    <p>
+      <strong>① Tự xoay màn hình theo từng cặp (quyền tùy chọn)</strong> — nếu bạn bật tính năng này cho một cặp cụ thể, lúc đó ứng dụng mới yêu cầu quyền đặc biệt <code>WRITE_SETTINGS</code> thông qua hộp thoại Cài đặt hệ thống. Nó không bao giờ được hỏi trước, và bạn sẽ không thấy nó trừ khi dùng tính năng đó.
+    </p>
+    <p>
+      <strong>② Bật SideEdge (tính năng tùy chọn)</strong> — bật thanh bên sẽ dùng hai quyền. Một là <strong>quyền Hiển thị đè lên ứng dụng khác (System Alert Window)</strong>, để bảng có thể vẽ đè lên các ứng dụng khác. Quyền kia là <strong>Accessibility Service</strong>, được dùng cho một mục đích duy nhất và hẹp: nhận diện các màn hình mà Android coi là nhạy cảm — đăng nhập, mật khẩu, xác thực hai bước, ngân hàng — và thu tay nắm cùng bảng ra khỏi đường trên những màn hình đó để chúng không bao giờ bị che khuất; nó không bao giờ đọc, thu thập hay truyền đi nội dung màn hình. Cả hai quyền đều hiển thị trong danh sách quyền trên Google Play và ở trạng thái tắt trừ khi bạn cấp chúng rõ ràng.
+    </p>
     <p>Trên <strong>Android 9 đến 12</strong>, ứng dụng cần quyền Accessibility Service, vì đó là API duy nhất có sẵn. Trang trên Play Store nêu rõ dịch vụ chỉ được dùng để kích hoạt chế độ chia đôi màn hình. Danh sách quyền Google Play hiển thị ngắn đến mức đọc hết trong một màn hình — không vị trí, không danh bạ, không bộ nhớ, và (đặc biệt) không mạng. Chỉ riêng vậy đã hiếm gặp ở góc này của Play Store.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Nói đơn giản:</strong> trên các bản Android cũ không có API chính thức để kích hoạt chia đôi màn hình, nên Accessibility Service là con đường khả dĩ duy nhất. Đó là ràng buộc di sản, không phải thứ ứng dụng dùng để đọc màn hình của bạn.</p>
     <p>Để so sánh: phần lớn ứng dụng chia đôi màn hình miễn phí trên Play Store gói kèm SDK quảng cáo (AdMob, Unity, IronSource), đồng nghĩa phải khai quyền <code>INTERNET</code> và bộ trình theo dõi đi kèm. Chúng tôi chọn kiếm tiền bằng gói đăng ký tối giản thay vào đó — một phần để giữ dấu chân quyền sạch sẽ, một phần vì nhét SDK quảng cáo vào một tiện ích nhỏ như thế này sẽ làm dung lượng phồng lên.</p>

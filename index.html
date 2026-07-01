@@ -516,12 +516,11 @@
     <p>
       One use case we didn't anticipate: the car. A user told us they run Split Screen Launcher on the Android AI box in their vehicle, pairing <strong>Maps + Spotify</strong> for navigation with music — and switching to <strong>Maps + Netflix</strong> for whoever's in the passenger seat. Because launching a pair is a single tap, it suits a car head-unit far better than long-pressing through the recents menu.
     </p>
+    <h3>No-tap launch — MacroDroid, Automate, Tasker</h3>
     <p>
       Another use case we didn't plan for came from a completely different corner: a motorcycle. A rider using the app on a handlebar-mounted tablet wanted their MacroDroid automation to bring up a saved pair on its own — an ignition-triggered macro that opens the split with no taps while riding. That request became a feature. As of version 3.0.4, MacroDroid can launch a saved pair through Android's standard shortcut picker, so a macro fires the split the same way it fires any other action. We haven't individually tested other automation tools like Tasker or Automate, but because this feature relies on that standard Android picker rather than anything app-specific, they should work the same way. It's a Pro feature, strictly limited to launching your pre-saved pairs. If you don't use automation tools this won't matter to you — but for the hands-free, on-the-road corner of our users, it closes the gap between "one tap" and "no taps."
     </p>
-    <p>
-      For the curious, here's the setup in MacroDroid:
-    </p>
+    <h4>Setting it up in MacroDroid</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
       <li>In your macro, add an <strong>Action → Applications → Launch Shortcut</strong>.</li>
       <li>In the "Select Shortcut" list, pick <strong>Split Screen</strong>.</li>
@@ -529,7 +528,9 @@
       <li>Attach it to whatever trigger you like — a Bluetooth device connecting, a charger plugging in, or a time of day.</li>
     </ol>
     <p>
-      That's it. When the macro fires, your pair opens in split view, hands-free. (Our rider ties this to their motorcycle ignition; yours could just as easily run off a car's Bluetooth connection.)
+      That's it. When your trigger fires, the pair comes up on its own.<br>
+      Example 1: engine starts → tire-pressure monitor + calling app launch.<br>
+      Example 2: Bluetooth connects → navigation + music launch.
     </p>
     <div class="img-row">
       <figure>
@@ -538,12 +539,14 @@
       </figure>
       <figure>
         <img src="assets/shots/macrodroid/2.png" alt="Split Screen asking which saved pair to launch">
-        <figcaption>Pick it and Split Screen asks which saved pair to launch — the macro fires that split hands-free.</figcaption>
+        <figcaption>The shortcut then lists Split Screen's saved pairs to choose from.</figcaption>
       </figure>
     </div>
+    <h3>Backup / export</h3>
     <p>
       One detail worth calling out because it's easy to miss: pair data exports to a backup file. That sounds trivial, but several competing apps in this category store their pairs in app-private storage with no export path — switching phones means rebuilding every pair by hand. We made the backup/restore a first-class feature precisely so a Pixel-to-Pixel migration restores the full set in seconds.
     </p>
+    <h3>A clean home screen</h3>
     <p>
       And another design choice worth noting up front: by default, <strong>pairs live inside the app — no home-screen icons are created</strong>. The reason is partly to keep things simple (the home screen doesn't get cluttered with pair icons) and partly architectural — the app isn't tied to specific launchers (Pixel, Nova, etc.). As noted in section 3, shortcut-dependent launchers are exactly the kind that tend to break across Android 15 and 16 transitions; staying inside the app makes phone-to-phone migration smoother.
     </p>
@@ -640,10 +643,13 @@
   <section id="privacy">
     <h2>4. Permissions and privacy</h2>
     <p>
-      On <strong>Android 12L and newer</strong>, launching a pair requires no runtime permissions and no Accessibility Service — the core split-screen flow uses standard Activity flags. The one feature that does use an Accessibility Service is <strong>SideEdge</strong>: if you turn the sidebar on, the service is used for a single narrow purpose — to recognize login and password screens and tuck the floating handle out of the way so it never covers a security prompt, then bring it back when you're done. It never reads, collects, or transmits screen content.
+      On <strong>Android 12L and newer</strong>, launching a pair requires no runtime permissions and no Accessibility Service — the core split-screen flow uses standard Activity flags. Extra access is only ever requested for two things you turn on yourself.
     </p>
     <p>
-      The one optional exception is <strong>per-pair auto-rotate</strong>. If you turn that on for a pair, the app requests the <code>WRITE_SETTINGS</code> special permission through the system Settings dialog at that point — it's never asked for up front, and you won't see it unless you use that feature.
+      <strong>① Per-pair auto-rotate (optional permission)</strong> — if you turn this on for a specific pair, only then does the app request the <code>WRITE_SETTINGS</code> special permission through the system Settings dialog. It's never asked for up front, and you won't see it unless you use that feature.
+    </p>
+    <p>
+      <strong>② Enabling SideEdge (optional feature)</strong> — turning the sidebar on uses two permissions. One is the <strong>System Alert Window permission</strong>, so the panel can be drawn over other apps. The other is the <strong>Accessibility Service</strong>, used for one narrow purpose: to recognize screens Android treats as sensitive — login, password, two-factor, banking — and tuck the handle and panel out of the way on those screens so they never get covered. It never reads, collects, or transmits screen content. Both permissions appear in the Google Play permission list and stay off unless you grant them explicitly through the system dialog.
     </p>
     <p>
       On <strong>Android 9 through 12</strong>, the app does need Accessibility Service permission, because that's the only available API. The Play Store listing is explicit that the service is only used to trigger split-screen mode. The permission list shown by Google Play is short enough that you can read the whole thing on one screen — no location, no contacts, no storage, and (notably) no network. That's already unusual for this corner of the Play Store.

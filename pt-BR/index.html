@@ -210,15 +210,19 @@
       <li><strong>Calculadora + Chrome</strong> — comparando preços em várias abas</li>
     </ul>
     <p>Um caso de uso que não imaginávamos: o carro. Um usuário nos contou que roda o Split Screen Launcher na central multimídia Android com IA do veículo dele, pareando <strong>Maps + Spotify</strong> para navegação com música — e trocando para <strong>Maps + Netflix</strong> para quem está no banco do carona. Como abrir um par é um único toque, isso combina muito melhor com a central do carro do que ficar segurando os botões pelo menu de recentes.</p>
+    <h3>Abertura sem toque — MacroDroid, Automate, Tasker</h3>
     <p>Outro caso de uso que não planejávamos chegou de um canto completamente diferente: uma moto. Um motociclista que usa o app num tablet fixado no guidão queria que a automação do MacroDroid abrisse um par salvo por conta própria — um macro disparado pela ignição que abre a tela dividida sem nenhum toque durante o trajeto. Esse pedido virou funcionalidade. A partir da versão 3.0.4, o MacroDroid consegue abrir um par salvo pelo seletor de atalhos padrão do Android, de modo que o macro dispara a tela dividida da mesma forma que dispara qualquer outra ação. Não testamos individualmente outras ferramentas de automação como Tasker ou Automate, mas como esse recurso usa o seletor padrão do Android e não nada exclusivo do app, elas devem funcionar da mesma forma. É um recurso Pro, estritamente limitado a abrir seus pares já salvos. Se você não usa ferramentas de automação, isso não vai fazer diferença — mas para o segmento de usuários que precisa de mãos livres na estrada, ela fecha a lacuna entre "um toque" e "zero toques".</p>
-    <p>Para os curiosos, aqui está como configurar no MacroDroid:</p>
+    <h4>Como configurar no MacroDroid</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
       <li>No seu macro, adicione uma <strong>Action → Applications → Launch Shortcut</strong>.</li>
       <li>Na lista "Select Shortcut", escolha <strong>Split Screen</strong>.</li>
       <li>Selecione o par salvo específico que você quer acionar.</li>
       <li>Vincule ao gatilho que preferir — um dispositivo Bluetooth conectando, um carregador sendo plugado ou um horário do dia.</li>
     </ol>
-    <p>É isso. Quando o macro dispara, seu par abre em tela dividida sem precisar tocar em nada. (O nosso motociclista vincula ao acionamento da ignição da moto; você poderia facilmente fazer o mesmo com a conexão Bluetooth do carro.)</p>
+    <p>É isso. Quando o gatilho disparar, o par abre por conta própria.<br>
+      Exemplo 1: motor liga → monitor de pressão dos pneus + app de chamadas abre.<br>
+      Exemplo 2: Bluetooth conecta → navegação + música abre.
+    </p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="Lista 'Select Shortcut' do MacroDroid mostrando o Split Screen entre os atalhos disponíveis">
@@ -226,10 +230,12 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen perguntando qual par salvo deve ser aberto">
-        <figcaption>Selecione-o e o Split Screen pergunta qual par salvo deve abrir — o macro dispara essa tela dividida sem precisar tocar em nada.</figcaption>
+        <figcaption>O atalho então lista os pares salvos do Split Screen para escolher.</figcaption>
       </figure>
     </div>
+    <h3>Backup / exportação</h3>
     <p>Um detalhe fácil de ignorar e que merece destaque: os dados dos pares podem ser exportados para um arquivo de backup. Parece banal, mas vários concorrentes da categoria guardam os pares no armazenamento privado do app, sem caminho de exportação — trocar de aparelho significa refazer todos os pares à mão. Fizemos do backup/restauração um recurso de primeira classe justamente para que uma migração de Pixel para Pixel restaure todo o conjunto em segundos.</p>
+    <h3>Uma tela inicial limpa</h3>
     <p>Outra escolha de design que vale deixar clara desde já: por padrão, <strong>os pares vivem dentro do próprio app — não são criados ícones na tela inicial</strong>. O motivo é, em parte, simplicidade (a tela inicial não fica poluída por ícones de pares) e, em parte, arquitetural — o app não fica amarrado a lançadores específicos (Pixel, Nova etc.). Como dissemos na seção 3, lançadores que dependem de atalhos são justamente os que tendem a quebrar nas transições para Android 15 e 16; manter tudo dentro do app deixa a migração de aparelho para aparelho mais tranquila.</p>
     <p>Uma ação opcional para fixar pares na tela inicial permite que usuários Pro abram um par com um único toque direto da tela de início. Quisemos preservar a postura original de "tela inicial enxuta" e, ao mesmo tempo, atender à necessidade de "quero abrir a tela dividida direto de um ícone na tela inicial". O ícone exibido na tela inicial empilha verticalmente os dois ícones dos apps, de modo que o par se diferencia visualmente dos ícones comuns do lançador.</p>
   </section>
@@ -305,8 +311,13 @@
 
   <section id="privacy">
     <h2>4. Permissões e privacidade</h2>
-    <p>No <strong>Android 12L e posteriores</strong>, abrir um par não exige nenhuma permissão em tempo de execução nem Serviço de Acessibilidade — o fluxo principal de tela dividida usa flags padrão de Activity. O único recurso que de fato usa um Serviço de Acessibilidade é o <strong>SideEdge</strong>: se você ativar a barra lateral, o serviço é usado para uma única finalidade específica — reconhecer telas de login e senha e tirar a aba flutuante do caminho para que ela nunca cubra um prompt de segurança, trazendo-a de volta quando você terminar. Ele nunca lê, coleta ou transmite o conteúdo da tela.</p>
-    <p>A única exceção opcional é a <strong>rotação automática por par</strong>. Se você ativar isso para um par, o app solicita a permissão especial <code>WRITE_SETTINGS</code> por meio da caixa de diálogo das Configurações do sistema naquele momento — ela nunca é pedida de antemão, e você não a verá a menos que use esse recurso.</p>
+    <p>No <strong>Android 12L e posteriores</strong>, abrir um par não exige nenhuma permissão em tempo de execução nem Serviço de Acessibilidade — o fluxo principal de tela dividida usa flags padrão de Activity. O acesso extra só é solicitado para duas coisas que você mesmo ativa.</p>
+    <p>
+      <strong>① Rotação automática por par (permissão opcional)</strong> — se você ativar isso para um par específico, somente nesse momento o app solicita a permissão especial <code>WRITE_SETTINGS</code> por meio da caixa de diálogo das Configurações do sistema. Ela nunca é pedida de antemão, e você não a verá a menos que use esse recurso.
+    </p>
+    <p>
+      <strong>② Ativar o SideEdge (recurso opcional)</strong> — ligar a barra lateral usa duas permissões. Uma é a <strong>permissão Janela de alerta do sistema</strong>, para que o painel possa ser desenhado sobre outros apps. A outra é o <strong>Serviço de Acessibilidade</strong>, usado para uma única finalidade específica: reconhecer telas que o Android trata como sensíveis — login, senha, autenticação em dois fatores, bancários — e recuar a aba e o painel nessas telas para que nunca fiquem cobrindo nada. Ele nunca lê, coleta ou transmite o conteúdo da tela. Ambas as permissões aparecem na lista de permissões do Google Play e permanecem desativadas até que você as conceda explicitamente pela caixa de diálogo do sistema.
+    </p>
     <p>No <strong>Android 9 a 12</strong>, o app precisa de permissão do Serviço de Acessibilidade, porque essa é a única API disponível. A ficha na Play Store deixa explícito que o serviço só é usado para ativar o modo de tela dividida. A lista de permissões mostrada pelo Google Play é tão curta que cabe inteira em uma tela — sem localização, sem contatos, sem armazenamento e (principalmente) sem rede. Já é algo incomum nesse canto da Play Store.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Em poucas palavras:</strong> em versões mais antigas do Android não havia API oficial para disparar a tela dividida, então o Serviço de Acessibilidade era o único caminho viável. É uma restrição herdada, não algo que o app use para ler sua tela.</p>
     <p>Para comparar: a maioria dos apps gratuitos de tela dividida na Play Store traz SDKs de anúncios (AdMob, Unity, IronSource), o que significa que eles declaram a permissão <code>INTERNET</code> e trazem junto toda a carga de trackers. Optamos por monetizar com uma assinatura mínima — em parte para manter a pegada de permissões limpa, em parte porque enfiar SDKs de anúncios em um utilitário tão pequeno faria o tamanho dele disparar.</p>

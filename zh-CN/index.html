@@ -210,15 +210,19 @@
       <li><strong>计算器 + Chrome</strong> —— 跨标签页比价</li>
     </ul>
     <p>有一个我们没料到的使用场景：车里。一位用户告诉我们，他在车载的 Android AI 盒子上运行 Split Screen Launcher，导航配音乐时用 <strong>Maps + Spotify</strong>，给副驾座上的人则切换到 <strong>Maps + Netflix</strong>。由于启动一个应用对只需轻点一下，它比在最近任务菜单里长按操作更适合车机。</p>
+    <h3>免触控启动 — MacroDroid、Automate、Tasker</h3>
     <p>另一个完全没料到的使用场景来自截然不同的角落：摩托车。一位把平板固定在车把上使用本应用的骑手，希望 MacroDroid 自动化能自行唤起一个已保存的应用对——一个由点火触发的宏，在行驶时无需任何点击就能打开分屏。这个需求直接变成了一个功能。从 3.0.4 版本起，MacroDroid 可以通过 Android 标准的快捷方式选择器来启动已保存的应用对，宏就能像触发其他动作一样触发分屏。Tasker 或 Automate 这类自动化工具我们没有逐一测试，但由于该功能依赖的是标准的 Android 选择器而非任何应用专属机制，它们应该同样适用。这是一项 Pro 功能，严格限于启动你预先保存好的应用对。不用自动化工具的用户对此不会有感知——但对于骑行途中需要免提操作的那部分用户来说，它填补了"一键"和"零点击"之间的空缺。</p>
-    <p>感兴趣的话，以下是 MacroDroid 中的设置步骤：</p>
+    <h4>在 MacroDroid 中的设置步骤</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
       <li>在你的宏中，添加一个 <strong>Action → Applications → Launch Shortcut</strong>。</li>
       <li>在"Select Shortcut"列表中，选择 <strong>Split Screen</strong>。</li>
       <li>选择你想触发的已保存应用对。</li>
       <li>绑定到你喜欢的任意触发器——Bluetooth 设备连接、充电器插入，或某个时间点。</li>
     </ol>
-    <p>就这样。宏触发时，你的应用对就会以分屏方式免提打开。（上面那位骑手把它绑定到摩托车点火；你也完全可以改成汽车 Bluetooth 连接。）</p>
+    <p>就这样。设定的触发器一旦触发，应用对就会自动弹出。<br>
+      示例一：引擎点火 → 胎压监测应用 + 通话应用启动。<br>
+      示例二：Bluetooth 连接 → 导航 + 音乐应用启动。
+    </p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="MacroDroid 的"Select Shortcut"列表，显示 Split Screen 出现在可用快捷方式中">
@@ -226,10 +230,12 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen 询问要启动哪个已保存的应用对">
-        <figcaption>选择它后，Split Screen 会让你选择要启动的应用对——宏触发时即可免提打开对应的分屏。</figcaption>
+        <figcaption>随后快捷方式列表会显示 Split Screen 中已保存的应用对，供你选择。</figcaption>
       </figure>
     </div>
+    <h3>备份 / 导出</h3>
     <p>有个细节容易被忽略，但值得单独提一下：应用对数据可以导出为备份文件。听上去不起眼，但同品类的几款竞品把应用对存在应用私有目录里，没有任何导出途径——换手机就意味着手动重建所有应用对。我们一开始就把备份/恢复做成一流功能，正是为了让 Pixel 到 Pixel 的迁移能在几秒内恢复整套配置。</p>
+    <h3>桌面保持整洁</h3>
     <p>另一个需要提前说明的设计取舍：默认情况下，<strong>应用对都存在于应用内部 —— 不会创建桌面图标</strong>。原因一半是为了简洁（桌面不会被应用对图标堆满），一半是出于架构考虑 —— 应用不会被特定启动器（Pixel、Nova 等）所绑定。正如第 3 节所述，基于快捷方式的启动器正是 Android 15 和 16 过渡时最容易失效的那一类；把操作留在应用内部，可以让换机迁移更顺滑。</p>
     <p>一个可选的"固定到桌面"功能让 Pro 用户可以直接从桌面图标一键启动应用对。我们希望保留原本"桌面保持简洁"的姿态，同时也回应"想直接从桌面图标启动分屏"的需求。桌面上显示的图标把两款应用图标上下堆叠，使应用对在视觉上和普通启动器图标区分开。</p>
   </section>
@@ -305,8 +311,9 @@
 
   <section id="privacy">
     <h2>4. 权限与隐私</h2>
-    <p>在 <strong>Android 12L 及以上</strong>，启动一个应用对无需任何运行时权限，也无需无障碍服务 —— 核心分屏流程使用标准的 Activity 标记完成。唯一会用到无障碍服务的功能是 <strong>SideEdge</strong>：如果你开启侧边栏，该服务只用于一个很窄的用途 —— 识别登录和密码界面，把悬浮把手挪到一边，使它绝不会遮住安全提示，待你完成后再把它移回来。它绝不会读取、收集或传输屏幕内容。</p>
-    <p>唯一可选的例外是 <strong>按应用对自动旋转</strong>。如果你为某个应用对开启该功能，应用会在那一刻通过系统设置对话框请求 <code>WRITE_SETTINGS</code> 特殊权限 —— 它绝不会提前索取，除非你使用该功能，否则你根本不会看到它。</p>
+    <p>在 <strong>Android 12L 及以上</strong>，启动一个应用对无需任何运行时权限，也无需无障碍服务 —— 核心分屏流程使用标准的 Activity 标记完成。额外的权限只在你主动开启以下两项功能时才会被请求。</p>
+    <p><strong>① 按应用对自动旋转（可选权限）</strong> —— 如果你为某个应用对开启此功能，应用才会在那一刻通过系统设置对话框请求 <code>WRITE_SETTINGS</code> 特殊权限。它不会提前索取，不使用该功能就不会出现。</p>
+    <p><strong>② 启用 SideEdge（可选功能）</strong> —— 开启侧边栏需要两项权限。一是<strong>悬浮窗权限（System Alert Window）</strong>，用于让面板显示在其他应用上方。二是<strong>无障碍服务</strong>，仅用于一个非常特定的目的：识别 Android 视为敏感的界面 —— 登录、密码、双重验证、银行应用 —— 并在这些界面自动将把手和面板移开，使其永远不会遮住这些内容；它绝不会读取、收集或传输屏幕内容。两项权限均会显示在 Google Play 权限列表中，且只有在你通过系统对话框明确授权后才会生效。</p>
     <p>在 <strong>Android 9 到 12</strong>，应用确实需要无障碍服务权限，因为那是唯一可用的 API。Play Store 商品页明确说明该服务仅用于触发分屏模式。Google Play 显示的权限列表足够短，一屏就能看完——没有位置、没有通讯录、没有存储，而且（特别是）没有网络。在同类应用中，这已经非常罕见了。</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">说人话：</strong>在较旧的 Android 上没有官方 API 可以触发分屏，无障碍服务是当时唯一可行的路径。这是一项遗留约束，而非应用用它来读取你屏幕的借口。</p>
     <p>对比之下，Play Store 上大多数免费分屏应用都捆绑了广告 SDK（AdMob、Unity、IronSource），这意味着它们会附带 <code>INTERNET</code> 权限和随之而来的追踪器包。我们选择用最小的订阅来盈利——一方面是为了保持极简的权限要求，另一方面是因为把广告 SDK 塞进一个这么小的工具会让它的体积大幅膨胀。</p>

@@ -210,15 +210,18 @@
       <li><strong>計算機 + Chrome</strong> — 多分頁比價</li>
     </ul>
     <p>有一個我們沒料到的使用情境：車上。一位使用者告訴我們，他在車內的 Android AI 車機上跑 Split Screen Launcher，把 <strong>地圖 + Spotify</strong> 配在一起做導航配音樂 — 並切換到 <strong>地圖 + Netflix</strong> 給副駕乘客看。因為啟動一組配對只需點一下，相較於在多工選單裡長按，它更適合車載主機。</p>
+    <h3>零觸控啟動 — MacroDroid、Automate、Tasker</h3>
     <p>另一個完全不同方向的意外使用情境也找上了門：摩托車。有位騎士在把手上安裝平板並使用本應用，他希望 MacroDroid 自動化能自行喚起一組已儲存的配對 — 一個由點火啟動的巨集，騎車途中無需觸控就能開啟分割畫面。這個需求直接成了一項功能。從 3.0.4 版起，MacroDroid 可以透過 Android 標準的捷徑選取器來啟動已儲存的配對，巨集觸發分割的方式和觸發其他動作一樣。Tasker 或 Automate 等其他自動化工具我們沒有逐一測試，但由於這項功能依賴的是 Android 標準捷徑選取器而非任何應用專屬機制，它們應該也能以相同方式運作。這是 Pro 功能，僅限啟動已儲存的配對。不使用自動化工具的使用者對此不會有感，但對那些在騎車途中或其他雙手被占用的場合使用本應用的族群而言，它填補了「一鍵」與「零觸控」之間的空白。</p>
-    <p>如果你對設定方式感到好奇，以下是 MacroDroid 的步驟：</p>
+    <h4>在 MacroDroid 中設定</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
       <li>在巨集中新增一個 <strong>Action → Applications → Launch Shortcut</strong>。</li>
       <li>在「Select Shortcut」清單中，選擇 <strong>Split Screen</strong>。</li>
       <li>選擇你想要觸發的已儲存配對。</li>
       <li>接著綁定你喜歡的任何觸發條件 — Bluetooth 裝置連線、充電器插入，或特定時間皆可。</li>
     </ol>
-    <p>就這樣。巨集觸發時，配對便會以免持方式進入分割畫面。（那位騎士把它綁定到摩托車點火；你也可以輕鬆改成車輛的 Bluetooth 連線。）</p>
+    <p>就這樣。觸發條件一發動，配對便會自動出現。<br>
+      範例一：引擎發動 → 胎壓監測應用 + 通話應用啟動。<br>
+      範例二：Bluetooth 連線 → 導航 + 音樂應用啟動。</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="MacroDroid 的「Select Shortcut」清單中顯示 Split Screen 在可用捷徑之列">
@@ -226,10 +229,12 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen 詢問要啟動哪組已儲存的配對">
-        <figcaption>選擇後，Split Screen 會詢問要啟動哪組已儲存的配對 — 巨集觸發，分割畫面便以免持方式開啟。</figcaption>
+        <figcaption>捷徑清單中接著會列出 Split Screen 的已儲存配對供你選擇。</figcaption>
       </figure>
     </div>
+    <h3>備份 / 匯出</h3>
     <p>有個細節容易被漏看，值得特別提：配對資料可以匯出成備份檔。聽起來不起眼，但同類競品常常把配對存在應用私有目錄裡，完全沒有匯出管道——換手機就得手動重建整份配對。我們從一開始就把備份/還原做成一級功能，正是為了讓 Pixel 換 Pixel 時幾秒就能恢復所有配對。</p>
+    <h3>保持主畫面整潔</h3>
     <p>另一個值得先講清楚的設計取捨：預設情況下，<strong>配對都存在於應用內部 — 不會建立主畫面圖示</strong>。原因一半是為了保持簡潔（主畫面不會被配對圖示塞爆），一半是基於架構考量 — 應用不會被特定啟動器（Pixel、Nova 等）綁架。如同第 3 節所述，依賴捷徑的啟動器正是 Android 15 與 16 切換時最容易壞掉的那一類；把操作留在應用內，可以讓換機遷移更順暢。</p>
     <p>有一個可選的「釘選到主畫面」功能，讓 Pro 使用者可以直接從主畫面一鍵啟動配對。我們想保留原本「主畫面保持簡潔」的姿態，同時也回應「想直接從主畫面圖示啟動分割畫面」的需求。主畫面顯示的圖示會把兩款應用圖示上下堆疊，讓配對在視覺上和一般啟動器圖示有所區別。</p>
   </section>
@@ -305,8 +310,13 @@
 
   <section id="privacy">
     <h2>4. 權限與隱私</h2>
-    <p>在 <strong>Android 12L 以上</strong>，啟動一組配對不需任何執行階段權限，也不需要無障礙服務 — 核心的分割畫面流程使用標準 Activity 旗標。唯一會用到無障礙服務的功能是 <strong>SideEdge</strong>：當你開啟側邊欄時，服務只用於一個很侷限的目的 — 辨識登入和密碼畫面，把浮動把手暫時移開，讓它絕不會蓋住安全提示，等你結束後再把它帶回來。它從不讀取、收集或傳送畫面內容。</p>
-    <p>唯一的可選例外是<strong>每組配對的自動旋轉</strong>。如果你為某組配對開啟這項功能，應用會在那個當下透過系統設定對話框請求 <code>WRITE_SETTINGS</code> 特殊權限 — 它從不會在一開始就索取，除非你使用這項功能，否則你不會看到它。</p>
+    <p>在 <strong>Android 12L 以上</strong>，啟動一組配對不需任何執行階段權限，也不需要無障礙服務 — 核心的分割畫面流程使用標準 Activity 旗標。額外的存取權限只在你自己開啟以下兩項功能時才會被請求。</p>
+    <p>
+      <strong>① 每組配對自動旋轉（可選權限）</strong> — 若你為特定配對開啟此功能，應用才會在當下透過系統設定對話框請求 <code>WRITE_SETTINGS</code> 特殊權限。它不會事先索取，不使用這項功能就不會看到。
+    </p>
+    <p>
+      <strong>② 啟用 SideEdge（可選功能）</strong> — 開啟側邊欄會用到兩項權限。一是<strong>在其他應用上層顯示的權限（System Alert Window）</strong>，讓面板能疊加在其他應用之上。二是<strong>無障礙服務</strong>，僅用於一個非常特定的目的：辨識 Android 視為敏感的畫面 — 登入、密碼、雙重驗證、銀行應用 — 並在這些畫面上把把手與面板移開，使其絕不遮擋這些畫面；服務從不讀取、收集或傳送畫面內容。兩項權限均會顯示在 Google Play 的權限清單中，且在你透過系統對話框明確授予之前不會生效。
+    </p>
     <p>在 <strong>Android 9 到 12</strong>，應用確實需要無障礙服務權限，因為這是唯一可用的 API。Play Store 商店頁面明確說明這項服務僅用來觸發分割畫面。Google Play 顯示的權限清單短到可以在一個畫面看完 — 沒有位置、沒有通訊錄、沒有儲存空間，而且（特別是）沒有網路。在這類應用程式中，這已經算是異類。</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">白話來說：</strong>舊版 Android 沒有官方 API 可以觸發分割畫面，因此無障礙服務是當時唯一可行的路徑。這是遺留限制，不是應用拿來讀你螢幕的藉口。</p>
     <p>作為對照，Play Store 上多數免費分割畫面應用都內建廣告 SDK（AdMob、Unity、IronSource），這表示它們附帶 <code>INTERNET</code> 權限及伴隨而來的追蹤器組。我們選擇改用最小化的訂閱來營收 — 一方面是為了讓權限要求保持最少；另一方面是因為把廣告 SDK 塞進一個這麼小的工具，體積會大幅膨脹。</p>
