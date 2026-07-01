@@ -210,6 +210,15 @@
       <li><strong>Calculadora + Chrome</strong> — comparando preços em várias abas</li>
     </ul>
     <p>Um caso de uso que não imaginávamos: o carro. Um usuário nos contou que roda o Split Screen Launcher na central multimídia Android com IA do veículo dele, pareando <strong>Maps + Spotify</strong> para navegação com música — e trocando para <strong>Maps + Netflix</strong> para quem está no banco do carona. Como abrir um par é um único toque, isso combina muito melhor com a central do carro do que ficar segurando os botões pelo menu de recentes.</p>
+    <p>Outro caso de uso que não planejávamos chegou de um canto completamente diferente: uma moto. Um motociclista que usa o app num tablet fixado no guidão queria que a automação do MacroDroid abrisse um par salvo por conta própria — um macro disparado pela ignição que abre a tela dividida sem nenhum toque durante o trajeto. Esse pedido virou funcionalidade. A partir da versão 3.0.4, o MacroDroid consegue abrir um par salvo pelo seletor de atalhos padrão do Android, de modo que o macro dispara a tela dividida da mesma forma que dispara qualquer outra ação. Não testamos individualmente outras ferramentas de automação como Tasker ou Automate, mas como esse recurso usa o seletor padrão do Android e não nada exclusivo do app, elas devem funcionar da mesma forma. É um recurso Pro, estritamente limitado a abrir seus pares já salvos. Se você não usa ferramentas de automação, isso não vai fazer diferença — mas para o segmento de usuários que precisa de mãos livres na estrada, ela fecha a lacuna entre "um toque" e "zero toques".</p>
+    <p>Para os curiosos, aqui está como configurar no MacroDroid:</p>
+    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li>No seu macro, adicione uma <strong>Action → Applications → Launch Shortcut</strong>.</li>
+      <li>Na lista "Select Shortcut", escolha <strong>Split Screen</strong>.</li>
+      <li>Selecione o par salvo específico que você quer acionar.</li>
+      <li>Vincule ao gatilho que preferir — um dispositivo Bluetooth conectando, um carregador sendo plugado ou um horário do dia.</li>
+    </ol>
+    <p>É isso. Quando o macro dispara, seu par abre em tela dividida sem precisar tocar em nada. (O nosso motociclista vincula ao acionamento da ignição da moto; você poderia facilmente fazer o mesmo com a conexão Bluetooth do carro.)</p>
     <p>Um detalhe fácil de ignorar e que merece destaque: os dados dos pares podem ser exportados para um arquivo de backup. Parece banal, mas vários concorrentes da categoria guardam os pares no armazenamento privado do app, sem caminho de exportação — trocar de aparelho significa refazer todos os pares à mão. Fizemos do backup/restauração um recurso de primeira classe justamente para que uma migração de Pixel para Pixel restaure todo o conjunto em segundos.</p>
     <p>Outra escolha de design que vale deixar clara desde já: por padrão, <strong>os pares vivem dentro do próprio app — não são criados ícones na tela inicial</strong>. O motivo é, em parte, simplicidade (a tela inicial não fica poluída por ícones de pares) e, em parte, arquitetural — o app não fica amarrado a lançadores específicos (Pixel, Nova etc.). Como dissemos na seção 3, lançadores que dependem de atalhos são justamente os que tendem a quebrar nas transições para Android 15 e 16; manter tudo dentro do app deixa a migração de aparelho para aparelho mais tranquila.</p>
     <p>Uma ação opcional para fixar pares na tela inicial permite que usuários Pro abram um par com um único toque direto da tela de início. Quisemos preservar a postura original de "tela inicial enxuta" e, ao mesmo tempo, atender à necessidade de "quero abrir a tela dividida direto de um ícone na tela inicial". O ícone exibido na tela inicial empilha verticalmente os dois ícones dos apps, de modo que o par se diferencia visualmente dos ícones comuns do lançador.</p>
@@ -257,7 +266,7 @@
         <h3 style="border-left:4px solid #E53935;color:#C62828;font-size:17px;margin-top:0;margin-bottom:12px;">Pule se você…</h3>
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
           <li>Raramente usa tela dividida</li>
-          <li>Quer widget flutuante, lançamento por gestos ou integração com o Tasker</li>
+          <li>Quer widget flutuante, lançamento por gestos ou automação avançada (além de abrir um par salvo)</li>
           <li>Tem um Samsung — o App Pair embutido da One UI já é excelente</li>
           <li>Usa uma interface personalizada bastante modificada do Android (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — esses fabricantes alteram os mecanismos internos da tela dividida, então o comportamento nesses aparelhos depende do aparelho e não tem como garantir</li>
         </ul>
@@ -299,7 +308,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Implementações específicas de fabricantes</strong> — App Pair da Samsung (desde a One UI, 2017), além de variantes em Xiaomi, OPPO e no antigo LG. Só funcionam nos aparelhos de cada marca.</li>
       <li><strong>Utilitários de terceiros</strong> — apps independentes dedicados a esse único caso de uso. Boa parte é construída em cima de APIs do sistema que foram restringidas ou removidas nas últimas versões do Android, por isso o catálogo ficou visivelmente menor.</li>
-      <li><strong>Abordagens via automação</strong> — Tasker e ferramentas parecidas permitem criar um script para abrir em tela dividida, mas dependem das mesmas primitivas dos apps dedicados, então herdam as mesmas falhas. Também exigem que o usuário monte cada par manualmente.</li>
+      <li><strong>Abordagens via automação</strong> — Tasker e ferramentas parecidas permitem criar um script para abrir em tela dividida, mas dependem das mesmas primitivas dos apps dedicados, então herdam as mesmas falhas. Também exigem que o usuário monte cada par manualmente. A partir da versão 3.0.4, adicionamos uma forma direta de integrar com essas ferramentas: é possível abrir um par salvo pelo MacroDroid (Pro) sem precisar montar a tela dividida você mesmo. Como usa o seletor de atalhos padrão do Android, deve funcionar também com outros apps de automação como Tasker ou Automate, embora não tenhamos testado esses de ponta a ponta.</li>
     </ul>
     <p>O próprio cenário de apps de terceiros é fragmentado. A Google Play exibe dezenas de utilitários dedicados a tela dividida, mas a atividade e a qualidade estão distribuídas de forma irregular.</p>
     <p>Os apps mais baixados desse nicho acumularam milhões de instalações, mas os líderes do campo são surpreendentemente fracos: o maior deles combina esse grande alcance com uma nota de avaliação medíocre, e outra alternativa bastante instalada teve sua última atualização em meados de 2025 e ainda não publicou correção para as mudanças nas APIs de tela dividida do Android 15/16. Vários outros adotam preços agressivos, com assinaturas semanais caras que geraram críticas em comunidades de usuários.</p>
@@ -338,7 +347,7 @@
           <h4>Contras</h4>
           <ul>
             <li>Há um atraso perceptível de ~1 segundo entre o toque e a tela dividida aparecer. É custo quase todo do sistema — entrar no modo dividido no Android 12L+ envolve várias transições de tarefa que o SO encadeia internamente, então qualquer app da categoria fica na faixa de 0,8 a 1,2 s. Não é bug, mas vale ajustar a expectativa</li>
-            <li>Sem widget flutuante, gestos ou integração com Tasker. Os atalhos na tela inicial são opcionais (Pro), mas todo o resto continua dentro do app</li>
+            <li>Sem widget flutuante, sem vinculação por gestos. O lançamento por app de automação (MacroDroid) é suportado, mas é Pro e limitado a abrir um par salvo. Os atalhos na tela inicial também são opcionais (Pro), mas todo o resto continua dentro do app</li>
             <li>A lista de criação de par mostra todos os apps instalados sem categorias, o que fica cansativo depois de ~60 apps no aparelho</li>
             <li>Dev solo, então se você pegar um caso raro em uma ROM que não seja Pixel, não espere correção no mesmo dia</li>
           </ul>

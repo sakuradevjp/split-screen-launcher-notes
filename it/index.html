@@ -210,6 +210,15 @@
       <li><strong>Calcolatrice + Chrome</strong> — confronto prezzi tra schede</li>
     </ul>
     <p>Un caso d'uso che non avevamo previsto: l'auto. Un utente ci ha raccontato di usare Split Screen Launcher sull'AI box Android del proprio veicolo, abbinando <strong>Maps + Spotify</strong> per la navigazione con la musica — e passando a <strong>Maps + Netflix</strong> per chi siede sul sedile del passeggero. Dato che lanciare una coppia è un singolo tocco, si adatta a un sistema di infotainment molto meglio del tenere premuto nel menu delle Recenti.</p>
+    <p>Un altro caso d'uso inatteso è arrivato da un angolo completamente diverso: una moto. Un motociclista che usa l'app su un tablet montato sul manubrio voleva che la sua automazione MacroDroid aprisse da sola una coppia salvata — una macro attivata dall'accensione del motore che avvia lo schermo diviso senza alcun tocco durante la marcia. Quella richiesta è diventata una funzione. Dalla versione 3.0.4, MacroDroid può lanciare una coppia salvata tramite il selettore standard di scorciatoie di Android, così una macro attiva la divisione esattamente come attiva qualsiasi altra azione. Non abbiamo testato singolarmente altri strumenti di automazione come Tasker o Automate, ma poiché questa funzione si affida a quel selettore Android standard piuttosto che a qualcosa di specifico dell'app, dovrebbero funzionare allo stesso modo. È una funzione Pro, strettamente limitata al lancio delle coppie pre-salvate. Se non usi strumenti di automazione questo non ti riguarderà — ma per chi usa il telefono in viaggio a mani libere, colma il divario tra "un tocco" e "nessun tocco".</p>
+    <p>Per i curiosi, ecco come configurarlo in MacroDroid:</p>
+    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li>Nel tuo macro, aggiungi un'<strong>Action → Applications → Launch Shortcut</strong>.</li>
+      <li>Nell'elenco "Select Shortcut", scegli <strong>Split Screen</strong>.</li>
+      <li>Seleziona la coppia salvata specifica che vuoi attivare.</li>
+      <li>Associala al trigger che preferisci — un dispositivo Bluetooth che si connette, un caricatore che viene inserito, o un orario del giorno.</li>
+    </ol>
+    <p>Tutto qui. Quando la macro si attiva, la tua coppia si apre in schermo diviso, a mani libere. (Il nostro motociclista la collega all'accensione della moto; la tua potrebbe benissimo partire dalla connessione Bluetooth dell'auto.)</p>
     <p>Un dettaglio facile da perdere ma che vale la pena sottolineare: i dati delle coppie si esportano in un file di backup. Sembra banale, ma diversi concorrenti della categoria conservano le coppie nello storage privato dell'app senza alcun percorso di esportazione — cambiare telefono significa ricostruire ogni coppia a mano. Abbiamo fatto di backup/ripristino una funzione di prima classe proprio perché una migrazione Pixel verso Pixel recuperi l'intero set in pochi secondi.</p>
     <p>Vale la pena segnalare subito un'altra scelta di design: per impostazione predefinita, <strong>le coppie vivono dentro l'app — non vengono create icone nella schermata iniziale</strong>. Il motivo è in parte semplicità (la schermata iniziale non si riempie di icone di coppie) e in parte architetturale: l'app non resta legata a un launcher specifico (Pixel, Nova ecc.). Come detto nella sezione 3, i launcher che dipendono dalle scorciatoie sono proprio quelli che tendono a rompersi nelle transizioni ad Android 15 e 16; restare dentro l'app rende più fluido il passaggio da un telefono all'altro.</p>
     <p>Un'azione opzionale per fissare una coppia in home consente agli utenti Pro di lanciare una coppia con un singolo tocco direttamente dalla schermata iniziale. Volevamo mantenere intatta la postura originale di "schermata iniziale semplice" e allo stesso tempo rispondere all'esigenza di "voglio lanciare lo schermo diviso direttamente da un'icona in home". L'icona mostrata in home impila verticalmente le due icone delle app, così la coppia resta visivamente distinta dalle normali icone del launcher.</p>
@@ -257,7 +266,7 @@
         <h3 style="border-left:4px solid #E53935;color:#C62828;font-size:17px;margin-top:0;margin-bottom:12px;">Saltala se…</h3>
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
           <li>Lo schermo diviso lo usi raramente</li>
-          <li>Vuoi un widget flottante, lancio via gesti o integrazione con Tasker</li>
+          <li>Vuoi un widget flottante, lancio via gesti o un'automazione avanzata (oltre al semplice lancio di una coppia salvata)</li>
           <li>Hai un Samsung — l'App Pair integrato in One UI è già eccellente</li>
           <li>Sei su una skin Android fortemente personalizzata (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — quei produttori ne modificano le meccaniche interne, quindi il comportamento su quei dispositivi non è garantito</li>
         </ul>
@@ -299,7 +308,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Implementazioni proprietarie dei produttori</strong> — l'App Pair di Samsung (dal 2017 con One UI), più le varianti di Xiaomi, OPPO e del vecchio LG. Funzionano solo sui dispositivi della rispettiva marca.</li>
       <li><strong>Utility di terze parti</strong> — app autonome dedicate a questo unico caso d'uso. La maggior parte si basa su API di sistema che sono state ristrette o rimosse nelle versioni recenti di Android, motivo per cui il settore si è notevolmente assottigliato.</li>
-      <li><strong>Approcci basati sull'automazione</strong> — Tasker e strumenti simili permettono di scriptare il lancio in schermo diviso, ma si reggono sulle stesse primitive delle app dedicate, quindi ereditano le stesse rotture. Inoltre richiedono all'utente di costruire a mano ogni coppia.</li>
+      <li><strong>Approcci basati sull'automazione</strong> — Tasker e strumenti simili permettono di scriptare il lancio in schermo diviso, ma si reggono sulle stesse primitive delle app dedicate, quindi ereditano le stesse rotture. Inoltre richiedono all'utente di costruire a mano ogni coppia. Dalla versione 3.0.4 abbiamo aggiunto un modo semplice per agganciarsi a questi strumenti: puoi lanciare una coppia salvata da MacroDroid (Pro) senza dover scriptare tu stesso la divisione. Poiché usa il selettore standard di scorciatoie di Android, dovrebbe funzionare anche con altre app di automazione come Tasker o Automate, anche se non le abbiamo testate dall'inizio alla fine.</li>
     </ul>
     <p>Lo stesso panorama delle terze parti è frammentato. Google Play elenca decine di utility dedicate allo schermo diviso, ma l'attività e la qualità sono distribuite in modo molto disomogeneo.</p>
     <p>Le app più scaricate della nicchia hanno accumulato milioni di installazioni, eppure i leader del settore sono sorprendentemente deboli: la più grande tra loro unisce quella grande diffusione a un punteggio mediocre nelle recensioni, mentre un'altra alternativa molto installata è stata aggiornata per l'ultima volta a metà 2025 e non ha ancora pubblicato una correzione per le modifiche alle API di schermo diviso di Android 15/16. Diverse altre praticano prezzi aggressivi, con costosi abbonamenti settimanali che hanno attirato critiche nelle community degli utenti.</p>
@@ -338,7 +347,7 @@
           <h4>Contro</h4>
           <ul>
             <li>C'è un ritardo percepibile di ~1 secondo tra il tocco e la comparsa dello schermo diviso. È un costo prevalentemente lato sistema — entrare in modalità divisa su Android 12L+ comporta più transizioni di task che il sistema sequenzia internamente, quindi qualsiasi app della categoria si colloca tra 0,8 e 1,2 s. Non è un bug, ma è giusto saperlo</li>
-            <li>Nessun widget flottante, nessun gesto, nessuna integrazione con Tasker. Le scorciatoie in home sono opzionali (Pro), ma tutto il resto resta dentro l'app</li>
+            <li>Nessun widget flottante, nessun collegamento a gesti. Il lancio tramite app di automazione (MacroDroid) è supportato ma riservato al piano Pro e limitato all'avvio di una coppia salvata. Le scorciatoie nella schermata iniziale sono anch'esse opzionali (Pro), ma tutto il resto resta dentro l'app</li>
             <li>L'elenco di creazione coppie mostra tutte le app installate senza categorie, il che diventa faticoso oltre le ~60 app sul dispositivo</li>
             <li>Sviluppatore solo, quindi se incappi in un caso limite su una ROM non Pixel non aspettarti un fix in giornata</li>
           </ul>

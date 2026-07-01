@@ -210,6 +210,15 @@
       <li><strong>Máy tính + Chrome</strong> — so giá giữa các tab</li>
     </ul>
     <p>Một trường hợp dùng mà chúng tôi không ngờ tới: trong xe hơi. Một người dùng cho chúng tôi biết họ chạy Split Screen Launcher trên chiếc Android AI box trên xe của mình, ghép <strong>Maps + Spotify</strong> để dẫn đường kèm nhạc — rồi chuyển sang <strong>Maps + Netflix</strong> cho người ngồi ghế phụ. Vì mở một cặp chỉ là một cú chạm, nó hợp với màn hình trung tâm trên xe hơn hẳn so với việc nhấn giữ lần mò qua menu recents.</p>
+    <p>Một trường hợp dùng nữa mà chúng tôi không lên kế hoạch đã đến từ một góc hoàn toàn khác: xe máy. Một người lái xe có gắn máy tính bảng trên ghi đông muốn MacroDroid của họ tự động mở một cặp đã lưu — một macro kích hoạt khi bật máy, mở chế độ chia đôi màn hình mà không cần chạm vào gì khi đang đi. Yêu cầu đó trở thành một tính năng. Từ phiên bản 3.0.4, MacroDroid có thể mở một cặp đã lưu thông qua bộ chọn phím tắt chuẩn của Android, để macro kích hoạt chế độ chia đôi theo cùng cách nó kích hoạt bất kỳ hành động nào khác. Chúng tôi chưa kiểm thử riêng lẻ các công cụ tự động hóa khác như Tasker hay Automate, nhưng vì tính năng này dựa vào bộ chọn chuẩn của Android thay vì bất cứ thứ gì đặc thù của ứng dụng, chúng sẽ hoạt động theo cách tương tự. Đây là tính năng Pro, chỉ giới hạn ở việc mở các cặp đã lưu sẵn. Nếu bạn không dùng công cụ tự động hóa thì điều này không liên quan — nhưng đối với nhóm người dùng dùng tay rảnh khi đang trên đường, nó lấp khoảng trống giữa "một cú chạm" và "không cú chạm nào".</p>
+    <p>Với những ai tò mò, đây là cách thiết lập trong MacroDroid:</p>
+    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li>Trong macro của bạn, thêm một <strong>Action → Applications → Launch Shortcut</strong>.</li>
+      <li>Trong danh sách "Select Shortcut", chọn <strong>Split Screen</strong>.</li>
+      <li>Chọn cặp đã lưu cụ thể mà bạn muốn kích hoạt.</li>
+      <li>Gắn nó với bất kỳ trigger nào bạn thích — một thiết bị Bluetooth kết nối, cắm sạc, hay một thời điểm trong ngày.</li>
+    </ol>
+    <p>Vậy là xong. Khi macro kích hoạt, cặp của bạn mở ở chế độ chia đôi màn hình, không cần chạm vào gì. (Người lái xe của chúng tôi gắn nó với việc bật máy xe máy; của bạn cũng có thể chạy từ kết nối Bluetooth của ô tô.)</p>
     <p>Một chi tiết dễ bị bỏ qua nhưng đáng nhắc: dữ liệu cặp có thể xuất ra tệp sao lưu. Nghe có vẻ vặt, nhưng nhiều đối thủ trong cùng hạng mục lại lưu cặp vào vùng riêng của ứng dụng mà không có lối xuất ra — đổi máy đồng nghĩa với dựng lại từng cặp bằng tay. Chúng tôi đưa sao lưu/khôi phục lên thành tính năng hạng nhất ngay từ đầu để việc chuyển Pixel sang Pixel khôi phục toàn bộ bộ cặp chỉ trong vài giây.</p>
     <p>Một lựa chọn thiết kế nữa đáng nói trước: theo mặc định, <strong>các cặp nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính</strong>. Lý do một phần để giữ sự đơn giản (màn hình chính không bị nhồi biểu tượng cặp) và một phần là về kiến trúc — ứng dụng không bị ràng buộc với một launcher cụ thể nào (Pixel, Nova, v.v.). Như đã nói ở mục 3, các launcher dựa vào lối tắt chính là loại thường bị vô hiệu hóa ở mỗi đợt chuyển Android 15 và 16; ở lại trong ứng dụng giúp việc chuyển máy giữa các điện thoại trơn tru hơn.</p>
     <p>Một hành động "ghim ra màn hình chính" tùy chọn cho phép người dùng Pro mở một cặp bằng một cú chạm trực tiếp từ màn hình chính. Chúng tôi muốn giữ nguyên tinh thần ban đầu "giữ màn hình chính đơn giản" mà vẫn đáp ứng được nhu cầu "tôi muốn mở chia đôi màn hình ngay từ một biểu tượng trên màn hình chính". Biểu tượng hiển thị trên màn hình chính xếp chồng hai biểu tượng ứng dụng theo chiều dọc, để cặp đó vẫn dễ phân biệt về mặt hình ảnh so với biểu tượng launcher thông thường.</p>
@@ -257,7 +266,7 @@
         <h3 style="border-left:4px solid #E53935;color:#C62828;font-size:17px;margin-top:0;margin-bottom:12px;">Bỏ qua nếu bạn…</h3>
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.8;">
           <li>Hiếm khi dùng chia đôi màn hình</li>
-          <li>Muốn widget nổi, khởi chạy bằng cử chỉ hay tích hợp Tasker</li>
+          <li>Muốn widget nổi, khởi chạy bằng cử chỉ, hay tự động hóa nâng cao (vượt ra ngoài việc mở một cặp đã lưu)</li>
           <li>Dùng máy Samsung — App Pair sẵn có trong One UI đã rất tốt</li>
           <li>Đang dùng một giao diện tùy biến được chỉnh sửa nhiều (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — các hãng này can thiệp vào cơ chế chia đôi màn hình bên trong, nên hành vi trên những máy đó chỉ ở mức nỗ lực tối đa</li>
         </ul>
@@ -299,7 +308,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Triển khai riêng của hãng</strong> — App Pair của Samsung (từ One UI, 2017), cùng các biến thể ở Xiaomi, OPPO và LG đời cũ. Chỉ chạy trên máy của chính hãng đó.</li>
       <li><strong>Tiện ích bên thứ ba</strong> — ứng dụng độc lập chuyên phục vụ trường hợp dùng duy nhất này. Phần lớn xây trên API cấp hệ điều hành bị thu hẹp hoặc bỏ đi trong các bản Android gần đây, nên thị trường này thu hẹp lại rõ rệt.</li>
-      <li><strong>Hướng dựa trên tự động hóa</strong> — Tasker và công cụ tương tự có thể viết kịch bản cho việc mở chia đôi màn hình, nhưng cũng dựa trên cùng những nguyên lý như các ứng dụng chuyên dụng nên gặp phải cùng một lỗi kỹ thuật. Thêm nữa, người dùng phải tự dựng từng cặp bằng tay.</li>
+      <li><strong>Hướng dựa trên tự động hóa</strong> — Tasker và công cụ tương tự có thể viết kịch bản cho việc mở chia đôi màn hình, nhưng cũng dựa trên cùng những nguyên lý như các ứng dụng chuyên dụng nên gặp phải cùng một lỗi kỹ thuật. Thêm nữa, người dùng phải tự dựng từng cặp bằng tay. Từ phiên bản 3.0.4, chúng tôi đã thêm một cách đơn giản để kết nối với các công cụ này: bạn có thể mở một cặp đã lưu từ MacroDroid (Pro) mà không cần tự viết kịch bản cho phần chia đôi màn hình. Vì tính năng này dùng bộ chọn phím tắt chuẩn của Android, nó cũng sẽ hoạt động với các ứng dụng tự động hóa khác như Tasker hay Automate, dù chúng tôi chưa kiểm thử đầu cuối với những cái đó.</li>
     </ul>
     <p>Bản thân mảng ứng dụng bên thứ ba cũng phân mảnh. Google Play niêm yết hàng chục tiện ích chuyên về chia đôi màn hình, nhưng mức độ hoạt động và chất lượng phân bố rất không đồng đều.</p>
     <p>Các ứng dụng được tải nhiều nhất trong ngách này đã gom được hàng triệu lượt cài, nhưng những cái dẫn đầu lại yếu một cách bất ngờ: cái lớn nhất kết hợp phạm vi phủ rộng đó với một điểm đánh giá tầm thường, còn một lựa chọn cũng nhiều lượt cài khác thì có lần cập nhật cuối vào giữa năm 2025 và vẫn chưa phát hành bản sửa nào cho những thay đổi API chia đôi màn hình của Android 15/16. Vài ứng dụng khác lại đặt giá rất nặng tay, với những gói đăng ký theo tuần đắt đỏ, gây không ít chỉ trích trong các cộng đồng người dùng.</p>
@@ -338,7 +347,7 @@
           <h4>Nhược điểm</h4>
           <ul>
             <li>Có độ trễ cảm nhận được khoảng 1 giây giữa cú chạm và lúc chế độ chia đôi màn hình hiện ra. Chủ yếu là chi phí từ phía hệ điều hành — vào chế độ chia đôi màn hình trên Android 12L trở lên kéo theo nhiều lần chuyển tác vụ mà hệ thống xếp lịch nội bộ, nên ứng dụng nào trong hạng mục này cũng rơi vào khoảng 0,8–1,2 giây. Không phải lỗi, nhưng nên biết trước để đỡ kỳ vọng sai</li>
-            <li>Không có widget nổi, không gán cử chỉ, không tích hợp Tasker. Lối tắt màn hình chính là tùy chọn (Pro), nhưng mọi thứ còn lại vẫn nằm trong ứng dụng</li>
+            <li>Không có widget nổi, không gán cử chỉ. Mở từ ứng dụng tự động hóa (MacroDroid) được hỗ trợ nhưng chỉ dành cho Pro và giới hạn ở việc kích hoạt một cặp đã lưu. Lối tắt màn hình chính cũng là tùy chọn (Pro), nhưng mọi thứ còn lại vẫn nằm trong ứng dụng</li>
             <li>Danh sách tạo cặp hiển thị toàn bộ ứng dụng đã cài mà không có danh mục, khá mệt khi vượt ~60 ứng dụng trên máy</li>
             <li>Nhà phát triển đơn lẻ, nên nếu bạn gặp tình huống biên trên một ROM không phải Pixel, đừng kỳ vọng có bản vá trong ngày</li>
           </ul>

@@ -214,6 +214,15 @@
       <li><strong>Calculadora + Chrome</strong> — comparar precios entre pestañas</li>
     </ul>
     <p>Un caso de uso que no anticipamos: el coche. Un usuario nos contó que usa Split Screen Launcher en la caja de IA con Android de su vehículo, emparejando <strong>Maps + Spotify</strong> para la navegación con música — y cambiando a <strong>Maps + Netflix</strong> para quien va en el asiento del copiloto. Como abrir un par es un solo toque, encaja en un sistema de infoentretenimiento mucho mejor que tener que mantener pulsado el menú de recientes.</p>
+    <p>Otro caso de uso que no teníamos previsto llegó desde un rincón completamente distinto: una moto. Un motorista que usaba la app en una tableta montada en el manillar quería que su automatización en MacroDroid abriera un par guardado por sí sola — un macro disparado por el encendido del motor que abre la pantalla dividida sin tocar nada mientras conduce. Esa petición se convirtió en una función. A partir de la versión 3.0.4, MacroDroid puede lanzar un par guardado a través del selector de accesos directos estándar de Android, de modo que el macro dispara la división igual que dispara cualquier otra acción. No hemos probado individualmente otras herramientas de automatización como Tasker o Automate, pero como esta función se apoya en ese selector estándar de Android y no en nada propio de la app, deberían funcionar del mismo modo. Es una función Pro, estrictamente limitada a lanzar tus pares guardados. Si no usas herramientas de automatización esto no te afecta — pero para el sector de usuarios que trabaja con las manos libres y en movimiento, cubre el hueco entre "un toque" y "cero toques".</p>
+    <p>Para quien tenga curiosidad, aquí está la configuración en MacroDroid:</p>
+    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li>En tu macro, añade una <strong>Action → Applications → Launch Shortcut</strong>.</li>
+      <li>En la lista "Select Shortcut", elige <strong>Split Screen</strong>.</li>
+      <li>Selecciona el par guardado concreto que quieres activar.</li>
+      <li>Asígnalo al disparador que prefieras — la conexión de un dispositivo Bluetooth, la conexión del cargador o una hora del día.</li>
+    </ol>
+    <p>Eso es todo. Cuando el macro se dispara, tu par se abre en pantalla dividida, sin tocar nada. (Nuestro motorista lo vincula al encendido de la moto; el tuyo podría funcionar igual con la conexión Bluetooth del coche.)</p>
     <p>Un detalle fácil de pasar por alto y que conviene destacar: los datos de los pares se pueden exportar a un archivo de copia de seguridad. Parece trivial, pero varias apps competidoras guardan sus pares en almacenamiento privado sin forma de exportarlos, lo que obliga a reconstruirlos a mano al cambiar de móvil. Hicimos que la copia de seguridad/restauración fuera una función de primera categoría justamente para que, al pasar de un Pixel a otro, todos los pares se restauren en segundos.</p>
     <p>Otra decisión de diseño que conviene dejar clara: por defecto, <strong>los pares viven dentro de la app: no se crean iconos en la pantalla de inicio</strong>. La razón es en parte por sencillez (la pantalla de inicio no se llena de iconos de pares) y en parte arquitectónica: la app no queda atada a lanzadores concretos (Pixel, Nova, etc.). Como comentamos en la sección 3, los lanzadores que dependen de accesos directos son precisamente los que tienden a romperse en los saltos a Android 15 y 16; mantener todo dentro de la app hace que la migración de un teléfono a otro sea más fluida.</p>
     <p>Una acción opcional para fijar pares en la pantalla de inicio permite a los usuarios Pro abrir un par con un solo toque directamente desde el escritorio. Queríamos mantener intacta la postura original de "pantalla de inicio simple" sin dejar de responder a la necesidad de "quiero lanzar la pantalla dividida desde un icono del escritorio". El icono que aparece en el escritorio apila los dos iconos de las apps en vertical, de modo que el par se distingue visualmente de los iconos normales del lanzador.</p>
@@ -267,7 +276,7 @@
         <h3 style="border-left:4px solid #E53935;color:#C62828;font-size:17px;margin-top:0;margin-bottom:12px;">Sáltatela si…</h3>
         <ul style="padding-left:20px;margin:0;font-size:15px;line-height:1.7;">
           <li>Casi nunca usas la pantalla dividida</li>
-          <li>Quieres un widget flotante, lanzamiento por gestos o integración con Tasker</li>
+          <li>Quieres un widget flotante, lanzamiento por gestos o automatización avanzada (más allá de lanzar un par guardado)</li>
           <li>Tienes un Samsung: el App Pair nativo de One UI ya es excelente</li>
           <li>Usas una capa de personalización muy modificada (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — esos fabricantes alteran la funcionalidad interna de pantalla dividida, así que en esos casos el comportamiento depende del dispositivo</li>
         </ul>
@@ -309,7 +318,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Implementaciones específicas de fabricantes</strong> — el App Pair de Samsung (desde One UI, 2017), más variantes en Xiaomi, OPPO y los antiguos LG. Solo funcionan en los dispositivos de cada marca.</li>
       <li><strong>Utilidades de terceros</strong> — apps independientes dedicadas a este único caso de uso. La mayoría se apoya en APIs de SO que se han restringido o eliminado en las últimas versiones de Android, por lo que el catálogo se ha adelgazado bastante.</li>
-      <li><strong>Enfoques basados en automatización</strong> — Tasker y similares permiten scriptar el lanzamiento dividido, pero dependen de las mismas primitivas que las apps dedicadas, así que heredan las mismas roturas. Además, el usuario tiene que construir cada par a mano.</li>
+      <li><strong>Enfoques basados en automatización</strong> — Tasker y similares permiten scriptar el lanzamiento dividido, pero dependen de las mismas primitivas que las apps dedicadas, así que heredan las mismas roturas. Además, el usuario tiene que construir cada par a mano. A partir de la versión 3.0.4 hemos añadido una forma sencilla de conectar con estas herramientas: puedes lanzar un par guardado desde MacroDroid (Pro) sin tener que programar la división tú mismo. Como usa el selector de accesos directos estándar de Android, también debería funcionar con otras apps de automatización como Tasker o Automate, aunque no las hemos probado de extremo a extremo.</li>
     </ul>
     <p>
       El propio panorama de terceros está fragmentado. Google Play muestra decenas de utilidades dedicadas a la pantalla dividida, pero la actividad y la calidad están repartidas de forma muy desigual.
@@ -356,7 +365,7 @@
           <h4>En contra</h4>
           <ul>
             <li>Hay un retardo visible de ~1 segundo entre el toque y la aparición de la pantalla dividida. Es casi todo coste del SO: entrar en modo dividido en Android 12L+ requiere varias transiciones de tareas que el sistema encadena internamente, así que cualquier app de esta categoría se mueve en el rango de 0,8–1,2 s. No es un bug, pero conviene avisar</li>
-            <li>Sin widget flotante, sin gestos, sin integración con Tasker. Los accesos directos en la pantalla de inicio son opcionales (Pro), pero todo lo demás sigue dentro de la app</li>
+            <li>Sin widget flotante, sin asignación de gestos. El lanzamiento desde apps de automatización (MacroDroid) está soportado, pero es Pro y limitado a disparar un par guardado. Los accesos directos en la pantalla de inicio también son opcionales (Pro), pero todo lo demás sigue dentro de la app</li>
             <li>La lista de creación de pares muestra todas las apps instaladas sin categorías, lo que se hace pesado al pasar de unas 60 apps en el dispositivo</li>
             <li>Desarrollador único, así que si te topas con un caso raro en una ROM no Pixel no esperes parches el mismo día</li>
           </ul>

@@ -517,6 +517,21 @@
       One use case we didn't anticipate: the car. A user told us they run Split Screen Launcher on the Android AI box in their vehicle, pairing <strong>Maps + Spotify</strong> for navigation with music — and switching to <strong>Maps + Netflix</strong> for whoever's in the passenger seat. Because launching a pair is a single tap, it suits a car head-unit far better than long-pressing through the recents menu.
     </p>
     <p>
+      Another use case we didn't plan for came from a completely different corner: a motorcycle. A rider using the app on a handlebar-mounted tablet wanted their MacroDroid automation to bring up a saved pair on its own — an ignition-triggered macro that opens the split with no taps while riding. That request became a feature. As of version 3.0.4, MacroDroid can launch a saved pair through Android's standard shortcut picker, so a macro fires the split the same way it fires any other action. We haven't individually tested other automation tools like Tasker or Automate, but because this feature relies on that standard Android picker rather than anything app-specific, they should work the same way. It's a Pro feature, strictly limited to launching your pre-saved pairs. If you don't use automation tools this won't matter to you — but for the hands-free, on-the-road corner of our users, it closes the gap between "one tap" and "no taps."
+    </p>
+    <p>
+      For the curious, here's the setup in MacroDroid:
+    </p>
+    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li>In your macro, add an <strong>Action → Applications → Launch Shortcut</strong>.</li>
+      <li>In the "Select Shortcut" list, pick <strong>Split Screen</strong>.</li>
+      <li>Choose the specific saved pair you want to trigger.</li>
+      <li>Attach it to whatever trigger you like — a Bluetooth device connecting, a charger plugging in, or a time of day.</li>
+    </ol>
+    <p>
+      That's it. When the macro fires, your pair opens in split view, hands-free. (Our rider ties this to their motorcycle ignition; yours could just as easily run off a car's Bluetooth connection.)
+    </p>
+    <p>
       One detail worth calling out because it's easy to miss: pair data exports to a backup file. That sounds trivial, but several competing apps in this category store their pairs in app-private storage with no export path — switching phones means rebuilding every pair by hand. We made the backup/restore a first-class feature precisely so a Pixel-to-Pixel migration restores the full set in seconds.
     </p>
     <p>
@@ -575,7 +590,7 @@
         <h3 style="border-left: 4px solid #E53935; color:#C62828; font-size: 17px; margin-top:0; margin-bottom: 12px;">Skip this if you…</h3>
         <ul style="padding-left: 20px; margin:0; font-size: 15px; line-height: 1.7;">
           <li>Rarely use split-screen in the first place</li>
-          <li>Want a floating widget, gesture launch, or Tasker integration</li>
+          <li>Want a floating widget, gesture launch, or advanced automation (beyond launching a saved pair)</li>
           <li>Own a Samsung device — One UI's built-in App Pair is already excellent</li>
           <li>Are on a heavily customized Android skin (MIUI/HyperOS, OxygenOS, ColorOS, MagicOS, EMUI/HarmonyOS) — those vendors modify the split-screen internals, so behavior on those is best-effort</li>
         </ul>
@@ -639,7 +654,7 @@
     <ul style="padding-left: 20px; margin-bottom: 18px;">
       <li><strong>OEM-specific implementations</strong> — Samsung's App Pair (since One UI, 2017), plus variants on Xiaomi, OPPO, and the old LG. These only work on that manufacturer's devices.</li>
       <li><strong>Third-party utilities</strong> — standalone apps dedicated to this single use case. Most are built on OS-level APIs that have been narrowed or removed in recent Android versions, which is why the landscape has thinned out considerably.</li>
-      <li><strong>Automation-based approaches</strong> — Tasker and similar tools can script a split-launch, but they rely on the same underlying primitives as dedicated apps, so they inherit the same breakage. They also require users to build each pair manually.</li>
+      <li><strong>Automation-based approaches</strong> — Tasker and similar tools can script a split-launch, but they rely on the same underlying primitives as dedicated apps, so they inherit the same breakage. They also require users to build each pair manually. As of version 3.0.4 we've added a straightforward way to hook into these tools: you can launch a saved pair from MacroDroid (Pro) without scripting the split yourself. Because it uses Android's standard shortcut picker, it should also work with other automation apps like Tasker or Automate, though we haven't tested those end-to-end.</li>
     </ul>
     <p>
       The third-party landscape itself is fragmented. Google Play surfaces dozens of dedicated split-screen utilities, but activity and quality are unevenly distributed.
@@ -694,7 +709,7 @@
           <h4>Cons</h4>
           <ul>
             <li>There's a visible ~1 second delay between tap and split view appearing. This is mostly an OS-side cost — entering split mode on Android 12L+ involves multiple task transitions that the system sequences internally, so any app in this category sits in the 0.8–1.2 s range. Not a bug, but worth setting expectations</li>
-            <li>No floating widget, no gesture binding, no Tasker integration. Home-screen shortcuts are optional (Pro), but everything else stays inside the app</li>
+            <li>No floating widget, no gesture binding. Automation-app launch (MacroDroid) is supported but Pro-only and limited to firing a saved pair. Home-screen shortcuts are also optional (Pro), but everything else stays inside the app</li>
             <li>Pair creation list shows every installed app without categories, which gets tedious once you pass ~60 apps on the device</li>
             <li>Solo dev, so if you hit an edge case on a non-Pixel ROM, don't expect same-day fixes</li>
           </ul>
