@@ -219,6 +219,16 @@
       <li>Verknüpfe es mit einem beliebigen Trigger – einem verbindenden Bluetooth-Gerät, einem eingesteckten Ladekabel oder einer Uhrzeit.</li>
     </ol>
     <p>Das war's. Wenn das Makro auslöst, öffnet sich das Paar freihändig im Splitscreen. (Unser Fahrer verknüpft es mit der Motorrad-Zündung; genauso gut lässt es sich über die Bluetooth-Verbindung des Autos auslösen.)</p>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/macrodroid/1.png" alt="Die „Select Shortcut"-Liste von MacroDroid zeigt Split Screen unter den verfügbaren Verknüpfungen">
+        <figcaption>In der „Launch Shortcut"-Aktion von MacroDroid erscheint Split Screen in der „Select Shortcut"-Liste.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/macrodroid/2.png" alt="Split Screen fragt, welches gespeicherte Paar gestartet werden soll">
+        <figcaption>Nach der Auswahl fragt Split Screen, welches gespeicherte Paar gestartet werden soll – das Makro öffnet den Split freihändig.</figcaption>
+      </figure>
+    </div>
     <p>Ein leicht zu übersehendes Detail, das wir aber gesondert erwähnen: Die Paardaten lassen sich in eine Sicherungsdatei exportieren. Klingt belanglos, aber mehrere Konkurrenten in dieser Kategorie legen ihre Paare im privaten App-Speicher ab – ohne Exportpfad. Ein Handywechsel bedeutet dort, jedes Paar von Hand neu anzulegen. Wir haben Backup/Restore gerade deshalb von Anfang an als erstklassige Funktion eingebaut, damit ein Wechsel von Pixel zu Pixel den gesamten Satz in Sekunden wiederherstellt.</p>
     <p>Eine weitere Design-Entscheidung, die wir vorab ansprechen sollten: Standardmäßig <strong>leben Paare innerhalb der App – es werden keine Homescreen-Symbole angelegt</strong>. Der Grund liegt teils in der Schlichtheit (der Homescreen wird nicht mit Paar-Symbolen zugemüllt) und teils in der Architektur – die App ist nicht an einen bestimmten Launcher (Pixel, Nova etc.) gebunden. Wie in Abschnitt 3 angemerkt, sind Launcher, die auf Verknüpfungen setzen, genau die, die bei Android-15- und 16-Übergängen gerne brechen; innerhalb der App zu bleiben macht den Wechsel von Gerät zu Gerät reibungsärmer.</p>
     <p>Eine optionale „An den Homescreen anheften"-Aktion lässt Pro-Nutzer ein Paar mit einem einzigen Tipp direkt vom Homescreen aus starten. Wir wollten die ursprüngliche Haltung „Homescreen schlicht halten" beibehalten und gleichzeitig dem Wunsch „Ich möchte den Splitscreen direkt von einem Homescreen-Symbol aus starten" gerecht werden. Das auf dem Homescreen angezeigte Symbol stapelt die beiden App-Symbole vertikal, sodass das Paar visuell von normalen Launcher-Symbolen unterscheidbar bleibt.</p>

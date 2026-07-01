@@ -219,6 +219,16 @@
       <li>接著綁定你喜歡的任何觸發條件 — Bluetooth 裝置連線、充電器插入，或特定時間皆可。</li>
     </ol>
     <p>就這樣。巨集觸發時，配對便會以免持方式進入分割畫面。（那位騎士把它綁定到摩托車點火；你也可以輕鬆改成車輛的 Bluetooth 連線。）</p>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/macrodroid/1.png" alt="MacroDroid 的「Select Shortcut」清單中顯示 Split Screen 在可用捷徑之列">
+        <figcaption>在 MacroDroid 的「Launch Shortcut」動作中，Split Screen 會出現在「Select Shortcut」清單裡。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/macrodroid/2.png" alt="Split Screen 詢問要啟動哪組已儲存的配對">
+        <figcaption>選擇後，Split Screen 會詢問要啟動哪組已儲存的配對 — 巨集觸發，分割畫面便以免持方式開啟。</figcaption>
+      </figure>
+    </div>
     <p>有個細節容易被漏看，值得特別提：配對資料可以匯出成備份檔。聽起來不起眼，但同類競品常常把配對存在應用私有目錄裡，完全沒有匯出管道——換手機就得手動重建整份配對。我們從一開始就把備份/還原做成一級功能，正是為了讓 Pixel 換 Pixel 時幾秒就能恢復所有配對。</p>
     <p>另一個值得先講清楚的設計取捨：預設情況下，<strong>配對都存在於應用內部 — 不會建立主畫面圖示</strong>。原因一半是為了保持簡潔（主畫面不會被配對圖示塞爆），一半是基於架構考量 — 應用不會被特定啟動器（Pixel、Nova 等）綁架。如同第 3 節所述，依賴捷徑的啟動器正是 Android 15 與 16 切換時最容易壞掉的那一類；把操作留在應用內，可以讓換機遷移更順暢。</p>
     <p>有一個可選的「釘選到主畫面」功能，讓 Pro 使用者可以直接從主畫面一鍵啟動配對。我們想保留原本「主畫面保持簡潔」的姿態，同時也回應「想直接從主畫面圖示啟動分割畫面」的需求。主畫面顯示的圖示會把兩款應用圖示上下堆疊，讓配對在視覺上和一般啟動器圖示有所區別。</p>

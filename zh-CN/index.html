@@ -219,6 +219,16 @@
       <li>绑定到你喜欢的任意触发器——Bluetooth 设备连接、充电器插入，或某个时间点。</li>
     </ol>
     <p>就这样。宏触发时，你的应用对就会以分屏方式免提打开。（上面那位骑手把它绑定到摩托车点火；你也完全可以改成汽车 Bluetooth 连接。）</p>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/macrodroid/1.png" alt="MacroDroid 的"Select Shortcut"列表，显示 Split Screen 出现在可用快捷方式中">
+        <figcaption>在 MacroDroid 的"Launch Shortcut"动作中，Split Screen 会出现在"Select Shortcut"列表里。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/macrodroid/2.png" alt="Split Screen 询问要启动哪个已保存的应用对">
+        <figcaption>选择它后，Split Screen 会让你选择要启动的应用对——宏触发时即可免提打开对应的分屏。</figcaption>
+      </figure>
+    </div>
     <p>有个细节容易被忽略，但值得单独提一下：应用对数据可以导出为备份文件。听上去不起眼，但同品类的几款竞品把应用对存在应用私有目录里，没有任何导出途径——换手机就意味着手动重建所有应用对。我们一开始就把备份/恢复做成一流功能，正是为了让 Pixel 到 Pixel 的迁移能在几秒内恢复整套配置。</p>
     <p>另一个需要提前说明的设计取舍：默认情况下，<strong>应用对都存在于应用内部 —— 不会创建桌面图标</strong>。原因一半是为了简洁（桌面不会被应用对图标堆满），一半是出于架构考虑 —— 应用不会被特定启动器（Pixel、Nova 等）所绑定。正如第 3 节所述，基于快捷方式的启动器正是 Android 15 和 16 过渡时最容易失效的那一类；把操作留在应用内部，可以让换机迁移更顺滑。</p>
     <p>一个可选的"固定到桌面"功能让 Pro 用户可以直接从桌面图标一键启动应用对。我们希望保留原本"桌面保持简洁"的姿态，同时也回应"想直接从桌面图标启动分屏"的需求。桌面上显示的图标把两款应用图标上下堆叠，使应用对在视觉上和普通启动器图标区分开。</p>

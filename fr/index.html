@@ -219,6 +219,16 @@
       <li>Associez-la au déclencheur de votre choix — connexion d'un appareil Bluetooth, branchement du chargeur, ou une heure de la journée.</li>
     </ol>
     <p>C'est tout. Quand le macro se déclenche, votre paire s'ouvre en écran partagé, mains libres. (Notre pilote l'associe au démarrage de sa moto ; vous pourriez tout aussi bien le déclencher depuis la connexion Bluetooth de votre voiture.)</p>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/macrodroid/1.png" alt="La liste « Select Shortcut » de MacroDroid affichant Split Screen parmi les raccourcis disponibles">
+        <figcaption>Dans l'action « Launch Shortcut » de MacroDroid, Split Screen apparaît dans la liste « Select Shortcut ».</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/macrodroid/2.png" alt="Split Screen demandant quelle paire sauvegardée lancer">
+        <figcaption>Sélectionnez-le et Split Screen vous demande quelle paire sauvegardée lancer — le macro déclenche alors cet écran partagé, mains libres.</figcaption>
+      </figure>
+    </div>
     <p>Un détail qu'il serait facile de manquer et qui mérite d'être souligné : les données des paires s'exportent dans un fichier de sauvegarde. Ça paraît anodin, mais plusieurs concurrents de la catégorie rangent leurs paires dans un stockage privé sans chemin d'export — changer de téléphone, c'est refaire chaque paire à la main. Nous avons fait de la sauvegarde/restauration une fonctionnalité de premier ordre précisément pour qu'une migration Pixel vers Pixel restaure la totalité en quelques secondes.</p>
     <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : par défaut, <strong>les paires vivent dans l'appli — aucune icône n'est créée sur l'écran d'accueil</strong>. La raison tient pour partie à la simplicité (l'écran d'accueil ne se remplit pas d'icônes de paires) et pour partie à l'architecture — l'appli n'est pas liée à un lanceur en particulier (Pixel, Nova, etc.). Comme indiqué en section 3, les lanceurs qui reposent sur des raccourcis sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16 ; rester à l'intérieur de l'appli rend la migration d'un téléphone à l'autre plus fluide.</p>
     <p>Une action facultative d'épinglage à l'écran d'accueil permet aux utilisateurs Pro de lancer une paire d'un seul tap directement depuis l'accueil. Nous voulions garder intacte la posture initiale « écran d'accueil simple » tout en répondant au besoin « je veux lancer l'écran partagé directement depuis une icône de l'accueil ». L'icône affichée sur l'accueil empile verticalement les deux icônes des applis, pour que la paire reste visuellement distincte des icônes de lanceur classiques.</p>

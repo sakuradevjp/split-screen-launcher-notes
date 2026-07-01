@@ -223,6 +223,16 @@
       <li>Asígnalo al disparador que prefieras — la conexión de un dispositivo Bluetooth, la conexión del cargador o una hora del día.</li>
     </ol>
     <p>Eso es todo. Cuando el macro se dispara, tu par se abre en pantalla dividida, sin tocar nada. (Nuestro motorista lo vincula al encendido de la moto; el tuyo podría funcionar igual con la conexión Bluetooth del coche.)</p>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/macrodroid/1.png" alt="La lista &quot;Select Shortcut&quot; de MacroDroid mostrando Split Screen entre los accesos directos disponibles">
+        <figcaption>En la acción "Launch Shortcut" de MacroDroid, Split Screen aparece en la lista "Select Shortcut".</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/macrodroid/2.png" alt="Split Screen preguntando qué par guardado lanzar">
+        <figcaption>Al seleccionarlo, Split Screen pregunta qué par guardado lanzar — el macro abre esa pantalla dividida sin tocar nada.</figcaption>
+      </figure>
+    </div>
     <p>Un detalle fácil de pasar por alto y que conviene destacar: los datos de los pares se pueden exportar a un archivo de copia de seguridad. Parece trivial, pero varias apps competidoras guardan sus pares en almacenamiento privado sin forma de exportarlos, lo que obliga a reconstruirlos a mano al cambiar de móvil. Hicimos que la copia de seguridad/restauración fuera una función de primera categoría justamente para que, al pasar de un Pixel a otro, todos los pares se restauren en segundos.</p>
     <p>Otra decisión de diseño que conviene dejar clara: por defecto, <strong>los pares viven dentro de la app: no se crean iconos en la pantalla de inicio</strong>. La razón es en parte por sencillez (la pantalla de inicio no se llena de iconos de pares) y en parte arquitectónica: la app no queda atada a lanzadores concretos (Pixel, Nova, etc.). Como comentamos en la sección 3, los lanzadores que dependen de accesos directos son precisamente los que tienden a romperse en los saltos a Android 15 y 16; mantener todo dentro de la app hace que la migración de un teléfono a otro sea más fluida.</p>
     <p>Una acción opcional para fijar pares en la pantalla de inicio permite a los usuarios Pro abrir un par con un solo toque directamente desde el escritorio. Queríamos mantener intacta la postura original de "pantalla de inicio simple" sin dejar de responder a la necesidad de "quiero lanzar la pantalla dividida desde un icono del escritorio". El icono que aparece en el escritorio apila los dos iconos de las apps en vertical, de modo que el par se distingue visualmente de los iconos normales del lanzador.</p>
