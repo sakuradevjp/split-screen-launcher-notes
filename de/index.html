@@ -210,7 +210,7 @@
       <li><strong>Taschenrechner + Chrome</strong> – Preisvergleich zwischen Tabs</li>
     </ul>
     <p>Ein Anwendungsfall, den wir nicht erwartet hatten: das Auto. Ein Nutzer erzählte uns, dass er Split Screen Launcher auf der Android-KI-Box in seinem Fahrzeug nutzt und <strong>Maps + Spotify</strong> für Navigation mit Musik paart – und auf <strong>Maps + Netflix</strong> umschaltet für die Person auf dem Beifahrersitz. Weil ein Paar mit einem einzigen Tipp startet, passt das viel besser zu einem Infotainment-System als das lange Drücken durch das Übersichtsmenü.</p>
-    <h3>Ohne Tipp starten — MacroDroid, Automate, Tasker</h3>
+    <h3>Paare automatisch starten — MacroDroid, Automate, Tasker</h3>
     <p>Ein weiterer Anwendungsfall, den wir nicht geplant hatten, kam aus einer völlig anderen Ecke: dem Motorrad. Ein Fahrer, der die App auf einem am Lenker befestigten Tablet nutzte, wollte seine MacroDroid-Automatisierung dazu bringen, ein gespeichertes Paar selbstständig aufzurufen – ein zündungsgesteuertes Makro, das den Split während der Fahrt ohne Tipp öffnet. Aus diesem Wunsch wurde eine Funktion. Ab Version 3.0.4 kann MacroDroid ein gespeichertes Paar über Androids Standard-Shortcut-Auswahl starten, sodass ein Makro den Split genauso auslöst wie jede andere Aktion. Andere Automatisierungs-Apps wie Tasker oder Automate haben wir nicht einzeln getestet, aber da die Funktion auf diesem Standard-Android-Picker basiert und nichts App-spezifisches nutzt, sollten sie auf die gleiche Weise funktionieren. Es ist eine Pro-Funktion und strikt darauf beschränkt, gespeicherte Paare zu starten. Wer keine Automatisierungs-Tools nutzt, wird damit nichts anfangen – aber für den Freihandbereich unserer Nutzer, die unterwegs sind, schließt es die Lücke zwischen „einem Tipp" und „keinem Tipp".</p>
     <h4>Einrichtung in MacroDroid</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
@@ -219,9 +219,7 @@
       <li>Wähle das gespeicherte Paar aus, das du auslösen möchtest.</li>
       <li>Verknüpfe es mit einem beliebigen Trigger – einem verbindenden Bluetooth-Gerät, einem eingesteckten Ladekabel oder einer Uhrzeit.</li>
     </ol>
-    <p>Das war's. Wenn der Trigger auslöst, öffnet sich das Paar von selbst.<br>
-      Beispiel 1: Zündung an → Reifendrucksensor + Anruf-App starten.<br>
-      Beispiel 2: Bluetooth verbunden → Navigation + Musik starten.</p>
+    <p>Das war's. Sobald der Trigger auslöst, startet das App-Paar vollständig von selbst. Zum Beispiel lässt sich einstellen, dass der Reifendrucksensor und die Telefon-App in dem Moment starten, in dem das Auto anspringt — oder dass Navigation und Musik-App aufpoppen, sobald das Handy per Bluetooth mit dem Auto verbunden ist.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="Die „Select Shortcut"-Liste von MacroDroid zeigt Split Screen unter den verfügbaren Verknüpfungen">
@@ -229,10 +227,10 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen fragt, welches gespeicherte Paar gestartet werden soll">
-        <figcaption>Der Shortcut listet dann die gespeicherten Paare von Split Screen zur Auswahl auf.</figcaption>
+        <figcaption>Die Shortcut-Auswahl zeigt dann deine gespeicherten Split Screen-Paare zur Auswahl an.</figcaption>
       </figure>
     </div>
-    <h3>Backup / Export</h3>
+    <h3>Backup und Export</h3>
     <p>Ein leicht zu übersehendes Detail, das wir aber gesondert erwähnen: Die Paardaten lassen sich in eine Sicherungsdatei exportieren. Klingt belanglos, aber mehrere Konkurrenten in dieser Kategorie legen ihre Paare im privaten App-Speicher ab – ohne Exportpfad. Ein Handywechsel bedeutet dort, jedes Paar von Hand neu anzulegen. Wir haben Backup/Restore gerade deshalb von Anfang an als erstklassige Funktion eingebaut, damit ein Wechsel von Pixel zu Pixel den gesamten Satz in Sekunden wiederherstellt.</p>
     <h3>Ein aufgeräumter Homescreen</h3>
     <p>Eine weitere Design-Entscheidung, die wir vorab ansprechen sollten: Standardmäßig <strong>leben Paare innerhalb der App – es werden keine Homescreen-Symbole angelegt</strong>. Der Grund liegt teils in der Schlichtheit (der Homescreen wird nicht mit Paar-Symbolen zugemüllt) und teils in der Architektur – die App ist nicht an einen bestimmten Launcher (Pixel, Nova etc.) gebunden. Wie in Abschnitt 3 angemerkt, sind Launcher, die auf Verknüpfungen setzen, genau die, die bei Android-15- und 16-Übergängen gerne brechen; innerhalb der App zu bleiben macht den Wechsel von Gerät zu Gerät reibungsärmer.</p>
@@ -310,12 +308,12 @@
 
   <section id="privacy">
     <h2>4. Berechtigungen und Datenschutz</h2>
-    <p>Unter <strong>Android 12L und neuer</strong> braucht das Starten eines Paares keinerlei Laufzeit-Berechtigungen und keinen Bedienungshilfen-Dienst – der Kern-Splitscreen-Ablauf läuft über Standard-Activity-Flags. Zusätzliche Zugriffe werden ausschließlich für zwei Dinge angefragt, die du selbst aktivierst.</p>
+    <p>Unter <strong>Android 12L und neuer</strong> braucht das Starten eines Paares keinerlei Laufzeit-Berechtigungen und keinen Bedienungshilfen-Dienst — der Kern-Splitscreen-Ablauf basiert vollständig auf dem standardmäßigen Android-Systemverhalten. Zusätzliche Zugriffe werden ausschließlich für zwei optionale Funktionen angefragt, die du selbst aktivierst.</p>
     <p>
-      <strong>① Paarweises Auto-Drehen (optionale Berechtigung)</strong> — wenn du das für ein bestimmtes Paar aktivierst, fordert die App erst in diesem Moment über den System-Einstellungsdialog die spezielle Berechtigung <code>WRITE_SETTINGS</code> an. Sie wird nie vorab verlangt, und du siehst sie nicht, solange du diese Funktion nicht nutzt.
+      <strong>① Paarweises Auto-Drehen (optionale Berechtigung)</strong> — wenn du das für ein bestimmtes Paar aktivierst, fordert die App erst in diesem Moment über den standardmäßigen System-Dialog die Berechtigung <strong>„Systemeinstellungen ändern"</strong> an. Sie wird nie vorab verlangt, und du siehst sie nicht, solange du diese Funktion nicht nutzt.
     </p>
     <p>
-      <strong>② SideEdge aktivieren (optionale Funktion)</strong> — das Einschalten der Seitenleiste nutzt zwei Berechtigungen. Die eine ist die <strong>Berechtigung „Über anderen Apps anzeigen" (System Alert Window)</strong>, damit das Panel über anderen Apps eingeblendet werden kann. Die andere ist der <strong>Bedienungshilfen-Dienst</strong>, der für einen einzigen, eng umrissenen Zweck eingesetzt wird: Bildschirme zu erkennen, die Android als sicherheitskritisch einstuft – Login, Passwort, Zwei-Faktor-Authentifizierung, Banking –, und Griff sowie Panel dort automatisch wegzuschieben, damit sie nie verdeckt werden. Er liest, sammelt oder überträgt niemals Bildschirminhalte. Beide Berechtigungen erscheinen in der Google-Play-Berechtigungsliste und bleiben deaktiviert, bis du sie ausdrücklich über den System-Dialog gewährst.
+      <strong>② SideEdge aktivieren (optionale Funktion)</strong> — das Einschalten der Seitenleiste nutzt zwei Berechtigungen. Die eine ist <strong>„Über anderen Apps anzeigen"</strong>, damit das Panel über anderen Apps eingeblendet werden kann. Die andere ist der <strong>Bedienungshilfen-Dienst</strong>, der für einen einzigen, eng umrissenen, defensiven Zweck eingesetzt wird: Er erkennt, wenn ein sicherheitsrelevanter Systembildschirm aktiv ist — ein Login-Feld, ein Passwort-Manager, eine Zwei-Faktor-Abfrage oder eine Banking-App — und schiebt Griff und Panel automatisch beiseite, damit sie nie über sensiblen Eingaben liegen. Er liest, sammelt oder überträgt niemals Bildschirminhalte. Beide Berechtigungen bleiben deaktiviert, bis du sie ausdrücklich über die Android-System-Dialoge gewährst.
     </p>
     <p>Unter <strong>Android 9 bis 12</strong> braucht die App die Bedienungshilfen-Berechtigung, weil das die einzige verfügbare API ist. Die Play-Store-Beschreibung sagt klar, dass dieser Dienst ausschließlich dazu dient, den Splitscreen zu starten. Die von Google Play angezeigte Berechtigungsliste ist so kurz, dass sie komplett auf einen Bildschirm passt – kein Standort, keine Kontakte, kein Speicher und (bemerkenswerterweise) kein Netzwerk. In dieser Ecke des Play Store ist das für sich genommen schon ungewöhnlich.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">Im Klartext:</strong> In älteren Android-Versionen gab es keine offizielle API, um den Splitscreen auszulösen, also war der Bedienungshilfen-Dienst der einzige gangbare Weg. Das ist eine Alt-Einschränkung, nichts, was die App verwendet, um deinen Bildschirm auszulesen.</p>

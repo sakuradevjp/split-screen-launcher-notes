@@ -516,7 +516,7 @@
     <p>
       One use case we didn't anticipate: the car. A user told us they run Split Screen Launcher on the Android AI box in their vehicle, pairing <strong>Maps + Spotify</strong> for navigation with music — and switching to <strong>Maps + Netflix</strong> for whoever's in the passenger seat. Because launching a pair is a single tap, it suits a car head-unit far better than long-pressing through the recents menu.
     </p>
-    <h3>No-tap launch — MacroDroid, Automate, Tasker</h3>
+    <h3>Trigger your pairs automatically — MacroDroid, Automate, Tasker</h3>
     <p>
       Another use case we didn't plan for came from a completely different corner: a motorcycle. A rider using the app on a handlebar-mounted tablet wanted their MacroDroid automation to bring up a saved pair on its own — an ignition-triggered macro that opens the split with no taps while riding. That request became a feature. As of version 3.0.4, MacroDroid can launch a saved pair through Android's standard shortcut picker, so a macro fires the split the same way it fires any other action. We haven't individually tested other automation tools like Tasker or Automate, but because this feature relies on that standard Android picker rather than anything app-specific, they should work the same way. It's a Pro feature, strictly limited to launching your pre-saved pairs. If you don't use automation tools this won't matter to you — but for the hands-free, on-the-road corner of our users, it closes the gap between "one tap" and "no taps."
     </p>
@@ -528,9 +528,7 @@
       <li>Attach it to whatever trigger you like — a Bluetooth device connecting, a charger plugging in, or a time of day.</li>
     </ol>
     <p>
-      That's it. When your trigger fires, the pair comes up on its own.<br>
-      Example 1: engine starts → tire-pressure monitor + calling app launch.<br>
-      Example 2: Bluetooth connects → navigation + music launch.
+      That's it. Once your trigger fires, the app pair opens entirely on its own. For example, you can set it up so your tire-pressure monitor and dialer launch the moment your car's engine starts, or have your navigation and music apps pop up as soon as your phone connects to the car's Bluetooth.
     </p>
     <div class="img-row">
       <figure>
@@ -539,10 +537,10 @@
       </figure>
       <figure>
         <img src="assets/shots/macrodroid/2.png" alt="Split Screen asking which saved pair to launch">
-        <figcaption>The shortcut then lists Split Screen's saved pairs to choose from.</figcaption>
+        <figcaption>The shortcut picker then shows your saved Split Screen pairs to choose from.</figcaption>
       </figure>
     </div>
-    <h3>Backup / export</h3>
+    <h3>Backup and export</h3>
     <p>
       One detail worth calling out because it's easy to miss: pair data exports to a backup file. That sounds trivial, but several competing apps in this category store their pairs in app-private storage with no export path — switching phones means rebuilding every pair by hand. We made the backup/restore a first-class feature precisely so a Pixel-to-Pixel migration restores the full set in seconds.
     </p>
@@ -643,13 +641,13 @@
   <section id="privacy">
     <h2>4. Permissions and privacy</h2>
     <p>
-      On <strong>Android 12L and newer</strong>, launching a pair requires no runtime permissions and no Accessibility Service — the core split-screen flow uses standard Activity flags. Extra access is only ever requested for two things you turn on yourself.
+      On <strong>Android 12L and newer</strong>, launching a pair requires no runtime permissions and no Accessibility Service — the core split-screen flow relies entirely on standard Android system behavior. Extra access is only ever requested for two optional features you choose to turn on yourself.
     </p>
     <p>
-      <strong>① Per-pair auto-rotate (optional permission)</strong> — if you turn this on for a specific pair, only then does the app request the <code>WRITE_SETTINGS</code> special permission through the system Settings dialog. It's never asked for up front, and you won't see it unless you use that feature.
+      <strong>① Per-pair auto-rotate (optional permission)</strong> — if you turn this on for a specific pair, only then does the app request the <strong>"Modify system settings"</strong> permission through the standard system dialog. It's never asked for up front, and you won't see the prompt unless you use that feature.
     </p>
     <p>
-      <strong>② Enabling SideEdge (optional feature)</strong> — turning the sidebar on uses two permissions. One is the <strong>System Alert Window permission</strong>, so the panel can be drawn over other apps. The other is the <strong>Accessibility Service</strong>, used for one narrow purpose: to recognize screens Android treats as sensitive — login, password, two-factor, banking — and tuck the handle and panel out of the way on those screens so they never get covered. It never reads, collects, or transmits screen content. Both permissions appear in the Google Play permission list and stay off unless you grant them explicitly through the system dialog.
+      <strong>② Enabling SideEdge (optional feature)</strong> — turning on the sidebar uses two permissions. The first is <strong>"Display over other apps"</strong>, which lets the panel appear over your screen. The second is the <strong>Accessibility Service</strong>, used for one narrow, defensive purpose: it detects when a secure system screen is active — a login field, password manager, two-factor prompt, or banking app — and automatically tucks the handle and panel out of the way so they never sit over sensitive input. It never reads, collects, or transmits your screen content. Both permissions stay completely off unless you grant them explicitly through the Android system dialogs.
     </p>
     <p>
       On <strong>Android 9 through 12</strong>, the app does need Accessibility Service permission, because that's the only available API. The Play Store listing is explicit that the service is only used to trigger split-screen mode. The permission list shown by Google Play is short enough that you can read the whole thing on one screen — no location, no contacts, no storage, and (notably) no network. That's already unusual for this corner of the Play Store.

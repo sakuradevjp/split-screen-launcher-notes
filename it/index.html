@@ -210,7 +210,7 @@
       <li><strong>Calcolatrice + Chrome</strong> — confronto prezzi tra schede</li>
     </ul>
     <p>Un caso d'uso che non avevamo previsto: l'auto. Un utente ci ha raccontato di usare Split Screen Launcher sull'AI box Android del proprio veicolo, abbinando <strong>Maps + Spotify</strong> per la navigazione con la musica — e passando a <strong>Maps + Netflix</strong> per chi siede sul sedile del passeggero. Dato che lanciare una coppia è un singolo tocco, si adatta a un sistema di infotainment molto meglio del tenere premuto nel menu delle Recenti.</p>
-    <h3>Lancio senza toccare — MacroDroid, Automate, Tasker</h3>
+    <h3>Attiva le tue coppie in automatico — MacroDroid, Automate, Tasker</h3>
     <p>Un altro caso d'uso inatteso è arrivato da un angolo completamente diverso: una moto. Un motociclista che usa l'app su un tablet montato sul manubrio voleva che la sua automazione MacroDroid aprisse da sola una coppia salvata — una macro attivata dall'accensione del motore che avvia lo schermo diviso senza alcun tocco durante la marcia. Quella richiesta è diventata una funzione. Dalla versione 3.0.4, MacroDroid può lanciare una coppia salvata tramite il selettore standard di scorciatoie di Android, così una macro attiva la divisione esattamente come attiva qualsiasi altra azione. Non abbiamo testato singolarmente altri strumenti di automazione come Tasker o Automate, ma poiché questa funzione si affida a quel selettore Android standard piuttosto che a qualcosa di specifico dell'app, dovrebbero funzionare allo stesso modo. È una funzione Pro, strettamente limitata al lancio delle coppie pre-salvate. Se non usi strumenti di automazione questo non ti riguarderà — ma per chi usa il telefono in viaggio a mani libere, colma il divario tra "un tocco" e "nessun tocco".</p>
     <h4>Configurazione in MacroDroid</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
@@ -219,9 +219,7 @@
       <li>Seleziona la coppia salvata specifica che vuoi attivare.</li>
       <li>Associala al trigger che preferisci — un dispositivo Bluetooth che si connette, un caricatore che viene inserito, o un orario del giorno.</li>
     </ol>
-    <p>Tutto qui. Quando il trigger si attiva, la coppia si apre da sola.<br>
-      Esempio 1: il motore si avvia → si aprono il monitor della pressione degli pneumatici e l'app per le chiamate.<br>
-      Esempio 2: Bluetooth si connette → si aprono navigazione e musica.</p>
+    <p>Tutto qui. Quando il trigger si attiva, la coppia si apre interamente da sola. Ad esempio, puoi impostarlo in modo che il monitor della pressione degli pneumatici e l'app per le chiamate si avviino nel momento in cui il motore dell'auto parte, oppure far apparire la navigazione e la musica non appena il telefono si connette al Bluetooth dell'auto.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="Nell'azione &quot;Launch Shortcut&quot; di MacroDroid, Split Screen compare nell'elenco &quot;Select Shortcut&quot;">
@@ -229,10 +227,10 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Dopo aver selezionato Split Screen, l'app chiede quale coppia salvata lanciare — la macro avvia quella divisione a mani libere">
-        <figcaption>Il selettore mostra poi le coppie salvate di Split Screen tra cui scegliere.</figcaption>
+        <figcaption>Il selettore di scorciatoie mostra poi le coppie di Split Screen salvate tra cui scegliere.</figcaption>
       </figure>
     </div>
-    <h3>Backup / esportazione</h3>
+    <h3>Backup ed esportazione</h3>
     <p>Un dettaglio facile da perdere ma che vale la pena sottolineare: i dati delle coppie si esportano in un file di backup. Sembra banale, ma diversi concorrenti della categoria conservano le coppie nello storage privato dell'app senza alcun percorso di esportazione — cambiare telefono significa ricostruire ogni coppia a mano. Abbiamo fatto di backup/ripristino una funzione di prima classe proprio perché una migrazione Pixel verso Pixel recuperi l'intero set in pochi secondi.</p>
     <h3>Una schermata iniziale pulita</h3>
     <p>Vale la pena segnalare subito un'altra scelta di design: per impostazione predefinita, <strong>le coppie vivono dentro l'app — non vengono create icone nella schermata iniziale</strong>. Il motivo è in parte semplicità (la schermata iniziale non si riempie di icone di coppie) e in parte architetturale: l'app non resta legata a un launcher specifico (Pixel, Nova ecc.). Come detto nella sezione 3, i launcher che dipendono dalle scorciatoie sono proprio quelli che tendono a rompersi nelle transizioni ad Android 15 e 16; restare dentro l'app rende più fluido il passaggio da un telefono all'altro.</p>
@@ -310,12 +308,12 @@
 
   <section id="privacy">
     <h2>4. Permessi e privacy</h2>
-    <p>Su <strong>Android 12L e successivi</strong>, lanciare una coppia non richiede alcun permesso a runtime né il Servizio di Accessibilità — il flusso principale dello schermo diviso usa flag standard di Activity. L'accesso aggiuntivo viene richiesto solo per due funzioni che si attivano esplicitamente.</p>
+    <p>Su <strong>Android 12L e successivi</strong>, lanciare una coppia non richiede alcun permesso a runtime né il Servizio di Accessibilità — il flusso principale dello schermo diviso si affida interamente al comportamento standard del sistema Android. L'accesso aggiuntivo viene richiesto solo per due funzioni opzionali che puoi scegliere di attivare tu stesso.</p>
     <p>
-      <strong>① Rotazione automatica per singola coppia (permesso opzionale)</strong> — se la attivi per una coppia specifica, solo in quel momento l'app richiede il permesso speciale <code>WRITE_SETTINGS</code> tramite la finestra di dialogo delle Impostazioni di sistema. Non viene mai chiesto in anticipo e non lo vedrai a meno che tu non usi quella funzione.
+      <strong>① Rotazione automatica per singola coppia (permesso opzionale)</strong> — se la attivi per una coppia specifica, solo in quel momento l'app richiede il permesso <strong>"Modifica impostazioni di sistema"</strong> tramite la finestra di dialogo standard del sistema. Non viene mai chiesto in anticipo e non lo vedrai a meno che tu non usi quella funzione.
     </p>
     <p>
-      <strong>② Attivazione di SideEdge (funzione opzionale)</strong> — attivare la barra laterale richiede due permessi. Il primo è il <strong>permesso Finestra di avviso di sistema</strong>, necessario per disegnare il pannello sopra le altre app. Il secondo è il <strong>Servizio di Accessibilità</strong>, usato per un unico scopo ristretto: riconoscere le schermate che Android tratta come sensibili — accesso, password, autenticazione a due fattori, banking — e spostare automaticamente la maniglia e il pannello in modo che non le coprano mai. Non legge, raccoglie o trasmette mai il contenuto dello schermo. Entrambi i permessi compaiono nell'elenco dei permessi di Google Play e rimangono disattivati finché non vengono concessi esplicitamente tramite la finestra di dialogo di sistema.
+      <strong>② Attivazione di SideEdge (funzione opzionale)</strong> — attivare la barra laterale richiede due permessi. Il primo è <strong>"Visualizza sopra altre app"</strong>, che consente al pannello di apparire sopra lo schermo. Il secondo è il <strong>Servizio di Accessibilità</strong>, usato per un unico scopo ristretto e difensivo: rileva quando una schermata di sistema sensibile è attiva — un campo di accesso, un gestore di password, una richiesta di autenticazione a due fattori o un'app bancaria — e sposta automaticamente la maniglia e il pannello in modo che non si trovino mai sopra un'area di input sensibile. Non legge, raccoglie o trasmette mai il contenuto dello schermo. Entrambi i permessi rimangono completamente disattivati finché non vengono concessi esplicitamente tramite le finestre di dialogo del sistema Android.
     </p>
     <p>Su <strong>Android 9 a 12</strong> l'app richiede il permesso del Servizio di Accessibilità, perché è l'unica API disponibile. La scheda del Play Store dice esplicitamente che il servizio serve solo ad attivare la modalità schermo diviso. L'elenco dei permessi mostrato da Google Play è abbastanza corto da stare in una schermata — niente posizione, niente contatti, niente archiviazione e (in particolare) niente rete. Per questo angolo del Play Store è già qualcosa di insolito.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">In parole semplici:</strong> sulle versioni vecchie di Android non esisteva un'API ufficiale per attivare lo schermo diviso, quindi il Servizio di Accessibilità era l'unica via praticabile. È un vincolo ereditato, non qualcosa che l'app usa per leggere il tuo schermo.</p>

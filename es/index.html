@@ -214,7 +214,7 @@
       <li><strong>Calculadora + Chrome</strong> — comparar precios entre pestañas</li>
     </ul>
     <p>Un caso de uso que no anticipamos: el coche. Un usuario nos contó que usa Split Screen Launcher en la caja de IA con Android de su vehículo, emparejando <strong>Maps + Spotify</strong> para la navegación con música — y cambiando a <strong>Maps + Netflix</strong> para quien va en el asiento del copiloto. Como abrir un par es un solo toque, encaja en un sistema de infoentretenimiento mucho mejor que tener que mantener pulsado el menú de recientes.</p>
-    <h3>Lanzamiento sin tocar la pantalla — MacroDroid, Automate, Tasker</h3>
+    <h3>Activa tus pares automáticamente — MacroDroid, Automate, Tasker</h3>
     <p>Otro caso de uso que no teníamos previsto llegó desde un rincón completamente distinto: una moto. Un motorista que usaba la app en una tableta montada en el manillar quería que su automatización en MacroDroid abriera un par guardado por sí sola — un macro disparado por el encendido del motor que abre la pantalla dividida sin tocar nada mientras conduce. Esa petición se convirtió en una función. A partir de la versión 3.0.4, MacroDroid puede lanzar un par guardado a través del selector de accesos directos estándar de Android, de modo que el macro dispara la división igual que dispara cualquier otra acción. No hemos probado individualmente otras herramientas de automatización como Tasker o Automate, pero como esta función se apoya en ese selector estándar de Android y no en nada propio de la app, deberían funcionar del mismo modo. Es una función Pro, estrictamente limitada a lanzar tus pares guardados. Si no usas herramientas de automatización esto no te afecta — pero para el sector de usuarios que trabaja con las manos libres y en movimiento, cubre el hueco entre "un toque" y "cero toques".</p>
     <h4>Configuración en MacroDroid</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
@@ -223,9 +223,7 @@
       <li>Selecciona el par guardado concreto que quieres activar.</li>
       <li>Asígnalo al disparador que prefieras — la conexión de un dispositivo Bluetooth, la conexión del cargador o una hora del día.</li>
     </ol>
-    <p>Eso es todo. Cuando el disparador se activa, el par se abre solo.<br>
-      Ejemplo 1: el motor arranca → se abren el monitor de presión de neumáticos y la app de llamadas.<br>
-      Ejemplo 2: el Bluetooth se conecta → se abren la navegación y la música.</p>
+    <p>Eso es todo. Cuando el disparador se activa, el par de apps se abre por sí solo. Por ejemplo, puedes configurarlo para que el monitor de presión de neumáticos y la app de llamadas se lancen en el momento en que el motor del coche arranca, o para que la navegación y la música aparezcan en cuanto el teléfono se conecta al Bluetooth del coche.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="La lista &quot;Select Shortcut&quot; de MacroDroid mostrando Split Screen entre los accesos directos disponibles">
@@ -233,10 +231,10 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen preguntando qué par guardado lanzar">
-        <figcaption>El acceso directo muestra entonces los pares guardados de Split Screen para elegir.</figcaption>
+        <figcaption>El selector de accesos directos muestra entonces los pares guardados de Split Screen para elegir.</figcaption>
       </figure>
     </div>
-    <h3>Copia de seguridad / exportación</h3>
+    <h3>Copia de seguridad y exportación</h3>
     <p>Un detalle fácil de pasar por alto y que conviene destacar: los datos de los pares se pueden exportar a un archivo de copia de seguridad. Parece trivial, pero varias apps competidoras guardan sus pares en almacenamiento privado sin forma de exportarlos, lo que obliga a reconstruirlos a mano al cambiar de móvil. Hicimos que la copia de seguridad/restauración fuera una función de primera categoría justamente para que, al pasar de un Pixel a otro, todos los pares se restauren en segundos.</p>
     <h3>Una pantalla de inicio limpia</h3>
     <p>Otra decisión de diseño que conviene dejar clara: por defecto, <strong>los pares viven dentro de la app: no se crean iconos en la pantalla de inicio</strong>. La razón es en parte por sencillez (la pantalla de inicio no se llena de iconos de pares) y en parte arquitectónica: la app no queda atada a lanzadores concretos (Pixel, Nova, etc.). Como comentamos en la sección 3, los lanzadores que dependen de accesos directos son precisamente los que tienden a romperse en los saltos a Android 15 y 16; mantener todo dentro de la app hace que la migración de un teléfono a otro sea más fluida.</p>
@@ -320,12 +318,12 @@
 
   <section id="privacy">
     <h2>4. Permisos y privacidad</h2>
-    <p>En <strong>Android 12L y posteriores</strong>, abrir un par no requiere permisos en tiempo de ejecución ni Servicio de Accesibilidad: el flujo principal de pantalla dividida se basa en flags estándar de Activity. El acceso adicional solo se solicita para dos funciones que activas tú mismo.</p>
+    <p>En <strong>Android 12L y posteriores</strong>, abrir un par no requiere permisos en tiempo de ejecución ni Servicio de Accesibilidad: el flujo principal de pantalla dividida se apoya íntegramente en el comportamiento estándar del sistema Android. El acceso adicional solo se solicita para dos funciones opcionales que activas tú mismo.</p>
     <p>
-      <strong>① Rotación automática por par (permiso opcional)</strong> — si la activas para un par concreto, solo entonces la app solicita el permiso especial <code>WRITE_SETTINGS</code> a través del cuadro de diálogo de los Ajustes del sistema. Nunca se pide por adelantado, y no lo verás a menos que uses esa función.
+      <strong>① Rotación automática por par (permiso opcional)</strong> — si la activas para un par concreto, solo entonces la app solicita el permiso <strong>"Modificar ajustes del sistema"</strong> a través del cuadro de diálogo estándar del sistema. Nunca se pide por adelantado, y no lo verás a menos que uses esa función.
     </p>
     <p>
-      <strong>② Activar SideEdge (función opcional)</strong> — encender la barra lateral usa dos permisos. Uno es el <strong>permiso Ventana de alerta del sistema</strong> (System Alert Window), para que el panel pueda dibujarse sobre otras apps. El otro es el <strong>Servicio de Accesibilidad</strong>, usado con un único fin concreto: reconocer las pantallas que Android trata como sensibles — inicio de sesión, contraseña, verificación en dos pasos, banca — y retirar el tirador y el panel en esas pantallas para que nunca queden tapadas; nunca lee, recopila ni transmite el contenido de la pantalla. Ambos permisos aparecen en la lista de permisos de Google Play y permanecen desactivados a menos que los concedas explícitamente a través del diálogo del sistema.
+      <strong>② Activar SideEdge (función opcional)</strong> — encender la barra lateral usa dos permisos. Uno es <strong>"Mostrar sobre otras aplicaciones"</strong>, que permite al panel dibujarse sobre tu pantalla. El otro es el <strong>Servicio de Accesibilidad</strong>, usado para un único fin concreto y defensivo: detecta cuándo hay activa una pantalla de sistema segura — un campo de inicio de sesión, un gestor de contraseñas, un aviso de verificación en dos pasos o una app bancaria — y aparta automáticamente el tirador y el panel para que nunca queden sobre una entrada sensible. Nunca lee, recopila ni transmite el contenido de tu pantalla. Ambos permisos permanecen completamente desactivados a menos que los concedas explícitamente a través de los diálogos del sistema Android.
     </p>
     <p>En <strong>Android 9 a 12</strong> la app sí necesita permiso de Servicio de Accesibilidad porque es la única API disponible. La ficha de Play Store deja claro que dicho servicio solo se usa para activar el modo de pantalla dividida. La lista de permisos que muestra Google Play es tan corta que cabe entera en una sola pantalla: sin ubicación, sin contactos, sin almacenamiento y (sobre todo) sin red. Algo ya poco habitual en este rincón de Play Store.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">En pocas palabras:</strong> en las versiones antiguas de Android no había API oficial para activar la pantalla dividida, así que el Servicio de Accesibilidad era la única vía viable. Es una restricción heredada, no algo que la app use para leer tu pantalla.</p>

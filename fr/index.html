@@ -210,7 +210,7 @@
       <li><strong>Calculatrice + Chrome</strong> — comparaison de prix entre onglets</li>
     </ul>
     <p>Un cas d'usage que nous n'avions pas anticipé : la voiture. Un utilisateur nous a raconté qu'il fait tourner Split Screen Launcher sur le système d'infodivertissement Android de son véhicule, en associant <strong>Maps + Spotify</strong> pour la navigation avec de la musique — et en basculant sur <strong>Maps + Netflix</strong> pour la personne installée côté passager. Comme lancer une paire tient en un seul tap, ça convient bien mieux à un système embarqué que de naviguer par appui long dans le menu des récents.</p>
-    <h3>Lancement sans toucher — MacroDroid, Automate, Tasker</h3>
+    <h3>Déclenchez vos paires automatiquement — MacroDroid, Automate, Tasker</h3>
     <p>Un autre cas d'usage inattendu nous est parvenu d'un horizon complètement différent : la moto. Un pilote utilisant l'appli sur une tablette fixée au guidon voulait que son automatisation MacroDroid affiche d'elle-même une paire sauvegardée — un macro déclenché par le démarrage du moteur, qui ouvre l'écran partagé sans aucun tap pendant le trajet. Cette demande est devenue une fonctionnalité. Depuis la version 3.0.4, MacroDroid peut lancer une paire sauvegardée via le sélecteur de raccourcis standard d'Android, de sorte qu'un macro déclenche l'écran partagé exactement comme il déclenche n'importe quelle autre action. Nous n'avons pas testé individuellement d'autres outils d'automatisation comme Tasker ou Automate, mais comme cette fonctionnalité repose sur ce sélecteur Android standard plutôt que sur un mécanisme propre à l'appli, ils devraient fonctionner de la même manière. C'est une fonction Pro, strictement limitée au lancement de vos paires préenregistrées. Si vous n'utilisez pas d'outils d'automatisation, cela ne vous concerne pas — mais pour la frange de nos utilisateurs qui conduisent en mode mains libres, c'est ce qui comble l'écart entre « un tap » et « zéro tap ».</p>
     <h4>Configuration dans MacroDroid</h4>
     <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
@@ -219,9 +219,7 @@
       <li>Sélectionnez la paire sauvegardée spécifique que vous souhaitez déclencher.</li>
       <li>Associez-la au déclencheur de votre choix — connexion d'un appareil Bluetooth, branchement du chargeur, ou une heure de la journée.</li>
     </ol>
-    <p>C'est tout. Quand le déclencheur s'active, la paire s'ouvre d'elle-même.<br>
-      Exemple 1 : démarrage du moteur → moniteur de pression des pneus + appli d'appel se lancent.<br>
-      Exemple 2 : Bluetooth connecté → navigation + musique se lancent.</p>
+    <p>C'est tout. Dès que le déclencheur s'active, la paire d'applis s'ouvre entièrement d'elle-même. Vous pouvez par exemple configurer le lancement automatique du moniteur de pression des pneus et de l'appli d'appel au démarrage du moteur de votre voiture, ou faire apparaître la navigation et la musique dès que votre téléphone se connecte au Bluetooth de la voiture.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="La liste « Select Shortcut » de MacroDroid affichant Split Screen parmi les raccourcis disponibles">
@@ -229,10 +227,10 @@
       </figure>
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen demandant quelle paire sauvegardée lancer">
-        <figcaption>Le raccourci affiche ensuite les paires sauvegardées de Split Screen parmi lesquelles choisir.</figcaption>
+        <figcaption>Le sélecteur de raccourcis affiche ensuite les paires Split Screen sauvegardées parmi lesquelles choisir.</figcaption>
       </figure>
     </div>
-    <h3>Sauvegarde / export</h3>
+    <h3>Sauvegarde et export</h3>
     <p>Un détail qu'il serait facile de manquer et qui mérite d'être souligné : les données des paires s'exportent dans un fichier de sauvegarde. Ça paraît anodin, mais plusieurs concurrents de la catégorie rangent leurs paires dans un stockage privé sans chemin d'export — changer de téléphone, c'est refaire chaque paire à la main. Nous avons fait de la sauvegarde/restauration une fonctionnalité de premier ordre précisément pour qu'une migration Pixel vers Pixel restaure la totalité en quelques secondes.</p>
     <h3>Un écran d'accueil propre</h3>
     <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : par défaut, <strong>les paires vivent dans l'appli — aucune icône n'est créée sur l'écran d'accueil</strong>. La raison tient pour partie à la simplicité (l'écran d'accueil ne se remplit pas d'icônes de paires) et pour partie à l'architecture — l'appli n'est pas liée à un lanceur en particulier (Pixel, Nova, etc.). Comme indiqué en section 3, les lanceurs qui reposent sur des raccourcis sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16 ; rester à l'intérieur de l'appli rend la migration d'un téléphone à l'autre plus fluide.</p>
@@ -310,12 +308,12 @@
 
   <section id="privacy">
     <h2>4. Autorisations et confidentialité</h2>
-    <p>Sur <strong>Android 12L et plus récent</strong>, lancer une paire ne demande aucune autorisation d'exécution ni service d'accessibilité — le flux principal d'écran partagé repose sur des flags Activity standards. Des accès supplémentaires ne sont demandés que pour deux fonctions que vous activez vous-même.</p>
+    <p>Sur <strong>Android 12L et plus récent</strong>, lancer une paire ne demande aucune autorisation d'exécution ni service d'accessibilité — le flux principal d'écran partagé repose entièrement sur le comportement standard du système Android. Des accès supplémentaires ne sont demandés que pour deux fonctions facultatives que vous choisissez d'activer vous-même.</p>
     <p>
-      <strong>① Rotation automatique par paire (autorisation facultative)</strong> — si vous l'activez pour une paire spécifique, l'appli demande à ce moment-là l'autorisation spéciale <code>WRITE_SETTINGS</code> via la boîte de dialogue système des Paramètres. Elle n'est jamais demandée d'emblée, et vous ne la verrez pas tant que vous n'utilisez pas cette fonction.
+      <strong>① Rotation automatique par paire (autorisation facultative)</strong> — si vous l'activez pour une paire spécifique, l'appli demande à ce moment-là l'autorisation <strong>« Modifier les paramètres système »</strong> via la boîte de dialogue système standard. Elle n'est jamais demandée d'emblée, et vous ne la verrez pas tant que vous n'utilisez pas cette fonction.
     </p>
     <p>
-      <strong>② Activation de SideEdge (fonctionnalité facultative)</strong> — activer la barre latérale requiert deux autorisations. La première est la <strong>permission Fenêtre système d'alerte</strong> (System Alert Window), pour que le panneau puisse s'afficher par-dessus les autres applis. La seconde est le <strong>service d'accessibilité</strong>, utilisé dans un seul but précis : reconnaître les écrans qu'Android considère comme sensibles — connexion, mot de passe, double authentification, banque — et escamoter la poignée et le panneau sur ces écrans pour qu'ils ne soient jamais recouverts ; il ne lit, ne collecte ni ne transmet jamais le contenu de l'écran. Ces deux autorisations apparaissent dans la liste des permissions Google Play et restent désactivées tant que vous ne les accordez pas explicitement via la boîte de dialogue système.
+      <strong>② Activation de SideEdge (fonctionnalité facultative)</strong> — activer la barre latérale requiert deux autorisations. La première est <strong>« S'afficher par-dessus d'autres applis »</strong>, pour que le panneau puisse apparaître au-dessus de votre écran. La seconde est le <strong>service d'accessibilité</strong>, utilisé à des fins uniques et défensives : il détecte quand un écran système sécurisé est actif — champ de connexion, gestionnaire de mots de passe, invite d'authentification à deux facteurs ou appli bancaire — et escamote automatiquement la poignée et le panneau pour qu'ils ne recouvrent jamais une saisie sensible. Il ne lit, ne collecte ni ne transmet jamais le contenu de votre écran. Ces deux autorisations restent entièrement désactivées tant que vous ne les accordez pas explicitement via les boîtes de dialogue système Android.
     </p>
     <p>Sur <strong>Android 9 à 12</strong>, l'appli a besoin de l'autorisation du service d'accessibilité, car c'est la seule API disponible. La fiche Play Store indique explicitement que ce service ne sert qu'à déclencher le mode écran partagé. La liste d'autorisations affichée par Google Play est assez courte pour tenir sur un seul écran — pas de localisation, pas de contacts, pas de stockage et (surtout) pas de réseau. C'est déjà inhabituel dans ce coin du Play Store.</p>
     <p style="color:var(--text-muted);font-size:15px;"><strong style="color:var(--text);">En clair :</strong> sur les anciennes versions d'Android, il n'existait pas d'API officielle pour déclencher l'écran partagé, donc le service d'accessibilité était la seule voie praticable. C'est une contrainte héritée, pas un moyen pour l'appli de lire votre écran.</p>
