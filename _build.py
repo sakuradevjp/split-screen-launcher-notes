@@ -66,10 +66,32 @@ PUBLIC_VIDEO_BY_LANG = {"ja": "hWImFjdmnZU"}  # ja migration PV (public, embedda
 SHORT_VIDEO_DEFAULT = "GuJ56KoiRc0"            # en Short
 SHORT_VIDEO_BY_LANG = {"ja": "BzKV5RAJO4U"}    # ja Short
 
+# Second PV: the v3 new-features "What's New" cut (SideEdge / Drag-to-Split /
+# Shortcuts). Shown next to the edge-panel PV in a slider. Same locale split.
+WHATSNEW_LAND_DEFAULT = "vSVu4GqaoTY"          # en What's New (16:9, public, embeddable)
+WHATSNEW_LAND_BY_LANG = {"ja": "V7UBNXILufg"}  # ja What's New
+WHATSNEW_SHORT_DEFAULT = "cianSGaK95I"         # en What's New Short (9:16)
+WHATSNEW_SHORT_BY_LANG = {"ja": "NLHcULDJHJk"} # ja What's New Short
+
+
+def _embed_box(land: str, port: str, label: str, allow: str) -> str:
+    return (
+        f'        <div class="video-embed" data-land="{land}" data-port="{port}" data-title="{label}">\n'
+        '          <noscript>\n'
+        f'            <iframe src="https://www.youtube.com/embed/{land}?rel=0"\n'
+        f'                    title="{label}"\n'
+        f'                    allow="{allow}"\n'
+        '                    allowfullscreen></iframe>\n'
+        '          </noscript>\n'
+        '        </div>\n'
+    )
+
 
 def video_html(hreflang: str, title: str) -> str:
     vid = PUBLIC_VIDEO_BY_LANG.get(hreflang, PUBLIC_VIDEO_DEFAULT)
     short = SHORT_VIDEO_BY_LANG.get(hreflang, SHORT_VIDEO_DEFAULT)
+    wland = WHATSNEW_LAND_BY_LANG.get(hreflang, WHATSNEW_LAND_DEFAULT)
+    wshort = WHATSNEW_SHORT_BY_LANG.get(hreflang, WHATSNEW_SHORT_DEFAULT)
     heading = html_escape(UI.get(hreflang, UI["en"])["VIDEO_HEADING"])
     label = html_escape(title)
     allow = ("accelerometer; autoplay; clipboard-write; encrypted-media; "
@@ -77,14 +99,10 @@ def video_html(hreflang: str, title: str) -> str:
     return (
         f'    <section class="video" aria-label="{heading}">\n'
         f'      <h2>{heading}</h2>\n'
-        f'      <div class="video-embed" data-land="{vid}" data-port="{short}" data-title="{label}">\n'
-        '        <noscript>\n'
-        f'          <iframe src="https://www.youtube.com/embed/{vid}?rel=0"\n'
-        f'                  title="{label}"\n'
-        f'                  allow="{allow}"\n'
-        '                  allowfullscreen></iframe>\n'
-        '        </noscript>\n'
-        '      </div>\n'
+        '      <div class="pv-slider">\n'
+        + _embed_box(vid, short, label, allow)
+        + _embed_box(wland, wshort, label, allow)
+        + '      </div>\n'
         '    </section>'
     )
 

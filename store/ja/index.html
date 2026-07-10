@@ -148,6 +148,25 @@
     width: 100%; height: 100%;
     border: 0;
   }
+  /* pv-slider: two PVs — side-by-side (16:9) on desktop, one-at-a-time swipe
+     (vertical Short) on phones. Orientation per box is set by the script below. */
+  .pv-slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+  .pv-slider .video-embed { flex: 0 0 92%; scroll-snap-align: center; margin: 0; }
+  .pv-slider .video-embed.is-portrait { max-width: none; margin: 0; }
+  @media (min-width: 641px) {
+    .pv-slider .video-embed { flex: 0 0 calc(50% - 6px); }
+  }
+  .pv-slider::-webkit-scrollbar { height: 6px; }
+  .pv-slider::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.25); border-radius: 3px; }
 
   /* Content body */
   main {
@@ -374,13 +393,23 @@
   <div class="container">
     <section class="video" aria-label="デモを見る">
       <h2>デモを見る</h2>
-      <div class="video-embed" data-land="hWImFjdmnZU" data-port="BzKV5RAJO4U" data-title="Split Screen Launcher">
-        <noscript>
-          <iframe src="https://www.youtube.com/embed/hWImFjdmnZU?rel=0"
-                  title="Split Screen Launcher"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-        </noscript>
+      <div class="pv-slider">
+        <div class="video-embed" data-land="hWImFjdmnZU" data-port="BzKV5RAJO4U" data-title="Split Screen Launcher">
+          <noscript>
+            <iframe src="https://www.youtube.com/embed/hWImFjdmnZU?rel=0"
+                    title="Split Screen Launcher"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+          </noscript>
+        </div>
+        <div class="video-embed" data-land="V7UBNXILufg" data-port="NLHcULDJHJk" data-title="Split Screen Launcher">
+          <noscript>
+            <iframe src="https://www.youtube.com/embed/V7UBNXILufg?rel=0"
+                    title="Split Screen Launcher"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+          </noscript>
+        </div>
       </div>
     </section>
 
