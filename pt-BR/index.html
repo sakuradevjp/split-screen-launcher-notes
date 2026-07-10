@@ -88,6 +88,15 @@
     .compare-table tbody td:first-child{background:#F8FAFC;font-weight:700;font-size:15px;color:var(--text);border-bottom:1px solid var(--border);border-radius:6px 6px 0 0;justify-content:flex-start;text-align:left}
     .compare-table tbody td:first-child::before{display:none}.compare-table tbody td.highlight{background:#F0F5FF;font-weight:600}
   }
+
+    /* pv-slider: responsive video row — side-by-side on desktop, swipe on mobile */
+    .pv-slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:24px 0;padding-bottom:8px;scrollbar-width:thin;}
+    .pv-slide{flex:0 0 92%;scroll-snap-align:center;}
+    .pv-frame{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;}
+    .pv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+    @media(min-width:760px){.pv-slide{flex:0 0 calc(50% - 6px);}}
+    .pv-slider::-webkit-scrollbar{height:6px;}
+    .pv-slider::-webkit-scrollbar-thumb{background:rgba(0,0,0,.25);border-radius:3px;}
 </style>
 </head>
 <body>
@@ -241,12 +250,9 @@
     <h2>SideEdge — abra seus pares de qualquer tela</h2>
     <p>A versão 3.0 traz o <strong>SideEdge</strong>: uma barra lateral retrátil que você puxa a partir da borda da tela. Ela lista seus pares salvos e apps individuais, então você pode disparar uma tela dividida — ou ir direto para um único app — a partir de <em>qualquer</em> tela, sem precisar voltar antes à tela inicial.</p>
     <p>Se você veio de um Galaxy, essa é a parte que vai parecer familiar. O <strong>Edge Panel</strong> da Samsung é como muita gente abria os App Pairs na One UI — uma aba na lateral da tela que desliza uma bandeja de atalhos. O SideEdge é a nossa versão dessa ideia, levada a <strong>qualquer</strong> celular ou tablet Android. Ele não é um substituto completo da versão da Samsung, mas entrega uma experiência parecida — e, como o resto do app, é sem anúncios. Se você estava procurando uma alternativa ao Edge Panel no Pixel ou no Android puro, esta é uma das opções mais próximas que encontramos.</p>
-    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
-      <iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0"
-              title="Split Screen Launcher — SideEdge" loading="lazy"
-              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div class="pv-slider">
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0" title="Split Screen Launcher — SideEdge" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/vSVu4GqaoTY?rel=0" title="Split Screen Launcher — What's New: SideEdge, Drag to Split &amp; Shortcuts" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
     </div>
     <div class="img-row">
       <figure>

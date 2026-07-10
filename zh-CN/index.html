@@ -88,6 +88,15 @@
     .compare-table tbody td:first-child{background:#F8FAFC;font-weight:700;font-size:15px;color:var(--text);border-bottom:1px solid var(--border);border-radius:6px 6px 0 0;justify-content:flex-start;text-align:left}
     .compare-table tbody td:first-child::before{display:none}.compare-table tbody td.highlight{background:#F0F5FF;font-weight:600}
   }
+
+    /* pv-slider: responsive video row — side-by-side on desktop, swipe on mobile */
+    .pv-slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:24px 0;padding-bottom:8px;scrollbar-width:thin;}
+    .pv-slide{flex:0 0 92%;scroll-snap-align:center;}
+    .pv-frame{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;}
+    .pv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+    @media(min-width:760px){.pv-slide{flex:0 0 calc(50% - 6px);}}
+    .pv-slider::-webkit-scrollbar{height:6px;}
+    .pv-slider::-webkit-scrollbar-thumb{background:rgba(0,0,0,.25);border-radius:3px;}
 </style>
 </head>
 <body>
@@ -241,12 +250,9 @@
     <h2>SideEdge — 从任意界面启动你的应用对</h2>
     <p>3.0 版本新增了 <strong>SideEdge</strong>：一个从屏幕边缘滑出的侧边栏。它会列出你保存的应用对和单个应用，让你可以从<em>任意</em>界面发起分屏 —— 或直接跳转到某一款应用 —— 无需先回到桌面。</p>
     <p>如果你是从 Galaxy 手机换过来的，这部分会让你感到熟悉。Samsung 的 <strong>Edge Panel</strong> 正是很多人在 One UI 上启动应用对的方式 —— 屏幕侧边的一个标签，滑出后是一排快捷方式。SideEdge 是我们对这个思路的演绎，把它带到了<strong>任意</strong> Android 手机或平板上。它并不能完全替代 Samsung 的版本，但能带来相近的体验 —— 而且和应用其余部分一样，它没有广告。如果你一直在 Pixel 或原生 Android 上寻找 Edge Panel 的替代方案，这是我们见过最接近的选项之一。</p>
-    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
-      <iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0"
-              title="Split Screen Launcher — SideEdge" loading="lazy"
-              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div class="pv-slider">
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0" title="Split Screen Launcher — SideEdge" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/vSVu4GqaoTY?rel=0" title="Split Screen Launcher — What's New: SideEdge, Drag to Split &amp; Shortcuts" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
     </div>
     <div class="img-row">
       <figure>

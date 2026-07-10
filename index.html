@@ -351,6 +351,15 @@
       font-weight: 600;
     }
   }
+
+    /* pv-slider: responsive video row — side-by-side on desktop, swipe on mobile */
+    .pv-slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:24px 0;padding-bottom:8px;scrollbar-width:thin;}
+    .pv-slide{flex:0 0 92%;scroll-snap-align:center;}
+    .pv-frame{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;}
+    .pv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+    @media(min-width:760px){.pv-slide{flex:0 0 calc(50% - 6px);}}
+    .pv-slider::-webkit-scrollbar{height:6px;}
+    .pv-slider::-webkit-scrollbar-thumb{background:rgba(0,0,0,.25);border-radius:3px;}
 </style>
 <link rel="alternate" hreflang="en" href="https://sakuradevjp.github.io/split-screen-launcher-notes/">
 <link rel="alternate" hreflang="ja" href="https://sakuradevjp.github.io/split-screen-launcher-notes/ja/">
@@ -561,12 +570,9 @@
     <p>
       If you came from a Galaxy phone, this is the part that will feel familiar. Samsung's <strong>Edge Panel</strong> is how a lot of people launched App Pairs on One UI — a tab on the side of the screen that slides out a tray of shortcuts. SideEdge is our take on that idea, brought to <strong>any</strong> Android phone or tablet. It isn't a complete replacement for Samsung's version, but it gets you a similar experience — and like the rest of the app, it's ad-free. If you've been looking for an Edge Panel alternative on Pixel or stock Android, this is one of the closest options we've found.
     </p>
-    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
-      <iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0"
-              title="Split Screen Launcher — SideEdge" loading="lazy"
-              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div class="pv-slider">
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0" title="Split Screen Launcher — SideEdge" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/vSVu4GqaoTY?rel=0" title="Split Screen Launcher — What's New: SideEdge, Drag to Split &amp; Shortcuts" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
     </div>
     <div class="img-row">
       <figure>

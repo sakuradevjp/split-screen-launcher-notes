@@ -88,6 +88,15 @@
     .compare-table tbody td:first-child{background:#F8FAFC;font-weight:700;font-size:15px;color:var(--text);border-bottom:1px solid var(--border);border-radius:6px 6px 0 0;justify-content:flex-start;text-align:left}
     .compare-table tbody td:first-child::before{display:none}.compare-table tbody td.highlight{background:#F0F5FF;font-weight:600}
   }
+
+    /* pv-slider: responsive video row — side-by-side on desktop, swipe on mobile */
+    .pv-slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:24px 0;padding-bottom:8px;scrollbar-width:thin;}
+    .pv-slide{flex:0 0 92%;scroll-snap-align:center;}
+    .pv-frame{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;}
+    .pv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+    @media(min-width:760px){.pv-slide{flex:0 0 calc(50% - 6px);}}
+    .pv-slider::-webkit-scrollbar{height:6px;}
+    .pv-slider::-webkit-scrollbar-thumb{background:rgba(0,0,0,.25);border-radius:3px;}
 </style>
 </head>
 <body>
@@ -245,12 +254,9 @@
     <h2>SideEdge — запуск пар с любого экрана</h2>
     <p>В версии 3.0 добавлен <strong>SideEdge</strong>: выдвижная боковая панель, которую вы вытягиваете движением от края экрана. В ней перечислены ваши сохранённые пары и отдельные приложения, так что запустить разделение — или сразу перейти к одному приложению — можно с <em>любого</em> экрана, не возвращаясь сначала на домашний.</p>
     <p>Если вы пришли со смартфона Galaxy, эта часть покажется вам знакомой. Панель <strong>Edge Panel</strong> от Samsung — то, как многие запускали App Pair в One UI: вкладка сбоку экрана, из которой выдвигается лоток с ярлыками. SideEdge — наше прочтение этой идеи, перенесённое на <strong>любой</strong> Android-смартфон или планшет. Это не полная замена версии Samsung, но она даёт похожий опыт — и, как и всё остальное в приложении, без рекламы. Если вы искали альтернативу Edge Panel на Pixel или стоковом Android, это один из самых близких вариантов, что нам встречались.</p>
-    <div class="video-embed" style="position:relative; padding-bottom:56.25%; height:0; margin:24px 0; border-radius:12px; overflow:hidden;">
-      <iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0"
-              title="Split Screen Launcher — SideEdge" loading="lazy"
-              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div class="pv-slider">
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/gN123gjWkak?rel=0" title="Split Screen Launcher — SideEdge" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+      <div class="pv-slide"><div class="pv-frame"><iframe src="https://www.youtube.com/embed/vSVu4GqaoTY?rel=0" title="Split Screen Launcher — What's New: SideEdge, Drag to Split &amp; Shortcuts" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
     </div>
     <div class="img-row">
       <figure>
