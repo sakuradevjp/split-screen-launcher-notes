@@ -560,6 +560,23 @@
     <p>
       An optional pin-to-home action lets Pro users launch a pair with a single tap straight from the home screen. We wanted to keep the original "keep the home screen simple" posture intact while still answering the "I want to launch the split right from a home icon" need. The icon shown on home stacks the two app icons vertically, so the pair stays visually distinct from regular launcher icons.
     </p>
+    <h3>Per-pair screen orientation</h3>
+    <p>
+      Tapping the icon next to a pair's ⋮ menu cycles that pair's screen orientation.
+    </p>
+    <ul style="padding-left: 20px; margin-bottom: 18px;">
+      <li><strong>Off</strong> — the default; the icon is dimmed</li>
+      <li><strong>Auto-rotate</strong> — follows how you hold the device</li>
+      <li><strong>Portrait lock</strong></li>
+      <li><strong>Landscape lock</strong></li>
+    </ul>
+    <p>
+      Where each one earns its place:
+    </p>
+    <ul style="padding-left: 20px; margin-bottom: 18px;">
+      <li><strong>YouTube + X locked to landscape</strong> — the split opens in landscape from the moment you tap</li>
+      <li><strong>Maps + music locked to portrait</strong> — stays portrait even when the car mount tilts</li>
+    </ul>
   </section>
 
   <section id="sideedge">
@@ -650,7 +667,7 @@
       On <strong>Android 12L and newer</strong>, launching a pair requires no runtime permissions and no Accessibility Service — the core split-screen flow relies entirely on standard Android system behavior. Extra access is only ever requested for two optional features you choose to turn on yourself.
     </p>
     <p>
-      <strong>① Per-pair auto-rotate (optional permission)</strong> — if you turn this on for a specific pair, only then does the app request the <strong>"Modify system settings"</strong> permission through the standard system dialog. It's never asked for up front, and you won't see the prompt unless you use that feature.
+      <strong>① Per-pair screen orientation (optional permission)</strong> — if you set an orientation on a specific pair, only then does the app request the <strong>"Display over other apps"</strong> permission: the orientation is held by a window shown over the screen. It changes none of your device's own settings. You won't see the prompt unless you use that feature.
     </p>
     <p>
       <strong>② Enabling SideEdge (optional feature)</strong> — turning on the sidebar uses two permissions. The first is <strong>"Display over other apps"</strong>, which lets the panel appear over your screen. The second is the <strong>Accessibility Service</strong>, used for one narrow, defensive purpose: it detects when a secure system screen is active — a login field, password manager, two-factor prompt, or banking app — and automatically tucks the handle and panel out of the way so they never sit over sensitive input. It never reads, collects, or transmits your screen content. Both permissions stay completely off unless you grant them explicitly through the Android system dialogs.

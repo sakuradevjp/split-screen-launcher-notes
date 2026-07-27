@@ -244,6 +244,23 @@
     <h3>Màn hình chính gọn gàng</h3>
     <p>Một lựa chọn thiết kế nữa đáng nói trước: theo mặc định, <strong>các cặp nằm ngay trong ứng dụng — không tạo biểu tượng trên màn hình chính</strong>. Lý do một phần để giữ sự đơn giản (màn hình chính không bị nhồi biểu tượng cặp) và một phần là về kiến trúc — ứng dụng không bị ràng buộc với một launcher cụ thể nào (Pixel, Nova, v.v.). Như đã nói ở mục 3, các launcher dựa vào lối tắt chính là loại thường bị vô hiệu hóa ở mỗi đợt chuyển Android 15 và 16; ở lại trong ứng dụng giúp việc chuyển máy giữa các điện thoại trơn tru hơn.</p>
     <p>Một hành động "ghim ra màn hình chính" tùy chọn cho phép người dùng Pro mở một cặp bằng một cú chạm trực tiếp từ màn hình chính. Chúng tôi muốn giữ nguyên tinh thần ban đầu "giữ màn hình chính đơn giản" mà vẫn đáp ứng được nhu cầu "tôi muốn mở chia đôi màn hình ngay từ một biểu tượng trên màn hình chính". Biểu tượng hiển thị trên màn hình chính xếp chồng hai biểu tượng ứng dụng theo chiều dọc, để cặp đó vẫn dễ phân biệt về mặt hình ảnh so với biểu tượng launcher thông thường.</p>
+    <h3>Hướng màn hình theo từng cặp</h3>
+    <p>
+      Chạm vào biểu tượng cạnh menu ⋮ của một cặp sẽ chuyển lần lượt qua các hướng màn hình của cặp đó.
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Tắt</strong> — mặc định; biểu tượng mờ đi</li>
+      <li><strong>Tự động xoay</strong> — theo cách bạn cầm máy</li>
+      <li><strong>Khóa dọc</strong></li>
+      <li><strong>Khóa ngang</strong></li>
+    </ul>
+    <p>
+      Mỗi lựa chọn hữu ích khi nào:
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>YouTube + X khóa ngang</strong> — cặp mở ở chế độ ngang ngay khi bạn chạm</li>
+      <li><strong>Maps + nhạc khóa dọc</strong> — vẫn giữ dọc kể cả khi giá đỡ trên xe nghiêng</li>
+    </ul>
   </section>
 
   <section id="sideedge">
@@ -316,7 +333,7 @@
     <h2>4. Quyền và quyền riêng tư</h2>
     <p>Trên <strong>Android 12L trở lên</strong>, việc mở một cặp không cần quyền runtime nào và không cần Accessibility Service — luồng chia đôi màn hình cốt lõi hoàn toàn dựa vào hành vi hệ thống Android tiêu chuẩn. Quyền bổ sung chỉ được yêu cầu cho hai tính năng tùy chọn mà bạn tự chọn bật lên.</p>
     <p>
-      <strong>① Tự xoay màn hình theo từng cặp (quyền tùy chọn)</strong> — nếu bạn bật tính năng này cho một cặp cụ thể, lúc đó ứng dụng mới yêu cầu quyền <strong>"Sửa đổi cài đặt hệ thống"</strong> thông qua hộp thoại hệ thống Android tiêu chuẩn. Nó không bao giờ được hỏi trước, và bạn sẽ không thấy nó trừ khi dùng tính năng đó.
+      <strong>① Hướng màn hình theo từng cặp (quyền tùy chọn)</strong> — nếu bạn đặt hướng cho một cặp cụ thể, lúc đó ứng dụng mới yêu cầu quyền <strong>"Hiển thị đè lên ứng dụng khác"</strong>: hướng được giữ bởi một cửa sổ hiển thị đè lên màn hình. Nó không thay đổi bất kỳ cài đặt nào trên máy bạn. Bạn sẽ không thấy yêu cầu này trừ khi dùng tính năng đó.
     </p>
     <p>
       <strong>② Bật SideEdge (tính năng tùy chọn)</strong> — bật thanh bên sẽ dùng hai quyền. Một là <strong>"Hiển thị đè lên ứng dụng khác"</strong>, để thanh bên có thể xuất hiện trên màn hình của bạn. Quyền kia là <strong>Accessibility Service</strong>, được dùng cho một mục đích duy nhất mang tính phòng thủ: phát hiện khi nào một màn hình hệ thống bảo mật đang hiển thị — trường đăng nhập, trình quản lý mật khẩu, màn hình xác thực hai bước, hay ứng dụng ngân hàng — và tự động thu tay nắm cùng thanh bên ra khỏi đó để chúng không bao giờ nằm đè lên phần nhập liệu nhạy cảm. Nó không bao giờ đọc, thu thập hay truyền đi nội dung màn hình của bạn. Cả hai quyền hoàn toàn ở trạng thái tắt trừ khi bạn cấp chúng rõ ràng qua hộp thoại hệ thống Android.

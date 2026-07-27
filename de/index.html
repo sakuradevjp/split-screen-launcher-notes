@@ -244,6 +244,23 @@
     <h3>Ein aufgeräumter Homescreen</h3>
     <p>Eine weitere Design-Entscheidung, die wir vorab ansprechen sollten: Standardmäßig <strong>leben Paare innerhalb der App – es werden keine Homescreen-Symbole angelegt</strong>. Der Grund liegt teils in der Schlichtheit (der Homescreen wird nicht mit Paar-Symbolen zugemüllt) und teils in der Architektur – die App ist nicht an einen bestimmten Launcher (Pixel, Nova etc.) gebunden. Wie in Abschnitt 3 angemerkt, sind Launcher, die auf Verknüpfungen setzen, genau die, die bei Android-15- und 16-Übergängen gerne brechen; innerhalb der App zu bleiben macht den Wechsel von Gerät zu Gerät reibungsärmer.</p>
     <p>Eine optionale „An den Homescreen anheften"-Aktion lässt Pro-Nutzer ein Paar mit einem einzigen Tipp direkt vom Homescreen aus starten. Wir wollten die ursprüngliche Haltung „Homescreen schlicht halten" beibehalten und gleichzeitig dem Wunsch „Ich möchte den Splitscreen direkt von einem Homescreen-Symbol aus starten" gerecht werden. Das auf dem Homescreen angezeigte Symbol stapelt die beiden App-Symbole vertikal, sodass das Paar visuell von normalen Launcher-Symbolen unterscheidbar bleibt.</p>
+    <h3>Bildschirmausrichtung pro Paar</h3>
+    <p>
+      Ein Tipp auf das Symbol neben dem ⋮-Menü eines Paars schaltet dessen Bildschirmausrichtung weiter.
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Aus</strong> – die Standardeinstellung; das Symbol ist ausgegraut</li>
+      <li><strong>Automatische Drehung</strong> – folgt der Haltung deines Geräts</li>
+      <li><strong>Hochformat fixiert</strong></li>
+      <li><strong>Querformat fixiert</strong></li>
+    </ul>
+    <p>
+      Wo sich das jeweils lohnt:
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>YouTube + X auf Querformat fixiert</strong> – der Split öffnet sich beim Tippen sofort im Querformat</li>
+      <li><strong>Maps + Musik auf Hochformat fixiert</strong> – bleibt hochformatig, auch wenn sich die Autohalterung neigt</li>
+    </ul>
   </section>
 
   <section id="sideedge">
@@ -316,7 +333,7 @@
     <h2>4. Berechtigungen und Datenschutz</h2>
     <p>Unter <strong>Android 12L und neuer</strong> braucht das Starten eines Paares keinerlei Laufzeit-Berechtigungen und keinen Bedienungshilfen-Dienst — der Kern-Splitscreen-Ablauf basiert vollständig auf dem standardmäßigen Android-Systemverhalten. Zusätzliche Zugriffe werden ausschließlich für zwei optionale Funktionen angefragt, die du selbst aktivierst.</p>
     <p>
-      <strong>① Paarweises Auto-Drehen (optionale Berechtigung)</strong> — wenn du das für ein bestimmtes Paar aktivierst, fordert die App erst in diesem Moment über den standardmäßigen System-Dialog die Berechtigung <strong>„Systemeinstellungen ändern"</strong> an. Sie wird nie vorab verlangt, und du siehst sie nicht, solange du diese Funktion nicht nutzt.
+      <strong>① Bildschirmausrichtung pro Paar (optionale Berechtigung)</strong> — wenn du für ein bestimmtes Paar eine Ausrichtung festlegst, fordert die App erst in diesem Moment die Berechtigung <strong>„Über anderen Apps anzeigen"</strong> an: Die Ausrichtung wird von einem Fenster gehalten, das über dem Bildschirm angezeigt wird. Das ändert keine Einstellungen deines Geräts. Du siehst die Abfrage nicht, solange du diese Funktion nicht nutzt.
     </p>
     <p>
       <strong>② SideEdge aktivieren (optionale Funktion)</strong> — das Einschalten der Seitenleiste nutzt zwei Berechtigungen. Die eine ist <strong>„Über anderen Apps anzeigen"</strong>, damit das Panel über anderen Apps eingeblendet werden kann. Die andere ist der <strong>Bedienungshilfen-Dienst</strong>, der für einen einzigen, eng umrissenen, defensiven Zweck eingesetzt wird: Er erkennt, wenn ein sicherheitsrelevanter Systembildschirm aktiv ist — ein Login-Feld, ein Passwort-Manager, eine Zwei-Faktor-Abfrage oder eine Banking-App — und schiebt Griff und Panel automatisch beiseite, damit sie nie über sensiblen Eingaben liegen. Er liest, sammelt oder überträgt niemals Bildschirminhalte. Beide Berechtigungen bleiben deaktiviert, bis du sie ausdrücklich über die Android-System-Dialoge gewährst.

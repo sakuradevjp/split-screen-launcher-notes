@@ -248,6 +248,23 @@
     <h3>Una pantalla de inicio limpia</h3>
     <p>Otra decisión de diseño que conviene dejar clara: por defecto, <strong>los pares viven dentro de la app: no se crean iconos en la pantalla de inicio</strong>. La razón es en parte por sencillez (la pantalla de inicio no se llena de iconos de pares) y en parte arquitectónica: la app no queda atada a lanzadores concretos (Pixel, Nova, etc.). Como comentamos en la sección 3, los lanzadores que dependen de accesos directos son precisamente los que tienden a romperse en los saltos a Android 15 y 16; mantener todo dentro de la app hace que la migración de un teléfono a otro sea más fluida.</p>
     <p>Una acción opcional para fijar pares en la pantalla de inicio permite a los usuarios Pro abrir un par con un solo toque directamente desde el escritorio. Queríamos mantener intacta la postura original de "pantalla de inicio simple" sin dejar de responder a la necesidad de "quiero lanzar la pantalla dividida desde un icono del escritorio". El icono que aparece en el escritorio apila los dos iconos de las apps en vertical, de modo que el par se distingue visualmente de los iconos normales del lanzador.</p>
+    <h3>Rotación de pantalla por par</h3>
+    <p>
+      Tocar el icono junto al menú ⋮ de un par va pasando por las orientaciones de pantalla de ese par.
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Desactivado</strong> — el valor predeterminado; el icono aparece atenuado</li>
+      <li><strong>Rotación automática</strong> — sigue la orientación en la que sostienes el dispositivo</li>
+      <li><strong>Bloqueo vertical</strong></li>
+      <li><strong>Bloqueo horizontal</strong></li>
+    </ul>
+    <p>
+      En qué casos tiene sentido cada una:
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>YouTube + X en bloqueo horizontal</strong> — la pantalla dividida se abre en horizontal desde el primer toque</li>
+      <li><strong>Maps + música en bloqueo vertical</strong> — se mantiene en vertical aunque el soporte del coche se incline</li>
+    </ul>
   </section>
 
   <section id="sideedge">
@@ -326,7 +343,7 @@
     <h2>4. Permisos y privacidad</h2>
     <p>En <strong>Android 12L y posteriores</strong>, abrir un par no requiere permisos en tiempo de ejecución ni Servicio de Accesibilidad: el flujo principal de pantalla dividida se apoya íntegramente en el comportamiento estándar del sistema Android. El acceso adicional solo se solicita para dos funciones opcionales que activas tú mismo.</p>
     <p>
-      <strong>① Rotación automática por par (permiso opcional)</strong> — si la activas para un par concreto, solo entonces la app solicita el permiso <strong>"Modificar ajustes del sistema"</strong> a través del cuadro de diálogo estándar del sistema. Nunca se pide por adelantado, y no lo verás a menos que uses esa función.
+      <strong>① Rotación de pantalla por par (permiso opcional)</strong> — si defines una orientación para un par concreto, solo entonces la app solicita el permiso <strong>"Mostrar sobre otras aplicaciones"</strong>: una ventana mostrada sobre la pantalla es la que mantiene esa orientación. No cambia ninguno de los ajustes propios de tu dispositivo. No verás el aviso a menos que uses esa función.
     </p>
     <p>
       <strong>② Activar SideEdge (función opcional)</strong> — encender la barra lateral usa dos permisos. Uno es <strong>"Mostrar sobre otras aplicaciones"</strong>, que permite al panel dibujarse sobre tu pantalla. El otro es el <strong>Servicio de Accesibilidad</strong>, usado para un único fin concreto y defensivo: detecta cuándo hay activa una pantalla de sistema segura — un campo de inicio de sesión, un gestor de contraseñas, un aviso de verificación en dos pasos o una app bancaria — y aparta automáticamente el tirador y el panel para que nunca queden sobre una entrada sensible. Nunca lee, recopila ni transmite el contenido de tu pantalla. Ambos permisos permanecen completamente desactivados a menos que los concedas explícitamente a través de los diálogos del sistema Android.

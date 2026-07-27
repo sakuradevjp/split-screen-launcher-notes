@@ -244,6 +244,23 @@
     <h3>Uma tela inicial limpa</h3>
     <p>Outra escolha de design que vale deixar clara desde já: por padrão, <strong>os pares vivem dentro do próprio app — não são criados ícones na tela inicial</strong>. O motivo é, em parte, simplicidade (a tela inicial não fica poluída por ícones de pares) e, em parte, arquitetural — o app não fica amarrado a lançadores específicos (Pixel, Nova etc.). Como dissemos na seção 3, lançadores que dependem de atalhos são justamente os que tendem a quebrar nas transições para Android 15 e 16; manter tudo dentro do app deixa a migração de aparelho para aparelho mais tranquila.</p>
     <p>Uma ação opcional para fixar pares na tela inicial permite que usuários Pro abram um par com um único toque direto da tela de início. Quisemos preservar a postura original de "tela inicial enxuta" e, ao mesmo tempo, atender à necessidade de "quero abrir a tela dividida direto de um ícone na tela inicial". O ícone exibido na tela inicial empilha verticalmente os dois ícones dos apps, de modo que o par se diferencia visualmente dos ícones comuns do lançador.</p>
+    <h3>Orientação da tela por par</h3>
+    <p>
+      Tocar no ícone ao lado do menu ⋮ de um par alterna a orientação da tela desse par.
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Desativada</strong> — padrão; o ícone aparece apagado</li>
+      <li><strong>Rotação automática</strong> — acompanha a posição em que você segura o aparelho</li>
+      <li><strong>Bloqueio de retrato</strong></li>
+      <li><strong>Bloqueio de paisagem</strong></li>
+    </ul>
+    <p>
+      Onde cada opção faz sentido:
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>YouTube + X fixados em paisagem</strong> — a divisão já abre em paisagem assim que você toca</li>
+      <li><strong>Maps + música fixados em retrato</strong> — permanece em retrato mesmo com o suporte do carro inclinado</li>
+    </ul>
   </section>
 
   <section id="sideedge">
@@ -316,7 +333,7 @@
     <h2>4. Permissões e privacidade</h2>
     <p>No <strong>Android 12L e posteriores</strong>, abrir um par não exige nenhuma permissão em tempo de execução nem Serviço de Acessibilidade — o fluxo principal de tela dividida depende inteiramente do comportamento padrão do sistema Android. O acesso extra só é solicitado para dois recursos opcionais que você mesmo escolhe ativar.</p>
     <p>
-      <strong>① Rotação automática por par (permissão opcional)</strong> — se você ativar isso para um par específico, somente nesse momento o app solicita a permissão <strong>"Modificar configurações do sistema"</strong> por meio da caixa de diálogo padrão do sistema. Ela nunca é pedida de antemão, e você não a verá a menos que use esse recurso.
+      <strong>① Orientação da tela por par (permissão opcional)</strong> — se você definir uma orientação para um par específico, somente então o app solicita a permissão <strong>"Exibir sobre outros apps"</strong>: a orientação é mantida por uma janela exibida sobre a tela. Isso não altera nenhuma configuração do seu aparelho. Você não verá esse pedido a menos que use esse recurso.
     </p>
     <p>
       <strong>② Ativar o SideEdge (recurso opcional)</strong> — ligar a barra lateral usa duas permissões. Uma é a <strong>"Exibir sobre outros apps"</strong>, para que o painel possa aparecer sobre a sua tela. A outra é o <strong>Serviço de Acessibilidade</strong>, usado para uma única finalidade específica e defensiva: ele detecta quando uma tela segura do sistema está ativa — campo de login, gerenciador de senhas, prompt de autenticação em dois fatores ou app bancário — e automaticamente recolhe a aba e o painel para que nunca fiquem sobre uma entrada sensível. Ele nunca lê, coleta ou transmite o conteúdo da sua tela. Ambas as permissões permanecem completamente desativadas até que você as conceda explicitamente pelas caixas de diálogo do sistema Android.

@@ -244,6 +244,23 @@
     <h3>Una schermata iniziale pulita</h3>
     <p>Vale la pena segnalare subito un'altra scelta di design: per impostazione predefinita, <strong>le coppie vivono dentro l'app — non vengono create icone nella schermata iniziale</strong>. Il motivo è in parte semplicità (la schermata iniziale non si riempie di icone di coppie) e in parte architetturale: l'app non resta legata a un launcher specifico (Pixel, Nova ecc.). Come detto nella sezione 3, i launcher che dipendono dalle scorciatoie sono proprio quelli che tendono a rompersi nelle transizioni ad Android 15 e 16; restare dentro l'app rende più fluido il passaggio da un telefono all'altro.</p>
     <p>Un'azione opzionale per fissare una coppia in home consente agli utenti Pro di lanciare una coppia con un singolo tocco direttamente dalla schermata iniziale. Volevamo mantenere intatta la postura originale di "schermata iniziale semplice" e allo stesso tempo rispondere all'esigenza di "voglio lanciare lo schermo diviso direttamente da un'icona in home". L'icona mostrata in home impila verticalmente le due icone delle app, così la coppia resta visivamente distinta dalle normali icone del launcher.</p>
+    <h3>Orientamento dello schermo per singola coppia</h3>
+    <p>
+      Toccando l'icona accanto al menu ⋮ di una coppia, l'orientamento dello schermo di quella coppia passa alla modalità successiva.
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Disattivato</strong> — l'impostazione predefinita; l'icona appare sbiadita</li>
+      <li><strong>Rotazione automatica</strong> — segue il modo in cui tieni il dispositivo</li>
+      <li><strong>Blocco verticale</strong></li>
+      <li><strong>Blocco orizzontale</strong></li>
+    </ul>
+    <p>
+      Ecco dove ciascuna modalità torna utile:
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>YouTube + X bloccati in orizzontale</strong> — la divisione si apre già in orizzontale non appena tocchi</li>
+      <li><strong>Maps + musica bloccati in verticale</strong> — resta verticale anche se il supporto in auto si inclina</li>
+    </ul>
   </section>
 
   <section id="sideedge">
@@ -316,7 +333,7 @@
     <h2>4. Permessi e privacy</h2>
     <p>Su <strong>Android 12L e successivi</strong>, lanciare una coppia non richiede alcun permesso a runtime né il Servizio di Accessibilità — il flusso principale dello schermo diviso si affida interamente al comportamento standard del sistema Android. L'accesso aggiuntivo viene richiesto solo per due funzioni opzionali che puoi scegliere di attivare tu stesso.</p>
     <p>
-      <strong>① Rotazione automatica per singola coppia (permesso opzionale)</strong> — se la attivi per una coppia specifica, solo in quel momento l'app richiede il permesso <strong>"Modifica impostazioni di sistema"</strong> tramite la finestra di dialogo standard del sistema. Non viene mai chiesto in anticipo e non lo vedrai a meno che tu non usi quella funzione.
+      <strong>① Orientamento dello schermo per singola coppia (permesso opzionale)</strong> — se imposti un orientamento per una coppia specifica, solo allora l'app richiede il permesso <strong>"Visualizza sopra altre app"</strong>: l'orientamento viene mantenuto da una finestra mostrata sopra lo schermo. Non modifica alcuna impostazione del tuo dispositivo. Non vedrai la richiesta a meno che tu non usi quella funzione.
     </p>
     <p>
       <strong>② Attivazione di SideEdge (funzione opzionale)</strong> — attivare la barra laterale richiede due permessi. Il primo è <strong>"Visualizza sopra altre app"</strong>, che consente al pannello di apparire sopra lo schermo. Il secondo è il <strong>Servizio di Accessibilità</strong>, usato per un unico scopo ristretto e difensivo: rileva quando una schermata di sistema sensibile è attiva — un campo di accesso, un gestore di password, una richiesta di autenticazione a due fattori o un'app bancaria — e sposta automaticamente la maniglia e il pannello in modo che non si trovino mai sopra un'area di input sensibile. Non legge, raccoglie o trasmette mai il contenuto dello schermo. Entrambi i permessi rimangono completamente disattivati finché non vengono concessi esplicitamente tramite le finestre di dialogo del sistema Android.

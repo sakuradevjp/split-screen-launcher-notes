@@ -244,6 +244,23 @@
     <h3>Un écran d'accueil propre</h3>
     <p>Autre choix de conception qu'il vaut la peine d'annoncer d'emblée : par défaut, <strong>les paires vivent dans l'appli — aucune icône n'est créée sur l'écran d'accueil</strong>. La raison tient pour partie à la simplicité (l'écran d'accueil ne se remplit pas d'icônes de paires) et pour partie à l'architecture — l'appli n'est pas liée à un lanceur en particulier (Pixel, Nova, etc.). Comme indiqué en section 3, les lanceurs qui reposent sur des raccourcis sont précisément ceux qui ont tendance à casser au passage à Android 15 et 16 ; rester à l'intérieur de l'appli rend la migration d'un téléphone à l'autre plus fluide.</p>
     <p>Une action facultative d'épinglage à l'écran d'accueil permet aux utilisateurs Pro de lancer une paire d'un seul tap directement depuis l'accueil. Nous voulions garder intacte la posture initiale « écran d'accueil simple » tout en répondant au besoin « je veux lancer l'écran partagé directement depuis une icône de l'accueil ». L'icône affichée sur l'accueil empile verticalement les deux icônes des applis, pour que la paire reste visuellement distincte des icônes de lanceur classiques.</p>
+    <h3>Orientation d'écran par paire</h3>
+    <p>
+      Un tap sur l'icône à côté du menu ⋮ d'une paire fait défiler l'orientation d'écran de cette paire.
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>Désactivée</strong> — par défaut ; l'icône est estompée</li>
+      <li><strong>Rotation automatique</strong> — suit la façon dont vous tenez l'appareil</li>
+      <li><strong>Verrouillage portrait</strong></li>
+      <li><strong>Verrouillage paysage</strong></li>
+    </ul>
+    <p>
+      Où chacune trouve sa place :
+    </p>
+    <ul style="padding-left:20px;margin-bottom:18px;">
+      <li><strong>YouTube + X verrouillés en paysage</strong> — l'écran partagé s'ouvre en paysage dès que vous tapez</li>
+      <li><strong>Maps + musique verrouillés en portrait</strong> — reste en portrait même quand le support voiture s'incline</li>
+    </ul>
   </section>
 
   <section id="sideedge">
@@ -316,7 +333,7 @@
     <h2>4. Autorisations et confidentialité</h2>
     <p>Sur <strong>Android 12L et plus récent</strong>, lancer une paire ne demande aucune autorisation d'exécution ni service d'accessibilité — le flux principal d'écran partagé repose entièrement sur le comportement standard du système Android. Des accès supplémentaires ne sont demandés que pour deux fonctions facultatives que vous choisissez d'activer vous-même.</p>
     <p>
-      <strong>① Rotation automatique par paire (autorisation facultative)</strong> — si vous l'activez pour une paire spécifique, l'appli demande à ce moment-là l'autorisation <strong>« Modifier les paramètres système »</strong> via la boîte de dialogue système standard. Elle n'est jamais demandée d'emblée, et vous ne la verrez pas tant que vous n'utilisez pas cette fonction.
+      <strong>① Orientation d'écran par paire (autorisation facultative)</strong> — si vous définissez une orientation pour une paire spécifique, l'appli ne demande qu'alors l'autorisation <strong>« S'afficher par-dessus d'autres applis »</strong> : l'orientation est maintenue par une fenêtre affichée par-dessus l'écran. Cela ne modifie aucun réglage propre à votre appareil. Vous ne verrez cette demande que si vous utilisez cette fonction.
     </p>
     <p>
       <strong>② Activation de SideEdge (fonctionnalité facultative)</strong> — activer la barre latérale requiert deux autorisations. La première est <strong>« S'afficher par-dessus d'autres applis »</strong>, pour que le panneau puisse apparaître au-dessus de votre écran. La seconde est le <strong>service d'accessibilité</strong>, utilisé à des fins uniques et défensives : il détecte quand un écran système sécurisé est actif — champ de connexion, gestionnaire de mots de passe, invite d'authentification à deux facteurs ou appli bancaire — et escamote automatiquement la poignée et le panneau pour qu'ils ne recouvrent jamais une saisie sensible. Il ne lit, ne collecte ni ne transmet jamais le contenu de votre écran. Ces deux autorisations restent entièrement désactivées tant que vous ne les accordez pas explicitement via les boîtes de dialogue système Android.
