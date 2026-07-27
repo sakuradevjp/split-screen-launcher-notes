@@ -220,15 +220,26 @@
     </ul>
     <p>Um caso de uso que não imaginávamos: o carro. Um usuário nos contou que roda o Split Screen Launcher na central multimídia Android com IA do veículo dele, pareando <strong>Maps + Spotify</strong> para navegação com música — e trocando para <strong>Maps + Netflix</strong> para quem está no banco do carona. Como abrir um par é um único toque, isso combina muito melhor com a central do carro do que ficar segurando os botões pelo menu de recentes.</p>
     <h3>Acione seus pares automaticamente — MacroDroid, Automate, Tasker</h3>
-    <p>Outro caso de uso que não planejávamos chegou de um canto completamente diferente: uma moto. Um motociclista que usa o app num tablet fixado no guidão queria que a automação do MacroDroid abrisse um par salvo por conta própria — um macro disparado pela ignição que abre a tela dividida sem nenhum toque durante o trajeto. Esse pedido virou funcionalidade. A partir da versão 3.0.4, o MacroDroid consegue abrir um par salvo pelo seletor de atalhos padrão do Android, de modo que o macro dispara a tela dividida da mesma forma que dispara qualquer outra ação. Não testamos individualmente outras ferramentas de automação como Tasker ou Automate, mas como esse recurso usa o seletor padrão do Android e não nada exclusivo do app, elas devem funcionar da mesma forma. É um recurso Pro, estritamente limitado a abrir seus pares já salvos. Se você não usa ferramentas de automação, isso não vai fazer diferença — mas para o segmento de usuários que precisa de mãos livres na estrada, ela fecha a lacuna entre "um toque" e "zero toques".</p>
-    <h4>Como configurar no MacroDroid</h4>
-    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
-      <li>No seu macro, adicione uma <strong>Action → Applications → Launch Shortcut</strong>.</li>
-      <li>Na lista "Select Shortcut", escolha <strong>Split Screen</strong>.</li>
-      <li>Selecione o par salvo específico que você quer acionar.</li>
-      <li>Vincule ao gatilho que preferir — um dispositivo Bluetooth conectando, um carregador sendo plugado ou um horário do dia.</li>
-    </ol>
-    <p>É só isso. Quando o gatilho disparar, o par de apps abre inteiramente sozinho. Por exemplo, você pode configurar para o monitor de pressão dos pneus e o discador abrirem no momento em que o motor do carro der a partida, ou fazer com que o app de navegação e o de música apareçam assim que o celular se conectar ao Bluetooth do carro.</p>
+    <p>
+      Outro caso de uso que não planejávamos chegou de um canto completamente diferente: uma moto. Um motociclista que usa o app num tablet fixado no guidão queria que a automação do MacroDroid abrisse um par salvo por conta própria — um macro disparado pela ignição que abre a tela dividida sem nenhum toque durante o trajeto. Esse pedido virou funcionalidade. A partir da versão 3.0.4, um par salvo pode ser aberto pelo seletor de atalhos padrão do Android, de modo que o macro dispara a tela dividida da mesma forma que dispara qualquer outra ação. É um recurso Pro, estritamente limitado a abrir seus pares já salvos. Se você não usa ferramentas de automação, isso não vai fazer diferença — mas para o segmento de usuários que precisa de mãos livres na estrada, ela fecha a lacuna entre "um toque" e "zero toques".
+    </p>
+    <p>
+      Você pode acionar pares salvos a partir do MacroDroid, do Tasker e do Automate.
+    </p>
+    <ul style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li><strong>MacroDroid</strong> — Action → Applications → Launch Shortcut</li>
+      <li><strong>Tasker</strong> — Add Action → App → Shortcut → Choose</li>
+      <li><strong>Automate</strong> — bloco <strong>App start</strong> → Pick shortcut</li>
+    </ul>
+    <p>
+      Quando a lista abrir, escolha o Split Screen e, em seguida, escolha o par que você quer abrir.
+    </p>
+    <p>
+      No Automate, usar o bloco <strong>App shortcut start</strong> impede salvar o fluxo. Use o bloco <strong>App start</strong>.
+    </p>
+    <p>
+      Um horário do dia. Uma conexão Bluetooth. Chegar em casa. Conectar o fone de ouvido. Os apps de automação podem abrir um par a partir de todo tipo de gatilho.
+    </p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="Lista 'Select Shortcut' do MacroDroid mostrando o Split Screen entre os atalhos disponíveis">
@@ -237,6 +248,16 @@
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen perguntando qual par salvo deve ser aberto">
         <figcaption>O seletor de atalhos exibe então os pares do Split Screen que você salvou para escolher.</figcaption>
+      </figure>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/tasker/1.png" alt="Tela do Tasker mostrando o Split Screen na lista de atalhos">
+        <figcaption>Na ação "Shortcut" do Tasker, o Split Screen aparece na lista.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/tasker/2.png" alt="Split Screen perguntando qual par salvo deve ser aberto">
+        <figcaption>Você escolhe o par salvo que quer abrir.</figcaption>
       </figure>
     </div>
     <h3>Backup e exportação</h3>
@@ -349,7 +370,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Implementações específicas de fabricantes</strong> — App Pair da Samsung (desde a One UI, 2017), além de variantes em Xiaomi, OPPO e no antigo LG. Só funcionam nos aparelhos de cada marca.</li>
       <li><strong>Utilitários de terceiros</strong> — apps independentes dedicados a esse único caso de uso. Boa parte é construída em cima de APIs do sistema que foram restringidas ou removidas nas últimas versões do Android, por isso o catálogo ficou visivelmente menor.</li>
-      <li><strong>Abordagens via automação</strong> — Tasker e ferramentas parecidas permitem criar um script para abrir em tela dividida, mas dependem das mesmas primitivas dos apps dedicados, então herdam as mesmas falhas. Também exigem que o usuário monte cada par manualmente. A partir da versão 3.0.4, adicionamos uma forma direta de integrar com essas ferramentas: é possível abrir um par salvo pelo MacroDroid (Pro) sem precisar montar a tela dividida você mesmo. Como usa o seletor de atalhos padrão do Android, deve funcionar também com outros apps de automação como Tasker ou Automate, embora não tenhamos testado esses de ponta a ponta.</li>
+      <li><strong>Abordagens via automação</strong> — Tasker e ferramentas parecidas permitem criar um script para abrir em tela dividida, mas dependem das mesmas primitivas dos apps dedicados, então herdam as mesmas falhas. Também exigem que o usuário monte cada par manualmente. A partir da versão 3.0.4, adicionamos uma forma direta de integrar com essas ferramentas: é possível abrir um par salvo pelo MacroDroid, Tasker ou Automate (Pro).</li>
     </ul>
     <p>O próprio cenário de apps de terceiros é fragmentado. A Google Play exibe dezenas de utilitários dedicados a tela dividida, mas a atividade e a qualidade estão distribuídas de forma irregular.</p>
     <p>Os apps mais baixados desse nicho acumularam milhões de instalações, mas os líderes do campo são surpreendentemente fracos: o maior deles combina esse grande alcance com uma nota de avaliação medíocre, e outra alternativa bastante instalada teve sua última atualização em meados de 2025 e ainda não publicou correção para as mudanças nas APIs de tela dividida do Android 15/16. Vários outros adotam preços agressivos, com assinaturas semanais caras que geraram críticas em comunidades de usuários.</p>

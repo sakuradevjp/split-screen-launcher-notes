@@ -220,15 +220,16 @@
     </ul>
     <p>有一个我们没料到的使用场景：车里。一位用户告诉我们，他在车载的 Android AI 盒子上运行 Split Screen Launcher，导航配音乐时用 <strong>Maps + Spotify</strong>，给副驾座上的人则切换到 <strong>Maps + Netflix</strong>。由于启动一个应用对只需轻点一下，它比在最近任务菜单里长按操作更适合车机。</p>
     <h3>自动触发应用对 — MacroDroid、Automate、Tasker</h3>
-    <p>另一个完全没料到的使用场景来自截然不同的角落：摩托车。一位把平板固定在车把上使用本应用的骑手，希望 MacroDroid 自动化能自行唤起一个已保存的应用对——一个由点火触发的宏，在行驶时无需任何点击就能打开分屏。这个需求直接变成了一个功能。从 3.0.4 版本起，MacroDroid 可以通过 Android 标准的快捷方式选择器来启动已保存的应用对，宏就能像触发其他动作一样触发分屏。Tasker 或 Automate 这类自动化工具我们没有逐一测试，但由于该功能依赖的是标准的 Android 选择器而非任何应用专属机制，它们应该同样适用。这是一项 Pro 功能，严格限于启动你预先保存好的应用对。不用自动化工具的用户对此不会有感知——但对于骑行途中需要免提操作的那部分用户来说，它填补了"一键"和"零点击"之间的空缺。</p>
-    <h4>在 MacroDroid 中的设置步骤</h4>
-    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
-      <li>在你的宏中，添加一个 <strong>Action → Applications → Launch Shortcut</strong>。</li>
-      <li>在"Select Shortcut"列表中，选择 <strong>Split Screen</strong>。</li>
-      <li>选择你想触发的已保存应用对。</li>
-      <li>绑定到你喜欢的任意触发器——Bluetooth 设备连接、充电器插入，或某个时间点。</li>
-    </ol>
-    <p>就这样。设定的触发器一旦触发，应用对就会完全自动弹出。比如，你可以设置成汽车发动时就自动打开胎压监测应用和通话应用，或者手机连上车载 Bluetooth 时就自动启动导航和音乐应用。</p>
+    <p>另一个完全没料到的使用场景来自截然不同的角落：摩托车。一位把平板固定在车把上使用本应用的骑手，希望 MacroDroid 自动化能自行唤起一个已保存的应用对——一个由点火触发的宏，在行驶时无需任何点击就能打开分屏。这个需求直接变成了一个功能。从 3.0.4 版本起，已保存的应用对可以通过 Android 标准的快捷方式选择器来启动，宏就能像触发其他动作一样触发分屏。这是一项 Pro 功能，严格限于启动你预先保存好的应用对。不用自动化工具的用户对此不会有感知——但对于骑行途中需要免提操作的那部分用户来说，它填补了"一键"和"零点击"之间的空缺。</p>
+    <p>你可以从 MacroDroid、Tasker、Automate 启动已保存的应用对。</p>
+    <ul style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li><strong>MacroDroid</strong> — 添加动作 → 应用 → 启动快捷方式</li>
+      <li><strong>Tasker</strong> — 添加动作 → App → Shortcut → Choose</li>
+      <li><strong>Automate</strong> — App start 模块 → Pick shortcut</li>
+    </ul>
+    <p>列表打开后，选择 Split Screen，然后选择你想启动的应用对。</p>
+    <p>在 Automate 中，如果使用 App shortcut start 模块，流程将无法保存。请使用 App start。</p>
+    <p>某个时间点。一次 Bluetooth 连接。到家。插上耳机。自动化应用可以从各式各样的触发条件唤起一个应用对。</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="MacroDroid 的"Select Shortcut"列表，显示 Split Screen 出现在可用快捷方式中">
@@ -237,6 +238,16 @@
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen 询问要启动哪个已保存的应用对">
         <figcaption>随后快捷方式选择器会列出你在 Split Screen 中已保存的应用对，供你选择。</figcaption>
+      </figure>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/tasker/1.png" alt="Tasker 的"Shortcut"动作列表，显示 Split Screen 出现在可用快捷方式中">
+        <figcaption>在 Tasker 的"Shortcut"动作列表中，Split Screen 会出现在其中。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/tasker/2.png" alt="Split Screen 询问要启动哪个已保存的应用对">
+        <figcaption>选择你想启动的已保存应用对。</figcaption>
       </figure>
     </div>
     <h3>备份与导出</h3>
@@ -345,7 +356,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>厂商专属实现</strong> —— 三星的应用对（2017 年 One UI 以来），以及小米、OPPO 和旧 LG 的变体。只在各自厂商的设备上可用。</li>
       <li><strong>第三方工具</strong> —— 专注这一用例的独立应用。大多数建立在近年 Android 中被收窄或移除的 OS 级 API 之上，因此可用的产品已明显减少。</li>
-      <li><strong>基于自动化的方案</strong> —— Tasker 等工具可以脚本化分屏启动，但它们依赖与专用应用相同的底层原语，会继承同样的失效问题。而且每个应用对都要用户手工搭建。从 3.0.4 版本起，我们提供了一种直接接入这类工具的方式：无需自己编写分屏脚本，即可通过 MacroDroid 启动已保存的应用对（Pro 功能）。由于它使用的是 Android 标准的快捷方式选择器，Tasker 或 Automate 等其他自动化应用理论上也同样适用，但我们尚未对这些工具进行端到端测试。</li>
+      <li><strong>基于自动化的方案</strong> —— Tasker 等工具可以脚本化分屏启动，但它们依赖与专用应用相同的底层原语，会继承同样的失效问题。而且每个应用对都要用户手工搭建。从 3.0.4 版本起，我们提供了一种直接接入这类工具的方式：你可以通过 MacroDroid、Tasker 或 Automate 启动已保存的应用对（Pro 功能）。</li>
     </ul>
     <p>
       第三方阵营自身也参差不齐。Google Play 上能找到几十款专做分屏的工具，但活跃度和质量的分布极不均衡。

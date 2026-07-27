@@ -220,15 +220,16 @@
     </ul>
     <p>Ein Anwendungsfall, den wir nicht erwartet hatten: das Auto. Ein Nutzer erzählte uns, dass er Split Screen Launcher auf der Android-KI-Box in seinem Fahrzeug nutzt und <strong>Maps + Spotify</strong> für Navigation mit Musik paart – und auf <strong>Maps + Netflix</strong> umschaltet für die Person auf dem Beifahrersitz. Weil ein Paar mit einem einzigen Tipp startet, passt das viel besser zu einem Infotainment-System als das lange Drücken durch das Übersichtsmenü.</p>
     <h3>Paare automatisch starten — MacroDroid, Automate, Tasker</h3>
-    <p>Ein weiterer Anwendungsfall, den wir nicht geplant hatten, kam aus einer völlig anderen Ecke: dem Motorrad. Ein Fahrer, der die App auf einem am Lenker befestigten Tablet nutzte, wollte seine MacroDroid-Automatisierung dazu bringen, ein gespeichertes Paar selbstständig aufzurufen – ein zündungsgesteuertes Makro, das den Split während der Fahrt ohne Tipp öffnet. Aus diesem Wunsch wurde eine Funktion. Ab Version 3.0.4 kann MacroDroid ein gespeichertes Paar über Androids Standard-Shortcut-Auswahl starten, sodass ein Makro den Split genauso auslöst wie jede andere Aktion. Andere Automatisierungs-Apps wie Tasker oder Automate haben wir nicht einzeln getestet, aber da die Funktion auf diesem Standard-Android-Picker basiert und nichts App-spezifisches nutzt, sollten sie auf die gleiche Weise funktionieren. Es ist eine Pro-Funktion und strikt darauf beschränkt, gespeicherte Paare zu starten. Wer keine Automatisierungs-Tools nutzt, wird damit nichts anfangen – aber für den Freihandbereich unserer Nutzer, die unterwegs sind, schließt es die Lücke zwischen „einem Tipp" und „keinem Tipp".</p>
-    <h4>Einrichtung in MacroDroid</h4>
-    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
-      <li>Füge in deinem Makro eine <strong>Action → Applications → Launch Shortcut</strong> hinzu.</li>
-      <li>Wähle in der „Select Shortcut"-Liste <strong>Split Screen</strong> aus.</li>
-      <li>Wähle das gespeicherte Paar aus, das du auslösen möchtest.</li>
-      <li>Verknüpfe es mit einem beliebigen Trigger – einem verbindenden Bluetooth-Gerät, einem eingesteckten Ladekabel oder einer Uhrzeit.</li>
-    </ol>
-    <p>Das war's. Sobald der Trigger auslöst, startet das App-Paar vollständig von selbst. Zum Beispiel lässt sich einstellen, dass der Reifendrucksensor und die Telefon-App in dem Moment starten, in dem das Auto anspringt — oder dass Navigation und Musik-App aufpoppen, sobald das Handy per Bluetooth mit dem Auto verbunden ist.</p>
+    <p>Ein weiterer Anwendungsfall, den wir nicht geplant hatten, kam aus einer völlig anderen Ecke: dem Motorrad. Ein Fahrer, der die App auf einem am Lenker befestigten Tablet nutzte, wollte seine MacroDroid-Automatisierung dazu bringen, ein gespeichertes Paar selbstständig aufzurufen – ein zündungsgesteuertes Makro, das den Split während der Fahrt ohne Tipp öffnet. Aus diesem Wunsch wurde eine Funktion. Ab Version 3.0.4 kann ein gespeichertes Paar über Androids Standard-Shortcut-Auswahl gestartet werden, sodass ein Makro den Split genauso auslöst wie jede andere Aktion. Es ist eine Pro-Funktion und strikt darauf beschränkt, gespeicherte Paare zu starten. Wer keine Automatisierungs-Tools nutzt, wird damit nichts anfangen – aber für den Freihandbereich unserer Nutzer, die unterwegs sind, schließt es die Lücke zwischen „einem Tipp" und „keinem Tipp".</p>
+    <p>Von MacroDroid, Tasker und Automate aus lassen sich deine gespeicherten Paare aufrufen.</p>
+    <ul style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li><strong>MacroDroid</strong> — Action → Applications → Launch Shortcut</li>
+      <li><strong>Tasker</strong> — Action → App → Shortcut → Choose</li>
+      <li><strong>Automate</strong> — <strong>App start</strong>-Block → Pick shortcut</li>
+    </ul>
+    <p>Sobald sich die Liste öffnet, wählst du Split Screen aus und anschließend das Paar, das du starten möchtest.</p>
+    <p>Verwendest du in Automate den <strong>App shortcut start</strong>-Block, lässt sich der Ablauf nicht speichern. Nimm den <strong>App start</strong>-Block.</p>
+    <p>Eine Uhrzeit. Eine Bluetooth-Verbindung. Zuhause ankommen. Kopfhörer einstecken. Automatisierungs-Apps können ein Paar über ganz unterschiedliche Auslöser aufrufen.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="Die „Select Shortcut"-Liste von MacroDroid zeigt Split Screen unter den verfügbaren Verknüpfungen">
@@ -237,6 +238,16 @@
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen fragt, welches gespeicherte Paar gestartet werden soll">
         <figcaption>Die Shortcut-Auswahl zeigt dann deine gespeicherten Split Screen-Paare zur Auswahl an.</figcaption>
+      </figure>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/tasker/1.png" alt="Die „Shortcut"-Liste von Tasker zeigt Split Screen unter den verfügbaren Verknüpfungen">
+        <figcaption>In Taskers „Shortcut"-Aktion erscheint Split Screen in der Liste.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/tasker/2.png" alt="Split Screen fragt, welches gespeicherte Paar gestartet werden soll">
+        <figcaption>Du wählst das gespeicherte Paar aus, das du starten möchtest.</figcaption>
       </figure>
     </div>
     <h3>Backup und Export</h3>
@@ -349,7 +360,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Hersteller-spezifische Umsetzungen</strong> – Samsungs App Pair (seit One UI, 2017), dazu Varianten bei Xiaomi, OPPO und dem alten LG. Laufen nur auf Geräten des jeweiligen Herstellers.</li>
       <li><strong>Drittanbieter-Tools</strong> – eigenständige Apps, die sich diesem einen Anwendungsfall widmen. Die meisten bauen auf OS-APIs auf, die in jüngeren Android-Versionen eingeengt oder gestrichen wurden, weshalb das Feld spürbar geschrumpft ist.</li>
-      <li><strong>Automatisierungsansätze</strong> – Tasker und vergleichbare Tools können einen Split-Start skripten, sie setzen aber auf den gleichen Grundbausteinen auf wie dedizierte Apps und erben damit dieselben Defekte. Außerdem muss der Nutzer jedes Paar selbst konstruieren. Ab Version 3.0.4 haben wir eine unkomplizierte Möglichkeit hinzugefügt, sich in diese Tools einzuklinken: Man kann ein gespeichertes Paar aus MacroDroid heraus starten (Pro), ohne den Split selbst zu skripten. Da die Funktion Androids Standard-Shortcut-Auswahl nutzt, sollte sie auch mit anderen Automatisierungs-Apps wie Tasker oder Automate funktionieren – diese haben wir allerdings nicht vollständig getestet.</li>
+      <li><strong>Automatisierungsansätze</strong> – Tasker und vergleichbare Tools können einen Split-Start skripten, sie setzen aber auf den gleichen Grundbausteinen auf wie dedizierte Apps und erben damit dieselben Defekte. Außerdem muss der Nutzer jedes Paar selbst konstruieren. Ab Version 3.0.4 haben wir eine unkomplizierte Möglichkeit hinzugefügt, sich in diese Tools einzuklinken: Man kann ein gespeichertes Paar aus MacroDroid, Tasker oder Automate starten (Pro).</li>
     </ul>
     <p>Auch das Drittanbieter-Umfeld selbst ist fragmentiert. Google Play führt Dutzende dedizierter Splitscreen-Tools, doch Aktivität und Qualität sind ungleich verteilt.</p>
     <p>Die meistgeladenen Apps in dieser Nische haben Millionen von Installationen angehäuft, doch die Spitzenreiter des Feldes sind überraschend schwach: Der größte von ihnen verbindet diese große Reichweite mit einer mittelmäßigen Bewertung, und eine andere weitverbreitete Alternative wurde zuletzt Mitte 2025 aktualisiert und hat noch immer keinen Fix für die Splitscreen-API-Änderungen von Android 15/16 ausgeliefert. Mehrere weitere setzen aggressive Preise an, mit happigen Wochen-Abos, die in Nutzer-Communities Kritik hervorgerufen haben.</p>

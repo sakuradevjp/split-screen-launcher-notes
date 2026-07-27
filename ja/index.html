@@ -518,17 +518,24 @@
     </p>
     <h3>アプリペアを自動で起動 — MacroDroid・Automate・Tasker</h3>
     <p>
-      想定していなかった使い方は、まったく別のところからもう 1 つ届きました — バイクです。ハンドルにタブレットを取り付けて本アプリを使っているライダーが、MacroDroid の自動化で保存したペアをひとりでに立ち上げたい、と考えていました。エンジン始動をきっかけに、走行中はタップせずに分割を開くマクロです。この要望がそのまま機能になりました。バージョン 3.0.4 から、MacroDroid は Android 標準のショートカット選択を通して保存済みペアを起動でき、マクロは他の動作と同じ要領で分割を呼び出せます。Tasker や Automate といった他の自動化ツールは個別には検証していませんが、この機能はアプリ独自の仕組みではなく標準のショートカット選択に依存しているので、同じように動くはずです。Pro 機能で、できるのは保存済みペアの起動に限られます。自動化ツールを使わない人には無縁ですが、ハンズフリーで移動中に使う層には、「ワンタップ」と「ノータップ」の間の隙間を埋める機能です。
+      想定していなかった使い方は、まったく別のところからもう 1 つ届きました — バイクです。ハンドルにタブレットを取り付けて本アプリを使っているライダーが、MacroDroid の自動化で保存したペアをひとりでに立ち上げたい、と考えていました。エンジン始動をきっかけに、走行中はタップせずに分割を開くマクロです。この要望がそのまま機能になりました。バージョン 3.0.4 から、Android 標準のショートカット選択を通して保存済みペアを起動でき、マクロは他の動作と同じ要領で分割を呼び出せます。Pro 機能で、できるのは保存済みペアの起動に限られます。自動化ツールを使わない人には無縁ですが、ハンズフリーで移動中に使う層には、「ワンタップ」と「ノータップ」の間の隙間を埋める機能です。
     </p>
-    <h4>MacroDroid での設定手順</h4>
-    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
-      <li>マクロに <strong>アクションを追加 → アプリ → ショートカットを起動（Launch Shortcut）</strong>。</li>
-      <li>「ショートカットを選択」の一覧で <strong>Split Screen</strong> を選ぶ。</li>
-      <li>起動したい保存済みのペアを選ぶ。</li>
-      <li>あとは好きなトリガーに紐づけるだけ — Bluetooth 機器の接続、充電の開始、時刻など。</li>
-    </ol>
     <p>
-      これだけで完了です。設定したトリガーが作動すると、アプリペアが自動的に起動します。例えば「車のエンジンがかかったら、タイヤ空気圧センサーと通話アプリを起動」「Bluetooth に接続されたら、ナビと音楽アプリを起動」といった使い方ができます。
+      MacroDroid、Tasker、Automate から、保存したペアを呼び出せます。
+    </p>
+    <ul style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li><strong>MacroDroid</strong> — アクションを追加 → アプリ → ショートカットを起動</li>
+      <li><strong>Tasker</strong> — 動作を追加 → App → Shortcut → Choose</li>
+      <li><strong>Automate</strong> — <strong>App start</strong> ブロック → Pick shortcut</li>
+    </ul>
+    <p>
+      一覧が開いたら <strong>Split Screen</strong> を選び、続けて開きたいペアを選びます。
+    </p>
+    <p>
+      Automate で <strong>App shortcut start</strong> ブロックを使うとフローを保存できません。<strong>App start</strong> を使ってください。
+    </p>
+    <p>
+      時間が来たら、Bluetooth がつながったら、自宅に近づいたら、イヤフォンを挿したら。自動化アプリは、さまざまなきっかけからアプリペアを呼び出せます。
     </p>
     <div class="img-row">
       <figure>
@@ -538,6 +545,16 @@
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen がどの保存済みペアを起動するか尋ねる画面">
         <figcaption>ショートカットに Split Screen の保存済みペアが表示されます。</figcaption>
+      </figure>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/tasker/1.png" alt="Tasker の Shortcut 一覧に Split Screen が並んでいる画面">
+        <figcaption>Tasker の「Shortcut」動作の一覧に Split Screen が出てきます。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/tasker/2.png" alt="Split Screen がどの保存済みペアを起動するか尋ねる画面">
+        <figcaption>起動したい保存済みのペアを選びます。</figcaption>
       </figure>
     </div>
     <h3>バックアップ・エクスポート</h3>
@@ -682,7 +699,7 @@
     <ul style="padding-left: 20px; margin-bottom: 18px;">
       <li><strong>OEM 独自の実装</strong> — Samsung のアプリペア（2017 年の One UI 以降）。Xiaomi や OPPO、旧 LG にも類似の機能があります。これらはそれぞれのメーカーの端末でしか動きません。</li>
       <li><strong>サードパーティのユーティリティ</strong> — この用途に特化した単機能アプリ。多くが近年の Android で縮小・廃止された OS レベル API に依存しているため、この分野のアプリはかなり減りました。</li>
-      <li><strong>自動化ベースのアプローチ</strong> — Tasker などのツールで分割起動をスクリプト化できますが、専用アプリと同じ仕組みに依存しているため、結局同じ場面で同じように動かなくなります。さらに、ペアごとに手作業で作り込む必要があります。バージョン 3.0.4 では、こうしたツールと連携する簡単な方法を用意しました。分割を自分で組まなくても、MacroDroid から保存済みペアを起動できます（Pro）。標準のショートカット選択を経由するので、Tasker や Automate といった他の自動化アプリでも同じように使えるはずですが、そちらは個別には検証していません。</li>
+      <li><strong>自動化ベースのアプローチ</strong> — Tasker などのツールで分割起動をスクリプト化できますが、専用アプリと同じ仕組みに依存しているため、結局同じ場面で同じように動かなくなります。さらに、ペアごとに手作業で作り込む必要があります。バージョン 3.0.4 では、こうしたツールと連携する簡単な方法を用意しました。MacroDroid、Tasker、Automate から保存済みのペアを呼び出せます（Pro）。</li>
     </ul>
     <p>
       サードパーティの市場自体はかなり断片化しています。Google Play には専用の分割画面ユーティリティが数十本並んでいますが、アクティブさと品質のばらつきが大きい状態です。

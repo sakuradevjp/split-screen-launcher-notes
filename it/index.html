@@ -220,15 +220,22 @@
     </ul>
     <p>Un caso d'uso che non avevamo previsto: l'auto. Un utente ci ha raccontato di usare Split Screen Launcher sull'AI box Android del proprio veicolo, abbinando <strong>Maps + Spotify</strong> per la navigazione con la musica — e passando a <strong>Maps + Netflix</strong> per chi siede sul sedile del passeggero. Dato che lanciare una coppia è un singolo tocco, si adatta a un sistema di infotainment molto meglio del tenere premuto nel menu delle Recenti.</p>
     <h3>Attiva le tue coppie in automatico — MacroDroid, Automate, Tasker</h3>
-    <p>Un altro caso d'uso inatteso è arrivato da un angolo completamente diverso: una moto. Un motociclista che usa l'app su un tablet montato sul manubrio voleva che la sua automazione MacroDroid aprisse da sola una coppia salvata — una macro attivata dall'accensione del motore che avvia lo schermo diviso senza alcun tocco durante la marcia. Quella richiesta è diventata una funzione. Dalla versione 3.0.4, MacroDroid può lanciare una coppia salvata tramite il selettore standard di scorciatoie di Android, così una macro attiva la divisione esattamente come attiva qualsiasi altra azione. Non abbiamo testato singolarmente altri strumenti di automazione come Tasker o Automate, ma poiché questa funzione si affida a quel selettore Android standard piuttosto che a qualcosa di specifico dell'app, dovrebbero funzionare allo stesso modo. È una funzione Pro, strettamente limitata al lancio delle coppie pre-salvate. Se non usi strumenti di automazione questo non ti riguarderà — ma per chi usa il telefono in viaggio a mani libere, colma il divario tra "un tocco" e "nessun tocco".</p>
-    <h4>Configurazione in MacroDroid</h4>
-    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
-      <li>Nel tuo macro, aggiungi un'<strong>Action → Applications → Launch Shortcut</strong>.</li>
-      <li>Nell'elenco "Select Shortcut", scegli <strong>Split Screen</strong>.</li>
-      <li>Seleziona la coppia salvata specifica che vuoi attivare.</li>
-      <li>Associala al trigger che preferisci — un dispositivo Bluetooth che si connette, un caricatore che viene inserito, o un orario del giorno.</li>
-    </ol>
-    <p>Tutto qui. Quando il trigger si attiva, la coppia si apre interamente da sola. Ad esempio, puoi impostarlo in modo che il monitor della pressione degli pneumatici e l'app per le chiamate si avviino nel momento in cui il motore dell'auto parte, oppure far apparire la navigazione e la musica non appena il telefono si connette al Bluetooth dell'auto.</p>
+    <p>Un altro caso d'uso inatteso è arrivato da un angolo completamente diverso: una moto. Un motociclista che usa l'app su un tablet montato sul manubrio voleva che la sua automazione MacroDroid aprisse da sola una coppia salvata — una macro attivata dall'accensione del motore che avvia lo schermo diviso senza alcun tocco durante la marcia. Quella richiesta è diventata una funzione. Dalla versione 3.0.4, una coppia salvata può essere lanciata tramite il selettore standard di scorciatoie di Android, così una macro attiva la divisione esattamente come attiva qualsiasi altra azione. È una funzione Pro, strettamente limitata al lancio delle coppie pre-salvate. Se non usi strumenti di automazione questo non ti riguarderà — ma per chi usa il telefono in viaggio a mani libere, colma il divario tra "un tocco" e "nessun tocco".</p>
+    <p>
+      Puoi richiamare le coppie salvate da MacroDroid, Tasker e Automate.
+    </p>
+    <ul style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li><strong>MacroDroid</strong> — aggiungi un'azione → Applications → Launch Shortcut</li>
+      <li><strong>Tasker</strong> — aggiungi un'azione → App → Shortcut → Choose</li>
+      <li><strong>Automate</strong> — blocco <strong>App start</strong> → Pick shortcut</li>
+    </ul>
+    <p>
+      Quando si apre l'elenco, scegli <strong>Split Screen</strong> e poi la coppia che vuoi aprire.
+    </p>
+    <p>
+      Su Automate, il blocco <strong>App shortcut start</strong> non permette di salvare il flusso. Usa <strong>App start</strong>.
+    </p>
+    <p>Un orario del giorno. Una connessione Bluetooth. Il rientro a casa. Il collegamento delle cuffie. Le app di automazione possono richiamare una coppia da ogni genere di innesco.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="Nell'azione &quot;Launch Shortcut&quot; di MacroDroid, Split Screen compare nell'elenco &quot;Select Shortcut&quot;">
@@ -237,6 +244,16 @@
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Dopo aver selezionato Split Screen, l'app chiede quale coppia salvata lanciare — la macro avvia quella divisione a mani libere">
         <figcaption>Il selettore di scorciatoie mostra poi le coppie di Split Screen salvate tra cui scegliere.</figcaption>
+      </figure>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/tasker/1.png" alt="Nell'azione &quot;Shortcut&quot; di Tasker, Split Screen compare tra le opzioni dell'elenco">
+        <figcaption>Nell'azione "Shortcut" di Tasker, Split Screen compare nell'elenco.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/tasker/2.png" alt="Split Screen che chiede quale coppia salvata avviare in Tasker">
+        <figcaption>Scegli la coppia salvata che vuoi avviare.</figcaption>
       </figure>
     </div>
     <h3>Backup ed esportazione</h3>
@@ -349,7 +366,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Implementazioni proprietarie dei produttori</strong> — l'App Pair di Samsung (dal 2017 con One UI), più le varianti di Xiaomi, OPPO e del vecchio LG. Funzionano solo sui dispositivi della rispettiva marca.</li>
       <li><strong>Utility di terze parti</strong> — app autonome dedicate a questo unico caso d'uso. La maggior parte si basa su API di sistema che sono state ristrette o rimosse nelle versioni recenti di Android, motivo per cui il settore si è notevolmente assottigliato.</li>
-      <li><strong>Approcci basati sull'automazione</strong> — Tasker e strumenti simili permettono di scriptare il lancio in schermo diviso, ma si reggono sulle stesse primitive delle app dedicate, quindi ereditano le stesse rotture. Inoltre richiedono all'utente di costruire a mano ogni coppia. Dalla versione 3.0.4 abbiamo aggiunto un modo semplice per agganciarsi a questi strumenti: puoi lanciare una coppia salvata da MacroDroid (Pro) senza dover scriptare tu stesso la divisione. Poiché usa il selettore standard di scorciatoie di Android, dovrebbe funzionare anche con altre app di automazione come Tasker o Automate, anche se non le abbiamo testate dall'inizio alla fine.</li>
+      <li><strong>Approcci basati sull'automazione</strong> — Tasker e strumenti simili permettono di scriptare il lancio in schermo diviso, ma si reggono sulle stesse primitive delle app dedicate, quindi ereditano le stesse rotture. Inoltre richiedono all'utente di costruire a mano ogni coppia. Dalla versione 3.0.4 abbiamo aggiunto un modo semplice per agganciarsi a questi strumenti: puoi lanciare una coppia salvata da MacroDroid, Tasker o Automate (Pro).</li>
     </ul>
     <p>Lo stesso panorama delle terze parti è frammentato. Google Play elenca decine di utility dedicate allo schermo diviso, ma l'attività e la qualità sono distribuite in modo molto disomogeneo.</p>
     <p>Le app più scaricate della nicchia hanno accumulato milioni di installazioni, eppure i leader del settore sono sorprendentemente deboli: la più grande tra loro unisce quella grande diffusione a un punteggio mediocre nelle recensioni, mentre un'altra alternativa molto installata è stata aggiornata per l'ultima volta a metà 2025 e non ha ancora pubblicato una correzione per le modifiche alle API di schermo diviso di Android 15/16. Diverse altre praticano prezzi aggressivi, con costosi abbonamenti settimanali che hanno attirato critiche nelle community degli utenti.</p>

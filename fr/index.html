@@ -220,15 +220,16 @@
     </ul>
     <p>Un cas d'usage que nous n'avions pas anticipé : la voiture. Un utilisateur nous a raconté qu'il fait tourner Split Screen Launcher sur le système d'infodivertissement Android de son véhicule, en associant <strong>Maps + Spotify</strong> pour la navigation avec de la musique — et en basculant sur <strong>Maps + Netflix</strong> pour la personne installée côté passager. Comme lancer une paire tient en un seul tap, ça convient bien mieux à un système embarqué que de naviguer par appui long dans le menu des récents.</p>
     <h3>Déclenchez vos paires automatiquement — MacroDroid, Automate, Tasker</h3>
-    <p>Un autre cas d'usage inattendu nous est parvenu d'un horizon complètement différent : la moto. Un pilote utilisant l'appli sur une tablette fixée au guidon voulait que son automatisation MacroDroid affiche d'elle-même une paire sauvegardée — un macro déclenché par le démarrage du moteur, qui ouvre l'écran partagé sans aucun tap pendant le trajet. Cette demande est devenue une fonctionnalité. Depuis la version 3.0.4, MacroDroid peut lancer une paire sauvegardée via le sélecteur de raccourcis standard d'Android, de sorte qu'un macro déclenche l'écran partagé exactement comme il déclenche n'importe quelle autre action. Nous n'avons pas testé individuellement d'autres outils d'automatisation comme Tasker ou Automate, mais comme cette fonctionnalité repose sur ce sélecteur Android standard plutôt que sur un mécanisme propre à l'appli, ils devraient fonctionner de la même manière. C'est une fonction Pro, strictement limitée au lancement de vos paires préenregistrées. Si vous n'utilisez pas d'outils d'automatisation, cela ne vous concerne pas — mais pour la frange de nos utilisateurs qui conduisent en mode mains libres, c'est ce qui comble l'écart entre « un tap » et « zéro tap ».</p>
-    <h4>Configuration dans MacroDroid</h4>
-    <ol style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
-      <li>Dans votre macro, ajoutez une <strong>Action → Applications → Launch Shortcut</strong>.</li>
-      <li>Dans la liste « Select Shortcut », choisissez <strong>Split Screen</strong>.</li>
-      <li>Sélectionnez la paire sauvegardée spécifique que vous souhaitez déclencher.</li>
-      <li>Associez-la au déclencheur de votre choix — connexion d'un appareil Bluetooth, branchement du chargeur, ou une heure de la journée.</li>
-    </ol>
-    <p>C'est tout. Dès que le déclencheur s'active, la paire d'applis s'ouvre entièrement d'elle-même. Vous pouvez par exemple configurer le lancement automatique du moniteur de pression des pneus et de l'appli d'appel au démarrage du moteur de votre voiture, ou faire apparaître la navigation et la musique dès que votre téléphone se connecte au Bluetooth de la voiture.</p>
+    <p>Un autre cas d'usage inattendu nous est parvenu d'un horizon complètement différent : la moto. Un pilote utilisant l'appli sur une tablette fixée au guidon voulait que son automatisation MacroDroid affiche d'elle-même une paire sauvegardée — un macro déclenché par le démarrage du moteur, qui ouvre l'écran partagé sans aucun tap pendant le trajet. Cette demande est devenue une fonctionnalité. Depuis la version 3.0.4, une paire sauvegardée peut être lancée via le sélecteur de raccourcis standard d'Android, de sorte qu'un macro déclenche l'écran partagé exactement comme il déclenche n'importe quelle autre action. C'est une fonction Pro, strictement limitée au lancement de vos paires préenregistrées. Si vous n'utilisez pas d'outils d'automatisation, cela ne vous concerne pas — mais pour la frange de nos utilisateurs qui conduisent en mode mains libres, c'est ce qui comble l'écart entre « un tap » et « zéro tap ».</p>
+    <p>Vous pouvez déclencher vos paires sauvegardées depuis MacroDroid, Tasker et Automate.</p>
+    <ul style="padding-left: 20px; margin-bottom: 18px; line-height: 1.7;">
+      <li><strong>MacroDroid</strong> — Ajouter une action → Applications → Launch Shortcut</li>
+      <li><strong>Tasker</strong> — Ajouter une action → App → Shortcut → Choose</li>
+      <li><strong>Automate</strong> — Bloc <strong>App start</strong> → Pick shortcut</li>
+    </ul>
+    <p>Une fois la liste ouverte, choisissez <strong>Split Screen</strong>, puis sélectionnez la paire que vous souhaitez ouvrir.</p>
+    <p>Dans Automate, utiliser le bloc <strong>App shortcut start</strong> empêche l'enregistrement du flux. Utilisez <strong>App start</strong>.</p>
+    <p>Une heure précise. Une connexion Bluetooth. L'arrivée à la maison. Le branchement d'écouteurs. Les applis d'automatisation peuvent afficher une paire à partir de toutes sortes de déclencheurs.</p>
     <div class="img-row">
       <figure>
         <img src="../assets/shots/macrodroid/1.png" alt="La liste « Select Shortcut » de MacroDroid affichant Split Screen parmi les raccourcis disponibles">
@@ -237,6 +238,16 @@
       <figure>
         <img src="../assets/shots/macrodroid/2.png" alt="Split Screen demandant quelle paire sauvegardée lancer">
         <figcaption>Le sélecteur de raccourcis affiche ensuite les paires Split Screen sauvegardées parmi lesquelles choisir.</figcaption>
+      </figure>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="../assets/shots/tasker/1.png" alt="La liste « Shortcut » de Tasker affichant Split Screen parmi les raccourcis disponibles">
+        <figcaption>Dans l'action « Shortcut » de Tasker, Split Screen apparaît dans la liste.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/shots/tasker/2.png" alt="Split Screen demandant quelle paire sauvegardée lancer">
+        <figcaption>Vous choisissez la paire sauvegardée que vous souhaitez lancer.</figcaption>
       </figure>
     </div>
     <h3>Sauvegarde et export</h3>
@@ -349,7 +360,7 @@
     <ul style="padding-left:20px;margin-bottom:18px;">
       <li><strong>Implémentations propres aux constructeurs</strong> — App Pair de Samsung (depuis One UI, 2017), variantes chez Xiaomi, OPPO et l'ancien LG. Ne fonctionnent que sur les appareils du fabricant concerné.</li>
       <li><strong>Utilitaires tiers</strong> — applications autonomes consacrées à ce seul cas d'usage. La plupart reposent sur des API système qui ont été resserrées ou retirées dans les versions récentes d'Android, ce qui explique l'amenuisement notable de l'offre.</li>
-      <li><strong>Approches par automatisation</strong> — Tasker et outils similaires peuvent scripter un lancement partagé, mais ils s'appuient sur les mêmes primitives que les applis dédiées et héritent donc des mêmes pannes. Ils imposent aussi à l'utilisateur de construire chaque paire à la main. Depuis la version 3.0.4, nous avons ajouté un moyen simple de se connecter à ces outils : vous pouvez lancer une paire sauvegardée depuis MacroDroid (Pro) sans scripter vous-même l'écran partagé. Comme la fonction repose sur le sélecteur de raccourcis standard d'Android, elle devrait également fonctionner avec d'autres applis d'automatisation comme Tasker ou Automate, bien que nous n'ayons pas testé ces dernières de bout en bout.</li>
+      <li><strong>Approches par automatisation</strong> — Tasker et outils similaires peuvent scripter un lancement partagé, mais ils s'appuient sur les mêmes primitives que les applis dédiées et héritent donc des mêmes pannes. Ils imposent aussi à l'utilisateur de construire chaque paire à la main. Depuis la version 3.0.4, nous avons ajouté un moyen simple de se connecter à ces outils : vous pouvez lancer une paire sauvegardée depuis MacroDroid, Tasker ou Automate (Pro).</li>
     </ul>
     <p>Le paysage des applis tierces est lui-même fragmenté. Google Play recense des dizaines d'utilitaires dédiés à l'écran partagé, mais l'activité et la qualité y sont inégalement réparties.</p>
     <p>Les applis les plus téléchargées de ce créneau ont cumulé des millions d'installations, et pourtant les têtes d'affiche du domaine sont étonnamment faibles : la plus grosse d'entre elles combine cette large audience avec une note d'avis médiocre, et une autre alternative très installée n'a pas été mise à jour depuis la mi-2025 et n'a toujours pas livré de correctif pour les changements d'API d'écran partagé d'Android 15/16. Plusieurs autres pratiquent des tarifs agressifs, avec des abonnements hebdomadaires élevés qui ont suscité des critiques dans les communautés d'utilisateurs.</p>
