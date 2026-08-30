@@ -189,20 +189,20 @@ REVIEWS = [
         "original_lang": "en",
         "original_text": 'This app just works! No server-side, data mining. The developer is very attentive and is open to feature requests. I requested a new feature and a day later it was there in an update. Get the "Pro" version!',
         "translations": {
-            'ja': 'このアプリ、マジでちゃんと動く！データの外部送信も収集もなくて安心。開発者さんがすごく親切で、機能のリクエストにも柔軟に対応してくれます。新機能をお願いしたら、なんと翌日にはアップデートに入ってました。絶対に「Pro」版がおすすめ！',
-            'ko': '이 앱, 진짜 제대로 작동해요! 서버로 데이터를 보내거나 수집하는 일도 없어서 안심이고요. 개발자분이 정말 친절하시고 피드백도 잘 받아주세요. 새 기능 요청했더니 다음 날 업데이트에 바로 반영됐더라고요. "Pro" 버전 꼭 구매하세요!',
-            'zh-CN': '这个应用真的超好用！不传数据到服务器，也不采集隐私。开发者超赞，特别乐于听取功能建议——我提了个新功能，第二天更新就上线了。强烈推荐入手「Pro」版！',
-            'zh-TW': '這個 App 真的超好用！不傳資料到伺服器，也不會收集隱私。開發者非常用心，也很樂意聽取使用者的功能建議——我提了一個新功能，隔天更新就加進去了。強烈推薦入手「Pro」版！',
-            'es': '¡Esta app funciona a la perfección! Nada de enviar datos al servidor ni rastrear tu información. El desarrollador es súper atento y siempre escucha las sugerencias. Pedí una nueva función y al día siguiente ya estaba incluida en la actualización. ¡Hazte con la versión "Pro"!',
-            'pt-BR': 'Esse app simplesmente funciona! Nada de enviar dados para servidores ou coletar suas informações. O desenvolvedor é super atencioso e aberto a sugestões de funções. Pedi uma novidade e, no dia seguinte, ela já estava disponível em uma atualização. Garanta a versão "Pro"!',
-            'fr': 'Cette app fonctionne à la perfection ! Pas d\'envoi de données sur serveur, pas de collecte d\'infos privées. Le développeur est super réactif et à l\'écoute des suggestions. J\'ai demandé une nouvelle fonctionnalité, et le lendemain elle était déjà intégrée dans une mise à jour. Passez à la version "Pro" !',
-            'de': 'Die App funktioniert einfach super! Keine Server-Übertragung, kein Datensammeln. Der Entwickler ist extrem aufmerksam und offen für Feature-Wünsche. Ich habe nach einer neuen Funktion gefragt, und nur einen Tag später war sie schon im Update drin. Holt euch unbedingt die „Pro“-Version!',
-            'it': 'Quest\'app funziona alla perfezione! Niente dati inviati a server esterni o tracciamento. Lo sviluppatore è super attento e disponibilissimo a inserire nuove funzioni. Ho chiesto una modifica e il giorno dopo era già pronta con un aggiornamento. Passate alla versione "Pro"!',
-            'ru': 'Приложение просто работает — и всё тут! Никакой отправки данных на серверы и слежки. Разработчик очень внимательный и всегда открыт к пожеланиям: я попросил добавить новую фичу, и уже на следующий день она вышла в обновлении. Обязательно берите версию «Pro»!',
-            'ar': 'هذا التطبيق يعمل ببساطة وبدون أي تعقيد! لا إرسال للبيانات إلى سيرفرات ولا تتبع أو جمع للمعلومات. المطور متجاوب جداً ويهتم باقتراحات الميزات؛ طلبت ميزة جديدة وفي اليوم التالي مباشرة نزلت في التحديث! احصلوا على نسخة "Pro" فوراً!',
-            'hi': 'यह ऐप एकदम परफेक्ट काम करता है! न तो कोई डेटा सर्वर पर जाता है और न ही कोई डेटा माइनिंग होती है। डेवलपर बहुत बढ़िया हैं और यूजर के सुझावों को सुनते हैं। मैंने एक नए फीचर की रिक्वेस्ट की और अगले ही दिन वो अपडेट में आ गया। "Pro" वर्जन जरूर खरीदें!',
-            'th': 'แอปนี้ใช้งานได้จริง ดีงามมาก! ไม่มีการส่งข้อมูลไปเซิร์ฟเวอร์หรือแอบดูดข้อมูลส่วนตัว นักพัฒนาใส่ใจดีสุดๆ และพร้อมรับฟังฟีเจอร์ใหม่ๆ เสมอ ผมขอฟีเจอร์ใหม่ไป วันต่อมาก็อัปเดตมาให้เลยทันที! แนะนำให้ซื้อเวอร์ชัน "Pro" เลยครับ!',
-            'vi': 'App này dùng một phát là chạy ngon lành luôn! Không gửi dữ liệu lên server cũng chẳng thu thập thông tin gì hết, cực kỳ bảo mật. Dev siêu có tâm, chịu khó lắng nghe đóng góp ý kiến. Mình vừa nhắn xin thêm tính năng mới, hôm sau đã thấy cập nhật có luôn rồi. Chốt ngay bản "Pro" đi mọi người!',
+            'ja': "このアプリ、ちゃんと動く！サーバー側でのデータマイニングなし。開発者さんはとても親切で、機能のリクエストにも柔軟です。新機能をお願いしたら、翌日のアップデートで追加されていました。「Pro」版をどうぞ！",
+            'ko': "이 앱, 진짜 제대로 작동해요! 서버 측 데이터 마이닝도 없어요. 개발자분이 아주 친절하시고 기능 요청에도 열려 있어요. 새 기능을 요청했더니 다음 날 업데이트에 들어갔어요. \"Pro\" 버전으로 가세요!",
+            'zh-CN': "这个应用真的很好用！没有服务器端的数据挖掘。开发者非常用心，也愿意接受功能建议——我提了个新功能，第二天更新就上线了。购买「Pro」版吧！",
+            'zh-TW': "這個 App 真的很好用！沒有伺服器端的資料挖掘。開發者非常用心，也樂意接受功能建議——我提出一個新功能，隔天更新就加入了。購買「Pro」版吧！",
+            'es': "¡Esta app simplemente funciona! Sin minería de datos en el servidor. El desarrollador es muy atento y está abierto a sugerencias de funciones. Pedí una nueva función y al día siguiente ya estaba incluida en una actualización. ¡Consigue la versión \"Pro\"!",
+            'pt-BR': "Esse app simplesmente funciona! Sem mineração de dados no servidor. O desenvolvedor é muito atencioso e aberto a sugestões de funções. Pedi uma nova função e, no dia seguinte, ela já estava disponível em uma atualização. Adquira a versão \"Pro\"!",
+            'fr': "Cette app fonctionne tout simplement ! Pas de data mining côté serveur. Le développeur est très attentif et à l'écoute des suggestions de fonctionnalités. J'ai demandé une nouvelle fonctionnalité, et le lendemain elle était déjà intégrée dans une mise à jour. Passez à la version \"Pro\" !",
+            'de': "Die App funktioniert einfach! Kein Data-Mining auf der Serverseite. Der Entwickler ist sehr aufmerksam und offen für Feature-Wünsche. Ich habe nach einer neuen Funktion gefragt, und nur einen Tag später war sie schon im Update drin. Holt euch die „Pro“-Version!",
+            'it': "Quest'app funziona semplicemente! Niente data mining lato server. Lo sviluppatore è molto attento e aperto alle richieste di nuove funzioni. Ho chiesto una nuova funzione e il giorno dopo era già presente in un aggiornamento. Passate alla versione \"Pro\"!",
+            'ru': "Приложение просто работает! Никакого data mining на стороне сервера. Разработчик очень внимательный и открыт к пожеланиям по функциям. Я попросил добавить новую функцию, и уже на следующий день она появилась в обновлении. Берите версию «Pro»!",
+            'ar': "هذا التطبيق يعمل ببساطة! لا يوجد تنقيب عن البيانات من جانب الخادم. المطور متجاوب ومنفتح على طلبات الميزات. طلبت ميزة جديدة وفي اليوم التالي كانت موجودة في التحديث. احصل على نسخة \"Pro\"!",
+            'hi': "यह ऐप बस काम करता है! सर्वर पर डेटा माइनिंग नहीं होती। डेवलपर बहुत ध्यान देते हैं और नए फीचर के अनुरोधों के लिए खुले हैं। मैंने एक नए फीचर की रिक्वेस्ट की और अगले ही दिन वह अपडेट में आ गया। \"Pro\" वर्जन लें!",
+            'th': "แอปนี้ใช้งานได้จริง! ไม่มี data mining ที่ฝั่งเซิร์ฟเวอร์ นักพัฒนาใส่ใจมากและเปิดรับคำขอฟีเจอร์ใหม่ ๆ ผมขอฟีเจอร์ใหม่ไป วันต่อมาก็มีในอัปเดต แนะนำเวอร์ชัน \"Pro\" ครับ!",
+            'vi': "App này cứ thế là chạy! Không có data mining ở phía máy chủ. Dev rất chú ý và cởi mở với các yêu cầu về tính năng. Mình vừa yêu cầu một tính năng mới, hôm sau nó đã có trong bản cập nhật. Dùng bản \"Pro\" nhé!",
         },
     },
 
@@ -225,16 +225,7 @@ REVIEWS = [
             "Thanks"
         ),
         "translations": {
-            "ja": (
-                "他のアプリをいくつか試してみたものの（どれも動作しませんでした）、"
-                "このアプリを購入しました。本当に買ってよかったと思っています。"
-                "BYD Sealion 7のAndroid CarPlay AIボックスでこのアプリを実行していますが、"
-                "宣伝通りに動作します。複雑な操作は一切不要で、どのアプリも簡単に"
-                "ペアリングできます。普段はSpotifyで地図アプリを使用し、妻が助手席に"
-                "乗っているときはNetflixで地図アプリを使用しています（妻用）。"
-                "この素晴らしいアプリを開発してくださり、ありがとうございます。"
-                "今後もアップデートを続けてください。"
-            ),
+            "ja": "他のアプリをいくつか試して（どれも動かなかった）からこのアプリを購入しました。買って本当によかった。BYD Sealion 7 の Android CarPlay AI Box で動かしてるんですが、書かれた通りに動きます。複雑な操作は一切なし、どんなアプリでもシンプルにペアにできる。普段は地図と Spotify、助手席に妻が乗っているときは地図と Netflix（妻用）。素晴らしいアプリを作ってくれてありがとう。これからもアップデート続けてください。",
             "ko": (
                 "다른 앱을 몇 개 시도해 본 뒤(전부 작동하지 않았어요) 이 앱을 구입했어요. "
                 "사길 정말 잘했다 싶습니다. 제 BYD Sealion 7의 Android CarPlay AI Box에서 "
@@ -318,15 +309,7 @@ REVIEWS = [
                 "تكون زوجتي في مقعد الراكب، الخرائط مع Netflix (لها). شكرًا لكم "
                 "على هذا التطبيق الرائع. واصلوا التحديثات. شكرًا."
             ),
-            "hi": (
-                "कुछ और apps आज़माने के बाद (जो काम नहीं किए), मैंने यह app खरीदा। और सच "
-                "में, खरीदा अच्छा किया। मैं इसे अपनी BYD Sealion 7 के Android CarPlay "
-                "AI Box में चलाता हूँ — जैसा बताया गया था, वैसा ही चलता है। कोई पेचीदा "
-                "सेटिंग नहीं, बस किसी भी app को आसानी से pair कर लो। आम तौर पर मैं "
-                "Maps + Spotify, और जब पत्नी पैसेंजर सीट पर हो तो Maps + Netflix "
-                "(उनके लिए)। इतना बढ़िया app बनाने के लिए शुक्रिया। updates जारी रखें। "
-                "धन्यवाद।"
-            ),
+            "hi": "कुछ और apps आज़माने के बाद (जो काम नहीं किए), मैंने यह app खरीदा। और सच में, खरीदा अच्छा किया। मैं इसे अपनी BYD Sealion 7 के Android CarPlay AI Box में चलाता हूँ — जैसा बताया गया था, वैसा ही चलता है। कोई पेचीदा सेटिंग नहीं, बस किसी भी app को आसानी से pair कर लो। आम तौर पर मैं Maps + Spotify चलाता हूँ, और जब पत्नी पैसेंजर सीट पर हों तो Maps + Netflix (उनके लिए)। इतना बढ़िया app बनाने के लिए शुक्रिया। updates जारी रखें। धन्यवाद।",
             "th": (
                 "หลังจากที่ลองแอปอื่นไม่กี่ตัว (ใช้ไม่ได้) ผมก็ซื้อแอปนี้ ดีใจมากที่ซื้อ "
                 "ผมใช้บน Android CarPlay AI Box ใน BYD Sealion 7 ของผม ทำงานตามที่บอกไว้เป๊ะ "
@@ -360,22 +343,10 @@ REVIEWS = [
             "recommended."
         ),
         "translations": {
-            "ja": (
-                "広告ゼロ、最高の体験。私の Redmi 14C には分割画面の機能がないので、"
-                "このアプリは本当に救世主です。強くおすすめします。"
-            ),
-            "ko": (
-                "광고가 하나도 없고, 최고의 경험. 제 Redmi 14C에는 화면 분할 기능이 "
-                "없는데, 이 앱은 정말 구원자예요. 강력 추천합니다."
-            ),
-            "zh-CN": (
-                "完全没有广告，体验超棒。我的 Redmi 14C 没有分屏功能，这个 app "
-                "对我来说就是救星。强烈推荐。"
-            ),
-            "zh-TW": (
-                "完全沒有廣告，體驗超棒。我的 Redmi 14C 沒有分割畫面功能，這個 app "
-                "對我來說就是救星。強烈推薦。"
-            ),
+            "ja": "広告ゼロ、最高の体験。私の Redmi 14C には分割画面の機能がないので、このアプリは本当にありがたい存在です。強くおすすめします。",
+            "ko": "광고가 하나도 없고, 최고의 경험. 제 Redmi 14C에는 화면 분할 기능이 없는데, 이 앱은 정말 축복이에요. 강력 추천합니다.",
+            "zh-CN": "完全没有广告，最好的体验。我的 Redmi 14C 没有分屏功能，这个 app 对我来说就是福音。强烈推荐。",
+            "zh-TW": "完全沒有廣告，最好的體驗。我的 Redmi 14C 沒有分割畫面功能，這個 app 對我來說就是福音。強烈推薦。",
             "es": (
                 "Sin anuncios, la mejor experiencia. Mi Redmi 14C no tiene la "
                 "opción de pantalla dividida, así que esta app es una bendición "
@@ -396,20 +367,9 @@ REVIEWS = [
                 "Split-Screen-Option, also ist diese App ein Segen für mich. "
                 "Klare Empfehlung."
             ),
-            "it": (
-                "Nessuna pubblicità, la migliore esperienza. Il mio Redmi 14C "
-                "non ha l'opzione schermo diviso, quindi questa app è una manna "
-                "dal cielo. Consigliatissima."
-            ),
-            "ru": (
-                "Совсем без рекламы, лучший опыт. На моём Redmi 14C нет опции "
-                "разделённого экрана, поэтому это приложение — настоящее спасение. "
-                "Очень рекомендую."
-            ),
-            "ar": (
-                "بدون إعلانات على الإطلاق، تجربة رائعة. هاتفي Redmi 14C لا يحتوي "
-                "على خاصية تقسيم الشاشة، فهذا التطبيق نعمة بالنسبة لي. أوصي به بشدة."
-            ),
+            "it": "Nessuna pubblicità, la migliore esperienza. Il mio Redmi 14C non ha l'opzione schermo diviso, quindi questa app è una benedizione per me. Consigliatissima.",
+            "ru": "Совсем без рекламы, лучший опыт. На моём Redmi 14C нет опции разделённого экрана, поэтому это приложение — просто спасение. Очень рекомендую.",
+            "ar": "بدون إعلانات على الإطلاق، أفضل تجربة. هاتفي Redmi 14C لا يحتوي على خاصية تقسيم الشاشة، فهذا التطبيق نعمة بالنسبة لي. أوصي به بشدة.",
             "hi": (
                 "कोई विज्ञापन नहीं, सबसे बढ़िया अनुभव। मेरे Redmi 14C में split "
                 "screen का विकल्प नहीं है, इसलिए यह ऐप मेरे लिए वरदान है। ज़ोरदार "
@@ -442,8 +402,8 @@ REVIEWS = [
         "translations": {
             "ja": "分割画面に最高のアプリ。私の Redmi A3 は分割画面に対応していないのに、ちゃんと動いた。",
             "ko": "화면 분할에 최고의 앱. 제 Redmi A3는 화면 분할을 지원하지 않는데도 잘 작동했어요.",
-            "zh-CN": "最好的分屏应用。我的 Redmi A3 不支持分屏，但它居然能用。",
-            "zh-TW": "最好的分割畫面應用。我的 Redmi A3 不支援分割畫面，但它居然能用。",
+            "zh-CN": "最好的分屏应用。我的 Redmi A3 不支持分屏，但它能用。",
+            "zh-TW": "最好的分割畫面應用。我的 Redmi A3 不支援分割畫面，但它能用。",
             "es": "La mejor app para pantalla dividida. Mi Redmi A3 no admite pantalla dividida, pero funcionó.",
             "pt-BR": "Melhor app para tela dividida. Meu Redmi A3 não tem suporte a tela dividida, mas funcionou.",
             "fr": "La meilleure appli pour l'écran partagé. Mon Redmi A3 ne gère pas l'écran partagé, mais ça a marché.",
@@ -487,10 +447,7 @@ REVIEWS = [
                 "Vaya, la verdad que genial: no tiene anuncios, es muy fácil "
                 "de usar y la interfaz está muy bien."
             ),
-            "pt-BR": (
-                "Nossa, muito bom mesmo — não tem anúncios, é super fácil de "
-                "usar e a interface é ótima."
-            ),
+            "pt-BR": "Nossa, muito bom mesmo — não tem anúncios, é super fácil de usar e a interface é legal.",
             "fr": (
                 "Waouh, vraiment top : aucune pub, très simple à utiliser, "
                 "et une belle interface."
@@ -499,10 +456,7 @@ REVIEWS = [
                 "Wow, echt klasse — keine Werbung, super einfach zu bedienen "
                 "und eine schöne Oberfläche."
             ),
-            "it": (
-                "Wow, davvero ottima: niente pubblicità, facilissima da usare "
-                "e una bella interfaccia."
-            ),
+            "it": "Wow, davvero ottima: niente pubblicità, facilissima da usare e una buona interfaccia.",
             "ru": (
                 "Ого, реально здорово — никакой рекламы, очень просто "
                 "пользоваться, и интерфейс приятный."
@@ -515,9 +469,7 @@ REVIEWS = [
                 "वाह, सच में बढ़िया — कोई विज्ञापन नहीं, इस्तेमाल करना बहुत "
                 "आसान, और UI भी अच्छा।"
             ),
-            "th": (
-                "ว้าว ดีจริง ๆ ไม่มีโฆษณา ใช้งานง่ายมาก แล้ว UI ก็สวย"
-            ),
+            "th": "ว้าว ดีจริง ๆ ไม่มีโฆษณา ใช้งานง่ายมาก แล้ว UI ก็ดี",
             "vi": (
                 "Ồ, thật sự tuyệt — không có quảng cáo, dùng rất đơn giản, "
                 "giao diện đẹp."
@@ -566,10 +518,7 @@ REVIEWS = [
                 "Excellent outil de productivité. Ce que je fais, c'est associer "
                 "une appli chronophage avec une appli utile — genre VLC + Anki."
             ),
-            "de": (
-                "Großartiges Produktivitäts-Tool. Mein Trick: eine Zeitfresser-App "
-                "mit einer App koppeln, die mir guttut — z. B. VLC + Anki."
-            ),
+            "de": "Großartiges Produktivitäts-Tool. Was ich mache: eine Zeitfresser-App mit einer App koppeln, die mir guttut — z. B. VLC + Anki.",
             "it": (
                 "Ottimo strumento di produttività. Quello che faccio è abbinare app "
                 "che fanno perdere tempo con app utili — tipo VLC + Anki."
@@ -583,10 +532,7 @@ REVIEWS = [
                 "أداة إنتاجية رائعة. ما أفعله هو إقران التطبيقات الملتهمة للوقت "
                 "بتطبيقات مفيدة لي — مثل VLC مع Anki."
             ),
-            "hi": (
-                "ज़बरदस्त productivity tool। मैं वक़्त खा जाने वाले ऐप को ऐसे ऐप के "
-                "साथ जोड़ता हूँ जो मेरे लिए अच्छे हैं — जैसे VLC + Anki।"
-            ),
+            "hi": "बहुत बढ़िया productivity tool। मैं वक़्त खा जाने वाले ऐप को ऐसे ऐप के साथ जोड़ता हूँ जो मेरे लिए अच्छे हैं — जैसे VLC + Anki।",
             "th": (
                 "เครื่องมือเพิ่ม productivity ที่เยี่ยมมาก สิ่งที่ผมทำคือ "
                 "จับคู่แอปที่กินเวลา กับแอปที่เป็นประโยชน์ต่อตัวเอง — เช่น VLC + Anki"
@@ -646,11 +592,11 @@ REVIEWS = [
             "es":    "Lo mejor — y gratis. Instálala. De primera.",
             "fr":    "La meilleure — et gratuite. Installe. Au top.",
             "de":    "Die beste — und gratis. Einfach installieren. Top.",
-            "it":    "La migliore — e gratis. Installala. Da urlo.",
+            "it":    "La migliore — e gratis. Installala. Top.",
             "ru":    "Лучшее — и бесплатно. Ставь. Огонь.",
             "ar":    "الأفضل — ومجاني. ثبّته. ممتاز.",
             "hi":    "बेस्ट है — और मुफ़्त भी। बस install कर लो। टॉप।",
-            "th":    "เจ๋งสุด แถมฟรี ลงเลย ของแท้",
+            "th":    "เจ๋งสุด แถมฟรี ลงเลย ดีเลย",
             "vi":    "Đỉnh nhất — mà còn free. Cài đi. Top thiệt.",
         },
     },
@@ -810,7 +756,7 @@ REVIEWS = [
             "pt-BR": "Muito bom.",
             "fr":    "Très bien.",
             "de":    "Sehr gut.",
-            "it":    "Ottimo.",
+            "it":    "Molto buono.",
             "ru":    "Очень хорошо.",
             "ar":    "جيد جدًا.",
             "hi":    "बहुत अच्छा।",
@@ -839,8 +785,8 @@ REVIEWS = [
             "de":    "Perfekt.",
             "it":    "Perfetta.",
             "ru":    "Идеально.",
-            "ar":    "ممتاز.",
-            "hi":    "एकदम परफेक्ट।",
+            "ar":    "مثالي.",
+            "hi":    "परफेक्ट।",
             "th":    "สมบูรณ์แบบ",
             "vi":    "Hoàn hảo.",
         },
@@ -892,7 +838,7 @@ REVIEWS = [
             "pt-BR": "Boa divisão.",
             "fr":    "Bon partage d'écran.",
             "de":    "Gute Aufteilung.",
-            "it":    "Bella divisione.",
+            "it":    "Buona divisione.",
             "ru":    "Хорошее разделение.",
             "ar":    "تقسيم جيد.",
             "hi":    "बढ़िया स्प्लिट।",
