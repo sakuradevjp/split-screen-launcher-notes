@@ -304,6 +304,10 @@ def format_date(d, hreflang: str) -> str:
                .replace("%-d", str(d.day)))
 
 
+# Cards 0..ALWAYS_SHOWN-1 are the substantive cluster and never fold.
+ALWAYS_SHOWN = 8
+
+
 def render_testimonials(hreflang: str) -> str:
     """Build the testimonials section for a given page locale.
 
@@ -320,8 +324,8 @@ def render_testimonials(hreflang: str) -> str:
     heading = html_escape(ui["REVIEWS_HEADING"])
     source_label = html_escape(ui["REVIEWS_SOURCE"])
 
-    cards = []
-    for r in REVIEWS:
+    cards = []  # list of (index, original_lang, html)
+    for idx, r in enumerate(REVIEWS):
         orig_lang = r["original_lang"]
 
         # Build ordered variant list, deduped.
@@ -373,7 +377,7 @@ def render_testimonials(hreflang: str) -> str:
         attribution_bits.append(html_escape(format_date(r["date"], hreflang)))
         meta = " · ".join(attribution_bits)
 
-        cards.append(
+        cards.append((idx, orig_lang,
             '    <figure class="review">\n'
             '      <header class="review-head">\n'
             f'        <span class="stars" aria-label="{rating} / 5">'
@@ -384,13 +388,41 @@ def render_testimonials(hreflang: str) -> str:
             f'{quote_html}\n'
             '      </blockquote>\n'
             '    </figure>'
-        )
+        ))
 
-    cards_html = "\n".join(cards)
+    # The substantive cluster always shows. Everything under it is a one-liner, and a run
+    # of "perfect" / "op" / "Very good" below the strong cards reads as padding rather than
+    # as evidence, so it folds away. One exception: a one-liner written in THIS page's own
+    # language is promoted above the fold, so every locale keeps one native voice visible.
+    # Promote a native one-liner only for a locale that would otherwise have no voice of its
+    # own above the fold, and promote just one. Without both guards the English page pulls up
+    # every English one-liner it has, which is the padding the fold exists to hide.
+    covered = any(lang == hreflang for idx, lang, _ in cards if idx < ALWAYS_SHOWN)
+    promoted = False
+    shown, folded = [], []
+    for idx, orig_lang, html in cards:
+        if idx < ALWAYS_SHOWN:
+            shown.append(html)
+        elif not covered and not promoted and orig_lang == hreflang:
+            shown.append(html)
+            promoted = True
+        else:
+            folded.append(html)
+
+    body = "\n".join(shown)
+    if folded:
+        more_label = html_escape(ui["REVIEWS_MORE"])
+        inner = "\n".join(folded)
+        body += (
+            '\n    <details class="reviews-more">\n'
+            f'      <summary>{more_label}</summary>\n'
+            f'{inner}\n'
+            '    </details>'
+        )
     return (
         '  <section class="reviews" aria-labelledby="reviews-heading">\n'
         f'    <h2 id="reviews-heading">{heading}</h2>\n'
-        f'{cards_html}\n'
+        f'{body}\n'
         f'    <p class="reviews-source">{source_label}</p>\n'
         '  </section>'
     )

@@ -313,6 +313,16 @@
     color: var(--text-muted);
     text-align: right;
   }
+  .reviews-more { margin-top: 12px; }
+  .reviews-more > summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 0;
+    list-style-position: inside;
+  }
+  .reviews-more > summary:hover { color: var(--accent); }
+  .reviews-more[open] > summary { margin-bottom: 8px; }
   [dir="rtl"] .review { border-left: none; border-right: 3px solid var(--accent); }
   [dir="rtl"] .reviews h2::before { left: auto; right: 0; }
   [dir="rtl"] .reviews-source { text-align: left; }
@@ -548,6 +558,17 @@
     <figure class="review">
       <header class="review-head">
         <span class="stars" aria-label="5 / 5">★★★★★</span>
+        <span class="meta">อดิศักดิ์ ข. · Vivo Y04 · Android 15 · 26 ก.ค. 2026</span>
+      </header>
+      <blockquote>
+          <p lang="th">ดีมาก</p>
+      </blockquote>
+    </figure>
+    <details class="reviews-more">
+      <summary>ดูรีวิวเพิ่มเติม</summary>
+    <figure class="review">
+      <header class="review-head">
+        <span class="stars" aria-label="5 / 5">★★★★★</span>
         <span class="meta">Kazu · moto g24 power · Android 14 · 16 พ.ค. 2026</span>
       </header>
       <blockquote>
@@ -597,15 +618,6 @@
           <p lang="en">I like it.</p>
           <div class="quote-lang" lang="th">ไทย</div>
           <p lang="th">ชอบ</p>
-      </blockquote>
-    </figure>
-    <figure class="review">
-      <header class="review-head">
-        <span class="stars" aria-label="5 / 5">★★★★★</span>
-        <span class="meta">อดิศักดิ์ ข. · Vivo Y04 · Android 15 · 26 ก.ค. 2026</span>
-      </header>
-      <blockquote>
-          <p lang="th">ดีมาก</p>
       </blockquote>
     </figure>
     <figure class="review">
@@ -674,6 +686,7 @@
           <p lang="th">แบ่งจอได้ดี</p>
       </blockquote>
     </figure>
+    </details>
     <p class="reviews-source">จาก Google Play</p>
   </section>
 

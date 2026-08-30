@@ -313,6 +313,16 @@
     color: var(--text-muted);
     text-align: right;
   }
+  .reviews-more { margin-top: 12px; }
+  .reviews-more > summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 0;
+    list-style-position: inside;
+  }
+  .reviews-more > summary:hover { color: var(--accent); }
+  .reviews-more[open] > summary { margin-bottom: 8px; }
   [dir="rtl"] .review { border-left: none; border-right: 3px solid var(--accent); }
   [dir="rtl"] .reviews h2::before { left: auto; right: 0; }
   [dir="rtl"] .reviews-source { text-align: left; }
@@ -540,6 +550,8 @@
           <p lang="ru">Лучшее приложение среди конкурентов. Перепробовал не мало</p>
       </blockquote>
     </figure>
+    <details class="reviews-more">
+      <summary>Показать ещё отзывы</summary>
     <figure class="review">
       <header class="review-head">
         <span class="stars" aria-label="5 / 5">★★★★★</span>
@@ -674,6 +686,7 @@
           <p lang="ru">Хорошее разделение.</p>
       </blockquote>
     </figure>
+    </details>
     <p class="reviews-source">из Google Play</p>
   </section>
 

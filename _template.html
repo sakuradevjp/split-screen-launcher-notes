@@ -298,6 +298,16 @@
     color: var(--text-muted);
     text-align: right;
   }
+  .reviews-more { margin-top: 12px; }
+  .reviews-more > summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 0;
+    list-style-position: inside;
+  }
+  .reviews-more > summary:hover { color: var(--accent); }
+  .reviews-more[open] > summary { margin-bottom: 8px; }
   [dir="rtl"] .review { border-left: none; border-right: 3px solid var(--accent); }
   [dir="rtl"] .reviews h2::before { left: auto; right: 0; }
   [dir="rtl"] .reviews-source { text-align: left; }

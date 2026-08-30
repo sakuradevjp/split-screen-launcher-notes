@@ -313,6 +313,16 @@
     color: var(--text-muted);
     text-align: right;
   }
+  .reviews-more { margin-top: 12px; }
+  .reviews-more > summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 0;
+    list-style-position: inside;
+  }
+  .reviews-more > summary:hover { color: var(--accent); }
+  .reviews-more[open] > summary { margin-bottom: 8px; }
   [dir="rtl"] .review { border-left: none; border-right: 3px solid var(--accent); }
   [dir="rtl"] .reviews h2::before { left: auto; right: 0; }
   [dir="rtl"] .reviews-source { text-align: left; }
@@ -547,6 +557,17 @@
     <figure class="review">
       <header class="review-head">
         <span class="stars" aria-label="5 / 5">★★★★★</span>
+        <span class="meta">Quân N. · Galaxy A03 · Android 12 · 1 thg 7 2026</span>
+      </header>
+      <blockquote>
+          <p lang="vi">chia đôi video và chơi game</p>
+      </blockquote>
+    </figure>
+    <details class="reviews-more">
+      <summary>Xem thêm đánh giá</summary>
+    <figure class="review">
+      <header class="review-head">
+        <span class="stars" aria-label="5 / 5">★★★★★</span>
         <span class="meta">Kazu · moto g24 power · Android 14 · 16 thg 5 2026</span>
       </header>
       <blockquote>
@@ -568,15 +589,6 @@
           <p lang="en">good working without any ads</p>
           <div class="quote-lang" lang="vi">Tiếng Việt</div>
           <p lang="vi">Chạy tốt, không có quảng cáo.</p>
-      </blockquote>
-    </figure>
-    <figure class="review">
-      <header class="review-head">
-        <span class="stars" aria-label="5 / 5">★★★★★</span>
-        <span class="meta">Quân N. · Galaxy A03 · Android 12 · 1 thg 7 2026</span>
-      </header>
-      <blockquote>
-          <p lang="vi">chia đôi video và chơi game</p>
       </blockquote>
     </figure>
     <figure class="review">
@@ -673,6 +685,7 @@
           <p lang="vi">Chia màn hình tốt.</p>
       </blockquote>
     </figure>
+    </details>
     <p class="reviews-source">qua Google Play</p>
   </section>
 

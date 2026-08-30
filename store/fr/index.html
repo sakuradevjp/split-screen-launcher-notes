@@ -313,6 +313,16 @@
     color: var(--text-muted);
     text-align: right;
   }
+  .reviews-more { margin-top: 12px; }
+  .reviews-more > summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 0;
+    list-style-position: inside;
+  }
+  .reviews-more > summary:hover { color: var(--accent); }
+  .reviews-more[open] > summary { margin-bottom: 8px; }
   [dir="rtl"] .review { border-left: none; border-right: 3px solid var(--accent); }
   [dir="rtl"] .reviews h2::before { left: auto; right: 0; }
   [dir="rtl"] .reviews-source { text-align: left; }
@@ -548,6 +558,17 @@
     <figure class="review">
       <header class="review-head">
         <span class="stars" aria-label="5 / 5">★★★★★</span>
+        <span class="meta">Picaud L. · TECNO SPARK 10 Pro · Android 13 · 30 juil. 2026</span>
+      </header>
+      <blockquote>
+          <p lang="fr">j'aime</p>
+      </blockquote>
+    </figure>
+    <details class="reviews-more">
+      <summary>Voir plus d'avis</summary>
+    <figure class="review">
+      <header class="review-head">
+        <span class="stars" aria-label="5 / 5">★★★★★</span>
         <span class="meta">Kazu · moto g24 power · Android 14 · 16 mai 2026</span>
       </header>
       <blockquote>
@@ -583,15 +604,6 @@
           <p lang="en">Split screen for video and gaming.</p>
           <div class="quote-lang" lang="fr">Français</div>
           <p lang="fr">Écran partagé pour la vidéo et le jeu.</p>
-      </blockquote>
-    </figure>
-    <figure class="review">
-      <header class="review-head">
-        <span class="stars" aria-label="5 / 5">★★★★★</span>
-        <span class="meta">Picaud L. · TECNO SPARK 10 Pro · Android 13 · 30 juil. 2026</span>
-      </header>
-      <blockquote>
-          <p lang="fr">j'aime</p>
       </blockquote>
     </figure>
     <figure class="review">
@@ -674,6 +686,7 @@
           <p lang="fr">Bon partage d'écran.</p>
       </blockquote>
     </figure>
+    </details>
     <p class="reviews-source">via Google Play</p>
   </section>
 
